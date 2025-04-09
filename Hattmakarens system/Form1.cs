@@ -8,4 +8,3 @@ namespace Hattmakarens_system
         }
     }
 }
-hdw
