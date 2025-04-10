@@ -27,14 +27,8 @@ namespace Hattmakarens_system.Models
         public int HattModellId { get; set; }
         public Hattmodell Hattmodell { get; set; }
 
-
-
-
-
-
-
-
-
+        public int OrderId { get; set; }           // <- FK
+        public Order Order { get; set; }
 
     }
     public enum HattEnum

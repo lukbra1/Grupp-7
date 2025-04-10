@@ -18,7 +18,7 @@ namespace Hattmakarens_system.Models
         public string Varde { get; set; }
         public decimal Anpassningkostnad { get; set; }
         public int OrderRadId { get; set; }
-        public Order Order { get; set; }
+        public OrderRad OrderRad { get; set; }
 
     }
 }

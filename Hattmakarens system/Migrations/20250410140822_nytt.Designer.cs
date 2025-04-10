@@ -4,6 +4,7 @@ using Hattmakarens_system.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Hattmakarens_system.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250410140822_nytt")]
+    partial class nytt
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -319,7 +322,7 @@ namespace Hattmakarens_system.Migrations
                     b.Property<bool>("Express")
                         .HasColumnType("bit");
 
-                    b.Property<int?>("FraktId")
+                    b.Property<int>("FraktId")
                         .HasColumnType("int");
 
                     b.Property<int>("KundId")
@@ -343,6 +346,7 @@ namespace Hattmakarens_system.Migrations
                             OrderId = 1,
                             Datum = new DateTime(2024, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Express = false,
+                            FraktId = 0,
                             KundId = 1,
                             Status = 0,
                             TotalPris = 1000
@@ -352,6 +356,7 @@ namespace Hattmakarens_system.Migrations
                             OrderId = 2,
                             Datum = new DateTime(2025, 4, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Express = true,
+                            FraktId = 0,
                             KundId = 2,
                             Status = 1,
                             TotalPris = 1500
@@ -708,7 +713,7 @@ namespace Hattmakarens_system.Migrations
                     b.HasOne("Hattmakarens_system.Models.Order", "Order")
                         .WithMany("OrderRader")
                         .HasForeignKey("OrderId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Hattmakarens_system.Models.User", "User")

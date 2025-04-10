@@ -24,9 +24,10 @@ namespace Hattmakarens_system.Models
         public int KundId { get; set; }
         public Kund Kund { get; set; }
         
-        public int FraktId { get; set; }
+        public int? FraktId { get; set; }
         public Frakt Frakt { get; set; }
 
+        public ICollection<OrderRad> OrderRader { get; set; }
     }
     public enum StatusEnum
     {
