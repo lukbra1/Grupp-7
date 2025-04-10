@@ -1,0 +1,315 @@
+﻿namespace Hattmakarens_system
+{
+    partial class Homepage
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            menuStrip1 = new MenuStrip();
+            menuStrip2 = new MenuStrip();
+            beställningarToolStripMenuItem = new ToolStripMenuItem();
+            beställningarToolStripMenuItem1 = new ToolStripMenuItem();
+            nyBeställningToolStripMenuItem = new ToolStripMenuItem();
+            allaBeställningarToolStripMenuItem = new ToolStripMenuItem();
+            marealLagerToolStripMenuItem = new ToolStripMenuItem();
+            seAlltMaterialToolStripMenuItem = new ToolStripMenuItem();
+            marialbeställningToolStripMenuItem = new ToolStripMenuItem();
+            statistikToolStripMenuItem1 = new ToolStripMenuItem();
+            hattStatistikToolStripMenuItem = new ToolStripMenuItem();
+            kundStatistikToolStripMenuItem = new ToolStripMenuItem();
+            minaSidorToolStripMenuItem1 = new ToolStripMenuItem();
+            minaUppgifterToolStripMenuItem = new ToolStripMenuItem();
+            mittSchemaToolStripMenuItem = new ToolStripMenuItem();
+            loggaUtToolStripMenuItem1 = new ToolStripMenuItem();
+            monthCalendar1 = new MonthCalendar();
+            listBoxDagens = new ListView();
+            richTextBoxVecka = new RichTextBox();
+            label1 = new Label();
+            btnLäggTill = new Button();
+            textBoxUppgift = new TextBox();
+            btnVeckoöversikt = new Button();
+            label2 = new Label();
+            label3 = new Label();
+            label4 = new Label();
+            menuStrip2.SuspendLayout();
+            SuspendLayout();
+            // 
+            // menuStrip1
+            // 
+            menuStrip1.ImageScalingSize = new Size(32, 32);
+            menuStrip1.Location = new Point(0, 40);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(2507, 24);
+            menuStrip1.TabIndex = 0;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // menuStrip2
+            // 
+            menuStrip2.ImageScalingSize = new Size(32, 32);
+            menuStrip2.Items.AddRange(new ToolStripItem[] { beställningarToolStripMenuItem });
+            menuStrip2.Location = new Point(0, 0);
+            menuStrip2.Name = "menuStrip2";
+            menuStrip2.Size = new Size(2507, 40);
+            menuStrip2.TabIndex = 1;
+            menuStrip2.Text = "menuStrip2";
+            // 
+            // beställningarToolStripMenuItem
+            // 
+            beställningarToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { beställningarToolStripMenuItem1, marealLagerToolStripMenuItem, statistikToolStripMenuItem1, minaSidorToolStripMenuItem1, loggaUtToolStripMenuItem1 });
+            beställningarToolStripMenuItem.Name = "beställningarToolStripMenuItem";
+            beställningarToolStripMenuItem.Size = new Size(56, 36);
+            beställningarToolStripMenuItem.Text = "☰";
+            beställningarToolStripMenuItem.Click += beställningarToolStripMenuItem_Click;
+            // 
+            // beställningarToolStripMenuItem1
+            // 
+            beställningarToolStripMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { nyBeställningToolStripMenuItem, allaBeställningarToolStripMenuItem });
+            beställningarToolStripMenuItem1.Name = "beställningarToolStripMenuItem1";
+            beställningarToolStripMenuItem1.Size = new Size(294, 44);
+            beställningarToolStripMenuItem1.Text = "Beställningar";
+            // 
+            // nyBeställningToolStripMenuItem
+            // 
+            nyBeställningToolStripMenuItem.Name = "nyBeställningToolStripMenuItem";
+            nyBeställningToolStripMenuItem.Size = new Size(330, 44);
+            nyBeställningToolStripMenuItem.Text = "Ny beställning";
+            // 
+            // allaBeställningarToolStripMenuItem
+            // 
+            allaBeställningarToolStripMenuItem.Name = "allaBeställningarToolStripMenuItem";
+            allaBeställningarToolStripMenuItem.Size = new Size(330, 44);
+            allaBeställningarToolStripMenuItem.Text = "Alla beställningar";
+            // 
+            // marealLagerToolStripMenuItem
+            // 
+            marealLagerToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { seAlltMaterialToolStripMenuItem, marialbeställningToolStripMenuItem });
+            marealLagerToolStripMenuItem.Name = "marealLagerToolStripMenuItem";
+            marealLagerToolStripMenuItem.Size = new Size(294, 44);
+            marealLagerToolStripMenuItem.Text = "Material lager";
+            // 
+            // seAlltMaterialToolStripMenuItem
+            // 
+            seAlltMaterialToolStripMenuItem.Name = "seAlltMaterialToolStripMenuItem";
+            seAlltMaterialToolStripMenuItem.Size = new Size(358, 44);
+            seAlltMaterialToolStripMenuItem.Text = "Se allt material";
+            // 
+            // marialbeställningToolStripMenuItem
+            // 
+            marialbeställningToolStripMenuItem.Name = "marialbeställningToolStripMenuItem";
+            marialbeställningToolStripMenuItem.Size = new Size(358, 44);
+            marialbeställningToolStripMenuItem.Text = "Material beställning";
+            // 
+            // statistikToolStripMenuItem1
+            // 
+            statistikToolStripMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { hattStatistikToolStripMenuItem, kundStatistikToolStripMenuItem });
+            statistikToolStripMenuItem1.Name = "statistikToolStripMenuItem1";
+            statistikToolStripMenuItem1.Size = new Size(294, 44);
+            statistikToolStripMenuItem1.Text = "Statistik";
+            // 
+            // hattStatistikToolStripMenuItem
+            // 
+            hattStatistikToolStripMenuItem.Name = "hattStatistikToolStripMenuItem";
+            hattStatistikToolStripMenuItem.Size = new Size(290, 44);
+            hattStatistikToolStripMenuItem.Text = "Hatt statistik";
+            // 
+            // kundStatistikToolStripMenuItem
+            // 
+            kundStatistikToolStripMenuItem.Name = "kundStatistikToolStripMenuItem";
+            kundStatistikToolStripMenuItem.Size = new Size(290, 44);
+            kundStatistikToolStripMenuItem.Text = "Kund statistik";
+            // 
+            // minaSidorToolStripMenuItem1
+            // 
+            minaSidorToolStripMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { minaUppgifterToolStripMenuItem, mittSchemaToolStripMenuItem });
+            minaSidorToolStripMenuItem1.Name = "minaSidorToolStripMenuItem1";
+            minaSidorToolStripMenuItem1.Size = new Size(294, 44);
+            minaSidorToolStripMenuItem1.Text = "Mina sidor";
+            // 
+            // minaUppgifterToolStripMenuItem
+            // 
+            minaUppgifterToolStripMenuItem.Name = "minaUppgifterToolStripMenuItem";
+            minaUppgifterToolStripMenuItem.Size = new Size(307, 44);
+            minaUppgifterToolStripMenuItem.Text = "Mina uppgifter";
+            // 
+            // mittSchemaToolStripMenuItem
+            // 
+            mittSchemaToolStripMenuItem.Name = "mittSchemaToolStripMenuItem";
+            mittSchemaToolStripMenuItem.Size = new Size(307, 44);
+            mittSchemaToolStripMenuItem.Text = "Mitt schema";
+            // 
+            // loggaUtToolStripMenuItem1
+            // 
+            loggaUtToolStripMenuItem1.Name = "loggaUtToolStripMenuItem1";
+            loggaUtToolStripMenuItem1.Size = new Size(294, 44);
+            loggaUtToolStripMenuItem1.Text = "Logga ut";
+            // 
+            // monthCalendar1
+            // 
+            monthCalendar1.Location = new Point(1613, 196);
+            monthCalendar1.Name = "monthCalendar1";
+            monthCalendar1.TabIndex = 3;
+            monthCalendar1.DateChanged += monthCalendar1_DateChanged;
+            // 
+            // listBoxDagens
+            // 
+            listBoxDagens.Location = new Point(1259, 142);
+            listBoxDagens.Name = "listBoxDagens";
+            listBoxDagens.Size = new Size(281, 544);
+            listBoxDagens.TabIndex = 4;
+            listBoxDagens.UseCompatibleStateImageBehavior = false;
+            // 
+            // richTextBoxVecka
+            // 
+            richTextBoxVecka.Location = new Point(222, 142);
+            richTextBoxVecka.Name = "richTextBoxVecka";
+            richTextBoxVecka.Size = new Size(1011, 544);
+            richTextBoxVecka.TabIndex = 5;
+            richTextBoxVecka.Text = "";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(2057, 155);
+            label1.Name = "label1";
+            label1.Size = new Size(260, 32);
+            label1.TabIndex = 7;
+            label1.Text = "Beskriv din nya uppgift";
+            // 
+            // btnLäggTill
+            // 
+            btnLäggTill.Location = new Point(2057, 254);
+            btnLäggTill.Name = "btnLäggTill";
+            btnLäggTill.Size = new Size(150, 46);
+            btnLäggTill.TabIndex = 8;
+            btnLäggTill.Text = "Lägg till";
+            btnLäggTill.UseVisualStyleBackColor = true;
+            btnLäggTill.Click += btnLäggTill_Click;
+            // 
+            // textBoxUppgift
+            // 
+            textBoxUppgift.Location = new Point(2057, 196);
+            textBoxUppgift.Name = "textBoxUppgift";
+            textBoxUppgift.Size = new Size(356, 39);
+            textBoxUppgift.TabIndex = 9;
+            textBoxUppgift.TextChanged += textBoxUppgift_TextChanged;
+            // 
+            // btnVeckoöversikt
+            // 
+            btnVeckoöversikt.Location = new Point(1083, 712);
+            btnVeckoöversikt.Name = "btnVeckoöversikt";
+            btnVeckoöversikt.Size = new Size(150, 46);
+            btnVeckoöversikt.TabIndex = 10;
+            btnVeckoöversikt.Text = "Uppdatera";
+            btnVeckoöversikt.UseVisualStyleBackColor = true;
+            btnVeckoöversikt.Click += btnVeckoöversikt_Click;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(222, 92);
+            label2.Name = "label2";
+            label2.Size = new Size(205, 32);
+            label2.TabIndex = 11;
+            label2.Text = "Veckans uppgifter";
+            label2.Click += label2_Click;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(1613, 155);
+            label3.Name = "label3";
+            label3.Size = new Size(98, 32);
+            label3.TabIndex = 12;
+            label3.Text = "Välj dag";
+            label3.Click += label3_Click;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(1259, 92);
+            label4.Name = "label4";
+            label4.Size = new Size(200, 32);
+            label4.TabIndex = 13;
+            label4.Text = "Dagens uppgifter";
+            label4.Click += label4_Click;
+            // 
+            // Homepage
+            // 
+            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(2507, 883);
+            Controls.Add(label4);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(btnVeckoöversikt);
+            Controls.Add(textBoxUppgift);
+            Controls.Add(btnLäggTill);
+            Controls.Add(label1);
+            Controls.Add(richTextBoxVecka);
+            Controls.Add(listBoxDagens);
+            Controls.Add(monthCalendar1);
+            Controls.Add(menuStrip1);
+            Controls.Add(menuStrip2);
+            MainMenuStrip = menuStrip1;
+            Name = "Homepage";
+            Text = "Mitt schema";
+            Load += Homepage_Load;
+            menuStrip2.ResumeLayout(false);
+            menuStrip2.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
+        }
+
+        #endregion
+
+        private MenuStrip menuStrip1;
+        private MenuStrip menuStrip2;
+        private ToolStripMenuItem beställningarToolStripMenuItem;
+        private ToolStripMenuItem beställningarToolStripMenuItem1;
+        private ToolStripMenuItem nyBeställningToolStripMenuItem;
+        private ToolStripMenuItem allaBeställningarToolStripMenuItem;
+        private ToolStripMenuItem marealLagerToolStripMenuItem;
+        private ToolStripMenuItem seAlltMaterialToolStripMenuItem;
+        private ToolStripMenuItem statistikToolStripMenuItem1;
+        private ToolStripMenuItem minaSidorToolStripMenuItem1;
+        private ToolStripMenuItem loggaUtToolStripMenuItem1;
+        private ToolStripMenuItem marialbeställningToolStripMenuItem;
+        private ToolStripMenuItem hattStatistikToolStripMenuItem;
+        private ToolStripMenuItem kundStatistikToolStripMenuItem;
+        private ToolStripMenuItem minaUppgifterToolStripMenuItem;
+        private ToolStripMenuItem mittSchemaToolStripMenuItem;
+        private MonthCalendar monthCalendar1;
+        private ListView listBoxDagens;
+        private RichTextBox richTextBoxVecka;
+        private Label label1;
+        private Button btnLäggTill;
+        private TextBox textBoxUppgift;
+        private Button btnVeckoöversikt;
+        private Label label2;
+        private Label label3;
+        private Label label4;
+    }
+}
