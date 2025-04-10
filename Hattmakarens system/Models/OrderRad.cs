@@ -17,8 +17,6 @@ namespace Hattmakarens_system.Models
 
         public decimal Pris { get; set; }
         
-        //public blabla Status { get; set; }
-
         public string? ReferensBild { get; set; }
 
         [ForeignKey(nameof(AnsvarigUserId))]
