@@ -21,11 +21,11 @@ namespace Hattmakarens_system.Models
         public int TotalPris { get; set; }
 
 
-        [ForeignKey(nameof(KundId))]
         public int KundId { get; set; }
+        public Kund Kund { get; set; }
         
-        [ForeignKey(nameof(FraktId))]
         public int FraktId { get; set; }
+        public Frakt Frakt { get; set; }
 
     }
     public enum StatusEnum
