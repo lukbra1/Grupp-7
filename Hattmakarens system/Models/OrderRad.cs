@@ -21,8 +21,9 @@ namespace Hattmakarens_system.Models
 
         public string? ReferensBild { get; set; }
 
-        [ForeignKey(nameof(AnsvarigUserId))]
-        public string AnsvarigUserId { get; set; }
+        [ForeignKey(nameof(UserId))]
+        public int UserId { get; set; }
+
         [ForeignKey(nameof(HattModellId))]
         public string HattModellId { get; set; }
 

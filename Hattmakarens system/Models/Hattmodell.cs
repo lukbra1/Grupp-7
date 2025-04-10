@@ -19,6 +19,6 @@ namespace Hattmakarens_system.Models
         public bool Tillgangliga { get; set; }
 
         public ICollection<HattModellMaterial> Material { get; set; }
-        public ICollection<OrderItem> Orderrader { get; set; }
+        public ICollection<OrderRad> Orderrader { get; set; }
     }
 }
