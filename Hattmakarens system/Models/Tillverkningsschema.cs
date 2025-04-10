@@ -15,7 +15,6 @@ namespace Hattmakarens_system.Models
         public int SchemaId { get; set; }
         [ForeignKey(nameof(OrderRadId))]
         public int OrderRadId { get; set; }
-        public OrderRad OrderRad { get; set; }
 
         [ForeignKey(nameof(UserId))]
         public int UserId { get; set; }
