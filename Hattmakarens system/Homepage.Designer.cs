@@ -168,16 +168,16 @@
             // 
             // monthCalendar1
             // 
-            monthCalendar1.Location = new Point(1613, 196);
+            monthCalendar1.Location = new Point(1279, 183);
             monthCalendar1.Name = "monthCalendar1";
             monthCalendar1.TabIndex = 3;
             monthCalendar1.DateChanged += monthCalendar1_DateChanged;
             // 
             // listBoxDagens
             // 
-            listBoxDagens.Location = new Point(1259, 142);
+            listBoxDagens.Location = new Point(1729, 183);
             listBoxDagens.Name = "listBoxDagens";
-            listBoxDagens.Size = new Size(281, 544);
+            listBoxDagens.Size = new Size(324, 592);
             listBoxDagens.TabIndex = 4;
             listBoxDagens.UseCompatibleStateImageBehavior = false;
             // 
@@ -185,22 +185,22 @@
             // 
             richTextBoxVecka.Location = new Point(222, 142);
             richTextBoxVecka.Name = "richTextBoxVecka";
-            richTextBoxVecka.Size = new Size(1011, 544);
+            richTextBoxVecka.Size = new Size(1011, 633);
             richTextBoxVecka.TabIndex = 5;
             richTextBoxVecka.Text = "";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(2057, 155);
+            label1.Location = new Point(1279, 621);
             label1.Name = "label1";
-            label1.Size = new Size(260, 32);
+            label1.Size = new Size(216, 32);
             label1.TabIndex = 7;
-            label1.Text = "Beskriv din nya uppgift";
+            label1.Text = "Lägg till ny uppgift";
             // 
             // btnLäggTill
             // 
-            btnLäggTill.Location = new Point(2057, 254);
+            btnLäggTill.Location = new Point(1533, 729);
             btnLäggTill.Name = "btnLäggTill";
             btnLäggTill.Size = new Size(150, 46);
             btnLäggTill.TabIndex = 8;
@@ -210,15 +210,15 @@
             // 
             // textBoxUppgift
             // 
-            textBoxUppgift.Location = new Point(2057, 196);
+            textBoxUppgift.Location = new Point(1279, 674);
             textBoxUppgift.Name = "textBoxUppgift";
-            textBoxUppgift.Size = new Size(356, 39);
+            textBoxUppgift.Size = new Size(404, 39);
             textBoxUppgift.TabIndex = 9;
             textBoxUppgift.TextChanged += textBoxUppgift_TextChanged;
             // 
             // btnVeckoöversikt
             // 
-            btnVeckoöversikt.Location = new Point(1083, 712);
+            btnVeckoöversikt.Location = new Point(1083, 781);
             btnVeckoöversikt.Name = "btnVeckoöversikt";
             btnVeckoöversikt.Size = new Size(150, 46);
             btnVeckoöversikt.TabIndex = 10;
@@ -231,15 +231,15 @@
             label2.AutoSize = true;
             label2.Location = new Point(222, 92);
             label2.Name = "label2";
-            label2.Size = new Size(205, 32);
+            label2.Size = new Size(188, 32);
             label2.TabIndex = 11;
-            label2.Text = "Veckans uppgifter";
+            label2.Text = "Schema översikt";
             label2.Click += label2_Click;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(1613, 155);
+            label3.Location = new Point(1279, 142);
             label3.Name = "label3";
             label3.Size = new Size(98, 32);
             label3.TabIndex = 12;
@@ -249,17 +249,18 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(1259, 92);
+            label4.Location = new Point(1729, 142);
             label4.Name = "label4";
-            label4.Size = new Size(200, 32);
+            label4.Size = new Size(277, 32);
             label4.TabIndex = 13;
-            label4.Text = "Dagens uppgifter";
+            label4.Text = "Se uppgifter på vald dag";
             label4.Click += label4_Click;
             // 
             // Homepage
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
             ClientSize = new Size(2507, 883);
             Controls.Add(label4);
             Controls.Add(label3);
