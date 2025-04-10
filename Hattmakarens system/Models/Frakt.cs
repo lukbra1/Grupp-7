@@ -19,8 +19,8 @@ namespace Hattmakarens_system.Models
         public double Moms { get; set; }
         public decimal PrisInkMoms { get; set; }
         public DateTime SkapatDatum { get; set; }
-        [ForeignKey(nameof(OrderID))]
         public int OrderID { get; set; }
+        public Order Order { get; set; }
 
 
     }

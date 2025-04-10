@@ -13,12 +13,11 @@ namespace Hattmakarens_system.Models
     {
         [Key]
         public int SchemaId { get; set; }
-        [ForeignKey(nameof(OrderRadId))]
         public int OrderRadId { get; set; }
+        public OrderRad OrderRad { get; set; }
 
-        [ForeignKey(nameof(UserId))]
         public int UserId { get; set; }
-        public User Ansvarig {  get; set; }
+        public User User { get; set; }
         public DateTime Startdatum { get; set; }
         public string Status { get; set; }
     }

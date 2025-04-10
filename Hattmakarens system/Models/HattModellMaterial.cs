@@ -13,10 +13,8 @@ namespace Hattmakarens_system.Models
         [Key]
         public int HattModellId { get; set; }
         public Hattmodell Hattmodell { get; set; }
-        
         public int MaterialId { get; set; }
         public Material Material { get; set; }
-
         public decimal Mangd {  get; set; }
     }
 }

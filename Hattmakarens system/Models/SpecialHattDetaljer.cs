@@ -13,8 +13,8 @@ namespace Hattmakarens_system.Models
     {
         [Key]
         public int SpecialHattId {  get; set; }
-        [ForeignKey (nameof(OrderRadId))]
         public int OrderRadId { get; set; }
+        public OrderRad OrderRad { get; set; }
 
         public string Farg {  get; set; }
         public string Tyg { get; set; }

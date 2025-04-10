@@ -14,11 +14,11 @@ namespace Hattmakarens_system.Models
     {
         [Key]
         public int AnpassningId { get; set; }
-        public string Typ {  get; set; }
+        public string Typ { get; set; }
         public string Varde { get; set; }
-        public decimal Anpassningkostnad {  get; set; }
-        [ForeignKey (nameof(OrderRadId))]
+        public decimal Anpassningkostnad { get; set; }
         public int OrderRadId { get; set; }
- 
+        public Order Order { get; set; }
+
     }
 }
