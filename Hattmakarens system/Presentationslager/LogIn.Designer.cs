@@ -1,6 +1,6 @@
 ﻿namespace Hattmakarens_system
 {
-    partial class Form1
+    partial class LoggaInGränsnittt
     {
         /// <summary>
         ///  Required designer variable.
@@ -78,6 +78,7 @@
             btnLoggaIn.TabIndex = 4;
             btnLoggaIn.Text = "Logga in";
             btnLoggaIn.UseVisualStyleBackColor = true;
+            btnLoggaIn.Click += btnLoggaIn_Click;
             // 
             // label3
             // 

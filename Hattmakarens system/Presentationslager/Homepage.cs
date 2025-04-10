@@ -169,5 +169,10 @@ namespace Hattmakarens_system
         {
 
         }
+
+        private void richTextBoxVecka_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
