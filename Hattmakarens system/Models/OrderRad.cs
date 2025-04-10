@@ -24,7 +24,7 @@ namespace Hattmakarens_system.Models
         public int UserId { get; set; }
         public User User { get; set; }
 
-        public string HattModellId { get; set; }
+        public int HattModellId { get; set; }
         public Hattmodell Hattmodell { get; set; }
 
 
