@@ -54,6 +54,7 @@
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
+            hanteraMedarbetareToolStripMenuItem = new ToolStripMenuItem();
             menuStrip2.SuspendLayout();
             SuspendLayout();
             // 
@@ -78,7 +79,7 @@
             // 
             // beställningarToolStripMenuItem
             // 
-            beställningarToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { beställningarToolStripMenuItem1, marealLagerToolStripMenuItem, statistikToolStripMenuItem1, minaSidorToolStripMenuItem1, loggaUtToolStripMenuItem1 });
+            beställningarToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { beställningarToolStripMenuItem1, marealLagerToolStripMenuItem, statistikToolStripMenuItem1, minaSidorToolStripMenuItem1, hanteraMedarbetareToolStripMenuItem, loggaUtToolStripMenuItem1 });
             beställningarToolStripMenuItem.Name = "beställningarToolStripMenuItem";
             beställningarToolStripMenuItem.Size = new Size(56, 36);
             beställningarToolStripMenuItem.Text = "☰";
@@ -88,7 +89,7 @@
             // 
             beställningarToolStripMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { nyBeställningToolStripMenuItem, allaBeställningarToolStripMenuItem });
             beställningarToolStripMenuItem1.Name = "beställningarToolStripMenuItem1";
-            beställningarToolStripMenuItem1.Size = new Size(294, 44);
+            beställningarToolStripMenuItem1.Size = new Size(374, 44);
             beställningarToolStripMenuItem1.Text = "Beställningar";
             // 
             // nyBeställningToolStripMenuItem
@@ -107,7 +108,7 @@
             // 
             marealLagerToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { seAlltMaterialToolStripMenuItem, marialbeställningToolStripMenuItem });
             marealLagerToolStripMenuItem.Name = "marealLagerToolStripMenuItem";
-            marealLagerToolStripMenuItem.Size = new Size(294, 44);
+            marealLagerToolStripMenuItem.Size = new Size(374, 44);
             marealLagerToolStripMenuItem.Text = "Material lager";
             // 
             // seAlltMaterialToolStripMenuItem
@@ -126,7 +127,7 @@
             // 
             statistikToolStripMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { hattStatistikToolStripMenuItem, kundStatistikToolStripMenuItem });
             statistikToolStripMenuItem1.Name = "statistikToolStripMenuItem1";
-            statistikToolStripMenuItem1.Size = new Size(294, 44);
+            statistikToolStripMenuItem1.Size = new Size(374, 44);
             statistikToolStripMenuItem1.Text = "Statistik";
             // 
             // hattStatistikToolStripMenuItem
@@ -145,7 +146,7 @@
             // 
             minaSidorToolStripMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { minaUppgifterToolStripMenuItem, mittSchemaToolStripMenuItem });
             minaSidorToolStripMenuItem1.Name = "minaSidorToolStripMenuItem1";
-            minaSidorToolStripMenuItem1.Size = new Size(294, 44);
+            minaSidorToolStripMenuItem1.Size = new Size(374, 44);
             minaSidorToolStripMenuItem1.Text = "Mina sidor";
             // 
             // minaUppgifterToolStripMenuItem
@@ -163,7 +164,7 @@
             // loggaUtToolStripMenuItem1
             // 
             loggaUtToolStripMenuItem1.Name = "loggaUtToolStripMenuItem1";
-            loggaUtToolStripMenuItem1.Size = new Size(294, 44);
+            loggaUtToolStripMenuItem1.Size = new Size(374, 44);
             loggaUtToolStripMenuItem1.Text = "Logga ut";
             // 
             // monthCalendar1
@@ -256,6 +257,12 @@
             label4.Text = "Se uppgifter på vald dag";
             label4.Click += label4_Click;
             // 
+            // hanteraMedarbetareToolStripMenuItem
+            // 
+            hanteraMedarbetareToolStripMenuItem.Name = "hanteraMedarbetareToolStripMenuItem";
+            hanteraMedarbetareToolStripMenuItem.Size = new Size(374, 44);
+            hanteraMedarbetareToolStripMenuItem.Text = "Hantera medarbetare";
+            // 
             // Homepage
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
@@ -312,5 +319,6 @@
         private Label label2;
         private Label label3;
         private Label label4;
+        private ToolStripMenuItem hanteraMedarbetareToolStripMenuItem;
     }
 }
