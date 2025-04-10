@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Hattmakarens_system.Models
 {
-    public class HattModelMaterial
+    public class HattModellMaterial
     {
         [Key]
         public int HattModellId { get; set; }

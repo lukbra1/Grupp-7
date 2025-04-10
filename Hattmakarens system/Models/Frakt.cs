@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Hattmakarens_system.Models
 {
-    internal class Frakt
+    public class Frakt
     {
 
         [Key]

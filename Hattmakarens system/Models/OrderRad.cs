@@ -9,14 +9,14 @@ using System.Threading.Tasks;
 
 namespace Hattmakarens_system.Models
 {
-    internal class OrderRad
+    public class OrderRad
     {
         [Key]
         public int OrderRadId { get; set; }
         public HattEnum Typ { get; set; }
 
         public decimal Pris { get; set; }
-        
+
         //public blabla Status { get; set; }
 
         public string? ReferensBild { get; set; }
@@ -24,7 +24,7 @@ namespace Hattmakarens_system.Models
         [ForeignKey(nameof(AnsvarigUserId))]
         public string AnsvarigUserId { get; set; }
         [ForeignKey(nameof(HattModellId))]
-        public string HattModellId { get; set;}
+        public string HattModellId { get; set; }
 
 
 

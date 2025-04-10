@@ -13,12 +13,12 @@ namespace Hattmakarens_system.Models
     {
         [Key]
         public int HattModellId { get; set; }
-        public string Namn {  get; set; }
-        public decimal Pris {  get; set; }
+        public string Namn { get; set; }
+        public decimal Pris { get; set; }
         public string Beskrivning { get; set; }
         public bool Tillgangliga { get; set; }
 
-        public ICollection<HattModellMaterial> Material {  get; set; }
+        public ICollection<HattModellMaterial> Material { get; set; }
         public ICollection<OrderItem> Orderrader { get; set; }
     }
 }

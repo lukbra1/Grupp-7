@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 
 namespace Hattmakarens_system.Models
@@ -16,8 +17,8 @@ namespace Hattmakarens_system.Models
         public string Typ {  get; set; }
         public string Varde { get; set; }
         public decimal Anpassningkostnad {  get; set; }
-
-        public int OrderItemId { get; set; }
-        public OrderItem Orderrad { get; set; }
+        [ForeignKey (nameof(OrderRadId))]
+        public int OrderRadId { get; set; }
+ 
     }
 }
