@@ -29,21 +29,23 @@ namespace Hattmakarens_system.Database
             optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Database=HattmakarensScrum7;Trusted_Connection=True;");
         }
 
+        // Inuti AppDbContext.cs
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<OrderMaterialStatus>()
-                .HasKey(oms => new { oms.OrderId, oms.MaterialId });
+            base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<HattModellMaterial>()
-                .HasKey(hmm => new { hmm.HattModellId, hmm.MaterialId });
+            // Nycklar
+            modelBuilder.Entity<OrderMaterialStatus>().HasKey(oms => new { oms.OrderId, oms.MaterialId });
+            modelBuilder.Entity<HattModellMaterial>().HasKey(hmm => new { hmm.HattModellId, hmm.MaterialId });
 
+            // Relationer
             modelBuilder.Entity<SpecialHattDetaljer>()
                 .HasOne(sh => sh.OrderRad)
                 .WithOne()
                 .HasForeignKey<SpecialHattDetaljer>(sh => sh.OrderRadId);
 
             modelBuilder.Entity<Anpassning>()
-                .HasOne(a => a.Order)
+                .HasOne(a => a.OrderRad)
                 .WithMany()
                 .HasForeignKey(a => a.OrderRadId);
 
@@ -64,17 +66,21 @@ namespace Hattmakarens_system.Database
                 .WithOne(f => f.Order)
                 .HasForeignKey<Frakt>(f => f.OrderID);
 
+            modelBuilder.Entity<OrderRad>()
+                .HasOne(or => or.Order)
+                .WithMany(o => o.OrderRader)
+                .HasForeignKey(or => or.OrderId)
+                .OnDelete(DeleteBehavior.Restrict);
 
+            // SEED-DATA I RÄTT ORDNING:
 
-            base.OnModelCreating(modelBuilder);
-
-            // Users
+            // 1. Users
             modelBuilder.Entity<User>().HasData(
                 new User { UserId = 1, Namn = "Admin", Epost = "admin@example.com", LosenordHash = "hash1", Behorighet = true },
                 new User { UserId = 2, Namn = "Medarbetare", Epost = "medarbetare@example.com", LosenordHash = "hash2", Behorighet = false }
             );
 
-            // Kunder
+            // 2. Kunder
             modelBuilder.Entity<Kund>().HasData(
                 new Kund { KundId = 1, ForNamn = "Anna", EfterNamn = "Andersson", Telefon = "0701234567", Epost = "anna@example.com", Adress = "Gatan 1", Aktiv = true },
                 new Kund { KundId = 2, ForNamn = "Erik", EfterNamn = "Eriksson", Telefon = "0707654321", Epost = "erik@example.com", Adress = "Vägen 2", Aktiv = true }
@@ -93,7 +99,7 @@ namespace Hattmakarens_system.Database
     new Order
     {
         OrderId = 2,
-        Datum = new DateTime(2025, 4, 10), 
+        Datum = new DateTime(2025, 4, 10),
         Status = StatusEnum.Paborjad,
         Express = true,
         TotalPris = 1500,
@@ -110,58 +116,51 @@ namespace Hattmakarens_system.Database
 
 
             // Hattmodell
+
+            // 3. Hattmodell
+
             modelBuilder.Entity<Hattmodell>().HasData(
                 new Hattmodell { HattModellId = 1, Namn = "Klassisk", Pris = 500, Beskrivning = "En klassisk hatt", Tillgangliga = true },
                 new Hattmodell { HattModellId = 2, Namn = "Modern", Pris = 750, Beskrivning = "En modern hatt", Tillgangliga = true }
             );
 
-            // Material
+            // 4. Material
             modelBuilder.Entity<Material>().HasData(
                 new Material { MaterialId = 1, Namn = "Filt", Beskrivning = "Mjukt material" },
                 new Material { MaterialId = 2, Namn = "Siden", Beskrivning = "Lyxigt material" }
             );
 
-            // HattmodellMaterial
+            // 5. HattmodellMaterial
             modelBuilder.Entity<HattModellMaterial>().HasData(
                 new HattModellMaterial { HattModellId = 1, MaterialId = 1, Mangd = 1.5m },
                 new HattModellMaterial { HattModellId = 2, MaterialId = 2, Mangd = 2.0m }
             );
 
-            // OrderRad
-            modelBuilder.Entity<OrderRad>().HasData(
-                new OrderRad
-                {
-                    OrderRadId = 1,
-                    Typ = HattEnum.Lager,
-                    Pris = 1000,
-                    ReferensBild = null,
-                    UserId = 1,
-                    HattModellId = 1
-                },
-                new OrderRad
-                {
-                    OrderRadId = 2,
-                    Typ = HattEnum.Special,
-                    Pris = 1500,
-                    ReferensBild = null,
-                    UserId = 2,
-                    HattModellId = 2
-                }
+            // 6. Orders
+            modelBuilder.Entity<Order>().HasData(
+                new Order { OrderId = 1, Datum = new DateTime(2024, 12, 1), Status = StatusEnum.EjPaborjad, Express = false, TotalPris = 1000, KundId = 1 },
+                new Order { OrderId = 2, Datum = new DateTime(2025, 4, 10), Status = StatusEnum.Paborjad, Express = true, TotalPris = 1500, KundId = 2 }
             );
 
-            // Anpassning
+            // 7. Frakter
+            modelBuilder.Entity<Frakt>().HasData(
+                new Frakt { FraktId = 1, ExportKod = 100, Vikt = 2, Värde = 500, Moms = 25, PrisInkMoms = 625, SkapatDatum = new DateTime(2025, 4, 10), OrderID = 1 },
+                new Frakt { FraktId = 2, ExportKod = 200, Vikt = 3, Värde = 700, Moms = 25, PrisInkMoms = 875, SkapatDatum = new DateTime(2025, 4, 10), OrderID = 2 }
+            );
+
+            // 8. Orderrader
+            modelBuilder.Entity<OrderRad>().HasData(
+                new OrderRad { OrderRadId = 1, Typ = HattEnum.Lager, Pris = 1000, ReferensBild = null, UserId = 1, HattModellId = 1, OrderId = 2 },
+                new OrderRad { OrderRadId = 2, Typ = HattEnum.Special, Pris = 1500, ReferensBild = null, UserId = 2, HattModellId = 2, OrderId = 1 }
+            );
+
+            // 9. Anpassning
             modelBuilder.Entity<Anpassning>().HasData(
                 new Anpassning { AnpassningId = 1, Typ = "Färg", Varde = "Röd", Anpassningkostnad = 100, OrderRadId = 1 },
                 new Anpassning { AnpassningId = 2, Typ = "Storlek", Varde = "L", Anpassningkostnad = 150, OrderRadId = 2 }
             );
 
-            // OrderMaterialStatus
-            modelBuilder.Entity<OrderMaterialStatus>().HasData(
-                new OrderMaterialStatus { OrderId = 1, MaterialId = 1, Bestallt = true },
-                new OrderMaterialStatus { OrderId = 2, MaterialId = 2, Bestallt = false }
-            );
-
-            // SpecialHattDetaljer
+            // 10. SpecialHattDetaljer
             modelBuilder.Entity<SpecialHattDetaljer>().HasData(
                 new SpecialHattDetaljer
                 {
@@ -193,15 +192,22 @@ namespace Hattmakarens_system.Database
                 }
             );
 
-            // Tillverkningsschema
+            // 11. Tillverkningsschema
             modelBuilder.Entity<Tillverkningsschema>().HasData(
                 new Tillverkningsschema { SchemaId = 1, OrderRadId = 1, UserId = 1, Startdatum = new DateTime(2025, 4, 10).AddDays(1), Status = "Ej startad" },
                 new Tillverkningsschema { SchemaId = 2, OrderRadId = 2, UserId = 2, Startdatum = new DateTime(2025, 4, 10).AddDays(2), Status = "Startad" }
             );
-        
+
+            // 12. OrderMaterialStatus
+            modelBuilder.Entity<OrderMaterialStatus>().HasData(
+                new OrderMaterialStatus { OrderId = 1, MaterialId = 1, Bestallt = true },
+                new OrderMaterialStatus { OrderId = 2, MaterialId = 2, Bestallt = false }
+            );
+        }
+
 
     }
 
 }
 
-}
+
