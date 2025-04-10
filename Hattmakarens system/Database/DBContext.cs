@@ -93,7 +93,7 @@ namespace Hattmakarens_system.Database
     new Order
     {
         OrderId = 2,
-        Datum = new DateTime(2025, 4, 10), // <-- ersätt DateTime.Now med dagens datum
+        Datum = new DateTime(2025, 4, 10), 
         Status = StatusEnum.Paborjad,
         Express = true,
         TotalPris = 1500,
