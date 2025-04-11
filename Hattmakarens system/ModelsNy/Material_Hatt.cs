@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace Hattmakarens_system.ModelsNy
 {
-    internal class Anpassningar
+    internal class Material_Hatt
     {
-
+        public int HattId { get; set; }
+        public Hatt Hatt { get; set; }
+        public int MaterialId { get; set; }
+        public Material Material { get; set; }
     }
 }
