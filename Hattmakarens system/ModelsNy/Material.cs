@@ -10,8 +10,12 @@ namespace Hattmakarens_system.ModelsNy
     {
         public int MaterialId { get; set; }
         public string Namn { get; set; }
+        public decimal PrisPerEnhet { get; set; }
+        public string Enhet { get; set; }
+        public string Farg { get; set; }
         public string Beskrivning { get; set; }
-        public ICollection<Material_Hatt> Material_Hattar { get; set; }
+
+
 
 
     }
