@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Hattmakarens_system.ModelsNy
 {
-    internal class FraktSedel
+    public class FraktSedel
     {
         [Key]
         public int FraktSedelId { get; set; }

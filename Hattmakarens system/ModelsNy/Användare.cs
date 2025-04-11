@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Hattmakarens_system.ModelsNy
 {
-    internal class Användare
+    public class Användare
     {
         [Key]
         public int UserId { get; set; }

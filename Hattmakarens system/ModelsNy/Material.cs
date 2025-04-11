@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Hattmakarens_system.ModelsNy
 {
-    internal class Material
+    public class Material
     {
         public int MaterialId { get; set; }
         public string Namn { get; set; }
