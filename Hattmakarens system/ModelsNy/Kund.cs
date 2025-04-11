@@ -15,9 +15,15 @@ namespace Hattmakarens_system.ModelsNy
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public int KundId { get; set; }
+        [MaxLength(50)]
         public string Fornamn { get; set; }
+        [MaxLength(50)]
         public string Efternamn { get; set; }
+        [MaxLength(50)]
         public string TelefonNr { get; set; }
+        [MaxLength(200)]
+        public string Epost { get; set; }
+        [MaxLength(100)]
         public string Adress { get; set; }
         public bool Aktiv { get; set; }
         //public int OrderId { get; set; }
