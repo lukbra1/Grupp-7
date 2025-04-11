@@ -86,33 +86,29 @@ namespace Hattmakarens_system.Database
                 new Kund { KundId = 2, ForNamn = "Erik", EfterNamn = "Eriksson", Telefon = "0707654321", Epost = "erik@example.com", Adress = "Vägen 2", Aktiv = true }
             );
 
-            modelBuilder.Entity<Order>().HasData(
-    new Order
-    {
-        OrderId = 1,
-        Datum = new DateTime(2024, 12, 1),
-        Status = StatusEnum.EjPaborjad,
-        Express = false,
-        TotalPris = 1000,
-        KundId = 1
-    },
-    new Order
-    {
-        OrderId = 2,
-        Datum = new DateTime(2025, 4, 10),
-        Status = StatusEnum.Paborjad,
-        Express = true,
-        TotalPris = 1500,
-        KundId = 2
-    }
-);
+//            modelBuilder.Entity<Order>().HasData(
+//    new Order
+//    {
+//        OrderId = 1,
+//        Datum = new DateTime(2024, 12, 1),
+//        Status = StatusEnum.EjPaborjad,
+//        Express = false,
+//        TotalPris = 1000,
+//        KundId = 1
+//    },
+//    new Order
+//    {
+//        OrderId = 2,
+//        Datum = new DateTime(2025, 4, 10),
+//        Status = StatusEnum.Paborjad,
+//        Express = true,
+//        TotalPris = 1500,
+//        KundId = 2
+//    }
+//);
 
 
-            // Frakt
-            modelBuilder.Entity<Frakt>().HasData(
-                new Frakt { FraktId = 1, ExportKod = 100, Vikt = 2, Värde = 500, Moms = 25, PrisInkMoms = 625, SkapatDatum = new DateTime(2025, 4, 10), OrderID = 1 },
-                new Frakt { FraktId = 2, ExportKod = 200, Vikt = 3, Värde = 700, Moms = 25, PrisInkMoms = 875, SkapatDatum = new DateTime(2025, 4, 10), OrderID = 2 }
-            );
+          
 
 
             // Hattmodell
