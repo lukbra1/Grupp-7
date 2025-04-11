@@ -63,11 +63,7 @@
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(32, 32);
-<<<<<<< Updated upstream
             menuStrip1.Location = new Point(0, 26);
-=======
-            menuStrip1.Location = new Point(0, 42);
->>>>>>> Stashed changes
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(4, 1, 0, 1);
             menuStrip1.Size = new Size(1184, 24);
@@ -80,12 +76,8 @@
             menuStrip2.Items.AddRange(new ToolStripItem[] { beställningarToolStripMenuItem });
             menuStrip2.Location = new Point(0, 0);
             menuStrip2.Name = "menuStrip2";
-<<<<<<< Updated upstream
             menuStrip2.Padding = new Padding(4, 1, 0, 1);
             menuStrip2.Size = new Size(1184, 26);
-=======
-            menuStrip2.Size = new Size(2507, 42);
->>>>>>> Stashed changes
             menuStrip2.TabIndex = 1;
             menuStrip2.Text = "menuStrip2";
             // 
@@ -93,11 +85,7 @@
             // 
             beställningarToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { beställningarToolStripMenuItem1, marealLagerToolStripMenuItem, statistikToolStripMenuItem1, minaSidorToolStripMenuItem1, hanteraMedarbetareToolStripMenuItem, loggaUtToolStripMenuItem1 });
             beställningarToolStripMenuItem.Name = "beställningarToolStripMenuItem";
-<<<<<<< Updated upstream
             beställningarToolStripMenuItem.Size = new Size(36, 24);
-=======
-            beställningarToolStripMenuItem.Size = new Size(56, 38);
->>>>>>> Stashed changes
             beställningarToolStripMenuItem.Text = "☰";
             beställningarToolStripMenuItem.Click += beställningarToolStripMenuItem_Click;
             // 
@@ -112,43 +100,26 @@
             // 
             nyBeställningToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { specialbeställningToolStripMenuItem, lagerberställningToolStripMenuItem });
             nyBeställningToolStripMenuItem.Name = "nyBeställningToolStripMenuItem";
-<<<<<<< Updated upstream
             nyBeställningToolStripMenuItem.Size = new Size(224, 26);
-=======
-            nyBeställningToolStripMenuItem.Size = new Size(359, 44);
->>>>>>> Stashed changes
             nyBeställningToolStripMenuItem.Text = "Ny beställning";
             // 
             // specialbeställningToolStripMenuItem
             // 
             specialbeställningToolStripMenuItem.Name = "specialbeställningToolStripMenuItem";
-<<<<<<< Updated upstream
             specialbeställningToolStripMenuItem.Size = new Size(224, 26);
-=======
-            specialbeställningToolStripMenuItem.Size = new Size(359, 44);
->>>>>>> Stashed changes
             specialbeställningToolStripMenuItem.Text = "Specialbeställning";
             specialbeställningToolStripMenuItem.Click += specialbeställningToolStripMenuItem_Click;
             // 
             // lagerberställningToolStripMenuItem
             // 
             lagerberställningToolStripMenuItem.Name = "lagerberställningToolStripMenuItem";
-<<<<<<< Updated upstream
             lagerberställningToolStripMenuItem.Size = new Size(224, 26);
-=======
-            lagerberställningToolStripMenuItem.Size = new Size(359, 44);
->>>>>>> Stashed changes
             lagerberställningToolStripMenuItem.Text = "Lagerberställning";
-            lagerberställningToolStripMenuItem.Click += lagerberställningToolStripMenuItem_Click;
             // 
             // allaBeställningarToolStripMenuItem
             // 
             allaBeställningarToolStripMenuItem.Name = "allaBeställningarToolStripMenuItem";
-<<<<<<< Updated upstream
             allaBeställningarToolStripMenuItem.Size = new Size(224, 26);
-=======
-            allaBeställningarToolStripMenuItem.Size = new Size(359, 44);
->>>>>>> Stashed changes
             allaBeställningarToolStripMenuItem.Text = "Alla beställningar";
             // 
             // marealLagerToolStripMenuItem
