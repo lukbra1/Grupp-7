@@ -14,20 +14,15 @@ namespace Hattmakarens_system.ModelsNy
     {
             [Key]
             public int OrderId { get; set; }
-
             public DateTime Skapad { get; set; }
             public StatusEnum Status { get; set; }
             public bool Express { get; set; }
             public decimal TotalPris { get; set; }
-
             public int KundId { get; set; }
             public Kund Kund { get; set; }
-
             public ICollection<OrderRad> OrderRader { get; set; } = new List<OrderRad>();
-
-            public int? FraktId { get; set; }
-            public Frakt? Frakt { get; set; }
-        
+            public int? FraktSedelId { get; set; }
+            public FraktSedel? FraktSedel { get; set; }
     }
     public enum StatusEnum
     {
