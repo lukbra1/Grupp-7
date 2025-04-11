@@ -13,5 +13,6 @@ namespace Hattmakarens_system.ModelsNy
         public string Beskrivning { get; set; }
         public ICollection<Material_Hatt> Material_Hattar { get; set; }
 
+
     }
 }
