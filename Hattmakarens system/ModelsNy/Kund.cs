@@ -20,7 +20,7 @@ namespace Hattmakarens_system.ModelsNy
         public string TelefonNr { get; set; }
         public string Adress { get; set; }
         public bool Aktiv { get; set; }
-        public int OrderId { get; set; }
-        public ICollection<Order> Ordrar { get; set; }
+        //public int OrderId { get; set; }
+        //public ICollection<Order> Ordrar { get; set; }
     }
 }
