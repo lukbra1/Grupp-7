@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hattmakarens_system.Presentationslager;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -175,10 +176,17 @@ namespace Hattmakarens_system
 
         }
 
+<<<<<<< Updated upstream
         private void specialbeställningToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var Specialbeställning = new Specialbeställning(); // skapar en ny instans
             Specialbeställning.Show();
+=======
+        private void lagerberställningToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LaggTillLagerhattar Lagerhattar = new LaggTillLagerhattar();
+            Lagerhattar.Show();
+>>>>>>> Stashed changes
         }
     }
 }
