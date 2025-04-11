@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ namespace Hattmakarens_system.ModelsNy
     public class Kund
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public int KundId { get; set; }
         public string Fornamn { get; set; }
         public string Efternamn { get; set; }
