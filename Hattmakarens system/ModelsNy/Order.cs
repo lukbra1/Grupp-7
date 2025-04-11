@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Hattmakarens_system.ModelsNy
 {
-    internal class Order
+    public class Order
     {
             [Key]
             public int OrderId { get; set; }
