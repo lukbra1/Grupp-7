@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace Hattmakarens_system.ModelsNy
 {
-    internal class SpecialHatt : Hatt
+    public class LagerOrderrad : OrderRad
     {
+        public int ModellId { get; set; }
+        public Modell Modell { get; set; }
     }
 }

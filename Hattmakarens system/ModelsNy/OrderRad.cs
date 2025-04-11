@@ -8,18 +8,16 @@ using System.Threading.Tasks;
 
 namespace Hattmakarens_system.ModelsNy
 {
-    internal class OrderRad
+    public class OrderRad 
     {
         [Key]
-        public int BeställningsRadId { get; set; }
+        public int OrderRadId { get; set; }
 
         public int OrderId { get; set; }
         public Order Order { get; set; }
 
-        public int HattId { get; set; }
-        public Hatt Hatt { get; set; }
-
-        public string? AnsvarigAnvandare { get; set; }
+        public int UserId { get; set; }
+        public User User { get; set; }
         public bool? Tillverkad { get; set; }
     }
     public enum HattEnum
