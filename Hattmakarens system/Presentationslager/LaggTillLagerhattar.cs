@@ -16,5 +16,18 @@ namespace Hattmakarens_system.Presentationslager
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            using var db = new Database.AppDbContext();
+            var studentHatt = db.Hattmodeller.FirstOrDefault(h => h.HattModellId == 3);
+            if (studentHatt != null)
+            {  
+                AnpassaLagerhattar anpassaLagerhattar = new AnpassaLagerhattar(studentHatt);
+                anpassaLagerhattar.Show();
+            }
+
+
+        }
     }
 }
