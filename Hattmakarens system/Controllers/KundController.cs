@@ -37,5 +37,9 @@ namespace Hattmakarens_system.Controllers
         {
             //_context.Kunder.Remove(kund);
         }
+        public bool ExisterarEpost(string Epost)
+        {
+            return false; // _context.Kunder.Count(k => k.Epost == Epost);
+        }
     }
 }
