@@ -16,9 +16,9 @@ namespace Hattmakarens_system.Presentationslager
     {
         private readonly KundController _controller;
 
-        public RegistreraNyKund(KundController controller)
+        public RegistreraNyKund(/* KundController controller*/)
         {
-            _controller = controller;
+            //_controller = controller;
             InitializeComponent();
         }
 
