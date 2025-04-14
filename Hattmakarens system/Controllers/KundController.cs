@@ -27,15 +27,15 @@ namespace Hattmakarens_system.Controllers
         }
         public List<Kund> AllaAktivaKunder()
         {
-            return null; //_context.Kunder.Where(k => k.Aktiv).ToList();
+            return new List<Kund>(); //_context.Kunder.Where(k => k.Aktiv).ToList();
         }
         public List<Kund> HamtaKunderMedNamn(string ForNamn)
         {
-            return null; 
+            return new List<Kund>(); 
         }
         public Kund HamtaKundFranFornamn(string ForNamn)
         {
-            return null; //this._context.Kunder.FirstOrDefault(k => k.ForNamn == ForNamn);
+            return new Kund(); //this._context.Kunder.FirstOrDefault(k => k.ForNamn == ForNamn);
         }
         public void RaderaKund(Kund kund)
         {
