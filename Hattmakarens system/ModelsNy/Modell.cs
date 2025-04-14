@@ -14,5 +14,6 @@ namespace Hattmakarens_system.ModelsNy
         public string Namn { get; set; }
         public string Beskrivning { get; set; }
         public bool Tillganglig { get; set; }
+        public decimal Pris { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-﻿using Hattmakarens_system.Models;
+﻿using Hattmakarens_system.ModelsNy;
 using Microsoft.EntityFrameworkCore.SqlServer.Query.Internal;
 using System;
 using System.Collections.Generic;

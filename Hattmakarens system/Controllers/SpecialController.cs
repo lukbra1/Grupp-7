@@ -1,5 +1,5 @@
 ﻿using Hattmakarens_system.Database;
-using Hattmakarens_system.Models;
+using Hattmakarens_system.ModelsNy;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,13 +10,7 @@ namespace Hattmakarens_system.Controllers
 {
     public class SpecialController
     {
-        public void SparaSpecialBeställning(SpecialHattDetaljer special)
-        {
-            using var context = new AppDbContext();
-
-            context.SpecialHattar.Add(special);
-            context.SaveChanges();
-        }
+        
     }
 }
 
