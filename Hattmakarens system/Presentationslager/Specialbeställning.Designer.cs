@@ -28,236 +28,109 @@
         /// </summary>
         private void InitializeComponent()
         {
-            txtFärg = new TextBox();
-            txtTyg = new TextBox();
-            txtDek = new TextBox();
-            txtStorlek = new TextBox();
-            txtModell = new TextBox();
-            txtFjäder = new TextBox();
             txtExtraMat = new TextBox();
-            txtText = new TextBox();
-            lblFärg = new Label();
-            lblTyg = new Label();
-            lblDek = new Label();
-            lblText = new Label();
-            lblStorlek = new Label();
-            lblModell = new Label();
-            lblFjäder = new Label();
-            lblExtraMat = new Label();
-            lblKommentar = new Label();
-            rtxtKommentar = new RichTextBox();
-            btnSparaSpecialBeställning = new Button();
+            listBox1 = new ListBox();
+            button1 = new Button();
+            button3 = new Button();
             textBox1 = new TextBox();
+            listView1 = new ListView();
+            richTextBox1 = new RichTextBox();
+            button2 = new Button();
+            button4 = new Button();
             SuspendLayout();
-            // 
-            // txtFärg
-            // 
-            txtFärg.Location = new Point(198, 42);
-            txtFärg.Margin = new Padding(5, 5, 5, 5);
-            txtFärg.Name = "txtFärg";
-            txtFärg.Size = new Size(201, 39);
-            txtFärg.TabIndex = 0;
-            // 
-            // txtTyg
-            // 
-            txtTyg.Location = new Point(198, 141);
-            txtTyg.Margin = new Padding(5, 5, 5, 5);
-            txtTyg.Name = "txtTyg";
-            txtTyg.Size = new Size(201, 39);
-            txtTyg.TabIndex = 1;
-            // 
-            // txtDek
-            // 
-            txtDek.Location = new Point(198, 317);
-            txtDek.Margin = new Padding(5, 5, 5, 5);
-            txtDek.Name = "txtDek";
-            txtDek.Size = new Size(201, 39);
-            txtDek.TabIndex = 2;
-            // 
-            // txtStorlek
-            // 
-            txtStorlek.Location = new Point(198, 413);
-            txtStorlek.Margin = new Padding(5, 5, 5, 5);
-            txtStorlek.Name = "txtStorlek";
-            txtStorlek.Size = new Size(201, 39);
-            txtStorlek.TabIndex = 3;
-            // 
-            // txtModell
-            // 
-            txtModell.Location = new Point(198, 486);
-            txtModell.Margin = new Padding(5, 5, 5, 5);
-            txtModell.Name = "txtModell";
-            txtModell.Size = new Size(201, 39);
-            txtModell.TabIndex = 4;
-            // 
-            // txtFjäder
-            // 
-            txtFjäder.Location = new Point(198, 539);
-            txtFjäder.Margin = new Padding(5, 5, 5, 5);
-            txtFjäder.Name = "txtFjäder";
-            txtFjäder.Size = new Size(201, 39);
-            txtFjäder.TabIndex = 5;
             // 
             // txtExtraMat
             // 
-            txtExtraMat.Location = new Point(218, 614);
-            txtExtraMat.Margin = new Padding(5, 5, 5, 5);
+            txtExtraMat.Location = new Point(17, 53);
+            txtExtraMat.Margin = new Padding(3, 2, 3, 2);
             txtExtraMat.Name = "txtExtraMat";
-            txtExtraMat.Size = new Size(201, 39);
+            txtExtraMat.Size = new Size(338, 23);
             txtExtraMat.TabIndex = 6;
             // 
-            // txtText
+            // listBox1
             // 
-            txtText.Location = new Point(198, 226);
-            txtText.Margin = new Padding(5, 5, 5, 5);
-            txtText.Name = "txtText";
-            txtText.Size = new Size(201, 39);
-            txtText.TabIndex = 8;
+            listBox1.FormattingEnabled = true;
+            listBox1.ItemHeight = 15;
+            listBox1.Location = new Point(17, 86);
+            listBox1.Name = "listBox1";
+            listBox1.Size = new Size(338, 79);
+            listBox1.TabIndex = 19;
             // 
-            // lblFärg
+            // button1
             // 
-            lblFärg.AutoSize = true;
-            lblFärg.Location = new Point(44, 58);
-            lblFärg.Margin = new Padding(5, 0, 5, 0);
-            lblFärg.Name = "lblFärg";
-            lblFärg.Size = new Size(59, 32);
-            lblFärg.TabIndex = 9;
-            lblFärg.Text = "Färg";
+            button1.Location = new Point(361, 53);
+            button1.Name = "button1";
+            button1.Size = new Size(73, 23);
+            button1.TabIndex = 20;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
             // 
-            // lblTyg
+            // button3
             // 
-            lblTyg.AutoSize = true;
-            lblTyg.Location = new Point(44, 146);
-            lblTyg.Margin = new Padding(5, 0, 5, 0);
-            lblTyg.Name = "lblTyg";
-            lblTyg.Size = new Size(52, 32);
-            lblTyg.TabIndex = 10;
-            lblTyg.Text = "Tyg";
-            // 
-            // lblDek
-            // 
-            lblDek.AutoSize = true;
-            lblDek.Location = new Point(44, 317);
-            lblDek.Margin = new Padding(5, 0, 5, 0);
-            lblDek.Name = "lblDek";
-            lblDek.Size = new Size(132, 32);
-            lblDek.TabIndex = 11;
-            lblDek.Text = "Dekoration";
-            // 
-            // lblText
-            // 
-            lblText.AutoSize = true;
-            lblText.Location = new Point(44, 230);
-            lblText.Margin = new Padding(5, 0, 5, 0);
-            lblText.Name = "lblText";
-            lblText.Size = new Size(57, 32);
-            lblText.TabIndex = 11;
-            lblText.Text = "Text";
-            // 
-            // lblStorlek
-            // 
-            lblStorlek.AutoSize = true;
-            lblStorlek.Location = new Point(44, 424);
-            lblStorlek.Margin = new Padding(5, 0, 5, 0);
-            lblStorlek.Name = "lblStorlek";
-            lblStorlek.Size = new Size(87, 32);
-            lblStorlek.TabIndex = 12;
-            lblStorlek.Text = "Storlek";
-            // 
-            // lblModell
-            // 
-            lblModell.AutoSize = true;
-            lblModell.Location = new Point(44, 498);
-            lblModell.Margin = new Padding(5, 0, 5, 0);
-            lblModell.Name = "lblModell";
-            lblModell.Size = new Size(89, 32);
-            lblModell.TabIndex = 13;
-            lblModell.Text = "Modell";
-            // 
-            // lblFjäder
-            // 
-            lblFjäder.AutoSize = true;
-            lblFjäder.Location = new Point(44, 550);
-            lblFjäder.Margin = new Padding(5, 0, 5, 0);
-            lblFjäder.Name = "lblFjäder";
-            lblFjäder.Size = new Size(79, 32);
-            lblFjäder.TabIndex = 14;
-            lblFjäder.Text = "Fjäder";
-            // 
-            // lblExtraMat
-            // 
-            lblExtraMat.AutoSize = true;
-            lblExtraMat.Location = new Point(44, 626);
-            lblExtraMat.Margin = new Padding(5, 0, 5, 0);
-            lblExtraMat.Name = "lblExtraMat";
-            lblExtraMat.Size = new Size(159, 32);
-            lblExtraMat.TabIndex = 15;
-            lblExtraMat.Text = "Extra Material";
-            // 
-            // lblKommentar
-            // 
-            lblKommentar.AutoSize = true;
-            lblKommentar.Location = new Point(458, 58);
-            lblKommentar.Margin = new Padding(5, 0, 5, 0);
-            lblKommentar.Name = "lblKommentar";
-            lblKommentar.Size = new Size(138, 32);
-            lblKommentar.TabIndex = 16;
-            lblKommentar.Text = "Kommentar";
-            // 
-            // rtxtKommentar
-            // 
-            rtxtKommentar.Location = new Point(609, 53);
-            rtxtKommentar.Margin = new Padding(5, 5, 5, 5);
-            rtxtKommentar.Name = "rtxtKommentar";
-            rtxtKommentar.Size = new Size(362, 190);
-            rtxtKommentar.TabIndex = 17;
-            rtxtKommentar.Text = "";
-            // 
-            // btnSparaSpecialBeställning
-            // 
-            btnSparaSpecialBeställning.Location = new Point(1060, 653);
-            btnSparaSpecialBeställning.Margin = new Padding(5, 5, 5, 5);
-            btnSparaSpecialBeställning.Name = "btnSparaSpecialBeställning";
-            btnSparaSpecialBeställning.Size = new Size(323, 46);
-            btnSparaSpecialBeställning.TabIndex = 18;
-            btnSparaSpecialBeställning.Text = "Lägg till i beställning";
-            btnSparaSpecialBeställning.UseVisualStyleBackColor = true;
-            btnSparaSpecialBeställning.Click += btnSparaSpecialBeställning_Click;
+            button3.Location = new Point(361, 142);
+            button3.Name = "button3";
+            button3.Size = new Size(73, 23);
+            button3.TabIndex = 22;
+            button3.Text = "button3";
+            button3.UseVisualStyleBackColor = true;
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(694, 333);
-            textBox1.Margin = new Padding(5, 5, 5, 5);
+            textBox1.Location = new Point(361, 112);
+            textBox1.Margin = new Padding(3, 2, 3, 2);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(201, 39);
-            textBox1.TabIndex = 19;
+            textBox1.Size = new Size(73, 23);
+            textBox1.TabIndex = 23;
+            // 
+            // listView1
+            // 
+            listView1.Location = new Point(17, 171);
+            listView1.Name = "listView1";
+            listView1.Size = new Size(338, 146);
+            listView1.TabIndex = 26;
+            listView1.UseCompatibleStateImageBehavior = false;
+            // 
+            // richTextBox1
+            // 
+            richTextBox1.Location = new Point(465, 54);
+            richTextBox1.Name = "richTextBox1";
+            richTextBox1.Size = new Size(360, 264);
+            richTextBox1.TabIndex = 27;
+            richTextBox1.Text = "";
+            // 
+            // button2
+            // 
+            button2.Location = new Point(831, 52);
+            button2.Name = "button2";
+            button2.Size = new Size(73, 23);
+            button2.TabIndex = 28;
+            button2.Text = "button2";
+            button2.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            button4.Location = new Point(831, 86);
+            button4.Name = "button4";
+            button4.Size = new Size(73, 23);
+            button4.TabIndex = 29;
+            button4.Text = "button4";
+            button4.UseVisualStyleBackColor = true;
             // 
             // Specialbeställning
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1432, 770);
+            ClientSize = new Size(921, 414);
+            Controls.Add(button4);
+            Controls.Add(button2);
+            Controls.Add(richTextBox1);
+            Controls.Add(listView1);
             Controls.Add(textBox1);
-            Controls.Add(btnSparaSpecialBeställning);
-            Controls.Add(rtxtKommentar);
-            Controls.Add(lblKommentar);
-            Controls.Add(lblExtraMat);
-            Controls.Add(lblFjäder);
-            Controls.Add(lblModell);
-            Controls.Add(lblStorlek);
-            Controls.Add(lblText);
-            Controls.Add(lblDek);
-            Controls.Add(lblTyg);
-            Controls.Add(lblFärg);
-            Controls.Add(txtText);
+            Controls.Add(button3);
+            Controls.Add(button1);
+            Controls.Add(listBox1);
             Controls.Add(txtExtraMat);
-            Controls.Add(txtFjäder);
-            Controls.Add(txtModell);
-            Controls.Add(txtStorlek);
-            Controls.Add(txtDek);
-            Controls.Add(txtTyg);
-            Controls.Add(txtFärg);
-            Margin = new Padding(5, 5, 5, 5);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Specialbeställning";
             Text = "Specialbeställning";
             Load += Specialbeställning_Load;
@@ -287,5 +160,17 @@
         private RichTextBox rtxtKommentar;
         private Button btnSparaSpecialBeställning;
         private TextBox textBox1;
+        private ComboBox comboBox1;
+        private ComboBox comboBox2;
+        private ListBox listBox1;
+        private Button button1;
+        private Button button3;
+        private Label label2;
+        private ListView listView1;
+        private TextBox textBox2;
+        private ListView listView2;
+        private RichTextBox richTextBox1;
+        private Button button2;
+        private Button button4;
     }
 }

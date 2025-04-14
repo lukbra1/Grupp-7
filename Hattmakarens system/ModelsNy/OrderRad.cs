@@ -21,6 +21,7 @@ namespace Hattmakarens_system.ModelsNy
         public bool? Tillverkad { get; set; }
         public StatusOrderradEnum StatusOrderrad { get; set; }
         public TypEnum TypEnum { get; set; }
+        public StorlekEnum Storlek { get; set; }
 
     }
     public enum TypEnum
@@ -33,5 +34,15 @@ namespace Hattmakarens_system.ModelsNy
         EjPaborjad,
         Paborjad,
         Färdig,
+    }
+    public enum StorlekEnum
+    {
+        XS,
+        S,
+        M,
+        L,
+        XL
+        
+
     }
 }
