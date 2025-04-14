@@ -3,7 +3,7 @@ using System.Linq;
 using System.Net.Mail;
 using System.Windows.Forms;
 using Hattmakarens_system.Database;
-using Hattmakarens_system.Models;
+using Hattmakarens_system.ModelsNy;
 using Hattmakarens_system.Presentationslager;
 
 namespace Hattmakarens_system
@@ -51,9 +51,9 @@ namespace Hattmakarens_system
 
             Kund nyKund = new Kund
             {
-                ForNamn = txtForNamn.Text,
-                EfterNamn = txtEfterName.Text,
-                Telefon = txtTel.Text,
+                Fornamn = txtForNamn.Text,
+                Efternamn = txtEfterName.Text,
+                TelefonNr = txtTel.Text,
                 Epost = txtEmail.Text,
                 Adress = txtAddress.Text,
             };
