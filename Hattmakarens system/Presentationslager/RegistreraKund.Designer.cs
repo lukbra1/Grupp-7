@@ -229,6 +229,7 @@
             Name = "RegistreraKund";
             Text = "RegistreraKund";
             TransparencyKey = Color.FromArgb(255, 128, 128);
+            Load += RegistreraKund_Load_1;
             ResumeLayout(false);
             PerformLayout();
         }

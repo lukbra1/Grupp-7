@@ -15,7 +15,8 @@ namespace Hattmakarens_system.Presentationslager
 {
     public partial class VäljKund : Form
     {
-        static KundController controller = new KundController(new AppDbContext());
+        static KundController Kundcontroller = new KundController(new AppDbContext());
+        static OrderController Ordercontroller = new OrderController(new AppDbContext());
 
         Dictionary<string, int> namnTillId = new Dictionary<string, int>();
 
@@ -39,11 +40,15 @@ namespace Hattmakarens_system.Presentationslager
 
             try
             {
+
                 var kundId = namnTillId[valdKund];
-                Kund kund = VäljKund.controller.HamtaKundFranId(kundId);
+                Kund kund = VäljKund.Kundcontroller.HamtaKundFranId(kundId);
+
+                Order Order = Ordercontroller.SkapaNyOrder(kundId);
 
                 MessageBox.Show("Hämtade kund med namn " + kund.Fornamn + " och id " + kund.KundId);
-                var LaggTillLagerhattar = new LaggTillLagerhattar(kund);
+                var LaggTillLagerhattar = new LaggTillLagerhattar(Order);
+
                 LaggTillLagerhattar.Show();
                 this.Close();
             }
@@ -57,7 +62,7 @@ namespace Hattmakarens_system.Presentationslager
         {
             // Sök kund
             string sökNamn = textBox1.Text;
-            List<Kund> kundLista = VäljKund.controller.HamtaKunderMedNamn(sökNamn);
+            List<Kund> kundLista = VäljKund.Kundcontroller.HamtaKunderMedNamn(sökNamn);
 
             listBox1.Items.Clear();
             namnTillId.Clear();
@@ -67,6 +72,11 @@ namespace Hattmakarens_system.Presentationslager
                 listBox1.Items.Add(visning);
                 namnTillId[visning] = kund.KundId;
             }
+        }
+
+        private void VäljKund_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

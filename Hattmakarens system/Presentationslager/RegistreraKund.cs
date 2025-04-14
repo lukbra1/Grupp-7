@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Net.Mail;
 using System.Windows.Forms;
+using Hattmakarens_system.Controllers;
 using Hattmakarens_system.Database;
 using Hattmakarens_system.ModelsNy;
 using Hattmakarens_system.Presentationslager;
@@ -10,6 +11,7 @@ namespace Hattmakarens_system
 {
     public partial class RegistreraKund : Form
     {
+        static OrderController Ordercontroller = new OrderController(new AppDbContext());
         public RegistreraKund()
         {
             InitializeComponent();
@@ -66,7 +68,9 @@ namespace Hattmakarens_system
                     context.SaveChanges();
                 }
 
-                var LaggTillHattar = new LaggTillLagerhattar(nyKund);
+                Order Order = Ordercontroller.SkapaNyOrder(nyKund.KundId);
+
+                var LaggTillHattar = new LaggTillLagerhattar(Order);
                 LaggTillHattar.Show();
                 this.Close();
 
@@ -225,6 +229,11 @@ namespace Hattmakarens_system
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RegistreraKund_Load_1(object sender, EventArgs e)
         {
 
         }

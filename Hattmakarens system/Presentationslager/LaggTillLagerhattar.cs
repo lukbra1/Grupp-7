@@ -13,17 +13,17 @@ namespace Hattmakarens_system.Presentationslager
 {
     public partial class LaggTillLagerhattar : Form
     {
-        Kund kunden;
-        public LaggTillLagerhattar(Kund kund)
+        Order Ordern;
+        public LaggTillLagerhattar(Order Order)
         {
-            this.kunden = kund;
+            this.Ordern = Order;
             InitializeComponent();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             // Studentmössa
-            
+
 
 
             //using var db = new Database.AppDbContext();
@@ -75,6 +75,11 @@ namespace Hattmakarens_system.Presentationslager
         private void button5_Click(object sender, EventArgs e)
         {
             // Sherlockhatt
+        }
+
+        private void LaggTillLagerhattar_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

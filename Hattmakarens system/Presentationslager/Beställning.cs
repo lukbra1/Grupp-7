@@ -29,5 +29,12 @@ namespace Hattmakarens_system.Presentationslager
             }
             catch { }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ////var nyHatt = new LaggTillLagerhattar(Order Order);
+           //// nyHatt.Show();
+           /// this.Close();
+        }
     }
 }
