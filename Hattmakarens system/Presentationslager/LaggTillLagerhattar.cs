@@ -22,11 +22,33 @@ namespace Hattmakarens_system.Presentationslager
             using var db = new Database.AppDbContext();
             var studentHatt = db.Hattmodeller.FirstOrDefault(h => h.HattModellId == 3);
             if (studentHatt != null)
-            {  
+            {
                 AnpassaLagerhattar anpassaLagerhattar = new AnpassaLagerhattar(studentHatt);
                 anpassaLagerhattar.Show();
             }
 
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            var SpecialBeställning = new Specialbeställning();
+            SpecialBeställning.Show();
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            var Beställning = new Beställning();
+            Beställning.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
 
         }
     }

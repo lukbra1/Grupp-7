@@ -48,6 +48,11 @@
             label9 = new Label();
             label10 = new Label();
             button5 = new Button();
+            button6 = new Button();
+            label11 = new Label();
+            label12 = new Label();
+            button7 = new Button();
+            checkBox1 = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
@@ -58,7 +63,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.Studentmössa;
-            pictureBox1.Location = new Point(64, 97);
+            pictureBox1.Location = new Point(71, 222);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(303, 293);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -68,7 +73,7 @@
             // pictureBox3
             // 
             pictureBox3.Image = Properties.Resources.Hatt_med_fjäder;
-            pictureBox3.Location = new Point(674, 97);
+            pictureBox3.Location = new Point(681, 222);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(303, 293);
             pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
@@ -78,7 +83,7 @@
             // pictureBox4
             // 
             pictureBox4.Image = Properties.Resources.Fez_hatt;
-            pictureBox4.Location = new Point(995, 97);
+            pictureBox4.Location = new Point(1002, 222);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(257, 293);
             pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
@@ -88,7 +93,7 @@
             // pictureBox5
             // 
             pictureBox5.Image = Properties.Resources.sherlock_hatt;
-            pictureBox5.Location = new Point(1268, 97);
+            pictureBox5.Location = new Point(1275, 222);
             pictureBox5.Name = "pictureBox5";
             pictureBox5.Size = new Size(319, 293);
             pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
@@ -98,7 +103,7 @@
             // pictureBox2
             // 
             pictureBox2.Image = Properties.Resources.Doktormössa;
-            pictureBox2.Location = new Point(373, 97);
+            pictureBox2.Location = new Point(380, 222);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(295, 293);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
@@ -108,7 +113,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(124, 403);
+            label1.Location = new Point(131, 528);
             label1.Name = "label1";
             label1.Size = new Size(164, 32);
             label1.TabIndex = 5;
@@ -117,7 +122,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(439, 403);
+            label2.Location = new Point(446, 528);
             label2.Name = "label2";
             label2.Size = new Size(154, 32);
             label2.TabIndex = 6;
@@ -126,7 +131,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(750, 403);
+            label3.Location = new Point(757, 528);
             label3.Name = "label3";
             label3.Size = new Size(143, 32);
             label3.TabIndex = 7;
@@ -135,7 +140,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(1062, 403);
+            label4.Location = new Point(1069, 528);
             label4.Name = "label4";
             label4.Size = new Size(99, 32);
             label4.TabIndex = 8;
@@ -144,7 +149,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(1343, 403);
+            label5.Location = new Point(1350, 528);
             label5.Name = "label5";
             label5.Size = new Size(154, 32);
             label5.TabIndex = 9;
@@ -152,7 +157,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(124, 499);
+            button1.Location = new Point(131, 721);
             button1.Name = "button1";
             button1.Size = new Size(150, 46);
             button1.TabIndex = 10;
@@ -162,7 +167,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(439, 499);
+            button2.Location = new Point(446, 721);
             button2.Name = "button2";
             button2.Size = new Size(150, 46);
             button2.TabIndex = 11;
@@ -171,16 +176,17 @@
             // 
             // button3
             // 
-            button3.Location = new Point(743, 499);
+            button3.Location = new Point(750, 721);
             button3.Name = "button3";
             button3.Size = new Size(150, 46);
             button3.TabIndex = 12;
             button3.Text = "Lägg till";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // button4
             // 
-            button4.Location = new Point(1043, 499);
+            button4.Location = new Point(1050, 721);
             button4.Name = "button4";
             button4.Size = new Size(150, 46);
             button4.TabIndex = 13;
@@ -190,7 +196,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(157, 447);
+            label6.Location = new Point(164, 572);
             label6.Name = "label6";
             label6.Size = new Size(80, 32);
             label6.TabIndex = 14;
@@ -199,7 +205,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(474, 447);
+            label7.Location = new Point(481, 572);
             label7.Name = "label7";
             label7.Size = new Size(80, 32);
             label7.TabIndex = 15;
@@ -208,7 +214,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(780, 447);
+            label8.Location = new Point(787, 572);
             label8.Name = "label8";
             label8.Size = new Size(93, 32);
             label8.TabIndex = 16;
@@ -217,7 +223,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(1072, 447);
+            label9.Location = new Point(1079, 572);
             label9.Name = "label9";
             label9.Size = new Size(80, 32);
             label9.TabIndex = 17;
@@ -226,7 +232,7 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(1371, 447);
+            label10.Location = new Point(1378, 572);
             label10.Name = "label10";
             label10.Size = new Size(93, 32);
             label10.TabIndex = 18;
@@ -234,18 +240,72 @@
             // 
             // button5
             // 
-            button5.Location = new Point(1343, 499);
+            button5.Location = new Point(1350, 721);
             button5.Name = "button5";
             button5.Size = new Size(150, 46);
             button5.TabIndex = 19;
             button5.Text = "Lägg till";
             button5.UseVisualStyleBackColor = true;
             // 
+            // button6
+            // 
+            button6.Location = new Point(302, 91);
+            button6.Name = "button6";
+            button6.Size = new Size(150, 46);
+            button6.TabIndex = 20;
+            button6.Text = "Lägg till";
+            button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(85, 91);
+            label11.Name = "label11";
+            label11.Size = new Size(198, 32);
+            label11.TabIndex = 21;
+            label11.Text = "Skapa specialhatt";
+            label11.Click += label11_Click;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(71, 161);
+            label12.Name = "label12";
+            label12.Size = new Size(160, 32);
+            label12.TabIndex = 22;
+            label12.Text = "Välj lager hatt";
+            // 
+            // button7
+            // 
+            button7.Location = new Point(1333, 62);
+            button7.Name = "button7";
+            button7.Size = new Size(294, 46);
+            button7.TabIndex = 23;
+            button7.Text = "Visa beställning";
+            button7.UseVisualStyleBackColor = true;
+            button7.Click += button7_Click;
+            // 
+            // checkBox1
+            // 
+            checkBox1.AutoSize = true;
+            checkBox1.Location = new Point(738, 638);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(133, 36);
+            checkBox1.TabIndex = 24;
+            checkBox1.Text = "Anpassa";
+            checkBox1.UseVisualStyleBackColor = true;
+            // 
             // LaggTillLagerhattar
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1678, 838);
+            Controls.Add(checkBox1);
+            Controls.Add(button7);
+            Controls.Add(label12);
+            Controls.Add(label11);
+            Controls.Add(button6);
             Controls.Add(button5);
             Controls.Add(label10);
             Controls.Add(label9);
@@ -299,5 +359,10 @@
         private Label label9;
         private Label label10;
         private Button button5;
+        private Button button6;
+        private Label label11;
+        private Label label12;
+        private Button button7;
+        private CheckBox checkBox1;
     }
 }
