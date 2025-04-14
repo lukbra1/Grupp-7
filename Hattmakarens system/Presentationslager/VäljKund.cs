@@ -19,6 +19,7 @@ namespace Hattmakarens_system.Presentationslager
 
         private void button3_Click(object sender, EventArgs e)
         {
+            // Skapa beställning med ny kund
             var RegisteraKund = new RegistreraKund();
             RegisteraKund.Show();
             this.Close();
@@ -26,9 +27,15 @@ namespace Hattmakarens_system.Presentationslager
 
         private void button1_Click(object sender, EventArgs e)
         {
+            // Skapa beställning med existerande kund
             var Laggtill = new LaggTillLagerhattar();
             Laggtill.Show();
             this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            // Sök kund
         }
     }
 }

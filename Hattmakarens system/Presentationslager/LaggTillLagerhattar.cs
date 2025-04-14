@@ -19,6 +19,7 @@ namespace Hattmakarens_system.Presentationslager
 
         private void button1_Click(object sender, EventArgs e)
         {
+            // Studentmössa
             //using var db = new Database.AppDbContext();
             //var studentHatt = db.Hattmodeller.FirstOrDefault(h => h.HattModellId == 3);
             //if (studentHatt != null)
@@ -27,12 +28,11 @@ namespace Hattmakarens_system.Presentationslager
             //    anpassaLagerhattar.Show();
             //    this.Close();
             //}
-
-
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
+            // Skapa specialbeställningshatt
             var SpecialBeställning = new Specialbeställning();
             SpecialBeställning.Show();
             this.Close();
@@ -45,6 +45,7 @@ namespace Hattmakarens_system.Presentationslager
 
         private void button7_Click(object sender, EventArgs e)
         {
+            // Visa varukorg utan att lägga till hatt
             var Beställning = new Beställning();
             Beställning.Show();
             this.Close();
@@ -52,7 +53,22 @@ namespace Hattmakarens_system.Presentationslager
 
         private void button3_Click(object sender, EventArgs e)
         {
+            // Oktoberhatt
+        }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            // Doktorsmössa
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            // Fez-hatt
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            // Sherlockhatt
         }
     }
 }
