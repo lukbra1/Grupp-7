@@ -39,5 +39,10 @@ namespace Hattmakarens_system.Controllers
             List<OrderRad> OrderRader = _context.Orderrader.Where(or => or.OrderId == Order.OrderId).ToList();
             return OrderRader;
         }
+
+        public List<Modell> HämtaAllaModeller()
+        {
+            return _context.Modeller.ToList();
+        }
     }
 }

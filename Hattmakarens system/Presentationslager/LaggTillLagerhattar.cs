@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Hattmakarens_system.Controllers;
+using Hattmakarens_system.Database;
 using Hattmakarens_system.ModelsNy;
 
 namespace Hattmakarens_system.Presentationslager
@@ -14,6 +16,7 @@ namespace Hattmakarens_system.Presentationslager
     public partial class LaggTillLagerhattar : Form
     {
         Order Ordern;
+        static OrderController db = new OrderController(new AppDbContext());
         public LaggTillLagerhattar(Order Order)
         {
             this.Ordern = Order;
@@ -44,11 +47,6 @@ namespace Hattmakarens_system.Presentationslager
             this.Close();
         }
 
-        private void label11_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button7_Click(object sender, EventArgs e)
         {
             // Visa varukorg utan att lägga till hatt
@@ -57,28 +55,50 @@ namespace Hattmakarens_system.Presentationslager
             this.Close();
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            // Oktoberhatt
-        }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            // Doktorsmössa
-        }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            // Fez-hatt
-        }
 
-        private void button5_Click(object sender, EventArgs e)
-        {
-            // Sherlockhatt
-        }
 
         private void LaggTillLagerhattar_Load(object sender, EventArgs e)
         {
+            var hattar = db.HämtaAllaModeller();
+
+            if (hattar != null && hattar.Any())
+            {
+                cbVäljHatt.DataSource = hattar;
+                cbVäljHatt.DisplayMember = "Namn";
+                cbVäljHatt.ValueMember = "ModellId";
+            }
+            else
+            {
+                MessageBox.Show("Inga hattmodeller hittades.");
+            }
+        }
+
+
+        private void cbVäljHatt_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //string hattNamn = cbVäljHatt.SelectedItem?.ToString();
+
+            if (cbVäljHatt.SelectedItem is Modell valdModell)
+            {
+                string hattNamn = valdModell.Namn; // korrekt namn
+                string filnamn = hattNamn + ".jpg";
+                string bildPath = Path.Combine(Application.StartupPath, "Resources", filnamn);
+
+                if (File.Exists(bildPath))
+                {
+                    pbReferens.Image = Image.FromFile(bildPath);
+                }
+                else
+                {
+                    pbReferens.Image = null;
+                    MessageBox.Show("Ingen bild hittades för: " + hattNamn, "Saknad bild", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+
+
+
 
         }
     }
