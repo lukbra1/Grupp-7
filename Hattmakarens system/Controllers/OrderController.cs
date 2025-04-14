@@ -6,6 +6,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using Hattmakarens_system.Database;
 
 namespace Hattmakarens_system.Controllers
 {
@@ -20,7 +21,7 @@ namespace Hattmakarens_system.Controllers
 
         public Order SkapaNyOrder(int KundId)
         {
-            Order Order= new Order
+            Order Order = new Order
             {
                 Skapad = DateTime.Today,
                 Status = StatusEnum.EjPaborjad,
@@ -31,6 +32,12 @@ namespace Hattmakarens_system.Controllers
             };
             _context.SaveChanges();
             return Order;
+        }
+
+        public List<OrderRad> HämtaAllaOrderRader(Order Order)
+        {
+            List<OrderRad> OrderRader = _context.Orderrader.Where(or => or.OrderId == Order.OrderId).ToList();
+            return OrderRader;
         }
     }
 }

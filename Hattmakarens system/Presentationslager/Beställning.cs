@@ -7,14 +7,40 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Hattmakarens_system.Controllers;
+using Hattmakarens_system.Database;
+using Hattmakarens_system.ModelsNy;
 
 namespace Hattmakarens_system.Presentationslager
 {
     public partial class Beställning : Form
     {
-        public Beställning()
+        static OrderController orderController = new OrderController(new AppDbContext());
+
+        public Beställning(Order Order)
         {
             InitializeComponent();
+
+            List<OrderRad> OrderRader = orderController.HämtaAllaOrderRader(Order);
+
+            listBox1.Items.Clear();
+
+            // Om lagerhatt
+            //Modellnamn
+            //Pris
+
+            // Om specialhatt
+
+
+            foreach (var orderRad in OrderRader)
+            {
+                //listBox1.Items.Add(orderRad.);
+                if(orderRad is LagerOrderrad)
+                {
+
+                }
+                
+            }
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)

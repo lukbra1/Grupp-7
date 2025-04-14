@@ -52,7 +52,7 @@ namespace Hattmakarens_system.Presentationslager
         private void button7_Click(object sender, EventArgs e)
         {
             // Visa varukorg utan att lägga till hatt
-            var Beställning = new Beställning();
+            var Beställning = new Beställning(this.Ordern);
             Beställning.Show();
             this.Close();
         }
