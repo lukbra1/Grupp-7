@@ -16,5 +16,18 @@ namespace Hattmakarens_system.Presentationslager
         {
             InitializeComponent();
         }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            try
+            {
+                foreach (var item in listBox1.SelectedItems)
+                {
+
+                }
+            }
+            catch { }
+        }
     }
 }

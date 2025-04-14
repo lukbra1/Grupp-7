@@ -31,11 +31,12 @@
             button1 = new Button();
             button2 = new Button();
             label1 = new Label();
+            listBox1 = new ListBox();
             SuspendLayout();
             // 
             // button1
             // 
-            button1.Location = new Point(1051, 356);
+            button1.Location = new Point(27, 23);
             button1.Name = "button1";
             button1.Size = new Size(311, 46);
             button1.TabIndex = 0;
@@ -54,17 +55,27 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(960, 157);
+            label1.Location = new Point(867, 23);
             label1.Name = "label1";
             label1.Size = new Size(348, 32);
             label1.TabIndex = 2;
             label1.Text = "Denna sida visar din \"varukorg\"";
+            // 
+            // listBox1
+            // 
+            listBox1.FormattingEnabled = true;
+            listBox1.Location = new Point(254, 125);
+            listBox1.Name = "listBox1";
+            listBox1.Size = new Size(1724, 676);
+            listBox1.TabIndex = 3;
+            listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
             // 
             // Beställning
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(2202, 955);
+            Controls.Add(listBox1);
             Controls.Add(label1);
             Controls.Add(button2);
             Controls.Add(button1);
@@ -79,5 +90,6 @@
         private Button button1;
         private Button button2;
         private Label label1;
+        private ListBox listBox1;
     }
 }
