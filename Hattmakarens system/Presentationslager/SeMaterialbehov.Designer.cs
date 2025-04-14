@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             grpBoxSeHatt = new GroupBox();
-            cmbHattar = new ComboBox();
             btnVisaMaterial = new Button();
-            dataGridView1 = new DataGridView();
+            cmbHattar = new ComboBox();
+            dataGridViewMaterial = new DataGridView();
             grpBoxSeHatt.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewMaterial).BeginInit();
             SuspendLayout();
             // 
             // grpBoxSeHatt
@@ -46,15 +46,7 @@
             grpBoxSeHatt.TabIndex = 0;
             grpBoxSeHatt.TabStop = false;
             grpBoxSeHatt.Text = "Lista över hattar ";
-            grpBoxSeHatt.Enter += groupBox1_Enter;
-            // 
-            // cmbHattar
-            // 
-            cmbHattar.FormattingEnabled = true;
-            cmbHattar.Location = new Point(6, 22);
-            cmbHattar.Name = "cmbHattar";
-            cmbHattar.Size = new Size(121, 23);
-            cmbHattar.TabIndex = 0;
+            
             // 
             // btnVisaMaterial
             // 
@@ -64,26 +56,35 @@
             btnVisaMaterial.TabIndex = 1;
             btnVisaMaterial.Text = "Visa Materialbehov";
             btnVisaMaterial.UseVisualStyleBackColor = true;
+            
             // 
-            // dataGridView1
+            // cmbHattar
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(304, 28);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(484, 317);
-            dataGridView1.TabIndex = 1;
+            cmbHattar.FormattingEnabled = true;
+            cmbHattar.Location = new Point(6, 22);
+            cmbHattar.Name = "cmbHattar";
+            cmbHattar.Size = new Size(121, 23);
+            cmbHattar.TabIndex = 0;
+            // 
+            // dataGridViewMaterial
+            // 
+            dataGridViewMaterial.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewMaterial.Location = new Point(304, 28);
+            dataGridViewMaterial.Name = "dataGridViewMaterial";
+            dataGridViewMaterial.Size = new Size(484, 317);
+            dataGridViewMaterial.TabIndex = 1;
             // 
             // SeMaterialbehov
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(dataGridView1);
+            Controls.Add(dataGridViewMaterial);
             Controls.Add(grpBoxSeHatt);
             Name = "SeMaterialbehov";
             Text = "SeMaterialbehov";
             grpBoxSeHatt.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewMaterial).EndInit();
             ResumeLayout(false);
         }
 
@@ -92,6 +93,6 @@
         private GroupBox grpBoxSeHatt;
         private ComboBox cmbHattar;
         private Button btnVisaMaterial;
-        private DataGridView dataGridView1;
+        private DataGridView dataGridViewMaterial;
     }
 }
