@@ -29,6 +29,10 @@ namespace Hattmakarens_system.Controllers
         {
             return null; //_context.Kunder.Where(k => k.Aktiv).ToList();
         }
+        public List<Kund> HamtaKunderMedNamn(string ForNamn)
+        {
+            return null; 
+        }
         public Kund HamtaKundFranFornamn(string ForNamn)
         {
             return null; //this._context.Kunder.FirstOrDefault(k => k.ForNamn == ForNamn);
