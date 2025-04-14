@@ -93,6 +93,16 @@ namespace Hattmakarens_system.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Oktoberhatt {
+            get {
+                object obj = ResourceManager.GetObject("Oktoberhatt", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap sherlock_hatt {
             get {
                 object obj = ResourceManager.GetObject("sherlock hatt", resourceCulture);

@@ -43,9 +43,9 @@
             // 
             // pbReferens
             // 
-            pbReferens.Image = Properties.Resources.Studentmössa;
+            pbReferens.Image = Properties.Resources.Oktoberhatt;
             pbReferens.Location = new Point(44, 139);
-            pbReferens.Margin = new Padding(2, 2, 2, 2);
+            pbReferens.Margin = new Padding(2);
             pbReferens.Name = "pbReferens";
             pbReferens.Size = new Size(186, 183);
             pbReferens.SizeMode = PictureBoxSizeMode.Zoom;
@@ -65,7 +65,7 @@
             // btnLäggtill
             // 
             btnLäggtill.Location = new Point(81, 451);
-            btnLäggtill.Margin = new Padding(2, 2, 2, 2);
+            btnLäggtill.Margin = new Padding(2);
             btnLäggtill.Name = "btnLäggtill";
             btnLäggtill.Size = new Size(92, 29);
             btnLäggtill.TabIndex = 10;
@@ -86,7 +86,7 @@
             // btnSpec
             // 
             btnSpec.Location = new Point(186, 57);
-            btnSpec.Margin = new Padding(2, 2, 2, 2);
+            btnSpec.Margin = new Padding(2);
             btnSpec.Name = "btnSpec";
             btnSpec.Size = new Size(166, 29);
             btnSpec.TabIndex = 20;
@@ -116,7 +116,7 @@
             // button7
             // 
             button7.Location = new Point(820, 39);
-            button7.Margin = new Padding(2, 2, 2, 2);
+            button7.Margin = new Padding(2);
             button7.Name = "button7";
             button7.Size = new Size(181, 29);
             button7.TabIndex = 23;
@@ -127,7 +127,7 @@
             // 
             chbAnpassa.AutoSize = true;
             chbAnpassa.Location = new Point(91, 399);
-            chbAnpassa.Margin = new Padding(2, 2, 2, 2);
+            chbAnpassa.Margin = new Padding(2);
             chbAnpassa.Name = "chbAnpassa";
             chbAnpassa.Size = new Size(86, 24);
             chbAnpassa.TabIndex = 25;
@@ -158,7 +158,7 @@
             Controls.Add(btnLäggtill);
             Controls.Add(label1);
             Controls.Add(pbReferens);
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "LaggTillLagerhattar";
             Text = "LaggTillLagerhattar";
             Load += LaggTillLagerhattar_Load;
