@@ -185,7 +185,7 @@ namespace Hattmakarens_system
         {
             var VäljKund = new VäljKund(); // öppnar nya form
             VäljKund.Show();
-            this.Close();
+            this.Hide();
         }
     }
 }
