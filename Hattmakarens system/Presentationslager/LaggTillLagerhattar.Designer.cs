@@ -53,6 +53,10 @@
             label12 = new Label();
             button7 = new Button();
             checkBox1 = new CheckBox();
+            checkBox2 = new CheckBox();
+            checkBox3 = new CheckBox();
+            checkBox4 = new CheckBox();
+            checkBox5 = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
@@ -296,11 +300,55 @@
             checkBox1.Text = "Anpassa";
             checkBox1.UseVisualStyleBackColor = true;
             // 
+            // checkBox2
+            // 
+            checkBox2.AutoSize = true;
+            checkBox2.Location = new Point(148, 638);
+            checkBox2.Name = "checkBox2";
+            checkBox2.Size = new Size(133, 36);
+            checkBox2.TabIndex = 25;
+            checkBox2.Text = "Anpassa";
+            checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // checkBox3
+            // 
+            checkBox3.AutoSize = true;
+            checkBox3.Location = new Point(446, 638);
+            checkBox3.Name = "checkBox3";
+            checkBox3.Size = new Size(133, 36);
+            checkBox3.TabIndex = 26;
+            checkBox3.Text = "Anpassa";
+            checkBox3.UseVisualStyleBackColor = true;
+            // 
+            // checkBox4
+            // 
+            checkBox4.AutoSize = true;
+            checkBox4.Location = new Point(1050, 638);
+            checkBox4.Name = "checkBox4";
+            checkBox4.Size = new Size(133, 36);
+            checkBox4.TabIndex = 27;
+            checkBox4.Text = "Anpassa";
+            checkBox4.UseVisualStyleBackColor = true;
+            // 
+            // checkBox5
+            // 
+            checkBox5.AutoSize = true;
+            checkBox5.Location = new Point(1367, 638);
+            checkBox5.Name = "checkBox5";
+            checkBox5.Size = new Size(133, 36);
+            checkBox5.TabIndex = 28;
+            checkBox5.Text = "Anpassa";
+            checkBox5.UseVisualStyleBackColor = true;
+            // 
             // LaggTillLagerhattar
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1678, 838);
+            Controls.Add(checkBox5);
+            Controls.Add(checkBox4);
+            Controls.Add(checkBox3);
+            Controls.Add(checkBox2);
             Controls.Add(checkBox1);
             Controls.Add(button7);
             Controls.Add(label12);
@@ -364,5 +412,9 @@
         private Label label12;
         private Button button7;
         private CheckBox checkBox1;
+        private CheckBox checkBox2;
+        private CheckBox checkBox3;
+        private CheckBox checkBox4;
+        private CheckBox checkBox5;
     }
 }

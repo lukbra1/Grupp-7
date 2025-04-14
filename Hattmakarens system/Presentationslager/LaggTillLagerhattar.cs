@@ -25,6 +25,7 @@ namespace Hattmakarens_system.Presentationslager
             {
                 AnpassaLagerhattar anpassaLagerhattar = new AnpassaLagerhattar(studentHatt);
                 anpassaLagerhattar.Show();
+                this.Close();
             }
 
 
@@ -34,6 +35,7 @@ namespace Hattmakarens_system.Presentationslager
         {
             var SpecialBeställning = new Specialbeställning();
             SpecialBeställning.Show();
+            this.Close();
         }
 
         private void label11_Click(object sender, EventArgs e)
@@ -45,6 +47,7 @@ namespace Hattmakarens_system.Presentationslager
         {
             var Beställning = new Beställning();
             Beställning.Show();
+            this.Close();
         }
 
         private void button3_Click(object sender, EventArgs e)

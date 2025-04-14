@@ -68,6 +68,7 @@ namespace Hattmakarens_system
 
                 var LaggTillHattar = new LaggTillLagerhattar();
                 LaggTillHattar.Show();
+                this.Close();
 
             }
             catch (Exception ex)

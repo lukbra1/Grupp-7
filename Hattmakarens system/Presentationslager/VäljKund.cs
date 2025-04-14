@@ -21,6 +21,14 @@ namespace Hattmakarens_system.Presentationslager
         {
             var RegisteraKund = new RegistreraKund();
             RegisteraKund.Show();
+            this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var Laggtill = new LaggTillLagerhattar();
+            Laggtill.Show();
+            this.Close();
         }
     }
 }
