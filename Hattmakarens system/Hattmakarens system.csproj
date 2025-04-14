@@ -10,6 +10,33 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Doktormössa.jpg" />
+    <None Remove="Resources\Fez hatt.jpg" />
+    <None Remove="Resources\Hatt med fjäder.jpg" />
+    <None Remove="Resources\Oktoberhatt.jpg" />
+    <None Remove="Resources\sherlock hatt.jpg" />
+    <None Remove="Resources\Studentmössa.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Resources\Doktormössa.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Fez hatt.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Oktoberhatt.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\sherlock hatt.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Studentmössa.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.4">

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            pictureBox1 = new PictureBox();
+            pbReferens = new PictureBox();
             pictureBox3 = new PictureBox();
             pictureBox4 = new PictureBox();
             pictureBox5 = new PictureBox();
@@ -54,18 +54,24 @@
             button7 = new Button();
             checkBox1 = new CheckBox();
             checkBox2 = new CheckBox();
+<<<<<<< Updated upstream
             checkBox3 = new CheckBox();
             checkBox4 = new CheckBox();
             checkBox5 = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+=======
+            cbVäljHatt = new ComboBox();
+            ((System.ComponentModel.ISupportInitialize)pbReferens).BeginInit();
+>>>>>>> Stashed changes
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
-            // pictureBox1
+            // pbReferens
             // 
+<<<<<<< Updated upstream
             pictureBox1.Image = Properties.Resources.Studentmössa;
             pictureBox1.Location = new Point(72, 222);
             pictureBox1.Name = "pictureBox1";
@@ -73,6 +79,16 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
+=======
+            pbReferens.Image = Properties.Resources.Studentmössa;
+            pbReferens.Location = new Point(44, 139);
+            pbReferens.Margin = new Padding(2);
+            pbReferens.Name = "pbReferens";
+            pbReferens.Size = new Size(186, 183);
+            pbReferens.SizeMode = PictureBoxSizeMode.Zoom;
+            pbReferens.TabIndex = 0;
+            pbReferens.TabStop = false;
+>>>>>>> Stashed changes
             // 
             // pictureBox3
             // 
@@ -376,11 +392,16 @@
             Controls.Add(pictureBox4);
             Controls.Add(pictureBox3);
             Controls.Add(pictureBox2);
+<<<<<<< Updated upstream
             Controls.Add(pictureBox1);
+=======
+            Controls.Add(pbReferens);
+            Margin = new Padding(2);
+>>>>>>> Stashed changes
             Name = "LaggTillLagerhattar";
             Text = "LaggTillLagerhattar";
             Load += LaggTillLagerhattar_Load;
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbReferens).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
@@ -391,7 +412,7 @@
 
         #endregion
 
-        private PictureBox pictureBox1;
+        private PictureBox pbReferens;
         private PictureBox pictureBox3;
         private PictureBox pictureBox4;
         private PictureBox pictureBox5;
