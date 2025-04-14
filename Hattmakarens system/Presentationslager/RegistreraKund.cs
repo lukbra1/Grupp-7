@@ -4,6 +4,7 @@ using System.Net.Mail;
 using System.Windows.Forms;
 using Hattmakarens_system.Database;
 using Hattmakarens_system.Models;
+using Hattmakarens_system.Presentationslager;
 
 namespace Hattmakarens_system
 {
@@ -65,7 +66,10 @@ namespace Hattmakarens_system
                     context.SaveChanges();
                 }
 
-                MessageBox.Show("Kunden har sparats i databasen!");
+                var LaggTillHattar = new LaggTillLagerhattar();
+                LaggTillHattar.Show();
+                this.Close();
+
             }
             catch (Exception ex)
             {
@@ -220,7 +224,10 @@ namespace Hattmakarens_system
             }
         }
 
-     
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

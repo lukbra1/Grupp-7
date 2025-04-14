@@ -33,8 +33,6 @@
             beställningarToolStripMenuItem = new ToolStripMenuItem();
             beställningarToolStripMenuItem1 = new ToolStripMenuItem();
             nyBeställningToolStripMenuItem = new ToolStripMenuItem();
-            specialbeställningToolStripMenuItem = new ToolStripMenuItem();
-            lagerberställningToolStripMenuItem = new ToolStripMenuItem();
             allaBeställningarToolStripMenuItem = new ToolStripMenuItem();
             marealLagerToolStripMenuItem = new ToolStripMenuItem();
             seAlltMaterialToolStripMenuItem = new ToolStripMenuItem();
@@ -63,10 +61,9 @@
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(32, 32);
-            menuStrip1.Location = new Point(0, 26);
+            menuStrip1.Location = new Point(0, 42);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Padding = new Padding(4, 1, 0, 1);
-            menuStrip1.Size = new Size(1184, 24);
+            menuStrip1.Size = new Size(1924, 24);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -76,8 +73,7 @@
             menuStrip2.Items.AddRange(new ToolStripItem[] { beställningarToolStripMenuItem });
             menuStrip2.Location = new Point(0, 0);
             menuStrip2.Name = "menuStrip2";
-            menuStrip2.Padding = new Padding(4, 1, 0, 1);
-            menuStrip2.Size = new Size(1184, 26);
+            menuStrip2.Size = new Size(1924, 42);
             menuStrip2.TabIndex = 1;
             menuStrip2.Text = "menuStrip2";
             // 
@@ -85,7 +81,7 @@
             // 
             beställningarToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { beställningarToolStripMenuItem1, marealLagerToolStripMenuItem, statistikToolStripMenuItem1, minaSidorToolStripMenuItem1, hanteraMedarbetareToolStripMenuItem, loggaUtToolStripMenuItem1 });
             beställningarToolStripMenuItem.Name = "beställningarToolStripMenuItem";
-            beställningarToolStripMenuItem.Size = new Size(36, 24);
+            beställningarToolStripMenuItem.Size = new Size(56, 38);
             beställningarToolStripMenuItem.Text = "☰";
             beställningarToolStripMenuItem.Click += beställningarToolStripMenuItem_Click;
             // 
@@ -93,127 +89,112 @@
             // 
             beställningarToolStripMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { nyBeställningToolStripMenuItem, allaBeställningarToolStripMenuItem });
             beställningarToolStripMenuItem1.Name = "beställningarToolStripMenuItem1";
-            beställningarToolStripMenuItem1.Size = new Size(235, 26);
+            beställningarToolStripMenuItem1.Size = new Size(374, 44);
             beställningarToolStripMenuItem1.Text = "Beställningar";
             // 
             // nyBeställningToolStripMenuItem
             // 
-            nyBeställningToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { specialbeställningToolStripMenuItem, lagerberställningToolStripMenuItem });
             nyBeställningToolStripMenuItem.Name = "nyBeställningToolStripMenuItem";
-            nyBeställningToolStripMenuItem.Size = new Size(224, 26);
+            nyBeställningToolStripMenuItem.Size = new Size(359, 44);
             nyBeställningToolStripMenuItem.Text = "Ny beställning";
-            // 
-            // specialbeställningToolStripMenuItem
-            // 
-            specialbeställningToolStripMenuItem.Name = "specialbeställningToolStripMenuItem";
-            specialbeställningToolStripMenuItem.Size = new Size(224, 26);
-            specialbeställningToolStripMenuItem.Text = "Specialbeställning";
-            specialbeställningToolStripMenuItem.Click += specialbeställningToolStripMenuItem_Click;
-            // 
-            // lagerberställningToolStripMenuItem
-            // 
-            lagerberställningToolStripMenuItem.Name = "lagerberställningToolStripMenuItem";
-            lagerberställningToolStripMenuItem.Size = new Size(224, 26);
-            lagerberställningToolStripMenuItem.Text = "Lagerberställning";
+            nyBeställningToolStripMenuItem.Click += nyBeställningToolStripMenuItem_Click;
             // 
             // allaBeställningarToolStripMenuItem
             // 
             allaBeställningarToolStripMenuItem.Name = "allaBeställningarToolStripMenuItem";
-            allaBeställningarToolStripMenuItem.Size = new Size(224, 26);
+            allaBeställningarToolStripMenuItem.Size = new Size(359, 44);
             allaBeställningarToolStripMenuItem.Text = "Alla beställningar";
             // 
             // marealLagerToolStripMenuItem
             // 
             marealLagerToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { seAlltMaterialToolStripMenuItem, marialbeställningToolStripMenuItem });
             marealLagerToolStripMenuItem.Name = "marealLagerToolStripMenuItem";
-            marealLagerToolStripMenuItem.Size = new Size(235, 26);
+            marealLagerToolStripMenuItem.Size = new Size(374, 44);
             marealLagerToolStripMenuItem.Text = "Material lager";
             // 
             // seAlltMaterialToolStripMenuItem
             // 
             seAlltMaterialToolStripMenuItem.Name = "seAlltMaterialToolStripMenuItem";
-            seAlltMaterialToolStripMenuItem.Size = new Size(224, 26);
+            seAlltMaterialToolStripMenuItem.Size = new Size(358, 44);
             seAlltMaterialToolStripMenuItem.Text = "Se allt material";
             // 
             // marialbeställningToolStripMenuItem
             // 
             marialbeställningToolStripMenuItem.Name = "marialbeställningToolStripMenuItem";
-            marialbeställningToolStripMenuItem.Size = new Size(224, 26);
+            marialbeställningToolStripMenuItem.Size = new Size(358, 44);
             marialbeställningToolStripMenuItem.Text = "Material beställning";
             // 
             // statistikToolStripMenuItem1
             // 
             statistikToolStripMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { hattStatistikToolStripMenuItem, kundStatistikToolStripMenuItem });
             statistikToolStripMenuItem1.Name = "statistikToolStripMenuItem1";
-            statistikToolStripMenuItem1.Size = new Size(235, 26);
+            statistikToolStripMenuItem1.Size = new Size(374, 44);
             statistikToolStripMenuItem1.Text = "Statistik";
             // 
             // hattStatistikToolStripMenuItem
             // 
             hattStatistikToolStripMenuItem.Name = "hattStatistikToolStripMenuItem";
-            hattStatistikToolStripMenuItem.Size = new Size(180, 26);
+            hattStatistikToolStripMenuItem.Size = new Size(290, 44);
             hattStatistikToolStripMenuItem.Text = "Hatt statistik";
             // 
             // kundStatistikToolStripMenuItem
             // 
             kundStatistikToolStripMenuItem.Name = "kundStatistikToolStripMenuItem";
-            kundStatistikToolStripMenuItem.Size = new Size(180, 26);
+            kundStatistikToolStripMenuItem.Size = new Size(290, 44);
             kundStatistikToolStripMenuItem.Text = "Kund statistik";
             // 
             // minaSidorToolStripMenuItem1
             // 
             minaSidorToolStripMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { minaUppgifterToolStripMenuItem, mittSchemaToolStripMenuItem });
             minaSidorToolStripMenuItem1.Name = "minaSidorToolStripMenuItem1";
-            minaSidorToolStripMenuItem1.Size = new Size(235, 26);
+            minaSidorToolStripMenuItem1.Size = new Size(374, 44);
             minaSidorToolStripMenuItem1.Text = "Mina sidor";
             // 
             // minaUppgifterToolStripMenuItem
             // 
             minaUppgifterToolStripMenuItem.Name = "minaUppgifterToolStripMenuItem";
-            minaUppgifterToolStripMenuItem.Size = new Size(191, 26);
+            minaUppgifterToolStripMenuItem.Size = new Size(307, 44);
             minaUppgifterToolStripMenuItem.Text = "Mina uppgifter";
             // 
             // mittSchemaToolStripMenuItem
             // 
             mittSchemaToolStripMenuItem.Name = "mittSchemaToolStripMenuItem";
-            mittSchemaToolStripMenuItem.Size = new Size(191, 26);
+            mittSchemaToolStripMenuItem.Size = new Size(307, 44);
             mittSchemaToolStripMenuItem.Text = "Mitt schema";
             // 
             // hanteraMedarbetareToolStripMenuItem
             // 
             hanteraMedarbetareToolStripMenuItem.Name = "hanteraMedarbetareToolStripMenuItem";
-            hanteraMedarbetareToolStripMenuItem.Size = new Size(235, 26);
+            hanteraMedarbetareToolStripMenuItem.Size = new Size(374, 44);
             hanteraMedarbetareToolStripMenuItem.Text = "Hantera medarbetare";
             // 
             // loggaUtToolStripMenuItem1
             // 
             loggaUtToolStripMenuItem1.Name = "loggaUtToolStripMenuItem1";
-            loggaUtToolStripMenuItem1.Size = new Size(235, 26);
+            loggaUtToolStripMenuItem1.Size = new Size(374, 44);
             loggaUtToolStripMenuItem1.Text = "Logga ut";
             // 
             // monthCalendar1
             // 
-            monthCalendar1.Location = new Point(787, 114);
-            monthCalendar1.Margin = new Padding(6, 6, 6, 6);
+            monthCalendar1.Location = new Point(1279, 182);
+            monthCalendar1.Margin = new Padding(10, 10, 10, 10);
             monthCalendar1.Name = "monthCalendar1";
             monthCalendar1.TabIndex = 3;
             monthCalendar1.DateChanged += monthCalendar1_DateChanged;
             // 
             // listBoxDagens
             // 
-            listBoxDagens.Location = new Point(1064, 114);
-            listBoxDagens.Margin = new Padding(2, 2, 2, 2);
+            listBoxDagens.Location = new Point(1729, 182);
             listBoxDagens.Name = "listBoxDagens";
-            listBoxDagens.Size = new Size(201, 372);
+            listBoxDagens.Size = new Size(324, 593);
             listBoxDagens.TabIndex = 4;
             listBoxDagens.UseCompatibleStateImageBehavior = false;
             // 
             // richTextBoxVecka
             // 
-            richTextBoxVecka.Location = new Point(137, 89);
-            richTextBoxVecka.Margin = new Padding(2, 2, 2, 2);
+            richTextBoxVecka.Location = new Point(223, 142);
             richTextBoxVecka.Name = "richTextBoxVecka";
-            richTextBoxVecka.Size = new Size(624, 397);
+            richTextBoxVecka.Size = new Size(1012, 633);
             richTextBoxVecka.TabIndex = 5;
             richTextBoxVecka.Text = "";
             richTextBoxVecka.TextChanged += richTextBoxVecka_TextChanged;
@@ -221,19 +202,17 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(787, 388);
-            label1.Margin = new Padding(2, 0, 2, 0);
+            label1.Location = new Point(1279, 621);
             label1.Name = "label1";
-            label1.Size = new Size(135, 20);
+            label1.Size = new Size(216, 32);
             label1.TabIndex = 7;
             label1.Text = "Lägg till ny uppgift";
             // 
             // btnLäggTill
             // 
-            btnLäggTill.Location = new Point(943, 456);
-            btnLäggTill.Margin = new Padding(2, 2, 2, 2);
+            btnLäggTill.Location = new Point(1532, 730);
             btnLäggTill.Name = "btnLäggTill";
-            btnLäggTill.Size = new Size(92, 29);
+            btnLäggTill.Size = new Size(150, 46);
             btnLäggTill.TabIndex = 8;
             btnLäggTill.Text = "Lägg till";
             btnLäggTill.UseVisualStyleBackColor = true;
@@ -241,19 +220,17 @@
             // 
             // textBoxUppgift
             // 
-            textBoxUppgift.Location = new Point(787, 421);
-            textBoxUppgift.Margin = new Padding(2, 2, 2, 2);
+            textBoxUppgift.Location = new Point(1279, 674);
             textBoxUppgift.Name = "textBoxUppgift";
-            textBoxUppgift.Size = new Size(250, 27);
+            textBoxUppgift.Size = new Size(404, 39);
             textBoxUppgift.TabIndex = 9;
             textBoxUppgift.TextChanged += textBoxUppgift_TextChanged;
             // 
             // btnVeckoöversikt
             // 
-            btnVeckoöversikt.Location = new Point(666, 488);
-            btnVeckoöversikt.Margin = new Padding(2, 2, 2, 2);
+            btnVeckoöversikt.Location = new Point(1082, 781);
             btnVeckoöversikt.Name = "btnVeckoöversikt";
-            btnVeckoöversikt.Size = new Size(92, 29);
+            btnVeckoöversikt.Size = new Size(150, 46);
             btnVeckoöversikt.TabIndex = 10;
             btnVeckoöversikt.Text = "Uppdatera";
             btnVeckoöversikt.UseVisualStyleBackColor = true;
@@ -262,10 +239,9 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(137, 58);
-            label2.Margin = new Padding(2, 0, 2, 0);
+            label2.Location = new Point(223, 93);
             label2.Name = "label2";
-            label2.Size = new Size(116, 20);
+            label2.Size = new Size(188, 32);
             label2.TabIndex = 11;
             label2.Text = "Schema översikt";
             label2.Click += label2_Click;
@@ -273,10 +249,9 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(787, 89);
-            label3.Margin = new Padding(2, 0, 2, 0);
+            label3.Location = new Point(1279, 142);
             label3.Name = "label3";
-            label3.Size = new Size(63, 20);
+            label3.Size = new Size(98, 32);
             label3.TabIndex = 12;
             label3.Text = "Välj dag";
             label3.Click += label3_Click;
@@ -284,20 +259,19 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(1064, 89);
-            label4.Margin = new Padding(2, 0, 2, 0);
+            label4.Location = new Point(1729, 142);
             label4.Name = "label4";
-            label4.Size = new Size(174, 20);
+            label4.Size = new Size(277, 32);
             label4.TabIndex = 13;
             label4.Text = "Se uppgifter på vald dag";
             label4.Click += label4_Click;
             // 
             // Homepage
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
-            ClientSize = new Size(1184, 552);
+            ClientSize = new Size(1924, 883);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -311,7 +285,6 @@
             Controls.Add(menuStrip1);
             Controls.Add(menuStrip2);
             MainMenuStrip = menuStrip1;
-            Margin = new Padding(2, 2, 2, 2);
             Name = "Homepage";
             Text = "Mitt schema";
             Load += Homepage_Load;
@@ -350,7 +323,5 @@
         private Label label3;
         private Label label4;
         private ToolStripMenuItem hanteraMedarbetareToolStripMenuItem;
-        private ToolStripMenuItem specialbeställningToolStripMenuItem;
-        private ToolStripMenuItem lagerberställningToolStripMenuItem;
     }
 }

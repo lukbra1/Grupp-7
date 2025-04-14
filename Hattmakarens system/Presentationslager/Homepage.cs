@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hattmakarens_system.Presentationslager;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -177,8 +178,14 @@ namespace Hattmakarens_system
 
         private void specialbeställningToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var Specialbeställning = new Specialbeställning(); // skapar en ny instans
-            Specialbeställning.Show();
+          
+        }
+
+        private void nyBeställningToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var VäljKund = new VäljKund(); // öppnar nya form
+            VäljKund.Show();
+            this.Close();
         }
     }
 }

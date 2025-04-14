@@ -118,7 +118,7 @@
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1459, 710);
             Controls.Add(btnGaVidare);
             Controls.Add(txtTyp);
             Controls.Add(txtVarde);
