@@ -298,7 +298,11 @@ namespace Hattmakarens_system.Database
             );
 
             modelBuilder.Entity<Modell>().HasData(
-                new Modell { ModellId = 1, Namn = "Studentmössa", Beskrivning = "En klassisk hatt", Tillganglig = true, Pris = 500 }
+                new Modell { ModellId = 1, Namn = "Studentmössa", Beskrivning = "En klassisk hatt", Tillganglig = true, Pris = 500 },
+                new Modell { ModellId = 2, Namn = "Doktormössa", Beskrivning = "En doktormössa", Tillganglig = true, Pris = 400 },
+                new Modell { ModellId = 3, Namn = "Oktoberhatt", Beskrivning = "En oktoberhatt", Tillganglig = true, Pris = 1000 },
+                new Modell { ModellId = 4, Namn = "Fez hatt", Beskrivning = "En fez hatt", Tillganglig = true, Pris = 300 },
+                new Modell { ModellId = 5, Namn = "Sherlock hatt", Beskrivning = "En Sherlock hatt", Tillganglig = true, Pris = 1200 }
             );
 
             modelBuilder.Entity<Material>().HasData(
