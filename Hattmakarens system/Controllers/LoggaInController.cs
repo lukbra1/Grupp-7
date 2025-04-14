@@ -26,7 +26,7 @@ namespace Hattmakarens_system.Controllers
             if (user != null)
             {
                 // Jämför lösenordet med det lagrade
-                return password == user.LosenordHash;  // Jämför lösenord i klartext
+                return password == user.Losenord;  // Jämför lösenord i klartext
             }
 
             return false; // Om användaren inte finns eller lösenordet är fel

@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Hattmakarens_system.Models;
+using Hattmakarens_system.ModelsNy;
 using Microsoft.EntityFrameworkCore;
 
 namespace Hattmakarens_system.ModelsNy
@@ -13,7 +13,7 @@ namespace Hattmakarens_system.ModelsNy
     public class Kund
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+        
         public int KundId { get; set; }
         [MaxLength(50)]
         public string Fornamn { get; set; }

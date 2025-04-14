@@ -1,4 +1,4 @@
-﻿using Hattmakarens_system.Models;
+﻿using Hattmakarens_system.ModelsNy;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,14 +13,14 @@ namespace Hattmakarens_system.Presentationslager
 {
     public partial class AnpassaLagerhattar : Form
     {
-        private Hattmodell valdHatt;
-        public AnpassaLagerhattar(Hattmodell hatt)
-        {
-            InitializeComponent();
-            valdHatt = hatt;
+        //private Hattmodell valdHatt;
+        //public AnpassaLagerhattar(Hattmodell hatt)
+        //{
+        //    InitializeComponent();
+        //    valdHatt = hatt;
 
-            lblNamn.Text = hatt.Namn;
-            lblPris.Text = hatt.Pris.ToString("C");
-        }
+        //    lblNamn.Text = hatt.Namn;
+        //    lblPris.Text = hatt.Pris.ToString("C");
+        //}
     }
 }
