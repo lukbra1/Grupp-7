@@ -26,20 +26,28 @@ namespace Hattmakarens_system.Presentationslager
             listBox1.Items.Clear();
 
             // Om lagerhatt
-            //Modellnamn
-            //Pris
+            // Bild
+            // Modellnamn
+            // Storlek
+            // Pris
 
             // Om specialhatt
-
+            // Referensbild
+            // Kommentar
+            // Storlek
+            // Pris
 
             foreach (var orderRad in OrderRader)
             {
                 //listBox1.Items.Add(orderRad.);
-                if(orderRad is LagerOrderrad)
+                if (orderRad is LagerOrderrad)
                 {
 
                 }
-                
+                else if (orderRad is SpecialOrderrad)
+                {
+
+                }
             }
         }
 
