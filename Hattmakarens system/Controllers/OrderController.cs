@@ -32,5 +32,11 @@ namespace Hattmakarens_system.Controllers
             _context.SaveChanges();
             return Order;
         }
+
+        public List<Modell> HämtaAllaModeller()
+        {
+            return _context.Modeller.ToList();
+        }
+
     }
 }
