@@ -82,6 +82,9 @@ namespace Hattmakarens_system.Presentationslager
 
             if (cbVäljHatt.SelectedItem is Modell valdModell)
             {
+                lblNamn.Text = valdModell.Namn;
+                lblPris.Text = $"{valdModell.Pris} kr"; // Anpassa efter valutaformat
+
                 string hattNamn = valdModell.Namn; // korrekt namn
                 string filnamn = hattNamn + ".jpg";
                 string bildPath = Path.Combine(Application.StartupPath, "Resources", filnamn);

@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             pbReferens = new PictureBox();
-            label1 = new Label();
+            lblNamn = new Label();
             btnLäggtill = new Button();
-            label6 = new Label();
+            lblPris = new Label();
             btnSpec = new Button();
             label11 = new Label();
             label12 = new Label();
@@ -52,15 +52,15 @@
             pbReferens.TabIndex = 0;
             pbReferens.TabStop = false;
             // 
-            // label1
+            // lblNamn
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(81, 330);
-            label1.Margin = new Padding(2, 0, 2, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(102, 20);
-            label1.TabIndex = 5;
-            label1.Text = "Studentmössa";
+            lblNamn.AutoSize = true;
+            lblNamn.Location = new Point(81, 330);
+            lblNamn.Margin = new Padding(2, 0, 2, 0);
+            lblNamn.Name = "lblNamn";
+            lblNamn.Size = new Size(102, 20);
+            lblNamn.TabIndex = 5;
+            lblNamn.Text = "Studentmössa";
             // 
             // btnLäggtill
             // 
@@ -73,15 +73,15 @@
             btnLäggtill.UseVisualStyleBackColor = true;
             btnLäggtill.Click += button1_Click;
             // 
-            // label6
+            // lblPris
             // 
-            label6.AutoSize = true;
-            label6.Location = new Point(101, 358);
-            label6.Margin = new Padding(2, 0, 2, 0);
-            label6.Name = "label6";
-            label6.Size = new Size(49, 20);
-            label6.TabIndex = 14;
-            label6.Text = "800 kr";
+            lblPris.AutoSize = true;
+            lblPris.Location = new Point(101, 358);
+            lblPris.Margin = new Padding(2, 0, 2, 0);
+            lblPris.Name = "lblPris";
+            lblPris.Size = new Size(49, 20);
+            lblPris.TabIndex = 14;
+            lblPris.Text = "800 kr";
             // 
             // btnSpec
             // 
@@ -154,9 +154,9 @@
             Controls.Add(label12);
             Controls.Add(label11);
             Controls.Add(btnSpec);
-            Controls.Add(label6);
+            Controls.Add(lblPris);
             Controls.Add(btnLäggtill);
-            Controls.Add(label1);
+            Controls.Add(lblNamn);
             Controls.Add(pbReferens);
             Margin = new Padding(2);
             Name = "LaggTillLagerhattar";
@@ -170,9 +170,9 @@
         #endregion
 
         private PictureBox pbReferens;
-        private Label label1;
+        private Label lblNamn;
         private Button btnLäggtill;
-        private Label label6;
+        private Label lblPris;
         private Button btnSpec;
         private Label label11;
         private Label label12;
