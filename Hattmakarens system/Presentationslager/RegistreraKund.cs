@@ -66,7 +66,7 @@ namespace Hattmakarens_system
                     context.SaveChanges();
                 }
 
-                var LaggTillHattar = new LaggTillLagerhattar();
+                var LaggTillHattar = new LaggTillLagerhattar(nyKund);
                 LaggTillHattar.Show();
                 this.Close();
 

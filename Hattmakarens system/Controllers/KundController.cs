@@ -31,7 +31,12 @@ namespace Hattmakarens_system.Controllers
         }
         public List<Kund> HamtaKunderMedNamn(string ForNamn)
         {
-            return new List<Kund>(); 
+            List<Kund> kunder = _context.Kunder.Where(k => k.Fornamn == ForNamn).ToList();
+            return kunder; 
+        }
+        public Kund HamtaKundFranId(int KundId)
+        {
+            return this._context.Kunder.FirstOrDefault(k => k.KundId == KundId);
         }
         public Kund HamtaKundFranFornamn(string ForNamn)
         {

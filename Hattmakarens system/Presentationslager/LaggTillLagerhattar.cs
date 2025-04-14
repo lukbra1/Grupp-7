@@ -7,19 +7,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Hattmakarens_system.ModelsNy;
 
 namespace Hattmakarens_system.Presentationslager
 {
     public partial class LaggTillLagerhattar : Form
     {
-        public LaggTillLagerhattar()
+        Kund kunden;
+        public LaggTillLagerhattar(Kund kund)
         {
+            this.kunden = kund;
             InitializeComponent();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             // Studentmössa
+            
+
+
             //using var db = new Database.AppDbContext();
             //var studentHatt = db.Hattmodeller.FirstOrDefault(h => h.HattModellId == 3);
             //if (studentHatt != null)
