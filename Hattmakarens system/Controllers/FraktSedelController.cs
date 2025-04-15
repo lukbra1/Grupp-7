@@ -1,0 +1,45 @@
+﻿using Hattmakarens_system.Database;
+using Hattmakarens_system.ModelsNy;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Hattmakarens_system.Controllers
+{
+    public class FraktSedelController
+    {
+        private readonly AppDbContext _context;
+
+        public FraktSedelController(AppDbContext context)
+        {
+            this._context = context;
+        }
+        public FraktSedel SkapaFraktsedel(int orderId, int vikt, decimal värde, int exportKod, double moms)
+        {
+            var order = _context.Ordrar.FirstOrDefault(o => o.OrderId == orderId);
+            if (order == null)
+                throw new Exception("Ordern hittades inte.");
+
+            var prisInkMoms = värde + (värde * (decimal)(moms / 100));
+
+            var fraktsedel = new FraktSedel
+            {
+                OrderID = orderId,
+                Vikt = vikt,
+                Värde = värde,
+                ExportKod = exportKod,
+                Moms = moms,
+                PrisInkMoms = prisInkMoms,
+                SkapatDatum = DateTime.Now
+            };
+
+            _context.Fraktsedlar.Add(fraktsedel);
+            _context.SaveChanges();
+
+            return fraktsedel;
+        }
+
+    }
+}
