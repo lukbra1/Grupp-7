@@ -23,22 +23,6 @@ namespace Hattmakarens_system.Presentationslager
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            // Studentmössa
-
-
-
-            //using var db = new Database.AppDbContext();
-            //var studentHatt = db.Hattmodeller.FirstOrDefault(h => h.HattModellId == 3);
-            //if (studentHatt != null)
-            //{
-            //    AnpassaLagerhattar anpassaLagerhattar = new AnpassaLagerhattar(studentHatt);
-            //    anpassaLagerhattar.Show();
-            //    this.Close();
-            //}
-        }
-
         private void button6_Click(object sender, EventArgs e)
         {
             // Skapa specialbeställningshatt
@@ -102,6 +86,19 @@ namespace Hattmakarens_system.Presentationslager
 
 
 
+
+        }
+
+        private void btnLäggtill_Click(object sender, EventArgs e)
+        {
+
+            if (chbAnpassa.Checked)
+            {
+                // Öppna fönstret för anpassning
+                var anpassningsForm = new AnpassaLagerhattar();
+                anpassningsForm.Show();
+                this.Dispose();
+            }
 
         }
     }

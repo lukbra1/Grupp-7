@@ -71,7 +71,7 @@
             btnLäggtill.TabIndex = 10;
             btnLäggtill.Text = "Lägg till";
             btnLäggtill.UseVisualStyleBackColor = true;
-            btnLäggtill.Click += button1_Click;
+            btnLäggtill.Click += btnLäggtill_Click;
             // 
             // lblPris
             // 
