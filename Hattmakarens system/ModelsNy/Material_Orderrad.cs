@@ -13,6 +13,8 @@ namespace Hattmakarens_system.ModelsNy
 
         public int OrderRadId { get; set; }
         public OrderRad OrderRad { get; set; }
+
+        public bool Bestallt { get; set; } // Ny egenskap för att markera om materialet är beställt
     }
 
 }

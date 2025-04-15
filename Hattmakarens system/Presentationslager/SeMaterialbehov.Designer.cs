@@ -32,6 +32,7 @@
             btnVisaMaterial = new Button();
             cmbHattar = new ComboBox();
             dataGridViewMaterial = new DataGridView();
+            btnSparaBestallning = new Button();
             grpBoxSeHatt.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewMaterial).BeginInit();
             SuspendLayout();
@@ -40,13 +41,12 @@
             // 
             grpBoxSeHatt.Controls.Add(btnVisaMaterial);
             grpBoxSeHatt.Controls.Add(cmbHattar);
-            grpBoxSeHatt.Location = new Point(76, 28);
+            grpBoxSeHatt.Location = new Point(12, 28);
             grpBoxSeHatt.Name = "grpBoxSeHatt";
             grpBoxSeHatt.Size = new Size(200, 100);
             grpBoxSeHatt.TabIndex = 0;
             grpBoxSeHatt.TabStop = false;
             grpBoxSeHatt.Text = "Lista över hattar ";
-            
             // 
             // btnVisaMaterial
             // 
@@ -56,7 +56,6 @@
             btnVisaMaterial.TabIndex = 1;
             btnVisaMaterial.Text = "Visa Materialbehov";
             btnVisaMaterial.UseVisualStyleBackColor = true;
-            
             // 
             // cmbHattar
             // 
@@ -71,18 +70,29 @@
             dataGridViewMaterial.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewMaterial.Location = new Point(304, 28);
             dataGridViewMaterial.Name = "dataGridViewMaterial";
-            dataGridViewMaterial.Size = new Size(484, 317);
+            dataGridViewMaterial.Size = new Size(772, 369);
             dataGridViewMaterial.TabIndex = 1;
+            // 
+            // btnSparaBestallning
+            // 
+            btnSparaBestallning.Location = new Point(963, 365);
+            btnSparaBestallning.Name = "btnSparaBestallning";
+            btnSparaBestallning.Size = new Size(113, 32);
+            btnSparaBestallning.TabIndex = 2;
+            btnSparaBestallning.Text = "Spara beställning";
+            btnSparaBestallning.UseVisualStyleBackColor = true;
+            btnSparaBestallning.Click += btnSparaBestallning_Click;
             // 
             // SeMaterialbehov
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1088, 450);
+            Controls.Add(btnSparaBestallning);
             Controls.Add(dataGridViewMaterial);
             Controls.Add(grpBoxSeHatt);
             Name = "SeMaterialbehov";
-            Text = "SeMaterialbehov";
+            Text = "SeMaterialbehov&Beställningsstatus";
             grpBoxSeHatt.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridViewMaterial).EndInit();
             ResumeLayout(false);
@@ -94,5 +104,6 @@
         private ComboBox cmbHattar;
         private Button btnVisaMaterial;
         private DataGridView dataGridViewMaterial;
+        private Button btnSparaBestallning;
     }
 }

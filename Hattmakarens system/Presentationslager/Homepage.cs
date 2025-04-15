@@ -178,7 +178,7 @@ namespace Hattmakarens_system
 
         private void specialbeställningToolStripMenuItem_Click(object sender, EventArgs e)
         {
-          
+
         }
 
         private void nyBeställningToolStripMenuItem_Click(object sender, EventArgs e)
@@ -186,6 +186,12 @@ namespace Hattmakarens_system
             var VäljKund = new VäljKund(); // öppnar nya form
             VäljKund.Show();
             this.Hide();
+        }
+
+        private void seAlltMaterialToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var materialForm = new SeMaterialbehov();
+            materialForm.Show();
         }
     }
 }
