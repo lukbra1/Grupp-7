@@ -30,6 +30,7 @@ namespace Hattmakarens_system.Controllers
                 KundId = KundId,
                 OrderRader = new List<OrderRad>()
             };
+            _context.Ordrar.Add(Order);
             _context.SaveChanges();
             return Order;
         }
