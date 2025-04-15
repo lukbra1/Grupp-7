@@ -13,13 +13,17 @@ namespace Hattmakarens_system
     {
         private readonly AppDbContext _context = new AppDbContext();
         private Order valdOrder;
+        private int _orderId;
 
-        public RedigeraOrder()
+
+        public RedigeraOrder(int orderId)
         {
             InitializeComponent();
             Load += RedigeraOrder_Load;
             btnVisaOrder.Click += btnVisaOrder_Click;
             btnSpara.Click += btnSpara_Click;
+            _orderId = orderId;
+
         }
 
         private void RedigeraOrder_Load(object sender, EventArgs e)
