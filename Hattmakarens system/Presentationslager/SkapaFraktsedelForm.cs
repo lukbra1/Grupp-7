@@ -34,21 +34,34 @@ namespace Hattmakarens_system.Presentationslager
             int exportKod = int.Parse(txtExportkod.Text);
             decimal värde = decimal.Parse(txtKostnad.Text);
             double moms = double.Parse(txtMoms.Text);
+            string adress = txtAdress.Text;
+            string avsändare =txtAvsandare.Text;
+            string mottagre = txtMottagare.Text;
+            string beskrivning = rchtxtBeskrivning.Text;
 
-            var fraktsedel = db.SkapaFraktsedel(2, vikt, värde, exportKod, moms);
+
+            var fraktsedel = db.SkapaFraktsedel(order, vikt, värde, exportKod, moms, adress, avsändare,mottagre,beskrivning );
 
             MessageBox.Show("Fraktsedel skapad!\nPris inkl. moms: " + fraktsedel.PrisInkMoms);
 
             MessageBox.Show($@"Fraktsedel:
-            - OrderID: {fraktsedel.OrderID}
+            - Adress: {fraktsedel.Adress}
+            - Avsändare: {fraktsedel.Avsändare}
+            -Mottagre: {fraktsedel.Mottagare}
+            -Beskrivning: {fraktsedel.Beskrivning}
+            -Exportkod: {fraktsedel.ExportKod}
+            -Pris {fraktsedel.Värde} kr
             - Vikt: {fraktsedel.Vikt} kg
-            - Värde: {fraktsedel.Värde} kr
             - Moms: {fraktsedel.Moms} %
             - Total: {fraktsedel.PrisInkMoms} kr
-            - Exportkod: {fraktsedel.ExportKod}
             - Datum: {fraktsedel.SkapatDatum}");
+
 
         }
 
+        private void txtVikt_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

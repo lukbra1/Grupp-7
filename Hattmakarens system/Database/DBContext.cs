@@ -347,7 +347,12 @@ namespace Hattmakarens_system.Database
                       Moms = 25,
                       PrisInkMoms = 1000,
                       SkapatDatum = new DateTime(2025, 4, 14),
-                      OrderID = 1
+                      OrderID = 1,
+                      Adress = "Gatan 1",
+                      Avsändare = "Otto AB",
+                      Mottagare ="Bob",
+                      Beskrivning = "Hatt"
+
                   }
 );
 

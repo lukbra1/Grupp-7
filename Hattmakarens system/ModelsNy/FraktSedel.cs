@@ -17,6 +17,11 @@ namespace Hattmakarens_system.ModelsNy
         public double Moms { get; set; }
         public decimal PrisInkMoms { get; set; }
         public DateTime SkapatDatum { get; set; }
+        public string Adress { get; set; }
+        public string Avsändare { get; set; }
+        public string Mottagare { get; set; }
+        public string? Beskrivning{ get; set; }
+
         public int OrderID { get; set; }
         public Order Order { get; set; }
     }
