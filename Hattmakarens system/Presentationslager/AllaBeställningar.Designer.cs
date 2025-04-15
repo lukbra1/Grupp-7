@@ -28,12 +28,54 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "AllaBeställningar";
+            lblAllaBeställningar = new ListBox();
+            btnSkapaFraktSedel = new Button();
+            btnRedigera = new Button();
+            SuspendLayout();
+            // 
+            // lblAllaBeställningar
+            // 
+            lblAllaBeställningar.FormattingEnabled = true;
+            lblAllaBeställningar.Location = new Point(34, 39);
+            lblAllaBeställningar.Name = "lblAllaBeställningar";
+            lblAllaBeställningar.Size = new Size(517, 364);
+            lblAllaBeställningar.TabIndex = 0;
+            // 
+            // btnSkapaFraktSedel
+            // 
+            btnSkapaFraktSedel.Location = new Point(595, 374);
+            btnSkapaFraktSedel.Name = "btnSkapaFraktSedel";
+            btnSkapaFraktSedel.Size = new Size(174, 29);
+            btnSkapaFraktSedel.TabIndex = 1;
+            btnSkapaFraktSedel.Text = "Skapa Fraktsedel";
+            btnSkapaFraktSedel.UseVisualStyleBackColor = true;
+            // 
+            // btnRedigera
+            // 
+            btnRedigera.Location = new Point(595, 326);
+            btnRedigera.Name = "btnRedigera";
+            btnRedigera.Size = new Size(174, 29);
+            btnRedigera.TabIndex = 2;
+            btnRedigera.Text = "Redigera Beställning";
+            btnRedigera.UseVisualStyleBackColor = true;
+            // 
+            // AllaBeställningar
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(btnRedigera);
+            Controls.Add(btnSkapaFraktSedel);
+            Controls.Add(lblAllaBeställningar);
+            Name = "AllaBeställningar";
+            Text = "AllaBeställningar";
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private ListBox lblAllaBeställningar;
+        private Button btnSkapaFraktSedel;
+        private Button btnRedigera;
     }
 }
