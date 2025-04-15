@@ -23,20 +23,6 @@ namespace Hattmakarens_system.Presentationslager
             InitializeComponent();
         }
 
-        private void button6_Click(object sender, EventArgs e)
-        {
-            // Skapa specialbeställningshatt
-            var SpecialBeställning = new Specialbeställning();
-            SpecialBeställning.Show();
-            this.Close();
-        }
-
-
-
-
-
-
-
         private void LaggTillLagerhattar_Load(object sender, EventArgs e)
         {
             var hattar = db.HämtaAllaModeller();
@@ -126,10 +112,16 @@ namespace Hattmakarens_system.Presentationslager
 
         private void btnVisaBeställning_Click(object sender, EventArgs e)
         {
-            var beställningsForm = new Beställning(Ordern); 
+            var beställningsForm = new Beställning(Ordern);
             beställningsForm.Show();
-            this.Hide(); 
+            this.Hide();
         }
 
+        private void btnSpec_Click(object sender, EventArgs e)
+        {
+            var SpecialBeställning = new Specialbeställning();
+            SpecialBeställning.Show();
+            this.Hide();
+        }
     }
 }

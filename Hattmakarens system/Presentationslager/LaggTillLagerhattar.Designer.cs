@@ -92,6 +92,7 @@
             btnSpec.TabIndex = 20;
             btnSpec.Text = "Special order";
             btnSpec.UseVisualStyleBackColor = true;
+            btnSpec.Click += btnSpec_Click;
             // 
             // label11
             // 
