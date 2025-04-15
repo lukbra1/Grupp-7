@@ -46,9 +46,9 @@ namespace Hattmakarens_system.Controllers
             return _context.Modeller.ToList();
         }
 
-        public LagerOrderrad LäggTillLagerOrderrad(int orderId, int modellId)
+        public LagerOrderrad LäggTillLagerOrderrad(Order order, int modellId)
         {
-            var order = _context.Ordrar.FirstOrDefault(o => o.OrderId == orderId);
+            
             var modell = _context.Modeller.FirstOrDefault(m => m.ModellId == modellId);
 
             if (order == null || modell == null)
@@ -56,7 +56,7 @@ namespace Hattmakarens_system.Controllers
 
             var orderRad = new LagerOrderrad
             {
-                OrderId = orderId,
+                OrderId = order.OrderId,
                 ModellId = modellId,
                 StatusOrderrad = StatusOrderradEnum.EjPaborjad,
                 Tillverkad = false,

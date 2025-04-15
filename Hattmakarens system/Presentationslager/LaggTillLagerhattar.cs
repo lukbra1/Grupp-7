@@ -94,7 +94,7 @@ namespace Hattmakarens_system.Presentationslager
                     else
                     {
                         // Endast spara direkt om det inte är en anpassning
-                        LagerOrderrad nyOrderrad = db.LäggTillLagerOrderrad(Ordern.OrderId, valdModell.ModellId);
+                        LagerOrderrad nyOrderrad = db.LäggTillLagerOrderrad(Ordern, valdModell.ModellId);
 
                         MessageBox.Show($"Hatten '{valdModell.Namn}' har lagts till i ordern.", "Tillagd", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }

@@ -67,45 +67,10 @@ namespace Hattmakarens_system.Presentationslager
             // Kommentar
             // Storlek
             // Pris
-
-            foreach (var orderRad in OrderRader)
-            {
-                //listBox1.Items.Add(orderRad.);
-                if (orderRad is LagerOrderrad)
-                {
-
-                }
-                else if (orderRad is SpecialOrderrad)
-                {
-
-                }
-            }
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //listBox1.Items.Clear();
-            //var orderRaderna = orderController.HämtaAllaOrderRader(ordern);
-
-            //if (ordern != null)
-            //{
-            //    // Anta att du har valt en Order i listboxen
-            //    var valdOrder = (Order)listBox1.SelectedItem;
-
-            //    if (valdOrder != null)
-            //    {
-            //        // Hämta alla orderrader via controller med OrderId
-            //        var orderrader = _context.HämtaAllaOrderRader(valdOrder.OrderId);
-
-            //        // Visa dem t.ex. i en ListBox eller DataGridView
-            //        listBoxOrderRader.DataSource = orderrader;
-            //        listBoxOrderRader.DisplayMember = "HattId"; // eller annan egenskap du vill visa
-            //    }
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Ingen aktiv order hittades.");
-            //}
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -117,7 +82,6 @@ namespace Hattmakarens_system.Presentationslager
 
         private void label2_Click(object sender, EventArgs e)
         {
-            //Visa totalpris
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -129,7 +93,7 @@ namespace Hattmakarens_system.Presentationslager
             ordern.Express = checkBox1.Checked;
 
             // Uppdatera ordern i databasen
-            orderController.UppdateraOrder(ordern); // Skapa denna metod om du inte har den
+            orderController.UppdateraOrder(ordern); 
 
             MessageBox.Show($"Expressleverans är nu {(ordern.Express ? "aktiverad" : "avaktiverad")}.");
         
