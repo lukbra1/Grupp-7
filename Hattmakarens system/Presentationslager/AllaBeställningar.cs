@@ -23,7 +23,7 @@ namespace Hattmakarens_system.Presentationslager
 
         private void AllaBeställningar_Load(object sender, EventArgs e)
         {
-        
+
             var ordrar = db.HämtaAllaOrdrar(); // 🧠 Metoden du redan har
 
             lvAlla.Items.Clear(); // Rensa först
@@ -46,7 +46,25 @@ namespace Hattmakarens_system.Presentationslager
             }
         }
 
+        private void btnRedigera_Click(object sender, EventArgs e)
+        {
+            if (lvAlla.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Välj en order först.");
+                return;
+            }
 
+            // Hämta den valda raden
+            var valdRad = lvAlla.SelectedItems[0];
+
+            // Vi sparade order-objektet i Tag tidigare
+            if (valdRad.Tag is Hattmakarens_system.ModelsNy.Order valdOrder)
+            {
+                // Öppna RedigeraOrder och skicka med OrderId
+                var redigeraForm = new RedigeraOrder(valdOrder.OrderId);
+                redigeraForm.Show(); // eller .ShowDialog() om du vill blockera
+            }
+        }
     }
 }
 

@@ -2,7 +2,6 @@
 using Hattmakarens_system.ModelsNy;
 using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
@@ -13,82 +12,69 @@ namespace Hattmakarens_system
     {
         private readonly AppDbContext _context = new AppDbContext();
         private Order valdOrder;
-        private int _orderId;
-
+        private readonly int _orderId;
 
         public RedigeraOrder(int orderId)
         {
             InitializeComponent();
-            Load += RedigeraOrder_Load;
-            btnVisaOrder.Click += btnVisaOrder_Click;
-            btnSpara.Click += btnSpara_Click;
             _orderId = orderId;
 
+            Load += RedigeraOrder_Load;
+            btnSpara.Click += btnSpara_Click;
         }
 
         private void RedigeraOrder_Load(object sender, EventArgs e)
         {
-            var ordrar = _context.Ordrar.ToList();
+            valdOrder = _context.Ordrar
+                .Include(o => o.OrderRader)
+                .FirstOrDefault(o => o.OrderId == _orderId);
 
-            cmbOrderId.DisplayMember = "OrderId";
-            cmbOrderId.ValueMember = "OrderId";
-            cmbOrderId.DataSource = ordrar;
-        }
-
-        private void btnVisaOrder_Click(object sender, EventArgs e)
-        {
-            if (cmbOrderId.SelectedValue is int orderId)
+            if (valdOrder == null)
             {
-                valdOrder = _context.Ordrar
-                    .Include(o => o.OrderRader)
-                    .FirstOrDefault(o => o.OrderId == orderId);
+                MessageBox.Show("Kunde inte hitta order.");
+                Close();
+                return;
+            }
 
-                if (valdOrder == null)
+            // Skapa datatabell
+            DataTable dt = new DataTable();
+            dt.Columns.Add("OrderRadId", typeof(int));
+            dt.Columns.Add("Typ", typeof(string));
+            dt.Columns.Add("Storlek", typeof(string));
+            dt.Columns.Add("Status", typeof(string));
+            dt.Columns.Add("Express", typeof(bool)); // visa express på varje rad
+
+            foreach (var rad in valdOrder.OrderRader)
+            {
+                dt.Rows.Add(
+                    rad.OrderRadId,
+                    rad.TypEnum.ToString(),
+                    rad.Storlek.ToString(),
+                    rad.StatusOrderrad.ToString(),
+                    valdOrder.Express
+                );
+            }
+
+            dgvOrderRader.DataSource = dt;
+
+            LäggTillComboKolumn("Typ", typeof(TypEnum));
+            LäggTillComboKolumn("Storlek", typeof(StorlekEnum));
+            LäggTillComboKolumn("Status", typeof(StatusOrderradEnum));
+
+            // Express-kolumn som checkbox
+            if (!(dgvOrderRader.Columns["Express"] is DataGridViewCheckBoxColumn))
+            {
+                int index = dgvOrderRader.Columns["Express"].Index;
+
+                var expressCol = new DataGridViewCheckBoxColumn
                 {
-                    MessageBox.Show("Kunde inte hitta order.");
-                    return;
-                }
+                    DataPropertyName = "Express",
+                    Name = "Express",
+                    HeaderText = "Express"
+                };
 
-                // Skapa DataTable för redigering
-                DataTable dt = new DataTable();
-                dt.Columns.Add("OrderRadId", typeof(int));
-                dt.Columns.Add("Typ", typeof(string));
-                dt.Columns.Add("Storlek", typeof(string));
-                dt.Columns.Add("Status", typeof(string));
-                dt.Columns.Add("Express", typeof(bool)); // 🆕 ny kolumn
-
-                foreach (var rad in valdOrder.OrderRader)
-                {
-                    dt.Rows.Add(
-                        rad.OrderRadId,
-                        rad.TypEnum.ToString(),
-                        rad.Storlek.ToString(),
-                        rad.StatusOrderrad.ToString(),
-                        valdOrder.Express // 🆕 samma expressvärde på varje rad
-                    );
-                }
-
-                dgvOrderRader.DataSource = dt;
-
-                LäggTillComboKolumn("Typ", typeof(TypEnum));
-                LäggTillComboKolumn("Storlek", typeof(StorlekEnum));
-                LäggTillComboKolumn("Status", typeof(StatusOrderradEnum));
-
-                // Se till att Express-kolumn är redigerbar checkbox
-                if (dgvOrderRader.Columns["Express"] is DataGridViewCheckBoxColumn expressCol == false)
-                {
-                    int index = dgvOrderRader.Columns["Express"].Index;
-
-                    var expressCheckbox = new DataGridViewCheckBoxColumn
-                    {
-                        DataPropertyName = "Express",
-                        Name = "Express",
-                        HeaderText = "Express"
-                    };
-
-                    dgvOrderRader.Columns.RemoveAt(index);
-                    dgvOrderRader.Columns.Insert(index, expressCheckbox);
-                }
+                dgvOrderRader.Columns.RemoveAt(index);
+                dgvOrderRader.Columns.Insert(index, expressCol);
             }
         }
 
@@ -133,7 +119,7 @@ namespace Hattmakarens_system
                 }
             }
 
-            // 🆕 Hämta Express från första raden
+            // Spara Express från första raden
             if (dgvOrderRader.Rows.Count > 0 &&
                 dgvOrderRader.Rows[0].Cells["Express"].Value is bool express)
             {
