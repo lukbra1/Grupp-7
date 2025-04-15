@@ -95,21 +95,33 @@ namespace Hattmakarens_system.Presentationslager
             {
                 try
                 {
-                    LagerOrderrad nyOrderrad = db.LäggTillLagerOrderrad(Ordern.OrderId, valdModell.ModellId);
-
-                    MessageBox.Show($"Hatten '{valdModell.Namn}' har lagts till i ordern.", "Tillagd", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                     if (chbAnpassa.Checked)
                     {
+                        // Skapa en tom LagerOrderrad som skickas till anpassningsformuläret
+                        var nyOrderrad = new LagerOrderrad
+                        {
+                            ModellId = valdModell.ModellId,
+                            OrderId = Ordern.OrderId,
+                            UserId = null,
+                            Tillverkad = false,
+                            StatusOrderrad = StatusOrderradEnum.EjPaborjad
+                        };
+
                         var anpassningsForm = new AnpassaLagerhattar(nyOrderrad);
                         anpassningsForm.Show();
+                        this.Dispose();
                     }
+                    else
+                    {
+                        // Endast spara direkt om det inte är en anpassning
+                        LagerOrderrad nyOrderrad = db.LäggTillLagerOrderrad(Ordern.OrderId, valdModell.ModellId);
 
-                    this.Dispose(); // stäng detta fönster
+                        MessageBox.Show($"Hatten '{valdModell.Namn}' har lagts till i ordern.", "Tillagd", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Fel" + (Ordern.OrderId), "Fel", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Fel: " + ex.Message, "Fel vid sparning", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
@@ -117,6 +129,7 @@ namespace Hattmakarens_system.Presentationslager
                 MessageBox.Show("Välj en hatt först.", "Ingen hatt vald", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
 
 
 
