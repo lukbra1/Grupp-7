@@ -38,35 +38,20 @@ namespace Hattmakarens_system.Presentationslager
 
                 if (orderRad is LagerOrderrad lager)
                 {
-                    displayText = $"Lagerhatt - Modell: {lager.Modell?.Namn}, Storlek: {lager.Storlek}, Pris: {lager.Modell?.Pris} kr";
+                    displayText = $"Lagerhatt - Modell: {lager.Modell?.Namn}, Storlek: {lager.Storlek}";
                 }
                 else if (orderRad is SpecialOrderrad special)
                 {
-                    displayText = $"Specialhatt - Kommentar: {special.Kommentar}, Storlek: {special.Storlek}, Pris: beräknas separat";
+                    displayText = $"Specialhatt - Kommentar: {special.Kommentar}, Storlek: {special.Storlek}";
                 }
-                else
-                {
-                    displayText = $"Okänd typ - Orderrad ID: {orderRad.OrderRadId}";
-                }
-
+                
                 listBox1.Items.Add(displayText);
             }
 
             label2.Text = $"Totalt pris: {ordern.TotalPris} kr";
 
+            UppdateraTotalpris();
 
-
-            // Om lagerhatt
-            // Bild
-            // Modellnamn
-            // Storlek
-            // Pris
-
-            // Om specialhatt
-            // Referensbild
-            // Kommentar
-            // Storlek
-            // Pris
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -84,19 +69,30 @@ namespace Hattmakarens_system.Presentationslager
         {
         }
 
+        private void UppdateraTotalpris()
+        {
+            var totalPris = orderController.BeräknaTotalprisMedEventuellExpress(ordern);
+            label2.Text = $"Totalpris: {totalPris} kr";
+        }
+
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             if (ordern == null)
                 return;
 
-            // Sätt express till true eller false beroende på checkbox
+            // Sätt Express till true eller false beroende på checkbox
             ordern.Express = checkBox1.Checked;
 
-            // Uppdatera ordern i databasen
-            orderController.UppdateraOrder(ordern); 
+            // Spara ändringen till databasen
+            orderController.UppdateraOrder(ordern);
 
-            MessageBox.Show($"Expressleverans är nu {(ordern.Express ? "aktiverad" : "avaktiverad")}.");
-        
+            // Uppdatera totalpriset i GUI:t
+            UppdateraTotalpris();
+
+            // Visa bekräftelse
+            string status = ordern.Express ? "aktiverad" : "avaktiverad";
+            MessageBox.Show($"Expressleverans är nu {status}.");
+            
         }
     }
 }
