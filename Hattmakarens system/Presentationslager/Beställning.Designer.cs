@@ -32,14 +32,14 @@
             button2 = new Button();
             label1 = new Label();
             listBox1 = new ListBox();
+            checkBox1 = new CheckBox();
             SuspendLayout();
             // 
             // button1
             // 
-            button1.Location = new Point(17, 14);
-            button1.Margin = new Padding(2, 2, 2, 2);
+            button1.Location = new Point(28, 22);
             button1.Name = "button1";
-            button1.Size = new Size(191, 29);
+            button1.Size = new Size(310, 46);
             button1.TabIndex = 0;
             button1.Text = "Lägg till ny hatt";
             button1.UseVisualStyleBackColor = true;
@@ -47,10 +47,9 @@
             // 
             // button2
             // 
-            button2.Location = new Point(1174, 526);
-            button2.Margin = new Padding(2, 2, 2, 2);
+            button2.Location = new Point(1689, 857);
             button2.Name = "button2";
-            button2.Size = new Size(92, 29);
+            button2.Size = new Size(150, 46);
             button2.TabIndex = 1;
             button2.Text = "Slutför Beställning";
             button2.UseVisualStyleBackColor = true;
@@ -58,33 +57,41 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(534, 14);
-            label1.Margin = new Padding(2, 0, 2, 0);
+            label1.Location = new Point(761, 36);
             label1.Name = "label1";
-            label1.Size = new Size(216, 20);
+            label1.Size = new Size(348, 32);
             label1.TabIndex = 2;
             label1.Text = "Denna sida visar din \"varukorg\"";
             // 
             // listBox1
             // 
             listBox1.FormattingEnabled = true;
-            listBox1.Location = new Point(156, 78);
-            listBox1.Margin = new Padding(2, 2, 2, 2);
+            listBox1.Location = new Point(116, 128);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(1062, 424);
+            listBox1.Size = new Size(1723, 676);
             listBox1.TabIndex = 3;
             listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
             // 
+            // checkBox1
+            // 
+            checkBox1.AutoSize = true;
+            checkBox1.Location = new Point(1477, 863);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(206, 36);
+            checkBox1.TabIndex = 4;
+            checkBox1.Text = "Extressleverans";
+            checkBox1.UseVisualStyleBackColor = true;
+            // 
             // Beställning
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1288, 597);
+            ClientSize = new Size(1981, 955);
+            Controls.Add(checkBox1);
             Controls.Add(listBox1);
             Controls.Add(label1);
             Controls.Add(button2);
             Controls.Add(button1);
-            Margin = new Padding(2, 2, 2, 2);
             Name = "Beställning";
             Text = "Beställning";
             ResumeLayout(false);
@@ -97,5 +104,6 @@
         private Button button2;
         private Label label1;
         private ListBox listBox1;
+        private CheckBox checkBox1;
     }
 }
