@@ -47,6 +47,7 @@
             btnSkapaFraktSedel.TabIndex = 1;
             btnSkapaFraktSedel.Text = "Skapa Fraktsedel";
             btnSkapaFraktSedel.UseVisualStyleBackColor = true;
+            btnSkapaFraktSedel.Click += btnSkapaFraktSedel_Click;
             // 
             // btnRedigera
             // 
@@ -57,16 +58,19 @@
             btnRedigera.TabIndex = 2;
             btnRedigera.Text = "Redigera Beställning";
             btnRedigera.UseVisualStyleBackColor = true;
+            btnRedigera.Click += btnRedigera_Click;
             // 
             // lvAlla
             // 
             lvAlla.Columns.AddRange(new ColumnHeader[] { OrderId, Skapad, Status, Express, Pris });
+            lvAlla.FullRowSelect = true;
             lvAlla.Location = new Point(59, 77);
             lvAlla.Name = "lvAlla";
             lvAlla.Size = new Size(883, 567);
             lvAlla.TabIndex = 3;
             lvAlla.UseCompatibleStateImageBehavior = false;
             lvAlla.View = View.Details;
+            lvAlla.SelectedIndexChanged += lvAlla_SelectedIndexChanged;
             // 
             // OrderId
             // 
