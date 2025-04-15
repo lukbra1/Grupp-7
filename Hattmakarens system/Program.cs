@@ -11,7 +11,7 @@ namespace Hattmakarens_system
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new RedigeraOrder()); // Starta med din form
+            Application.Run(new Homepage()); // Starta med din form
         }
     }
 }
