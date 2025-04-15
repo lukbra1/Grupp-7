@@ -49,9 +49,6 @@ namespace Hattmakarens_system.Presentationslager
             }
 
             label2.Text = $"Totalt pris: {ordern.TotalPris} kr";
-
-            UppdateraTotalpris();
-
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -67,12 +64,6 @@ namespace Hattmakarens_system.Presentationslager
 
         private void label2_Click(object sender, EventArgs e)
         {
-        }
-
-        private void UppdateraTotalpris()
-        {
-            var totalPris = orderController.BeräknaTotalprisMedEventuellExpress(ordern);
-            label2.Text = $"Totalpris: {totalPris} kr";
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
