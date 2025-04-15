@@ -71,5 +71,11 @@ namespace Hattmakarens_system.Controllers
             return orderRad;
         }
 
+        public void UppdateraOrder(Order order)
+        {
+            _context.Ordrar.Update(order);
+            _context.SaveChanges();
+        }
+
     }
 }

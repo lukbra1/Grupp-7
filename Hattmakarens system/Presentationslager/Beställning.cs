@@ -24,7 +24,7 @@ namespace Hattmakarens_system.Presentationslager
             InitializeComponent();
             ordern = Order;
             List<OrderRad> OrderRader = orderController.HämtaAllaOrderRader(Order);
-           
+
 
             // Hämta orderrader för ordern
             var orderRaderna = orderController.HämtaAllaOrderRader(ordern);
@@ -117,7 +117,22 @@ namespace Hattmakarens_system.Presentationslager
 
         private void label2_Click(object sender, EventArgs e)
         {
-           //Visa totalpris
+            //Visa totalpris
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ordern == null)
+                return;
+
+            // Sätt express till true eller false beroende på checkbox
+            ordern.Express = checkBox1.Checked;
+
+            // Uppdatera ordern i databasen
+            orderController.UppdateraOrder(ordern); // Skapa denna metod om du inte har den
+
+            MessageBox.Show($"Expressleverans är nu {(ordern.Express ? "aktiverad" : "avaktiverad")}.");
+        
         }
     }
 }
