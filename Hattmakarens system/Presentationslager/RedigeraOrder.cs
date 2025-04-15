@@ -12,12 +12,12 @@ namespace Hattmakarens_system
     {
         private readonly AppDbContext _context = new AppDbContext();
         private Order valdOrder;
-        private readonly int _orderId;
+        
 
-        public RedigeraOrder(int orderId)
+        public RedigeraOrder(Order valdOrder)
         {
             InitializeComponent();
-            _orderId = orderId;
+            this.valdOrder = valdOrder;
 
             Load += RedigeraOrder_Load;
             btnSpara.Click += btnSpara_Click;
@@ -25,9 +25,13 @@ namespace Hattmakarens_system
 
         private void RedigeraOrder_Load(object sender, EventArgs e)
         {
+            dgvOrderRader.DataSource = null;
+            dgvOrderRader.Rows.Clear();
+            dgvOrderRader.Columns.Clear();
+
             valdOrder = _context.Ordrar
                 .Include(o => o.OrderRader)
-                .FirstOrDefault(o => o.OrderId == _orderId);
+                .FirstOrDefault(o => o.OrderId == valdOrder.OrderId);
 
             if (valdOrder == null)
             {

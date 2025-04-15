@@ -40,20 +40,21 @@
             // 
             // btnSkapaFraktSedel
             // 
-            btnSkapaFraktSedel.Location = new Point(521, 280);
-            btnSkapaFraktSedel.Margin = new Padding(3, 2, 3, 2);
+            btnSkapaFraktSedel.Location = new Point(967, 598);
+            btnSkapaFraktSedel.Margin = new Padding(5);
             btnSkapaFraktSedel.Name = "btnSkapaFraktSedel";
-            btnSkapaFraktSedel.Size = new Size(152, 22);
+            btnSkapaFraktSedel.Size = new Size(283, 46);
             btnSkapaFraktSedel.TabIndex = 1;
             btnSkapaFraktSedel.Text = "Skapa Fraktsedel";
             btnSkapaFraktSedel.UseVisualStyleBackColor = true;
+            btnSkapaFraktSedel.Click += btnSkapaFraktSedel_Click;
             // 
             // btnRedigera
             // 
-            btnRedigera.Location = new Point(521, 245);
-            btnRedigera.Margin = new Padding(3, 2, 3, 2);
+            btnRedigera.Location = new Point(967, 522);
+            btnRedigera.Margin = new Padding(5);
             btnRedigera.Name = "btnRedigera";
-            btnRedigera.Size = new Size(152, 22);
+            btnRedigera.Size = new Size(283, 46);
             btnRedigera.TabIndex = 2;
             btnRedigera.Text = "Redigera Beställning";
             btnRedigera.UseVisualStyleBackColor = true;
@@ -62,13 +63,14 @@
             // lvAlla
             // 
             lvAlla.Columns.AddRange(new ColumnHeader[] { OrderId, Skapad, Status, Express, Pris });
-            lvAlla.Location = new Point(32, 36);
-            lvAlla.Margin = new Padding(2, 1, 2, 1);
+            lvAlla.FullRowSelect = true;
+            lvAlla.Location = new Point(59, 77);
             lvAlla.Name = "lvAlla";
-            lvAlla.Size = new Size(477, 268);
+            lvAlla.Size = new Size(883, 567);
             lvAlla.TabIndex = 3;
             lvAlla.UseCompatibleStateImageBehavior = false;
             lvAlla.View = View.Details;
+            lvAlla.SelectedIndexChanged += lvAlla_SelectedIndexChanged;
             // 
             // OrderId
             // 
@@ -97,13 +99,13 @@
             // 
             // AllaBeställningar
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(700, 338);
+            ClientSize = new Size(1300, 720);
             Controls.Add(lvAlla);
             Controls.Add(btnRedigera);
             Controls.Add(btnSkapaFraktSedel);
-            Margin = new Padding(3, 2, 3, 2);
+            Margin = new Padding(5);
             Name = "AllaBeställningar";
             Text = "AllaBeställningar";
             Load += AllaBeställningar_Load;
