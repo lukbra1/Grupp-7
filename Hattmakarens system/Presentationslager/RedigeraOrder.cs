@@ -12,7 +12,6 @@ namespace Hattmakarens_system
     {
         private readonly AppDbContext _context = new AppDbContext();
         private Order valdOrder;
-        
 
         public RedigeraOrder(Order valdOrder)
         {
@@ -29,6 +28,7 @@ namespace Hattmakarens_system
             dgvOrderRader.Rows.Clear();
             dgvOrderRader.Columns.Clear();
 
+          
             valdOrder = _context.Ordrar
                 .Include(o => o.OrderRader)
                 .FirstOrDefault(o => o.OrderId == valdOrder.OrderId);
@@ -40,14 +40,16 @@ namespace Hattmakarens_system
                 return;
             }
 
-            // Skapa datatabell
+            
             DataTable dt = new DataTable();
             dt.Columns.Add("OrderRadId", typeof(int));
             dt.Columns.Add("Typ", typeof(string));
             dt.Columns.Add("Storlek", typeof(string));
             dt.Columns.Add("Status", typeof(string));
-            dt.Columns.Add("Express", typeof(bool)); // visa express på varje rad
+            dt.Columns.Add("Express", typeof(bool));
+            dt.Columns.Add("TotalPris", typeof(decimal)); 
 
+           
             foreach (var rad in valdOrder.OrderRader)
             {
                 dt.Rows.Add(
@@ -55,7 +57,8 @@ namespace Hattmakarens_system
                     rad.TypEnum.ToString(),
                     rad.Storlek.ToString(),
                     rad.StatusOrderrad.ToString(),
-                    valdOrder.Express
+                    valdOrder.Express,
+                    valdOrder.TotalPris // 🆕
                 );
             }
 
@@ -65,21 +68,22 @@ namespace Hattmakarens_system
             LäggTillComboKolumn("Storlek", typeof(StorlekEnum));
             LäggTillComboKolumn("Status", typeof(StatusOrderradEnum));
 
-            // Express-kolumn som checkbox
+            
             if (!(dgvOrderRader.Columns["Express"] is DataGridViewCheckBoxColumn))
             {
                 int index = dgvOrderRader.Columns["Express"].Index;
-
                 var expressCol = new DataGridViewCheckBoxColumn
                 {
                     DataPropertyName = "Express",
                     Name = "Express",
                     HeaderText = "Express"
                 };
-
                 dgvOrderRader.Columns.RemoveAt(index);
                 dgvOrderRader.Columns.Insert(index, expressCol);
             }
+
+            
+            dgvOrderRader.Columns["TotalPris"].ReadOnly = false;
         }
 
         private void LäggTillComboKolumn(string kolumnNamn, Type enumTyp)
@@ -123,11 +127,18 @@ namespace Hattmakarens_system
                 }
             }
 
-            // Spara Express från första raden
+            
             if (dgvOrderRader.Rows.Count > 0 &&
                 dgvOrderRader.Rows[0].Cells["Express"].Value is bool express)
             {
                 valdOrder.Express = express;
+            }
+
+            
+            if (dgvOrderRader.Rows.Count > 0 &&
+                decimal.TryParse(dgvOrderRader.Rows[0].Cells["TotalPris"].Value?.ToString(), out decimal nyttPris))
+            {
+                valdOrder.TotalPris = nyttPris;
             }
 
             int ändringar = _context.SaveChanges();
