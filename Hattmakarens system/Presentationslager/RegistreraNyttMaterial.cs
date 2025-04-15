@@ -17,18 +17,20 @@ namespace Hattmakarens_system.Presentationslager
     {
 
         private LagerOrderrad _orderrad;
+        private Order _order;
 
         static MaterialController materialController = new MaterialController(new AppDbContext());
 
-        public RegistreraNyttMaterial(OrderRad _orderrad)
+        public RegistreraNyttMaterial(Order order, LagerOrderrad orderrad)
         {
-            _orderrad = _orderrad;
+            _order = order;
+            this._orderrad = orderrad;
             InitializeComponent();
         }
 
         private void btnGaVidare_Click(object sender, EventArgs e)
         {
-            var GåVidare = new AnpassaLagerhattar(_orderrad);
+            var GåVidare = new AnpassaLagerhattar(_order, _orderrad);
             GåVidare.Show();
             this.Close();
         }

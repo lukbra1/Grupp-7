@@ -77,6 +77,14 @@ namespace Hattmakarens_system.Controllers
             return orderRad;
         }
 
+        public LagerOrderrad LäggTillLagerOrderrad(Order order, LagerOrderrad orderrad)
+        {
+            _context.Orderrader.Add(orderrad);
+            order.TotalPris += orderrad.Modell.Pris;
+            _context.SaveChanges();
+            return orderrad;
+        }
+
         public void UppdateraOrder(Order order)
         {
             _context.Ordrar.Update(order);

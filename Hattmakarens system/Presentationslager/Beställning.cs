@@ -44,7 +44,7 @@ namespace Hattmakarens_system.Presentationslager
                 {
                     displayText = $"Specialhatt - Kommentar: {special.Kommentar}, Storlek: {special.Storlek}";
                 }
-                
+
                 listBox1.Items.Add(displayText);
             }
 
@@ -88,7 +88,14 @@ namespace Hattmakarens_system.Presentationslager
             // Visa bekräftelse
             string status = ordern.Express ? "aktiverad" : "avaktiverad";
             MessageBox.Show($"Expressleverans är nu {status}.");
-            
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Beställningen är registrerad! 😊");
+            Program.homepage.Show();
+            this.Close();
         }
     }
 }

@@ -87,7 +87,8 @@ namespace Hattmakarens_system.Presentationslager
                             StatusOrderrad = StatusOrderradEnum.EjPaborjad
                         };
 
-                        var anpassningsForm = new AnpassaLagerhattar(nyOrderrad);
+                        db.LäggTillLagerOrderrad(Ordern, nyOrderrad);
+                        var anpassningsForm = new AnpassaLagerhattar(Ordern, nyOrderrad);
                         anpassningsForm.Show();
                         this.Dispose();
                     }

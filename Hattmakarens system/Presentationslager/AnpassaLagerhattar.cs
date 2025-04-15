@@ -17,14 +17,15 @@ namespace Hattmakarens_system.Presentationslager
     public partial class AnpassaLagerhattar : Form
     {
         private LagerOrderrad _orderrad;
+        private Order _order;
         public Material ValdMaterial { get; private set; }
         static MaterialController materialController = new MaterialController(new AppDbContext());
         Dictionary<string, int> namnTillId = new Dictionary<string, int>();
-        public AnpassaLagerhattar(LagerOrderrad orderrad)
+        public AnpassaLagerhattar(Order order, LagerOrderrad orderrad)
         {
             InitializeComponent();
+            _order = order;
             _orderrad = orderrad;
-            MessageBox.Show(_orderrad.OrderRadId.ToString());
 
         }
 
@@ -61,16 +62,15 @@ namespace Hattmakarens_system.Presentationslager
             if (vald != null && namnTillId.TryGetValue(vald, out int id))
             {
                 ValdMaterial = materialController.HamtaMaterialMedId(id);
-                MessageBox.Show(id.ToString());
-                MessageBox.Show(_orderrad.OrderRadId.ToString());
 
                 try
                 {
                     // Anropa den statiska metoden i controllerklassen
                     materialController.LäggTillMaterialTillOrderRad(_orderrad.OrderRadId, ValdMaterial.MaterialId);
+                    _order.TotalPris += ValdMaterial.PrisPerEnhet;
 
                     MessageBox.Show("✅ Materialet har lagts till orderraden.");
-                    this.Close();
+                    //this.Close();
                 }
                 catch (Exception ex)
                 {
@@ -128,9 +128,17 @@ namespace Hattmakarens_system.Presentationslager
 
         private void btnRegistrera_Click(object sender, EventArgs e)
         {
-            var GåVidare = new RegistreraNyttMaterial(_orderrad);
+            var GåVidare = new RegistreraNyttMaterial(_order, _orderrad);
             GåVidare.Show();
             this.Close();
+        }
+
+        private void btnGaVidare_Click(object sender, EventArgs e)
+        {
+            var GåVidare = new Beställning(_order);
+            GåVidare.Show();
+            this.Close();
+
         }
     }
 }

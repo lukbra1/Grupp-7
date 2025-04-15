@@ -6,12 +6,14 @@ namespace Hattmakarens_system
 {
     internal static class Program
     {
+        static public Homepage homepage;
         [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Homepage()); // Starta med din form
+            homepage = new Homepage();
+            Application.Run(homepage); // Starta med din form
         }
     }
 }
