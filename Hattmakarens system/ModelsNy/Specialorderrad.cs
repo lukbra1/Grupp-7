@@ -12,7 +12,7 @@ namespace Hattmakarens_system.ModelsNy
         public string? Kommentar { get; set; }
         public string? Referensbild { get; set; }
 
-        public int Kostnad { get; set; }
+        public decimal Kostnad { get; set; }
     
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Hattmakarens_system.Controllers;
+using Hattmakarens_system.Database;
 using Hattmakarens_system.ModelsNy;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ namespace Hattmakarens_system
 {
     public partial class Specialbeställning : Form
     {
+        static MaterialController db = new MaterialController(new AppDbContext());
         public Specialbeställning()
         {
             InitializeComponent();
@@ -21,6 +23,11 @@ namespace Hattmakarens_system
 
         private void Specialbeställning_Load(object sender, EventArgs e)
         {
+            FyllListBoxMedMaterial();
+            listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            listView1.View = View.Details; // Viktigt!
+            listView1.Columns.Add("Material", 150); // Kolumnnamn + bredd
+            listView1.Columns.Add("Mängd", 100);
 
         }
 
@@ -78,7 +85,7 @@ namespace Hattmakarens_system
         List<Material> MaterialList = new List<Material>();
         private void button3_Click(object sender, EventArgs e)
         {
-            
+
 
             if (listBox1.SelectedItem == null || string.IsNullOrWhiteSpace(textBox1.Text))
             {
@@ -92,17 +99,46 @@ namespace Hattmakarens_system
             // Försök tolka mängd som siffra
             if (int.TryParse(textBox1.Text, out int mangd))
             {
-                for (int i = 0; i < mangd; i++) {
-                    MaterialList.Add(valtMaterial);
+                bool hittad = false;
+
+                foreach (ListViewItem item in listView1.Items)
+                {
+                    if (item.Text == valtMaterial.Namn)
+                    {
+                        // Materialet finns redan – uppdatera mängden
+                        int nuvarandeMangd = int.Parse(item.SubItems[1].Text);
+                        item.SubItems[1].Text = (nuvarandeMangd + mangd).ToString();
+                        hittad = true;
+                        break;
+                    }
                 }
+
+                if (!hittad)
+                {
+                    // Materialet finns inte – skapa ny rad
+                    ListViewItem nyItem = new ListViewItem(valtMaterial.Namn);
+                    nyItem.SubItems.Add(mangd.ToString());
+                    listView1.Items.Add(nyItem);
+                }
+
                 MessageBox.Show($"La till {mangd} av {valtMaterial.Namn}!");
             }
             else
             {
                 MessageBox.Show("Felaktig mängd, skriv en siffra!");
             }
+
         }
+
+
+        private void FyllListBoxMedMaterial()
+        {
+
+            listBox1.Items.Clear();
+            listBox1.DataSource = db.getMaterial();
+            listBox1.DisplayMember = "Namn";
+        }
+
     }
-    
 }
 

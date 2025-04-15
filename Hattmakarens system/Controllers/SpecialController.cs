@@ -17,7 +17,7 @@ namespace Hattmakarens_system.Controllers
             this._context = context;
         }
 
-        public SpecialOrderrad NySpecialOrderrad(string kommentar, string referensbild, StorlekEnum storlek)
+        public SpecialOrderrad NySpecialOrderrad(string kommentar, string referensbild, StorlekEnum storlek, decimal pris)
         {
             SpecialOrderrad specialOrderrad = new SpecialOrderrad
             {
@@ -26,7 +26,8 @@ namespace Hattmakarens_system.Controllers
                 Tillverkad = false,
                 StatusOrderrad = StatusOrderradEnum.EjPaborjad,
                 TypEnum = TypEnum.Special,
-                Storlek = storlek
+                Storlek = storlek,
+                Kostnad = pris
             };
 
             return specialOrderrad;
