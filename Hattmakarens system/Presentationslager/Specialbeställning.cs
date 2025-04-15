@@ -15,10 +15,18 @@ namespace Hattmakarens_system
 {
     public partial class Specialbeställning : Form
     {
-        static MaterialController db = new MaterialController(new AppDbContext());
-        public Specialbeställning()
+        private readonly AppDbContext _context = new AppDbContext();
+        private readonly SpecialController _specialController;
+        private readonly Material_OrderradController _materialOrderradController;
+        private readonly MaterialController db = new MaterialController(new AppDbContext());
+        public Order Ordern { get; set; }
+        public Specialbeställning(Order order)
         {
+            Ordern = order;
+            _specialController = new SpecialController(_context);
+            _materialOrderradController = new Material_OrderradController(_context);
             InitializeComponent();
+
         }
 
         private void Specialbeställning_Load(object sender, EventArgs e)
@@ -74,6 +82,57 @@ namespace Hattmakarens_system
 
         private void button2_Click(object sender, EventArgs e)
         {
+            // Hämta info från formuläret
+            string kommentar = richTextBox1.Text;
+            string referensbild = textBox3.Text;
+            if (Enum.TryParse(textBox2.Text, out StorlekEnum storlek))
+            {
+            
+            }
+            else
+            {
+                MessageBox.Show("Felaktig storlek! Skriv en giltig storlek.");
+            }
+
+            decimal totalPris = 0;
+
+            foreach (ListViewItem item in listView1.Items)
+            {
+                string materialNamn = item.SubItems[0].Text;
+                int mängd = int.Parse(item.SubItems[1].Text);
+                Material material = db.getMaterial().FirstOrDefault(m => m.Namn == materialNamn);
+
+                if (material != null)
+                {
+                    totalPris += material.PrisPerEnhet * mängd;
+                }
+            }
+            
+
+            // Skapa specialorderrad
+            var specialOrderrad = _specialController.NySpecialOrderrad(kommentar, referensbild, storlek, totalPris, Ordern);
+            _specialController.SparaSpecialOrderrad(specialOrderrad);
+
+            // Spara tillhörande materialrader
+            foreach (ListViewItem item in listView1.Items)
+            {
+                string materialnamn = item.SubItems[0].Text;
+                int antal = int.Parse(item.SubItems[1].Text);
+
+                var material = _context.Material.FirstOrDefault(m => m.Namn == materialnamn);
+                if (material != null)
+                {
+                    var matOrdRad = _materialOrderradController.NyMaterialOrderrad(material, specialOrderrad, antal);
+                    _context.MaterialOrderrader.Add(matOrdRad);
+                }
+            }
+
+            _context.SaveChanges();
+            MessageBox.Show("Specialorder sparad med material!");
+
+
+
+
 
         }
 

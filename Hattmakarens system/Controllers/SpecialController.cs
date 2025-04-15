@@ -17,17 +17,20 @@ namespace Hattmakarens_system.Controllers
             this._context = context;
         }
 
-        public SpecialOrderrad NySpecialOrderrad(string kommentar, string referensbild, StorlekEnum storlek, decimal pris)
+        public SpecialOrderrad NySpecialOrderrad(string kommentar, string referensbild, StorlekEnum storlek, decimal pris, Order order)
         {
+            int orderId = order.OrderId;
             SpecialOrderrad specialOrderrad = new SpecialOrderrad
             {
+
                 Kommentar = kommentar,
                 Referensbild = referensbild,
                 Tillverkad = false,
                 StatusOrderrad = StatusOrderradEnum.EjPaborjad,
                 TypEnum = TypEnum.Special,
                 Storlek = storlek,
-                Kostnad = pris
+                Kostnad = pris,
+                OrderId = orderId
             };
 
             return specialOrderrad;

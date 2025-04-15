@@ -37,6 +37,8 @@
             richTextBox1 = new RichTextBox();
             button2 = new Button();
             button6 = new Button();
+            textBox2 = new TextBox();
+            textBox3 = new TextBox();
             SuspendLayout();
             // 
             // txtExtraMat
@@ -104,9 +106,9 @@
             // 
             // button2
             // 
-            button2.Location = new Point(706, 338);
+            button2.Location = new Point(841, 142);
             button2.Name = "button2";
-            button2.Size = new Size(119, 23);
+            button2.Size = new Size(183, 23);
             button2.TabIndex = 28;
             button2.Text = "Lägg till Orderrad";
             button2.UseVisualStyleBackColor = true;
@@ -121,11 +123,31 @@
             button6.Text = "Registrera nytt material";
             button6.UseVisualStyleBackColor = true;
             // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(841, 54);
+            textBox2.Margin = new Padding(3, 2, 3, 2);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(183, 23);
+            textBox2.TabIndex = 32;
+            textBox2.Text = "Storlek";
+            // 
+            // textBox3
+            // 
+            textBox3.Location = new Point(841, 98);
+            textBox3.Margin = new Padding(3, 2, 3, 2);
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(183, 23);
+            textBox3.TabIndex = 33;
+            textBox3.Text = "Referensbild";
+            // 
             // Specialbeställning
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(839, 373);
+            ClientSize = new Size(1087, 373);
+            Controls.Add(textBox3);
+            Controls.Add(textBox2);
             Controls.Add(button6);
             Controls.Add(button2);
             Controls.Add(richTextBox1);
@@ -177,5 +199,6 @@
         private RichTextBox richTextBox1;
         private Button button2;
         private Button button6;
+        private TextBox textBox3;
     }
 }
