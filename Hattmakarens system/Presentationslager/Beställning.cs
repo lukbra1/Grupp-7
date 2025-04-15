@@ -26,9 +26,6 @@ namespace Hattmakarens_system.Presentationslager
             List<OrderRad> OrderRader = orderController.HämtaAllaOrderRader(Order);
 
 
-            listBox1.Items.Clear();
-           /// var orderRaderna = orderController.HämtaAllaOrderRader(ordern);
-
             // Hämta orderrader för ordern
             var orderRaderna = orderController.HämtaAllaOrderRader(ordern);
 
