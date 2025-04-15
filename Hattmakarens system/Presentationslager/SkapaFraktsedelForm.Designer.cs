@@ -34,6 +34,7 @@
             txtMoms = new TextBox();
             btnSkapa = new Button();
             btnSkrivUt = new Button();
+            lblOrderId = new Label();
             SuspendLayout();
             // 
             // txtVikt
@@ -83,11 +84,20 @@
             btnSkrivUt.Text = "Skriv ut";
             btnSkrivUt.UseVisualStyleBackColor = true;
             // 
+            // lblOrderId
+            // 
+            lblOrderId.AutoSize = true;
+            lblOrderId.Location = new Point(53, 9);
+            lblOrderId.Name = "lblOrderId";
+            lblOrderId.Size = new Size(0, 20);
+            lblOrderId.TabIndex = 6;
+            // 
             // SkapaFraktsedelForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(lblOrderId);
             Controls.Add(btnSkrivUt);
             Controls.Add(btnSkapa);
             Controls.Add(txtMoms);
@@ -96,6 +106,7 @@
             Controls.Add(txtVikt);
             Name = "SkapaFraktsedelForm";
             Text = "SkapaFraktsedelForm";
+            Load += SkapaFraktsedelForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -108,5 +119,6 @@
         private TextBox txtMoms;
         private Button btnSkapa;
         private Button btnSkrivUt;
+        private Label lblOrderId;
     }
 }

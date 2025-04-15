@@ -193,5 +193,13 @@ namespace Hattmakarens_system
             var materialForm = new SeMaterialbehov();
             materialForm.Show();
         }
+
+        private void allaBeställningarToolStripMenuItem_Click_2(object sender, EventArgs e)
+        {
+            var AllaBeställningar = new AllaBeställningar();
+            AllaBeställningar.Show();
+            this.Hide();
+
+        }
     }
 }

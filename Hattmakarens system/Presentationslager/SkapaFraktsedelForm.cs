@@ -16,6 +16,7 @@ namespace Hattmakarens_system.Presentationslager
     public partial class SkapaFraktsedelForm : Form
     {
         Order order;
+        private OrderController controller = new OrderController(new AppDbContext());
         static FraktSedelController db = new FraktSedelController(new AppDbContext());
         public SkapaFraktsedelForm(Order order)
         {
@@ -23,6 +24,10 @@ namespace Hattmakarens_system.Presentationslager
             this.order = order;
         }
 
+        private void SkapaFraktsedelForm_Load(object sender, EventArgs e)
+        {
+            lblOrderId.Text = $"Order-ID: {order.OrderId}";
+        }
         private void btnSkapa_Click(object sender, EventArgs e)
         {
             int vikt = int.Parse(txtVikt.Text);
@@ -44,5 +49,6 @@ namespace Hattmakarens_system.Presentationslager
             - Datum: {fraktsedel.SkapatDatum}");
 
         }
+
     }
 }
