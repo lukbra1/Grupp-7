@@ -35,7 +35,7 @@
             btnSpec = new Button();
             label11 = new Label();
             label12 = new Label();
-            button7 = new Button();
+            btnVisaBeställning = new Button();
             chbAnpassa = new CheckBox();
             cbVäljHatt = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)pbReferens).BeginInit();
@@ -92,6 +92,7 @@
             btnSpec.TabIndex = 20;
             btnSpec.Text = "Special order";
             btnSpec.UseVisualStyleBackColor = true;
+            btnSpec.Click += btnSpec_Click;
             // 
             // label11
             // 
@@ -113,15 +114,16 @@
             label12.TabIndex = 22;
             label12.Text = "Välj lager hatt";
             // 
-            // button7
+            // btnVisaBeställning
             // 
-            button7.Location = new Point(820, 39);
-            button7.Margin = new Padding(2);
-            button7.Name = "button7";
-            button7.Size = new Size(181, 29);
-            button7.TabIndex = 23;
-            button7.Text = "Visa beställning";
-            button7.UseVisualStyleBackColor = true;
+            btnVisaBeställning.Location = new Point(820, 39);
+            btnVisaBeställning.Margin = new Padding(2);
+            btnVisaBeställning.Name = "btnVisaBeställning";
+            btnVisaBeställning.Size = new Size(181, 29);
+            btnVisaBeställning.TabIndex = 23;
+            btnVisaBeställning.Text = "Visa beställning";
+            btnVisaBeställning.UseVisualStyleBackColor = true;
+            btnVisaBeställning.Click += btnVisaBeställning_Click;
             // 
             // chbAnpassa
             // 
@@ -150,7 +152,7 @@
             ClientSize = new Size(1033, 524);
             Controls.Add(cbVäljHatt);
             Controls.Add(chbAnpassa);
-            Controls.Add(button7);
+            Controls.Add(btnVisaBeställning);
             Controls.Add(label12);
             Controls.Add(label11);
             Controls.Add(btnSpec);
@@ -176,7 +178,7 @@
         private Button btnSpec;
         private Label label11;
         private Label label12;
-        private Button button7;
+        private Button btnVisaBeställning;
         private CheckBox chbAnpassa;
         private ComboBox cbVäljHatt;
     }

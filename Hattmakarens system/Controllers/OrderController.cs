@@ -48,6 +48,12 @@ namespace Hattmakarens_system.Controllers
 
         public LagerOrderrad LäggTillLagerOrderrad(int orderId, int modellId)
         {
+            var order = _context.Ordrar.FirstOrDefault(o => o.OrderId == orderId);
+            var modell = _context.Modeller.FirstOrDefault(m => m.ModellId == modellId);
+
+            if (order == null || modell == null)
+                throw new Exception("Order eller modell hittades inte.");
+
             var orderRad = new LagerOrderrad
             {
                 OrderId = orderId,
@@ -57,7 +63,9 @@ namespace Hattmakarens_system.Controllers
                 UserId = null
             };
 
+
             _context.Orderrader.Add(orderRad);
+            order.TotalPris += modell.Pris;
             _context.SaveChanges();
 
             return orderRad;

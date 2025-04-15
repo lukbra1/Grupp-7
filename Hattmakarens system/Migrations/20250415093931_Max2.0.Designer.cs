@@ -4,6 +4,7 @@ using Hattmakarens_system.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Hattmakarens_system.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250415093931_Max2.0")]
+    partial class Max20
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -221,9 +224,6 @@ namespace Hattmakarens_system.Migrations
                     b.Property<int>("OrderRadId")
                         .HasColumnType("int");
 
-                    b.Property<bool>("Bestallt")
-                        .HasColumnType("bit");
-
                     b.HasKey("MaterialId", "OrderRadId");
 
                     b.HasIndex("OrderRadId");
@@ -234,8 +234,7 @@ namespace Hattmakarens_system.Migrations
                         new
                         {
                             MaterialId = 1,
-                            OrderRadId = 1,
-                            Bestallt = false
+                            OrderRadId = 1
                         });
                 });
 

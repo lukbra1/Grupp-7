@@ -306,9 +306,22 @@ namespace Hattmakarens_system.Database
             );
 
             modelBuilder.Entity<Material>().HasData(
-                new Material { MaterialId = 1, Namn = "Filt", PrisPerEnhet = 100, Enhet = "m", Farg = "Blå", Beskrivning = "Mjukt material" }
+                new Material { MaterialId = 1, Namn = "Snuttefilt", PrisPerEnhet = 100, Enhet = "Kvm", Farg = "Blå", Beskrivning = "Mjukt material." }
             );
-
+            modelBuilder.Entity<Material>().HasData(
+                new Material { MaterialId = 2, Namn = "Läder", PrisPerEnhet = 325, Enhet = "Kvm", Farg = "Svart", Beskrivning = "Färgat Kalv Läder." }
+            );
+            modelBuilder.Entity<Material>().HasData(
+                new Material { MaterialId = 3, Namn = "Struds Fjäder", PrisPerEnhet = 45, Enhet = "st", Farg = "Vit", Beskrivning = "Fjädrar från den Australiensiska strudsen som endast födar på  japanska böngroddar." }
+            );
+            modelBuilder.Entity<Material>().HasData(
+                new Material { MaterialId = 4, Namn = "Lejonman", PrisPerEnhet = 15, Enhet = "g", Farg = "Sunsetred", Beskrivning = "Tråd producerad av lejonman utav högsta kvalité direkt från Arkenzoo." }
+            );
+            modelBuilder.Entity<Material>().HasData(
+                new Material { MaterialId = 5, Namn = "Saphir", PrisPerEnhet = 9000, Enhet = "karat", Farg = "Blå", Beskrivning = "Saphirer från mallorcas östra bergras." }
+            ); modelBuilder.Entity<Material>().HasData(
+                new Material { MaterialId = 6, Namn = "Zebrapläd", PrisPerEnhet = 750, Enhet = "m", Farg = "Svart/Vit-mönstrad", Beskrivning = "Pläd ifrån vildfångad zebra i östra Zimbabwe." }
+            );
             modelBuilder.Entity<Order>().HasData(
                 new Order { OrderId = 1, Skapad = new DateTime(2025, 4, 14), Status = StatusEnum.EjPaborjad, Express = false, TotalPris = 1000, KundId = 1 }
             );
