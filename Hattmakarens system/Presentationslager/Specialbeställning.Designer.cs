@@ -36,7 +36,7 @@
             listView1 = new ListView();
             richTextBox1 = new RichTextBox();
             button2 = new Button();
-            button4 = new Button();
+            button6 = new Button();
             SuspendLayout();
             // 
             // txtExtraMat
@@ -46,6 +46,8 @@
             txtExtraMat.Name = "txtExtraMat";
             txtExtraMat.Size = new Size(338, 23);
             txtExtraMat.TabIndex = 6;
+            txtExtraMat.Text = "Sök material";
+            txtExtraMat.TextChanged += txtExtraMat_TextChanged;
             // 
             // listBox1
             // 
@@ -62,7 +64,7 @@
             button1.Name = "button1";
             button1.Size = new Size(73, 23);
             button1.TabIndex = 20;
-            button1.Text = "button1";
+            button1.Text = "Sök";
             button1.UseVisualStyleBackColor = true;
             // 
             // button3
@@ -71,8 +73,9 @@
             button3.Name = "button3";
             button3.Size = new Size(73, 23);
             button3.TabIndex = 22;
-            button3.Text = "button3";
+            button3.Text = "Lägg till";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // textBox1
             // 
@@ -81,6 +84,7 @@
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(73, 23);
             textBox1.TabIndex = 23;
+            textBox1.Text = "Antal";
             // 
             // listView1
             // 
@@ -96,32 +100,33 @@
             richTextBox1.Name = "richTextBox1";
             richTextBox1.Size = new Size(360, 264);
             richTextBox1.TabIndex = 27;
-            richTextBox1.Text = "";
+            richTextBox1.Text = "Skriv en kommentar";
             // 
             // button2
             // 
-            button2.Location = new Point(831, 52);
+            button2.Location = new Point(706, 338);
             button2.Name = "button2";
-            button2.Size = new Size(73, 23);
+            button2.Size = new Size(119, 23);
             button2.TabIndex = 28;
-            button2.Text = "button2";
+            button2.Text = "Lägg till Orderrad";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
-            // button4
+            // button6
             // 
-            button4.Location = new Point(831, 86);
-            button4.Name = "button4";
-            button4.Size = new Size(73, 23);
-            button4.TabIndex = 29;
-            button4.Text = "button4";
-            button4.UseVisualStyleBackColor = true;
+            button6.Location = new Point(12, 333);
+            button6.Name = "button6";
+            button6.Size = new Size(153, 23);
+            button6.TabIndex = 31;
+            button6.Text = "Registrera nytt material";
+            button6.UseVisualStyleBackColor = true;
             // 
             // Specialbeställning
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(921, 414);
-            Controls.Add(button4);
+            ClientSize = new Size(839, 373);
+            Controls.Add(button6);
             Controls.Add(button2);
             Controls.Add(richTextBox1);
             Controls.Add(listView1);
@@ -171,6 +176,6 @@
         private ListView listView2;
         private RichTextBox richTextBox1;
         private Button button2;
-        private Button button4;
+        private Button button6;
     }
 }

@@ -60,7 +60,49 @@ namespace Hattmakarens_system
             //    }
         }
 
+        private void txtExtraMat_TextChanged(object sender, EventArgs e)
+        {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        List<Material> MaterialList = new List<Material>();
+        private void button3_Click(object sender, EventArgs e)
+        {
+            
+
+            if (listBox1.SelectedItem == null || string.IsNullOrWhiteSpace(textBox1.Text))
+            {
+                MessageBox.Show("Välj ett material och skriv in mängd!");
+                return;
+            }
+
+            // Hämta valt material
+            Material valtMaterial = (Material)listBox1.SelectedItem;
+
+            // Försök tolka mängd som siffra
+            if (int.TryParse(textBox1.Text, out int mangd))
+            {
+                for (int i = 0; i < mangd; i++) {
+                    MaterialList.Add(valtMaterial);
+                }
+                MessageBox.Show($"La till {mangd} av {valtMaterial.Namn}!");
+            }
+            else
+            {
+                MessageBox.Show("Felaktig mängd, skriv en siffra!");
+            }
+        }
     }
+    
 }
 
