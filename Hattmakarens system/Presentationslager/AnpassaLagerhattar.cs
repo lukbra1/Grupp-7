@@ -13,14 +13,11 @@ namespace Hattmakarens_system.Presentationslager
 {
     public partial class AnpassaLagerhattar : Form
     {
-        //private Hattmodell valdHatt;
-        //public AnpassaLagerhattar(Hattmodell hatt)
-        //{
-        //    InitializeComponent();
-        //    valdHatt = hatt;
-
-        //    lblNamn.Text = hatt.Namn;
-        //    lblPris.Text = hatt.Pris.ToString("C");
-        //}
+        
+        public AnpassaLagerhattar()
+        {
+            InitializeComponent();
+            
+        }
     }
 }
