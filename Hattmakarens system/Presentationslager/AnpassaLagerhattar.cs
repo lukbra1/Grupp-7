@@ -13,11 +13,16 @@ namespace Hattmakarens_system.Presentationslager
 {
     public partial class AnpassaLagerhattar : Form
     {
-        
+
         public AnpassaLagerhattar()
         {
             InitializeComponent();
-            
+
+        }
+
+        private void txtFörnamn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
