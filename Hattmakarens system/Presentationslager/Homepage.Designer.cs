@@ -97,14 +97,14 @@
             // nyBeställningToolStripMenuItem
             // 
             nyBeställningToolStripMenuItem.Name = "nyBeställningToolStripMenuItem";
-            nyBeställningToolStripMenuItem.Size = new Size(165, 22);
+            nyBeställningToolStripMenuItem.Size = new Size(180, 22);
             nyBeställningToolStripMenuItem.Text = "Ny beställning";
             nyBeställningToolStripMenuItem.Click += nyBeställningToolStripMenuItem_Click;
             // 
             // allaBeställningarToolStripMenuItem
             // 
             allaBeställningarToolStripMenuItem.Name = "allaBeställningarToolStripMenuItem";
-            allaBeställningarToolStripMenuItem.Size = new Size(165, 22);
+            allaBeställningarToolStripMenuItem.Size = new Size(180, 22);
             allaBeställningarToolStripMenuItem.Text = "Alla beställningar";
             // 
             // marealLagerToolStripMenuItem
@@ -137,13 +137,13 @@
             // hattStatistikToolStripMenuItem
             // 
             hattStatistikToolStripMenuItem.Name = "hattStatistikToolStripMenuItem";
-            hattStatistikToolStripMenuItem.Size = new Size(145, 22);
+            hattStatistikToolStripMenuItem.Size = new Size(180, 22);
             hattStatistikToolStripMenuItem.Text = "Hatt statistik";
             // 
             // kundStatistikToolStripMenuItem
             // 
             kundStatistikToolStripMenuItem.Name = "kundStatistikToolStripMenuItem";
-            kundStatistikToolStripMenuItem.Size = new Size(145, 22);
+            kundStatistikToolStripMenuItem.Size = new Size(180, 22);
             kundStatistikToolStripMenuItem.Text = "Kund statistik";
             // 
             // minaSidorToolStripMenuItem1

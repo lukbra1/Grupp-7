@@ -42,6 +42,7 @@
             cmbOrderId.Name = "cmbOrderId";
             cmbOrderId.Size = new Size(143, 23);
             cmbOrderId.TabIndex = 0;
+            cmbOrderId.Text = "Välj en order";
             // 
             // dgvOrderRader
             // 
