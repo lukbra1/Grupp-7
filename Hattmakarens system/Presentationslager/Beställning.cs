@@ -87,7 +87,12 @@ namespace Hattmakarens_system.Presentationslager
             orderController.UppdateraOrder(ordern);
 
             // Uppdatera totalpriset i GUI:t
-            UppdateraTotalpris();
+            var beräknatTotalpris = ordern.TotalPris;
+
+            if (ordern.Express)
+                beräknatTotalpris *= 1.2m;
+
+            label2.Text = $"Totalpris: {beräknatTotalpris.ToString()} kr";
 
             // Visa bekräftelse
             string status = ordern.Express ? "aktiverad" : "avaktiverad";
