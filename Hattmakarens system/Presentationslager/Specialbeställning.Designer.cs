@@ -37,8 +37,8 @@
             richTextBox1 = new RichTextBox();
             button2 = new Button();
             button6 = new Button();
-            textBox2 = new TextBox();
             textBox3 = new TextBox();
+            comboBox3 = new ComboBox();
             SuspendLayout();
             // 
             // txtExtraMat
@@ -123,15 +123,6 @@
             button6.Text = "Registrera nytt material";
             button6.UseVisualStyleBackColor = true;
             // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(841, 54);
-            textBox2.Margin = new Padding(3, 2, 3, 2);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(183, 23);
-            textBox2.TabIndex = 32;
-            textBox2.Text = "Storlek";
-            // 
             // textBox3
             // 
             textBox3.Location = new Point(841, 98);
@@ -141,13 +132,22 @@
             textBox3.TabIndex = 33;
             textBox3.Text = "Referensbild";
             // 
+            // comboBox3
+            // 
+            comboBox3.FormattingEnabled = true;
+            comboBox3.Items.AddRange(new object[] { "XS", "S", "M", "L", "XL" });
+            comboBox3.Location = new Point(841, 54);
+            comboBox3.Name = "comboBox3";
+            comboBox3.Size = new Size(183, 23);
+            comboBox3.TabIndex = 34;
+            // 
             // Specialbeställning
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1087, 373);
+            Controls.Add(comboBox3);
             Controls.Add(textBox3);
-            Controls.Add(textBox2);
             Controls.Add(button6);
             Controls.Add(button2);
             Controls.Add(richTextBox1);
@@ -194,11 +194,11 @@
         private Button button3;
         private Label label2;
         private ListView listView1;
-        private TextBox textBox2;
         private ListView listView2;
         private RichTextBox richTextBox1;
         private Button button2;
         private Button button6;
         private TextBox textBox3;
+        private ComboBox comboBox3;
     }
 }

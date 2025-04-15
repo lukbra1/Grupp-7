@@ -1,6 +1,7 @@
 ﻿using Hattmakarens_system.Controllers;
 using Hattmakarens_system.Database;
 using Hattmakarens_system.ModelsNy;
+using Hattmakarens_system.Presentationslager;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -85,13 +86,15 @@ namespace Hattmakarens_system
             // Hämta info från formuläret
             string kommentar = richTextBox1.Text;
             string referensbild = textBox3.Text;
-            if (Enum.TryParse(textBox2.Text, out StorlekEnum storlek))
+            StorlekEnum storlek = 0;
+            if (comboBox3.SelectedIndex>-1)
             {
-            
+                storlek = (StorlekEnum)comboBox3.SelectedIndex;
             }
             else
             {
-                MessageBox.Show("Felaktig storlek! Skriv en giltig storlek.");
+                MessageBox.Show("Vänligen välj en storlek");
+                return;
             }
 
             decimal totalPris = 0;
@@ -102,9 +105,10 @@ namespace Hattmakarens_system
                 int mängd = int.Parse(item.SubItems[1].Text);
                 Material material = db.getMaterial().FirstOrDefault(m => m.Namn == materialNamn);
 
-                if (material != null)
+                if (material != null && mängd > 0)
                 {
                     totalPris += material.PrisPerEnhet * mängd;
+
                 }
             }
             
@@ -126,9 +130,12 @@ namespace Hattmakarens_system
                     _context.MaterialOrderrader.Add(matOrdRad);
                 }
             }
-
+            Ordern.TotalPris += totalPris;
             _context.SaveChanges();
-            MessageBox.Show("Specialorder sparad med material!");
+
+            var tjo = new Beställning(Ordern);
+            tjo.Show();
+            this.Close();
 
 
 
@@ -144,6 +151,9 @@ namespace Hattmakarens_system
         List<Material> MaterialList = new List<Material>();
         private void button3_Click(object sender, EventArgs e)
         {
+            decimal totalPris = 0;
+
+
 
 
             if (listBox1.SelectedItem == null || string.IsNullOrWhiteSpace(textBox1.Text))
@@ -178,14 +188,30 @@ namespace Hattmakarens_system
                     ListViewItem nyItem = new ListViewItem(valtMaterial.Namn);
                     nyItem.SubItems.Add(mangd.ToString());
                     listView1.Items.Add(nyItem);
+                    
+
+                    foreach (ListViewItem item in listView1.Items)
+                    {
+                        string materialNamn = item.SubItems[0].Text;
+                        int mängd = int.Parse(item.SubItems[1].Text);
+                        Material material = db.getMaterial().FirstOrDefault(m => m.Namn == materialNamn);
+
+                        if (material != null && mängd > 0)
+                        {
+                            totalPris += material.PrisPerEnhet * mängd;
+
+                        }
+                    }
                 }
 
-                MessageBox.Show($"La till {mangd} av {valtMaterial.Namn}!");
+                MessageBox.Show("La till " + mangd +  " av " + valtMaterial.Namn +  ", Total priset är nu " + totalPris);
             }
+
             else
             {
                 MessageBox.Show("Felaktig mängd, skriv en siffra!");
             }
+
 
         }
 
@@ -197,6 +223,7 @@ namespace Hattmakarens_system
             listBox1.DataSource = db.getMaterial();
             listBox1.DisplayMember = "Namn";
         }
+       
 
     }
 }
