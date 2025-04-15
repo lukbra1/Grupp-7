@@ -44,5 +44,23 @@ namespace Hattmakarens_system.Controllers
         {
             return _context.Modeller.ToList();
         }
+
+        public LagerOrderrad LäggTillLagerOrderrad(int orderId, int modellId)
+        {
+            var orderRad = new LagerOrderrad
+            {
+                OrderId = orderId,
+                ModellId = modellId,
+                StatusOrderrad = StatusOrderradEnum.EjPaborjad,
+                Tillverkad = false,
+                UserId = null
+            };
+
+            _context.Orderrader.Add(orderRad);
+            _context.SaveChanges();
+
+            return orderRad;
+        }
+
     }
 }

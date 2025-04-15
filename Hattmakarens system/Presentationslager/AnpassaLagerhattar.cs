@@ -13,11 +13,11 @@ namespace Hattmakarens_system.Presentationslager
 {
     public partial class AnpassaLagerhattar : Form
     {
-
-        public AnpassaLagerhattar()
+        private LagerOrderrad _orderrad;
+        public AnpassaLagerhattar(LagerOrderrad orderrad)
         {
             InitializeComponent();
-
+            _orderrad = orderrad;
         }
 
         private void txtFörnamn_Click(object sender, EventArgs e)

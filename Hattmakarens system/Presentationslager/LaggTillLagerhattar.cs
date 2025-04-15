@@ -91,15 +91,35 @@ namespace Hattmakarens_system.Presentationslager
 
         private void btnLäggtill_Click(object sender, EventArgs e)
         {
-
-            if (chbAnpassa.Checked)
+            if (cbVäljHatt.SelectedItem is Modell valdModell)
             {
-                // Öppna fönstret för anpassning
-                var anpassningsForm = new AnpassaLagerhattar();
-                anpassningsForm.Show();
-                this.Dispose();
-            }
+                try
+                {
+                    LagerOrderrad nyOrderrad = db.LäggTillLagerOrderrad(Ordern.OrderId, valdModell.ModellId);
 
+                    MessageBox.Show($"Hatten '{valdModell.Namn}' har lagts till i ordern.", "Tillagd", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    if (chbAnpassa.Checked)
+                    {
+                        var anpassningsForm = new AnpassaLagerhattar(nyOrderrad);
+                        anpassningsForm.Show();
+                    }
+
+                    this.Dispose(); // stäng detta fönster
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Fel" + (Ordern.OrderId), "Fel", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Välj en hatt först.", "Ingen hatt vald", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
+
+
+
+
     }
 }
