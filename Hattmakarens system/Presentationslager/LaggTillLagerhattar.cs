@@ -31,13 +31,7 @@ namespace Hattmakarens_system.Presentationslager
             this.Close();
         }
 
-        private void button7_Click(object sender, EventArgs e)
-        {
-            // Visa varukorg utan att lägga till hatt
-            var Beställning = new Beställning(this.Ordern);
-            Beställning.Show();
-            this.Close();
-        }
+
 
 
 
@@ -130,9 +124,12 @@ namespace Hattmakarens_system.Presentationslager
             }
         }
 
-
-
-
+        private void btnVisaBeställning_Click(object sender, EventArgs e)
+        {
+            var beställningsForm = new Beställning(Ordern); 
+            beställningsForm.Show();
+            this.Hide(); 
+        }
 
     }
 }
