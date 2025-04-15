@@ -24,7 +24,7 @@ namespace Hattmakarens_system.Presentationslager
             InitializeComponent();
             ordern = Order;
             List<OrderRad> OrderRader = orderController.HämtaAllaOrderRader(Order);
-
+           
 
             // Hämta orderrader för ordern
             var orderRaderna = orderController.HämtaAllaOrderRader(ordern);
@@ -51,6 +51,9 @@ namespace Hattmakarens_system.Presentationslager
 
                 listBox1.Items.Add(displayText);
             }
+
+            label2.Text = $"Totalt pris: {ordern.TotalPris} kr";
+
 
 
             // Om lagerhatt
@@ -107,9 +110,14 @@ namespace Hattmakarens_system.Presentationslager
 
         private void button1_Click(object sender, EventArgs e)
         {
-           var nyHatt = new LaggTillLagerhattar(ordern);
-           nyHatt.Show();
-           this.Close();
+            var nyHatt = new LaggTillLagerhattar(ordern);
+            nyHatt.Show();
+            this.Close();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+           //Visa totalpris
         }
     }
 }

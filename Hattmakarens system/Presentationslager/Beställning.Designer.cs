@@ -30,9 +30,9 @@
         {
             button1 = new Button();
             button2 = new Button();
-            label1 = new Label();
             listBox1 = new ListBox();
             checkBox1 = new CheckBox();
+            label2 = new Label();
             SuspendLayout();
             // 
             // button1
@@ -47,49 +47,50 @@
             // 
             // button2
             // 
-            button2.Location = new Point(1689, 857);
+            button2.Location = new Point(927, 678);
             button2.Name = "button2";
             button2.Size = new Size(150, 46);
             button2.TabIndex = 1;
             button2.Text = "Slutför Beställning";
             button2.UseVisualStyleBackColor = true;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(761, 36);
-            label1.Name = "label1";
-            label1.Size = new Size(348, 32);
-            label1.TabIndex = 2;
-            label1.Text = "Denna sida visar din \"varukorg\"";
-            // 
             // listBox1
             // 
             listBox1.FormattingEnabled = true;
-            listBox1.Location = new Point(116, 128);
+            listBox1.Location = new Point(99, 100);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(1723, 676);
+            listBox1.Size = new Size(961, 452);
             listBox1.TabIndex = 3;
             listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
             // 
             // checkBox1
             // 
             checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(1477, 863);
+            checkBox1.Location = new Point(715, 678);
             checkBox1.Name = "checkBox1";
             checkBox1.Size = new Size(206, 36);
             checkBox1.TabIndex = 4;
             checkBox1.Text = "Extressleverans";
             checkBox1.UseVisualStyleBackColor = true;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(918, 591);
+            label2.Name = "label2";
+            label2.Size = new Size(78, 32);
+            label2.TabIndex = 6;
+            label2.Text = "label2";
+            label2.Click += label2_Click;
+            // 
             // Beställning
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1981, 955);
+            ClientSize = new Size(1184, 815);
+            Controls.Add(label2);
             Controls.Add(checkBox1);
             Controls.Add(listBox1);
-            Controls.Add(label1);
             Controls.Add(button2);
             Controls.Add(button1);
             Name = "Beställning";
@@ -102,8 +103,9 @@
 
         private Button button1;
         private Button button2;
-        private Label label1;
         private ListBox listBox1;
         private CheckBox checkBox1;
+        private Label label1;
+        private Label label2;
     }
 }
