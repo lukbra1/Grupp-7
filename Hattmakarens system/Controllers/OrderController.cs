@@ -42,6 +42,11 @@ namespace Hattmakarens_system.Controllers
             return OrderRader;
         }
 
+        public List<Order> HämtaAllaOrdrar()
+        {
+            return _context.Ordrar.ToList();
+        }
+
         public List<Modell> HämtaAllaModeller()
         {
             return _context.Modeller.ToList();

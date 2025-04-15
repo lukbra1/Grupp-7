@@ -119,7 +119,7 @@ namespace Hattmakarens_system.Presentationslager
 
         private void btnSpec_Click(object sender, EventArgs e)
         {
-            var SpecialBeställning = new Specialbeställning();
+            var SpecialBeställning = new Specialbeställning(Ordern);
             SpecialBeställning.Show();
             this.Hide();
         }

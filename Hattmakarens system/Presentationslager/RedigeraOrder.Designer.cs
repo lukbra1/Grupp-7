@@ -28,57 +28,39 @@
         /// </summary>
         private void InitializeComponent()
         {
-            cmbOrderId = new ComboBox();
             dgvOrderRader = new DataGridView();
             btnSpara = new Button();
-            btnVisaOrder = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvOrderRader).BeginInit();
             SuspendLayout();
-            // 
-            // cmbOrderId
-            // 
-            cmbOrderId.FormattingEnabled = true;
-            cmbOrderId.Location = new Point(12, 208);
-            cmbOrderId.Name = "cmbOrderId";
-            cmbOrderId.Size = new Size(143, 23);
-            cmbOrderId.TabIndex = 0;
-            cmbOrderId.Text = "Välj en order";
             // 
             // dgvOrderRader
             // 
             dgvOrderRader.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvOrderRader.Location = new Point(471, 47);
+            dgvOrderRader.Location = new Point(55, 46);
+            dgvOrderRader.Margin = new Padding(6);
             dgvOrderRader.Name = "dgvOrderRader";
-            dgvOrderRader.Size = new Size(583, 416);
+            dgvOrderRader.RowHeadersWidth = 82;
+            dgvOrderRader.Size = new Size(1062, 580);
             dgvOrderRader.TabIndex = 4;
             // 
             // btnSpara
             // 
-            btnSpara.Location = new Point(961, 428);
+            btnSpara.Location = new Point(978, 652);
+            btnSpara.Margin = new Padding(6);
             btnSpara.Name = "btnSpara";
-            btnSpara.Size = new Size(75, 23);
+            btnSpara.Size = new Size(139, 49);
             btnSpara.TabIndex = 5;
             btnSpara.Text = "Spara";
             btnSpara.UseVisualStyleBackColor = true;
             // 
-            // btnVisaOrder
-            // 
-            btnVisaOrder.Location = new Point(161, 207);
-            btnVisaOrder.Name = "btnVisaOrder";
-            btnVisaOrder.Size = new Size(75, 23);
-            btnVisaOrder.TabIndex = 6;
-            btnVisaOrder.Text = "Visa order";
-            btnVisaOrder.UseVisualStyleBackColor = true;
-            // 
             // RedigeraOrder
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1087, 503);
-            Controls.Add(btnVisaOrder);
+            ClientSize = new Size(1167, 769);
             Controls.Add(btnSpara);
             Controls.Add(dgvOrderRader);
-            Controls.Add(cmbOrderId);
+            Margin = new Padding(6);
             Name = "RedigeraOrder";
             Text = "RedigeraOrder";
             ((System.ComponentModel.ISupportInitialize)dgvOrderRader).EndInit();
@@ -86,10 +68,7 @@
         }
 
         #endregion
-
-        private ComboBox cmbOrderId;
         private DataGridView dgvOrderRader;
         private Button btnSpara;
-        private Button btnVisaOrder;
     }
 }

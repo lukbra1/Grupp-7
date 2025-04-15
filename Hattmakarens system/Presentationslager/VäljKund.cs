@@ -46,7 +46,6 @@ namespace Hattmakarens_system.Presentationslager
 
                 Order Order = Ordercontroller.SkapaNyOrder(kundId);
 
-                MessageBox.Show("Hämtade kund med namn " + kund.Fornamn + " och id " + kund.KundId);
                 var LaggTillLagerhattar = new LaggTillLagerhattar(Order);
 
                 LaggTillLagerhattar.Show();
