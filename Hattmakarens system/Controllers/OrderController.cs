@@ -77,35 +77,5 @@ namespace Hattmakarens_system.Controllers
             _context.Ordrar.Update(order);
             _context.SaveChanges();
         }
-
-        public decimal BeräknaTotalprisMedEventuellExpress(Order order)
-        {
-            var orderrader = _context.Orderrader
-                .Include(o => (o as LagerOrderrad).Modell)
-                .Where(o => o.OrderId == order.OrderId)
-                .ToList();
-
-            decimal total = 0;
-
-            foreach (var rad in orderrader)
-            {
-                if (rad is LagerOrderrad lager)
-                {
-                    total += lager.Modell?.Pris ?? 0;
-                }
-                else if (rad is SpecialOrderrad)
-                {
-                    total += 500; // exempelpris för specialhatt
-                }
-            }
-
-            if (order.Express)
-            {
-                total *= 1.2m; // lägg på 20 %
-            }
-
-            return total;
-        }
-
     }
 }
