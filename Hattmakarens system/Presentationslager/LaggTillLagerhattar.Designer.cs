@@ -44,9 +44,10 @@
             // pbReferens
             // 
             pbReferens.Image = Properties.Resources.Oktoberhatt;
-            pbReferens.Location = new Point(72, 222);
+            pbReferens.Location = new Point(44, 139);
+            pbReferens.Margin = new Padding(2, 2, 2, 2);
             pbReferens.Name = "pbReferens";
-            pbReferens.Size = new Size(302, 293);
+            pbReferens.Size = new Size(186, 183);
             pbReferens.SizeMode = PictureBoxSizeMode.Zoom;
             pbReferens.TabIndex = 0;
             pbReferens.TabStop = false;
@@ -54,17 +55,19 @@
             // lblNamn
             // 
             lblNamn.AutoSize = true;
-            lblNamn.Location = new Point(132, 528);
+            lblNamn.Location = new Point(81, 330);
+            lblNamn.Margin = new Padding(2, 0, 2, 0);
             lblNamn.Name = "lblNamn";
-            lblNamn.Size = new Size(164, 32);
+            lblNamn.Size = new Size(102, 20);
             lblNamn.TabIndex = 5;
             lblNamn.Text = "Studentmössa";
             // 
             // btnLäggtill
             // 
-            btnLäggtill.Location = new Point(132, 722);
+            btnLäggtill.Location = new Point(81, 451);
+            btnLäggtill.Margin = new Padding(2, 2, 2, 2);
             btnLäggtill.Name = "btnLäggtill";
-            btnLäggtill.Size = new Size(150, 46);
+            btnLäggtill.Size = new Size(92, 29);
             btnLäggtill.TabIndex = 10;
             btnLäggtill.Text = "Lägg till";
             btnLäggtill.UseVisualStyleBackColor = true;
@@ -73,17 +76,19 @@
             // lblPris
             // 
             lblPris.AutoSize = true;
-            lblPris.Location = new Point(164, 573);
+            lblPris.Location = new Point(101, 358);
+            lblPris.Margin = new Padding(2, 0, 2, 0);
             lblPris.Name = "lblPris";
-            lblPris.Size = new Size(80, 32);
+            lblPris.Size = new Size(49, 20);
             lblPris.TabIndex = 14;
             lblPris.Text = "800 kr";
             // 
             // btnSpec
             // 
-            btnSpec.Location = new Point(302, 91);
+            btnSpec.Location = new Point(186, 57);
+            btnSpec.Margin = new Padding(2, 2, 2, 2);
             btnSpec.Name = "btnSpec";
-            btnSpec.Size = new Size(270, 46);
+            btnSpec.Size = new Size(166, 29);
             btnSpec.TabIndex = 20;
             btnSpec.Text = "Special order";
             btnSpec.UseVisualStyleBackColor = true;
@@ -92,26 +97,29 @@
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(84, 91);
+            label11.Location = new Point(52, 57);
+            label11.Margin = new Padding(2, 0, 2, 0);
             label11.Name = "label11";
-            label11.Size = new Size(198, 32);
+            label11.Size = new Size(125, 20);
             label11.TabIndex = 21;
             label11.Text = "Skapa specialhatt";
             // 
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(72, 162);
+            label12.Location = new Point(44, 101);
+            label12.Margin = new Padding(2, 0, 2, 0);
             label12.Name = "label12";
-            label12.Size = new Size(160, 32);
+            label12.Size = new Size(101, 20);
             label12.TabIndex = 22;
             label12.Text = "Välj lager hatt";
             // 
             // btnVisaBeställning
             // 
-            btnVisaBeställning.Location = new Point(1332, 62);
+            btnVisaBeställning.Location = new Point(820, 39);
+            btnVisaBeställning.Margin = new Padding(2, 2, 2, 2);
             btnVisaBeställning.Name = "btnVisaBeställning";
-            btnVisaBeställning.Size = new Size(294, 46);
+            btnVisaBeställning.Size = new Size(181, 29);
             btnVisaBeställning.TabIndex = 23;
             btnVisaBeställning.Text = "Visa beställning";
             btnVisaBeställning.UseVisualStyleBackColor = true;
@@ -120,9 +128,10 @@
             // chbAnpassa
             // 
             chbAnpassa.AutoSize = true;
-            chbAnpassa.Location = new Point(148, 638);
+            chbAnpassa.Location = new Point(91, 399);
+            chbAnpassa.Margin = new Padding(2, 2, 2, 2);
             chbAnpassa.Name = "chbAnpassa";
-            chbAnpassa.Size = new Size(133, 36);
+            chbAnpassa.Size = new Size(86, 24);
             chbAnpassa.TabIndex = 25;
             chbAnpassa.Text = "Anpassa";
             chbAnpassa.UseVisualStyleBackColor = true;
@@ -130,18 +139,17 @@
             // cbVäljHatt
             // 
             cbVäljHatt.FormattingEnabled = true;
-            cbVäljHatt.Location = new Point(270, 157);
-            cbVäljHatt.Margin = new Padding(5, 5, 5, 5);
+            cbVäljHatt.Location = new Point(166, 98);
             cbVäljHatt.Name = "cbVäljHatt";
-            cbVäljHatt.Size = new Size(243, 40);
+            cbVäljHatt.Size = new Size(151, 28);
             cbVäljHatt.TabIndex = 26;
             cbVäljHatt.SelectedIndexChanged += cbVäljHatt_SelectedIndexChanged;
             // 
             // LaggTillLagerhattar
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1894, 1009);
+            ClientSize = new Size(1166, 631);
             Controls.Add(cbVäljHatt);
             Controls.Add(chbAnpassa);
             Controls.Add(btnVisaBeställning);
@@ -152,9 +160,10 @@
             Controls.Add(btnLäggtill);
             Controls.Add(lblNamn);
             Controls.Add(pbReferens);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "LaggTillLagerhattar";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "LaggTillLagerhattar";
-            WindowState = FormWindowState.Maximized;
             Load += LaggTillLagerhattar_Load;
             ((System.ComponentModel.ISupportInitialize)pbReferens).EndInit();
             ResumeLayout(false);

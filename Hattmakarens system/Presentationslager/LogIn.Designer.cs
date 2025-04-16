@@ -43,9 +43,10 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(589, 176);
+            label1.Location = new Point(362, 110);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(77, 32);
+            label1.Size = new Size(49, 20);
             label1.TabIndex = 0;
             label1.Text = "Epost:";
             label1.Click += label1_Click;
@@ -53,32 +54,36 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(558, 297);
+            label2.Location = new Point(343, 186);
+            label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(117, 32);
+            label2.Size = new Size(73, 20);
             label2.TabIndex = 1;
             label2.Text = "Lösenord:";
             // 
             // txtEpost
             // 
-            txtEpost.Location = new Point(706, 173);
+            txtEpost.Location = new Point(434, 108);
+            txtEpost.Margin = new Padding(2, 2, 2, 2);
             txtEpost.Name = "txtEpost";
-            txtEpost.Size = new Size(554, 39);
+            txtEpost.Size = new Size(342, 27);
             txtEpost.TabIndex = 2;
             txtEpost.TextChanged += txtAnvändarnamn_TextChanged;
             // 
             // txtLösenord
             // 
-            txtLösenord.Location = new Point(706, 290);
+            txtLösenord.Location = new Point(434, 181);
+            txtLösenord.Margin = new Padding(2, 2, 2, 2);
             txtLösenord.Name = "txtLösenord";
-            txtLösenord.Size = new Size(558, 39);
+            txtLösenord.Size = new Size(345, 27);
             txtLösenord.TabIndex = 3;
             // 
             // btnLoggaIn
             // 
-            btnLoggaIn.Location = new Point(1089, 427);
+            btnLoggaIn.Location = new Point(670, 267);
+            btnLoggaIn.Margin = new Padding(2, 2, 2, 2);
             btnLoggaIn.Name = "btnLoggaIn";
-            btnLoggaIn.Size = new Size(171, 50);
+            btnLoggaIn.Size = new Size(105, 31);
             btnLoggaIn.TabIndex = 4;
             btnLoggaIn.Text = "Logga in";
             btnLoggaIn.UseVisualStyleBackColor = true;
@@ -87,25 +92,28 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(1139, 176);
+            label3.Location = new Point(701, 110);
+            label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
-            label3.Size = new Size(0, 32);
+            label3.Size = new Size(0, 20);
             label3.TabIndex = 5;
             // 
             // lblError
             // 
             lblError.AutoSize = true;
-            lblError.Location = new Point(1408, 287);
+            lblError.Location = new Point(866, 179);
+            lblError.Margin = new Padding(2, 0, 2, 0);
             lblError.Name = "lblError";
-            lblError.Size = new Size(0, 32);
+            lblError.Size = new Size(0, 20);
             lblError.TabIndex = 6;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(98, 84);
+            label4.Location = new Point(60, 52);
+            label4.Margin = new Padding(2, 0, 2, 0);
             label4.Name = "label4";
-            label4.Size = new Size(106, 32);
+            label4.Size = new Size(67, 20);
             label4.TabIndex = 7;
             label4.Text = "Logga in";
             label4.Click += label4_Click;
@@ -113,24 +121,26 @@
             // lblEpostError
             // 
             lblEpostError.AutoSize = true;
-            lblEpostError.Location = new Point(728, 225);
+            lblEpostError.Location = new Point(448, 141);
+            lblEpostError.Margin = new Padding(2, 0, 2, 0);
             lblEpostError.Name = "lblEpostError";
-            lblEpostError.Size = new Size(0, 32);
+            lblEpostError.Size = new Size(0, 20);
             lblEpostError.TabIndex = 8;
             // 
             // lblLosenordError
             // 
             lblLosenordError.AutoSize = true;
-            lblLosenordError.Location = new Point(706, 357);
+            lblLosenordError.Location = new Point(434, 223);
+            lblLosenordError.Margin = new Padding(2, 0, 2, 0);
             lblLosenordError.Name = "lblLosenordError";
-            lblLosenordError.Size = new Size(0, 32);
+            lblLosenordError.Size = new Size(0, 20);
             lblLosenordError.TabIndex = 9;
             // 
             // LoggaInGränsnittt
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(2407, 830);
+            ClientSize = new Size(1184, 519);
             Controls.Add(lblLosenordError);
             Controls.Add(lblEpostError);
             Controls.Add(label4);
@@ -141,7 +151,9 @@
             Controls.Add(txtEpost);
             Controls.Add(label2);
             Controls.Add(label1);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "LoggaInGränsnittt";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Inloggning";
             ResumeLayout(false);
             PerformLayout();
