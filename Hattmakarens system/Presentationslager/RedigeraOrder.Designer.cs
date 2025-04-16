@@ -36,33 +36,34 @@
             // dgvOrderRader
             // 
             dgvOrderRader.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvOrderRader.Location = new Point(55, 46);
-            dgvOrderRader.Margin = new Padding(6);
+            dgvOrderRader.Location = new Point(34, 29);
+            dgvOrderRader.Margin = new Padding(4, 4, 4, 4);
             dgvOrderRader.Name = "dgvOrderRader";
             dgvOrderRader.RowHeadersWidth = 82;
-            dgvOrderRader.Size = new Size(1062, 580);
+            dgvOrderRader.Size = new Size(654, 362);
             dgvOrderRader.TabIndex = 4;
             // 
             // btnSpara
             // 
-            btnSpara.Location = new Point(978, 652);
-            btnSpara.Margin = new Padding(6);
+            btnSpara.Location = new Point(602, 408);
+            btnSpara.Margin = new Padding(4, 4, 4, 4);
             btnSpara.Name = "btnSpara";
-            btnSpara.Size = new Size(139, 49);
+            btnSpara.Size = new Size(86, 31);
             btnSpara.TabIndex = 5;
             btnSpara.Text = "Spara";
             btnSpara.UseVisualStyleBackColor = true;
             // 
             // RedigeraOrder
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1167, 769);
+            ClientSize = new Size(718, 481);
             Controls.Add(btnSpara);
             Controls.Add(dgvOrderRader);
-            Margin = new Padding(6);
+            Margin = new Padding(4, 4, 4, 4);
             Name = "RedigeraOrder";
             Text = "RedigeraOrder";
+            WindowState = FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)dgvOrderRader).EndInit();
             ResumeLayout(false);
         }

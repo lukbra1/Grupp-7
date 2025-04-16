@@ -42,7 +42,7 @@
             // 
             listBox1.FormattingEnabled = true;
             listBox1.Location = new Point(47, 118);
-            listBox1.Margin = new Padding(2, 2, 2, 2);
+            listBox1.Margin = new Padding(2);
             listBox1.Name = "listBox1";
             listBox1.Size = new Size(398, 144);
             listBox1.TabIndex = 38;
@@ -50,7 +50,7 @@
             // button2
             // 
             button2.Location = new Point(351, 66);
-            button2.Margin = new Padding(2, 2, 2, 2);
+            button2.Margin = new Padding(2);
             button2.Name = "button2";
             button2.Size = new Size(92, 29);
             button2.TabIndex = 37;
@@ -61,7 +61,7 @@
             // textBox1
             // 
             textBox1.Location = new Point(148, 66);
-            textBox1.Margin = new Padding(2, 2, 2, 2);
+            textBox1.Margin = new Padding(2);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(201, 27);
             textBox1.TabIndex = 36;
@@ -80,7 +80,7 @@
             // button1
             // 
             button1.Location = new Point(118, 275);
-            button1.Margin = new Padding(2, 2, 2, 2);
+            button1.Margin = new Padding(2);
             button1.Name = "button1";
             button1.Size = new Size(230, 29);
             button1.TabIndex = 34;
@@ -91,7 +91,7 @@
             // btnGaVidare
             // 
             btnGaVidare.Location = new Point(790, 400);
-            btnGaVidare.Margin = new Padding(2, 2, 2, 2);
+            btnGaVidare.Margin = new Padding(2);
             btnGaVidare.Name = "btnGaVidare";
             btnGaVidare.Size = new Size(92, 29);
             btnGaVidare.TabIndex = 8;
@@ -102,7 +102,7 @@
             // btnRegistrera
             // 
             btnRegistrera.Location = new Point(565, 97);
-            btnRegistrera.Margin = new Padding(4, 4, 4, 4);
+            btnRegistrera.Margin = new Padding(4);
             btnRegistrera.Name = "btnRegistrera";
             btnRegistrera.Size = new Size(151, 31);
             btnRegistrera.TabIndex = 33;
@@ -133,9 +133,10 @@
             Controls.Add(btnRegistrera);
             Controls.Add(lblRubrik);
             Controls.Add(btnGaVidare);
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "AnpassaLagerhattar";
             Text = "AnpassaLagerhattar";
+            WindowState = FormWindowState.Maximized;
             Load += AnpassaLagerhattar_Load;
             ResumeLayout(false);
             PerformLayout();

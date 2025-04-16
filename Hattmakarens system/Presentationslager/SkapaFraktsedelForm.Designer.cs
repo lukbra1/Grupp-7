@@ -232,6 +232,7 @@
             Controls.Add(txtVikt);
             Name = "SkapaFraktsedelForm";
             Text = "SkapaFraktsedelForm";
+            WindowState = FormWindowState.Maximized;
             Load += SkapaFraktsedelForm_Load;
             ResumeLayout(false);
             PerformLayout();

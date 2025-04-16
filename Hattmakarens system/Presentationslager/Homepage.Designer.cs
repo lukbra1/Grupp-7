@@ -98,14 +98,14 @@ namespace Hattmakarens_system
             // nyBeställningToolStripMenuItem
             // 
             nyBeställningToolStripMenuItem.Name = "nyBeställningToolStripMenuItem";
-            nyBeställningToolStripMenuItem.Size = new Size(224, 26);
+            nyBeställningToolStripMenuItem.Size = new Size(208, 26);
             nyBeställningToolStripMenuItem.Text = "Ny beställning";
             nyBeställningToolStripMenuItem.Click += nyBeställningToolStripMenuItem_Click;
             // 
             // allaBeställningarToolStripMenuItem
             // 
             allaBeställningarToolStripMenuItem.Name = "allaBeställningarToolStripMenuItem";
-            allaBeställningarToolStripMenuItem.Size = new Size(224, 26);
+            allaBeställningarToolStripMenuItem.Size = new Size(208, 26);
             allaBeställningarToolStripMenuItem.Text = "Alla beställningar";
             allaBeställningarToolStripMenuItem.Click += allaBeställningarToolStripMenuItem_Click_2;
             // 
@@ -302,6 +302,7 @@ namespace Hattmakarens_system
             Margin = new Padding(2, 3, 2, 3);
             Name = "Homepage";
             Text = "Mitt schema";
+            WindowState = FormWindowState.Maximized;
             Load += Homepage_Load;
             menuStrip2.ResumeLayout(false);
             menuStrip2.PerformLayout();

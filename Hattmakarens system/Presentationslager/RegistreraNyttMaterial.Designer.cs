@@ -50,10 +50,10 @@
             // 
             // btnRegistrera
             // 
-            btnRegistrera.Location = new Point(293, 604);
-            btnRegistrera.Margin = new Padding(6);
+            btnRegistrera.Location = new Point(180, 378);
+            btnRegistrera.Margin = new Padding(4, 4, 4, 4);
             btnRegistrera.Name = "btnRegistrera";
-            btnRegistrera.Size = new Size(246, 49);
+            btnRegistrera.Size = new Size(151, 31);
             btnRegistrera.TabIndex = 51;
             btnRegistrera.Text = "Lägg till material";
             btnRegistrera.UseVisualStyleBackColor = true;
@@ -62,153 +62,154 @@
             // lblFel6
             // 
             lblFel6.AutoSize = true;
-            lblFel6.Location = new Point(627, 548);
-            lblFel6.Margin = new Padding(6, 0, 6, 0);
+            lblFel6.Location = new Point(386, 342);
+            lblFel6.Margin = new Padding(4, 0, 4, 0);
             lblFel6.Name = "lblFel6";
-            lblFel6.Size = new Size(0, 32);
+            lblFel6.Size = new Size(0, 20);
             lblFel6.TabIndex = 50;
             // 
             // lblFel4
             // 
             lblFel4.AutoSize = true;
-            lblFel4.Location = new Point(627, 448);
-            lblFel4.Margin = new Padding(6, 0, 6, 0);
+            lblFel4.Location = new Point(386, 280);
+            lblFel4.Margin = new Padding(4, 0, 4, 0);
             lblFel4.Name = "lblFel4";
-            lblFel4.Size = new Size(0, 32);
+            lblFel4.Size = new Size(0, 20);
             lblFel4.TabIndex = 49;
             // 
             // lblFel3
             // 
             lblFel3.AutoSize = true;
-            lblFel3.Location = new Point(627, 341);
-            lblFel3.Margin = new Padding(6, 0, 6, 0);
+            lblFel3.Location = new Point(386, 213);
+            lblFel3.Margin = new Padding(4, 0, 4, 0);
             lblFel3.Name = "lblFel3";
-            lblFel3.Size = new Size(0, 32);
+            lblFel3.Size = new Size(0, 20);
             lblFel3.TabIndex = 48;
             // 
             // lblFel2
             // 
             lblFel2.AutoSize = true;
-            lblFel2.Location = new Point(627, 222);
-            lblFel2.Margin = new Padding(6, 0, 6, 0);
+            lblFel2.Location = new Point(386, 139);
+            lblFel2.Margin = new Padding(4, 0, 4, 0);
             lblFel2.Name = "lblFel2";
-            lblFel2.Size = new Size(0, 32);
+            lblFel2.Size = new Size(0, 20);
             lblFel2.TabIndex = 47;
             // 
             // lblFel1
             // 
             lblFel1.AutoSize = true;
-            lblFel1.Location = new Point(627, 130);
-            lblFel1.Margin = new Padding(6, 0, 6, 0);
+            lblFel1.Location = new Point(386, 81);
+            lblFel1.Margin = new Padding(4, 0, 4, 0);
             lblFel1.Name = "lblFel1";
-            lblFel1.Size = new Size(0, 32);
+            lblFel1.Size = new Size(0, 20);
             lblFel1.TabIndex = 46;
             // 
             // lblRubrik
             // 
             lblRubrik.AutoSize = true;
-            lblRubrik.Location = new Point(339, 51);
-            lblRubrik.Margin = new Padding(6, 0, 6, 0);
+            lblRubrik.Location = new Point(209, 32);
+            lblRubrik.Margin = new Padding(4, 0, 4, 0);
             lblRubrik.Name = "lblRubrik";
-            lblRubrik.Size = new Size(261, 32);
+            lblRubrik.Size = new Size(164, 20);
             lblRubrik.TabIndex = 45;
             lblRubrik.Text = "Registrera nytt material";
             // 
             // txtBeskrivning
             // 
-            txtBeskrivning.Location = new Point(386, 531);
-            txtBeskrivning.Margin = new Padding(6);
+            txtBeskrivning.Location = new Point(238, 332);
+            txtBeskrivning.Margin = new Padding(4, 4, 4, 4);
             txtBeskrivning.Name = "txtBeskrivning";
-            txtBeskrivning.Size = new Size(182, 39);
+            txtBeskrivning.Size = new Size(114, 27);
             txtBeskrivning.TabIndex = 44;
             // 
             // txtFarg
             // 
-            txtFarg.Location = new Point(386, 431);
-            txtFarg.Margin = new Padding(6);
+            txtFarg.Location = new Point(238, 269);
+            txtFarg.Margin = new Padding(4, 4, 4, 4);
             txtFarg.Name = "txtFarg";
-            txtFarg.Size = new Size(182, 39);
+            txtFarg.Size = new Size(114, 27);
             txtFarg.TabIndex = 43;
             // 
             // txtEnhet
             // 
-            txtEnhet.Location = new Point(386, 324);
-            txtEnhet.Margin = new Padding(6);
+            txtEnhet.Location = new Point(238, 202);
+            txtEnhet.Margin = new Padding(4, 4, 4, 4);
             txtEnhet.Name = "txtEnhet";
-            txtEnhet.Size = new Size(182, 39);
+            txtEnhet.Size = new Size(114, 27);
             txtEnhet.TabIndex = 42;
             // 
             // txtPrisPerEnhet
             // 
-            txtPrisPerEnhet.Location = new Point(386, 222);
-            txtPrisPerEnhet.Margin = new Padding(6);
+            txtPrisPerEnhet.Location = new Point(238, 139);
+            txtPrisPerEnhet.Margin = new Padding(4, 4, 4, 4);
             txtPrisPerEnhet.Name = "txtPrisPerEnhet";
-            txtPrisPerEnhet.Size = new Size(182, 39);
+            txtPrisPerEnhet.Size = new Size(114, 27);
             txtPrisPerEnhet.TabIndex = 41;
             // 
             // txtNamn
             // 
-            txtNamn.Location = new Point(386, 124);
-            txtNamn.Margin = new Padding(6);
+            txtNamn.Location = new Point(238, 78);
+            txtNamn.Margin = new Padding(4, 4, 4, 4);
             txtNamn.Name = "txtNamn";
-            txtNamn.Size = new Size(182, 39);
+            txtNamn.Size = new Size(114, 27);
             txtNamn.TabIndex = 40;
             // 
             // txtAdress
             // 
             txtAdress.AutoSize = true;
-            txtAdress.Location = new Point(217, 538);
-            txtAdress.Margin = new Padding(6, 0, 6, 0);
+            txtAdress.Location = new Point(134, 336);
+            txtAdress.Margin = new Padding(4, 0, 4, 0);
             txtAdress.Name = "txtAdress";
-            txtAdress.Size = new Size(137, 32);
+            txtAdress.Size = new Size(84, 20);
             txtAdress.TabIndex = 39;
             txtAdress.Text = "Beskrivning";
             // 
             // txtEpost
             // 
             txtEpost.AutoSize = true;
-            txtEpost.Location = new Point(230, 437);
-            txtEpost.Margin = new Padding(6, 0, 6, 0);
+            txtEpost.Location = new Point(142, 273);
+            txtEpost.Margin = new Padding(4, 0, 4, 0);
             txtEpost.Name = "txtEpost";
-            txtEpost.Size = new Size(59, 32);
+            txtEpost.Size = new Size(37, 20);
             txtEpost.TabIndex = 38;
             txtEpost.Text = "Färg";
             // 
             // txtTelefon
             // 
             txtTelefon.AutoSize = true;
-            txtTelefon.Location = new Point(217, 341);
-            txtTelefon.Margin = new Padding(6, 0, 6, 0);
+            txtTelefon.Location = new Point(134, 213);
+            txtTelefon.Margin = new Padding(4, 0, 4, 0);
             txtTelefon.Name = "txtTelefon";
-            txtTelefon.Size = new Size(75, 32);
+            txtTelefon.Size = new Size(46, 20);
             txtTelefon.TabIndex = 37;
             txtTelefon.Text = "Enhet";
             // 
             // txtEfternamn
             // 
             txtEfternamn.AutoSize = true;
-            txtEfternamn.Location = new Point(217, 228);
-            txtEfternamn.Margin = new Padding(6, 0, 6, 0);
+            txtEfternamn.Location = new Point(134, 142);
+            txtEfternamn.Margin = new Padding(4, 0, 4, 0);
             txtEfternamn.Name = "txtEfternamn";
-            txtEfternamn.Size = new Size(162, 32);
+            txtEfternamn.Size = new Size(99, 20);
             txtEfternamn.TabIndex = 36;
             txtEfternamn.Text = "Pris per enhet";
             // 
             // txtFörnamn
             // 
             txtFörnamn.AutoSize = true;
-            txtFörnamn.Location = new Point(217, 130);
-            txtFörnamn.Margin = new Padding(6, 0, 6, 0);
+            txtFörnamn.Location = new Point(134, 81);
+            txtFörnamn.Margin = new Padding(4, 0, 4, 0);
             txtFörnamn.Name = "txtFörnamn";
-            txtFörnamn.Size = new Size(79, 32);
+            txtFörnamn.Size = new Size(49, 20);
             txtFörnamn.TabIndex = 35;
             txtFörnamn.Text = "Namn";
             // 
             // btnGaVidare
             // 
-            btnGaVidare.Location = new Point(705, 648);
+            btnGaVidare.Location = new Point(434, 405);
+            btnGaVidare.Margin = new Padding(2, 2, 2, 2);
             btnGaVidare.Name = "btnGaVidare";
-            btnGaVidare.Size = new Size(150, 46);
+            btnGaVidare.Size = new Size(92, 29);
             btnGaVidare.TabIndex = 34;
             btnGaVidare.Text = "Gå vidare";
             btnGaVidare.UseVisualStyleBackColor = true;
@@ -216,9 +217,9 @@
             // 
             // RegistreraNyttMaterial
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1072, 745);
+            ClientSize = new Size(660, 466);
             Controls.Add(btnRegistrera);
             Controls.Add(lblFel6);
             Controls.Add(lblFel4);
@@ -237,8 +238,10 @@
             Controls.Add(txtEfternamn);
             Controls.Add(txtFörnamn);
             Controls.Add(btnGaVidare);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "RegistreraNyttMaterial";
             Text = "RegistreraNyttMaterial";
+            WindowState = FormWindowState.Maximized;
             ResumeLayout(false);
             PerformLayout();
         }

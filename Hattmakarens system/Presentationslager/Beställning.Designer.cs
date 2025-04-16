@@ -38,7 +38,7 @@
             // button1
             // 
             button1.Location = new Point(17, 14);
-            button1.Margin = new Padding(2, 2, 2, 2);
+            button1.Margin = new Padding(2);
             button1.Name = "button1";
             button1.Size = new Size(191, 29);
             button1.TabIndex = 0;
@@ -49,7 +49,7 @@
             // button2
             // 
             button2.Location = new Point(570, 424);
-            button2.Margin = new Padding(2, 2, 2, 2);
+            button2.Margin = new Padding(2);
             button2.Name = "button2";
             button2.Size = new Size(92, 29);
             button2.TabIndex = 1;
@@ -61,7 +61,7 @@
             // 
             listBox1.FormattingEnabled = true;
             listBox1.Location = new Point(61, 62);
-            listBox1.Margin = new Padding(2, 2, 2, 2);
+            listBox1.Margin = new Padding(2);
             listBox1.Name = "listBox1";
             listBox1.Size = new Size(593, 284);
             listBox1.TabIndex = 3;
@@ -71,7 +71,7 @@
             // 
             checkBox1.AutoSize = true;
             checkBox1.Location = new Point(440, 424);
-            checkBox1.Margin = new Padding(2, 2, 2, 2);
+            checkBox1.Margin = new Padding(2);
             checkBox1.Name = "checkBox1";
             checkBox1.Size = new Size(130, 24);
             checkBox1.TabIndex = 4;
@@ -100,9 +100,10 @@
             Controls.Add(listBox1);
             Controls.Add(button2);
             Controls.Add(button1);
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "Beställning";
             Text = "Beställning";
+            WindowState = FormWindowState.Maximized;
             ResumeLayout(false);
             PerformLayout();
         }

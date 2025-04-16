@@ -163,6 +163,7 @@
             Margin = new Padding(2);
             Name = "LaggTillLagerhattar";
             Text = "LaggTillLagerhattar";
+            WindowState = FormWindowState.Maximized;
             Load += LaggTillLagerhattar_Load;
             ((System.ComponentModel.ISupportInitialize)pbReferens).EndInit();
             ResumeLayout(false);
