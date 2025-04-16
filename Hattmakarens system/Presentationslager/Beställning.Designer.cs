@@ -34,6 +34,16 @@
             checkBox1 = new CheckBox();
             label2 = new Label();
             Varukorg = new Label();
+            cbVäljHatt = new ComboBox();
+            chbAnpassa = new CheckBox();
+            label12 = new Label();
+            label11 = new Label();
+            btnSpec = new Button();
+            lblPris = new Label();
+            btnLäggtill = new Button();
+            lblNamn = new Label();
+            pbReferens = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pbReferens).BeginInit();
             SuspendLayout();
             // 
             // button1
@@ -95,11 +105,103 @@
             Varukorg.TabIndex = 7;
             Varukorg.Text = "Varukorg";
             // 
+            // cbVäljHatt
+            // 
+            cbVäljHatt.FormattingEnabled = true;
+            cbVäljHatt.Location = new Point(230, 574);
+            cbVäljHatt.Margin = new Padding(5);
+            cbVäljHatt.Name = "cbVäljHatt";
+            cbVäljHatt.Size = new Size(243, 40);
+            cbVäljHatt.TabIndex = 35;
+            // 
+            // chbAnpassa
+            // 
+            chbAnpassa.AutoSize = true;
+            chbAnpassa.Location = new Point(726, 658);
+            chbAnpassa.Name = "chbAnpassa";
+            chbAnpassa.Size = new Size(133, 36);
+            chbAnpassa.TabIndex = 34;
+            chbAnpassa.Text = "Anpassa";
+            chbAnpassa.UseVisualStyleBackColor = true;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(46, 574);
+            label12.Name = "label12";
+            label12.Size = new Size(160, 32);
+            label12.TabIndex = 33;
+            label12.Text = "Välj lager hatt";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(28, 110);
+            label11.Name = "label11";
+            label11.Size = new Size(198, 32);
+            label11.TabIndex = 32;
+            label11.Text = "Skapa specialhatt";
+            // 
+            // btnSpec
+            // 
+            btnSpec.Location = new Point(251, 103);
+            btnSpec.Name = "btnSpec";
+            btnSpec.Size = new Size(270, 46);
+            btnSpec.TabIndex = 31;
+            btnSpec.Text = "Special order";
+            btnSpec.UseVisualStyleBackColor = true;
+            // 
+            // lblPris
+            // 
+            lblPris.AutoSize = true;
+            lblPris.Location = new Point(417, 713);
+            lblPris.Name = "lblPris";
+            lblPris.Size = new Size(80, 32);
+            lblPris.TabIndex = 30;
+            lblPris.Text = "800 kr";
+            // 
+            // btnLäggtill
+            // 
+            btnLäggtill.Location = new Point(1125, 895);
+            btnLäggtill.Name = "btnLäggtill";
+            btnLäggtill.Size = new Size(150, 46);
+            btnLäggtill.TabIndex = 29;
+            btnLäggtill.Text = "Lägg till";
+            btnLäggtill.UseVisualStyleBackColor = true;
+            // 
+            // lblNamn
+            // 
+            lblNamn.AutoSize = true;
+            lblNamn.Location = new Point(408, 662);
+            lblNamn.Name = "lblNamn";
+            lblNamn.Size = new Size(164, 32);
+            lblNamn.TabIndex = 28;
+            lblNamn.Text = "Studentmössa";
+            // 
+            // pbReferens
+            // 
+            pbReferens.Image = Properties.Resources.Oktoberhatt;
+            pbReferens.Location = new Point(73, 648);
+            pbReferens.Name = "pbReferens";
+            pbReferens.Size = new Size(302, 293);
+            pbReferens.SizeMode = PictureBoxSizeMode.Zoom;
+            pbReferens.TabIndex = 27;
+            pbReferens.TabStop = false;
+            // 
             // Beställning
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1894, 1009);
+            Controls.Add(cbVäljHatt);
+            Controls.Add(chbAnpassa);
+            Controls.Add(label12);
+            Controls.Add(label11);
+            Controls.Add(btnSpec);
+            Controls.Add(lblPris);
+            Controls.Add(btnLäggtill);
+            Controls.Add(lblNamn);
+            Controls.Add(pbReferens);
             Controls.Add(Varukorg);
             Controls.Add(label2);
             Controls.Add(checkBox1);
@@ -109,6 +211,7 @@
             Name = "Beställning";
             Text = "Beställning";
             WindowState = FormWindowState.Maximized;
+            ((System.ComponentModel.ISupportInitialize)pbReferens).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -121,5 +224,14 @@
         private CheckBox checkBox1;
         private Label Varukorg;
         private Label label2;
+        private ComboBox cbVäljHatt;
+        private CheckBox chbAnpassa;
+        private Label label12;
+        private Label label11;
+        private Button btnSpec;
+        private Label lblPris;
+        private Button btnLäggtill;
+        private Label lblNamn;
+        private PictureBox pbReferens;
     }
 }
