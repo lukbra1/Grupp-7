@@ -43,6 +43,17 @@
             btnLäggtill = new Button();
             lblNamn = new Label();
             pbReferens = new PictureBox();
+            comboBox3 = new ComboBox();
+            textBox3 = new TextBox();
+            button6 = new Button();
+            button3 = new Button();
+            richTextBox1 = new RichTextBox();
+            listView1 = new ListView();
+            textBox1 = new TextBox();
+            button4 = new Button();
+            button5 = new Button();
+            listBox2 = new ListBox();
+            txtExtraMat = new TextBox();
             ((System.ComponentModel.ISupportInitialize)pbReferens).BeginInit();
             SuspendLayout();
             // 
@@ -144,12 +155,13 @@
             // 
             // btnSpec
             // 
-            btnSpec.Location = new Point(251, 103);
+            btnSpec.Location = new Point(371, 22);
             btnSpec.Name = "btnSpec";
             btnSpec.Size = new Size(270, 46);
             btnSpec.TabIndex = 31;
             btnSpec.Text = "Special order";
             btnSpec.UseVisualStyleBackColor = true;
+            btnSpec.Click += btnSpec_Click;
             // 
             // lblPris
             // 
@@ -162,7 +174,7 @@
             // 
             // btnLäggtill
             // 
-            btnLäggtill.Location = new Point(1125, 895);
+            btnLäggtill.Location = new Point(1187, 895);
             btnLäggtill.Name = "btnLäggtill";
             btnLäggtill.Size = new Size(150, 46);
             btnLäggtill.TabIndex = 29;
@@ -188,11 +200,126 @@
             pbReferens.TabIndex = 27;
             pbReferens.TabStop = false;
             // 
+            // comboBox3
+            // 
+            comboBox3.FormattingEnabled = true;
+            comboBox3.Items.AddRange(new object[] { "XS", "S", "M", "L", "XL" });
+            comboBox3.Location = new Point(683, 343);
+            comboBox3.Margin = new Padding(5, 6, 5, 6);
+            comboBox3.Name = "comboBox3";
+            comboBox3.Size = new Size(337, 40);
+            comboBox3.TabIndex = 46;
+            // 
+            // textBox3
+            // 
+            textBox3.Location = new Point(1125, 231);
+            textBox3.Margin = new Padding(5);
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(214, 39);
+            textBox3.TabIndex = 45;
+            textBox3.Text = "Referensbild";
+            // 
+            // button6
+            // 
+            button6.Location = new Point(8, 777);
+            button6.Margin = new Padding(5, 6, 5, 6);
+            button6.Name = "button6";
+            button6.Size = new Size(284, 50);
+            button6.TabIndex = 44;
+            button6.Text = "Registrera nytt material";
+            button6.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            button3.Location = new Point(1199, 445);
+            button3.Margin = new Padding(5, 6, 5, 6);
+            button3.Name = "button3";
+            button3.Size = new Size(138, 50);
+            button3.TabIndex = 43;
+            button3.Text = "Lägg till";
+            button3.UseVisualStyleBackColor = true;
+            // 
+            // richTextBox1
+            // 
+            richTextBox1.Location = new Point(646, 195);
+            richTextBox1.Margin = new Padding(5, 6, 5, 6);
+            richTextBox1.Name = "richTextBox1";
+            richTextBox1.Size = new Size(437, 121);
+            richTextBox1.TabIndex = 42;
+            richTextBox1.Text = "Skriv en kommentar";
+            // 
+            // listView1
+            // 
+            listView1.Location = new Point(16, 343);
+            listView1.Margin = new Padding(5, 6, 5, 6);
+            listView1.Name = "listView1";
+            listView1.Size = new Size(441, 152);
+            listView1.TabIndex = 41;
+            listView1.UseCompatibleStateImageBehavior = false;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(480, 343);
+            textBox1.Margin = new Padding(5);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(132, 39);
+            textBox1.TabIndex = 40;
+            textBox1.Text = "Antal";
+            // 
+            // button4
+            // 
+            button4.Location = new Point(477, 393);
+            button4.Margin = new Padding(5, 6, 5, 6);
+            button4.Name = "button4";
+            button4.Size = new Size(135, 50);
+            button4.TabIndex = 39;
+            button4.Text = "Lägg till";
+            button4.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            button5.Location = new Point(322, 182);
+            button5.Margin = new Padding(5, 6, 5, 6);
+            button5.Name = "button5";
+            button5.Size = new Size(135, 40);
+            button5.TabIndex = 38;
+            button5.Text = "Sök";
+            button5.UseVisualStyleBackColor = true;
+            // 
+            // listBox2
+            // 
+            listBox2.FormattingEnabled = true;
+            listBox2.Location = new Point(14, 231);
+            listBox2.Margin = new Padding(5, 6, 5, 6);
+            listBox2.Name = "listBox2";
+            listBox2.Size = new Size(443, 100);
+            listBox2.TabIndex = 37;
+            // 
+            // txtExtraMat
+            // 
+            txtExtraMat.Location = new Point(16, 181);
+            txtExtraMat.Margin = new Padding(5);
+            txtExtraMat.Name = "txtExtraMat";
+            txtExtraMat.Size = new Size(285, 39);
+            txtExtraMat.TabIndex = 36;
+            txtExtraMat.Text = "Sök material";
+            // 
             // Beställning
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1894, 1009);
+            Controls.Add(comboBox3);
+            Controls.Add(textBox3);
+            Controls.Add(button6);
+            Controls.Add(button3);
+            Controls.Add(richTextBox1);
+            Controls.Add(listView1);
+            Controls.Add(textBox1);
+            Controls.Add(button4);
+            Controls.Add(button5);
+            Controls.Add(listBox2);
+            Controls.Add(txtExtraMat);
             Controls.Add(cbVäljHatt);
             Controls.Add(chbAnpassa);
             Controls.Add(label12);
@@ -233,5 +360,16 @@
         private Button btnLäggtill;
         private Label lblNamn;
         private PictureBox pbReferens;
+        private ComboBox comboBox3;
+        private TextBox textBox3;
+        private Button button6;
+        private Button button3;
+        private RichTextBox richTextBox1;
+        private ListView listView1;
+        private TextBox textBox1;
+        private Button button4;
+        private Button button5;
+        private ListBox listBox2;
+        private TextBox txtExtraMat;
     }
 }

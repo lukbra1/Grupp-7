@@ -97,5 +97,10 @@ namespace Hattmakarens_system.Presentationslager
             Program.homepage.Show();
             this.Close();
         }
+
+        private void btnSpec_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
