@@ -41,21 +41,21 @@
             // 
             grpBoxSeHatt.Controls.Add(btnVisaMaterial);
             grpBoxSeHatt.Controls.Add(cmbHattar);
-            grpBoxSeHatt.Location = new Point(14, 37);
-            grpBoxSeHatt.Margin = new Padding(3, 4, 3, 4);
+            grpBoxSeHatt.Location = new Point(23, 59);
+            grpBoxSeHatt.Margin = new Padding(5, 6, 5, 6);
             grpBoxSeHatt.Name = "grpBoxSeHatt";
-            grpBoxSeHatt.Padding = new Padding(3, 4, 3, 4);
-            grpBoxSeHatt.Size = new Size(229, 133);
+            grpBoxSeHatt.Padding = new Padding(5, 6, 5, 6);
+            grpBoxSeHatt.Size = new Size(372, 213);
             grpBoxSeHatt.TabIndex = 0;
             grpBoxSeHatt.TabStop = false;
             grpBoxSeHatt.Text = "Lista över hattar ";
             // 
             // btnVisaMaterial
             // 
-            btnVisaMaterial.Location = new Point(8, 68);
-            btnVisaMaterial.Margin = new Padding(3, 4, 3, 4);
+            btnVisaMaterial.Location = new Point(13, 109);
+            btnVisaMaterial.Margin = new Padding(5, 6, 5, 6);
             btnVisaMaterial.Name = "btnVisaMaterial";
-            btnVisaMaterial.Size = new Size(137, 31);
+            btnVisaMaterial.Size = new Size(223, 50);
             btnVisaMaterial.TabIndex = 1;
             btnVisaMaterial.Text = "Visa Materialbehov";
             btnVisaMaterial.UseVisualStyleBackColor = true;
@@ -63,28 +63,28 @@
             // cmbHattar
             // 
             cmbHattar.FormattingEnabled = true;
-            cmbHattar.Location = new Point(7, 29);
-            cmbHattar.Margin = new Padding(3, 4, 3, 4);
+            cmbHattar.Location = new Point(11, 46);
+            cmbHattar.Margin = new Padding(5, 6, 5, 6);
             cmbHattar.Name = "cmbHattar";
-            cmbHattar.Size = new Size(138, 28);
+            cmbHattar.Size = new Size(222, 40);
             cmbHattar.TabIndex = 0;
             // 
             // dataGridViewMaterial
             // 
             dataGridViewMaterial.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewMaterial.Location = new Point(347, 37);
-            dataGridViewMaterial.Margin = new Padding(3, 4, 3, 4);
+            dataGridViewMaterial.Location = new Point(564, 59);
+            dataGridViewMaterial.Margin = new Padding(5, 6, 5, 6);
             dataGridViewMaterial.Name = "dataGridViewMaterial";
             dataGridViewMaterial.RowHeadersWidth = 51;
-            dataGridViewMaterial.Size = new Size(882, 492);
+            dataGridViewMaterial.Size = new Size(1433, 787);
             dataGridViewMaterial.TabIndex = 1;
             // 
             // btnSparaBestallning
             // 
-            btnSparaBestallning.Location = new Point(1101, 487);
-            btnSparaBestallning.Margin = new Padding(3, 4, 3, 4);
+            btnSparaBestallning.Location = new Point(1789, 779);
+            btnSparaBestallning.Margin = new Padding(5, 6, 5, 6);
             btnSparaBestallning.Name = "btnSparaBestallning";
-            btnSparaBestallning.Size = new Size(129, 43);
+            btnSparaBestallning.Size = new Size(210, 69);
             btnSparaBestallning.TabIndex = 2;
             btnSparaBestallning.Text = "Spara beställning";
             btnSparaBestallning.UseVisualStyleBackColor = true;
@@ -92,13 +92,13 @@
             // 
             // SeMaterialbehov
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1243, 600);
+            ClientSize = new Size(1894, 1009);
             Controls.Add(btnSparaBestallning);
             Controls.Add(dataGridViewMaterial);
             Controls.Add(grpBoxSeHatt);
-            Margin = new Padding(3, 4, 3, 4);
+            Margin = new Padding(5, 6, 5, 6);
             Name = "SeMaterialbehov";
             Text = "SeMaterialbehov&Beställningsstatus";
             WindowState = FormWindowState.Maximized;

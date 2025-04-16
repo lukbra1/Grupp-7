@@ -40,9 +40,10 @@
             // 
             // btnSkapaFraktSedel
             // 
-            btnSkapaFraktSedel.Location = new Point(595, 374);
+            btnSkapaFraktSedel.Location = new Point(967, 598);
+            btnSkapaFraktSedel.Margin = new Padding(5, 5, 5, 5);
             btnSkapaFraktSedel.Name = "btnSkapaFraktSedel";
-            btnSkapaFraktSedel.Size = new Size(174, 29);
+            btnSkapaFraktSedel.Size = new Size(283, 46);
             btnSkapaFraktSedel.TabIndex = 1;
             btnSkapaFraktSedel.Text = "Skapa Fraktsedel";
             btnSkapaFraktSedel.UseVisualStyleBackColor = true;
@@ -50,9 +51,10 @@
             // 
             // btnRedigera
             // 
-            btnRedigera.Location = new Point(595, 326);
+            btnRedigera.Location = new Point(967, 522);
+            btnRedigera.Margin = new Padding(5, 5, 5, 5);
             btnRedigera.Name = "btnRedigera";
-            btnRedigera.Size = new Size(174, 29);
+            btnRedigera.Size = new Size(283, 46);
             btnRedigera.TabIndex = 2;
             btnRedigera.Text = "Redigera Beställning";
             btnRedigera.UseVisualStyleBackColor = true;
@@ -62,10 +64,9 @@
             // 
             lvAlla.Columns.AddRange(new ColumnHeader[] { OrderId, Skapad, Status, Express, Pris });
             lvAlla.FullRowSelect = true;
-            lvAlla.Location = new Point(36, 48);
-            lvAlla.Margin = new Padding(2, 2, 2, 2);
+            lvAlla.Location = new Point(58, 77);
             lvAlla.Name = "lvAlla";
-            lvAlla.Size = new Size(545, 356);
+            lvAlla.Size = new Size(883, 567);
             lvAlla.TabIndex = 3;
             lvAlla.UseCompatibleStateImageBehavior = false;
             lvAlla.View = View.Details;
@@ -98,12 +99,13 @@
             // 
             // AllaBeställningar
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1894, 1009);
             Controls.Add(lvAlla);
             Controls.Add(btnRedigera);
             Controls.Add(btnSkapaFraktSedel);
+            Margin = new Padding(5, 5, 5, 5);
             Name = "AllaBeställningar";
             Text = "AllaBeställningar";
             WindowState = FormWindowState.Maximized;
