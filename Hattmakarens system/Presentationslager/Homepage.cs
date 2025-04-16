@@ -1,12 +1,6 @@
 ﻿using Hattmakarens_system.Presentationslager;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Hattmakarens_system
@@ -18,39 +12,23 @@ namespace Hattmakarens_system
         public Homepage()
         {
             InitializeComponent();
-
         }
 
-        private void beställningarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+        private void beställningarToolStripMenuItem_Click(object sender, EventArgs e) { }
 
-        }
+        private void lagerToolStripMenuItem_Click(object sender, EventArgs e) { }
 
-        private void lagerToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-            // panelMenu.Visible = !panelMenu.Visible;
-
-        }
+        private void button1_Click(object sender, EventArgs e) { }
 
         private void Homepage_Load(object sender, EventArgs e)
         {
-            // Sätt dagens datum som standard på MonthCalendar
             monthCalendar1.SelectionStart = DateTime.Today;
             monthCalendar1.SelectionEnd = DateTime.Today;
-
-            // Anropa metoden som uppdaterar dagens uppgifter och veckoöversikten
             UppdateraVeckooversikt(DateTime.Today);
         }
 
         private void UppdateraVeckooversikt(DateTime selectedDate)
         {
-            // Uppdatera dagens uppgifter
             listBoxDagens.Items.Clear();
             if (todoList.ContainsKey(selectedDate))
             {
@@ -60,8 +38,7 @@ namespace Hattmakarens_system
                 }
             }
 
-            // Uppdatera veckoöversikten
-            DateTime startOfWeek = selectedDate.AddDays(-(int)selectedDate.DayOfWeek + 1); // Måndag
+            DateTime startOfWeek = selectedDate.AddDays(-(int)selectedDate.DayOfWeek + 1);
             richTextBoxVecka.Clear();
 
             for (int i = 0; i < 7; i++)
@@ -85,10 +62,7 @@ namespace Hattmakarens_system
             }
         }
 
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e) { }
 
         private void btnLäggTill_Click(object sender, EventArgs e)
         {
@@ -119,14 +93,12 @@ namespace Hattmakarens_system
                     listBoxDagens.Items.Add(task);
                 }
             }
-
-
         }
 
         private void btnVeckoöversikt_Click(object sender, EventArgs e)
         {
             DateTime selectedDate = monthCalendar1.SelectionStart.Date;
-            DateTime startOfWeek = selectedDate.AddDays(-(int)selectedDate.DayOfWeek + 1); // måndag
+            DateTime startOfWeek = selectedDate.AddDays(-(int)selectedDate.DayOfWeek + 1);
 
             richTextBoxVecka.Clear();
 
@@ -151,39 +123,21 @@ namespace Hattmakarens_system
             }
         }
 
-        private void textBoxUppgift_TextChanged(object sender, EventArgs e)
-        {
+        private void textBoxUppgift_TextChanged(object sender, EventArgs e) { }
 
-        }
+        private void label2_Click(object sender, EventArgs e) { }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
+        private void label3_Click(object sender, EventArgs e) { }
 
-        }
+        private void label4_Click(object sender, EventArgs e) { }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
+        private void richTextBoxVecka_TextChanged(object sender, EventArgs e) { }
 
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void richTextBoxVecka_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void specialbeställningToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
+        private void specialbeställningToolStripMenuItem_Click(object sender, EventArgs e) { }
 
         private void nyBeställningToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var VäljKund = new VäljKund(); // öppnar nya form
+            var VäljKund = new VäljKund();
             VäljKund.Show();
             this.Hide();
         }
@@ -199,7 +153,17 @@ namespace Hattmakarens_system
             var AllaBeställningar = new AllaBeställningar();
             AllaBeställningar.Show();
             this.Hide();
+        }
 
+        private void loggaUtToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Vill du logga ut?", "Logga ut", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                var loginForm = new LoggaInGränsnittt();
+                loginForm.Show();
+                this.Close();
+            }
         }
     }
 }
