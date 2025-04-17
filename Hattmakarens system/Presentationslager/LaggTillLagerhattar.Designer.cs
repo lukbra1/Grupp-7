@@ -32,7 +32,6 @@
             lblNamn = new Label();
             btnLäggtill = new Button();
             lblPris = new Label();
-            btnSpec = new Button();
             label11 = new Label();
             label12 = new Label();
             btnVisaBeställning = new Button();
@@ -40,6 +39,15 @@
             cbVäljHatt = new ComboBox();
             panelLagerHattar = new Panel();
             panelSpecHattar = new Panel();
+            button2 = new Button();
+            textBox3 = new TextBox();
+            comboBox3 = new ComboBox();
+            richTextBox1 = new RichTextBox();
+            button6 = new Button();
+            button3 = new Button();
+            textBox1 = new TextBox();
+            listView1 = new ListView();
+            listBox1 = new ListBox();
             lvBeställningar = new ListView();
             Typ = new ColumnHeader();
             Modell = new ColumnHeader();
@@ -56,9 +64,10 @@
             // pbReferens
             // 
             pbReferens.Image = Properties.Resources.Oktoberhatt;
-            pbReferens.Location = new Point(5, 106);
+            pbReferens.Location = new Point(4, 83);
+            pbReferens.Margin = new Padding(2);
             pbReferens.Name = "pbReferens";
-            pbReferens.Size = new Size(224, 222);
+            pbReferens.Size = new Size(172, 173);
             pbReferens.SizeMode = PictureBoxSizeMode.Zoom;
             pbReferens.TabIndex = 0;
             pbReferens.TabStop = false;
@@ -66,17 +75,19 @@
             // lblNamn
             // 
             lblNamn.AutoSize = true;
-            lblNamn.Location = new Point(90, 369);
+            lblNamn.Location = new Point(69, 288);
+            lblNamn.Margin = new Padding(2, 0, 2, 0);
             lblNamn.Name = "lblNamn";
-            lblNamn.Size = new Size(164, 32);
+            lblNamn.Size = new Size(125, 25);
             lblNamn.TabIndex = 5;
             lblNamn.Text = "Studentmössa";
             // 
             // btnLäggtill
             // 
-            btnLäggtill.Location = new Point(32, 441);
+            btnLäggtill.Location = new Point(25, 345);
+            btnLäggtill.Margin = new Padding(2);
             btnLäggtill.Name = "btnLäggtill";
-            btnLäggtill.Size = new Size(150, 46);
+            btnLäggtill.Size = new Size(115, 36);
             btnLäggtill.TabIndex = 10;
             btnLäggtill.Text = "Lägg till";
             btnLäggtill.UseVisualStyleBackColor = true;
@@ -85,45 +96,39 @@
             // lblPris
             // 
             lblPris.AutoSize = true;
-            lblPris.Location = new Point(57, 342);
+            lblPris.Location = new Point(44, 267);
+            lblPris.Margin = new Padding(2, 0, 2, 0);
             lblPris.Name = "lblPris";
-            lblPris.Size = new Size(80, 32);
+            lblPris.Size = new Size(62, 25);
             lblPris.TabIndex = 14;
             lblPris.Text = "800 kr";
-            // 
-            // btnSpec
-            // 
-            btnSpec.Location = new Point(32, 117);
-            btnSpec.Name = "btnSpec";
-            btnSpec.Size = new Size(270, 46);
-            btnSpec.TabIndex = 20;
-            btnSpec.Text = "Special order";
-            btnSpec.UseVisualStyleBackColor = true;
-            btnSpec.Click += btnSpec_Click;
             // 
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(31, 51);
+            label11.Location = new Point(20, 17);
+            label11.Margin = new Padding(2, 0, 2, 0);
             label11.Name = "label11";
-            label11.Size = new Size(198, 32);
+            label11.Size = new Size(149, 25);
             label11.TabIndex = 21;
             label11.Text = "Skapa specialhatt";
             // 
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(3, 12);
+            label12.Location = new Point(2, 9);
+            label12.Margin = new Padding(2, 0, 2, 0);
             label12.Name = "label12";
-            label12.Size = new Size(160, 32);
+            label12.Size = new Size(119, 25);
             label12.TabIndex = 22;
             label12.Text = "Välj lager hatt";
             // 
             // btnVisaBeställning
             // 
-            btnVisaBeställning.Location = new Point(1800, 1343);
+            btnVisaBeställning.Location = new Point(1385, 1049);
+            btnVisaBeställning.Margin = new Padding(2);
             btnVisaBeställning.Name = "btnVisaBeställning";
-            btnVisaBeställning.Size = new Size(294, 46);
+            btnVisaBeställning.Size = new Size(226, 36);
             btnVisaBeställning.TabIndex = 23;
             btnVisaBeställning.Text = "Visa beställning";
             btnVisaBeställning.UseVisualStyleBackColor = true;
@@ -132,9 +137,10 @@
             // chbAnpassa
             // 
             chbAnpassa.AutoSize = true;
-            chbAnpassa.Location = new Point(32, 387);
+            chbAnpassa.Location = new Point(25, 302);
+            chbAnpassa.Margin = new Padding(2);
             chbAnpassa.Name = "chbAnpassa";
-            chbAnpassa.Size = new Size(133, 36);
+            chbAnpassa.Size = new Size(105, 29);
             chbAnpassa.TabIndex = 25;
             chbAnpassa.Text = "Anpassa";
             chbAnpassa.UseVisualStyleBackColor = true;
@@ -142,10 +148,10 @@
             // cbVäljHatt
             // 
             cbVäljHatt.FormattingEnabled = true;
-            cbVäljHatt.Location = new Point(5, 49);
-            cbVäljHatt.Margin = new Padding(5);
+            cbVäljHatt.Location = new Point(4, 38);
+            cbVäljHatt.Margin = new Padding(4);
             cbVäljHatt.Name = "cbVäljHatt";
-            cbVäljHatt.Size = new Size(243, 40);
+            cbVäljHatt.Size = new Size(188, 33);
             cbVäljHatt.TabIndex = 26;
             cbVäljHatt.SelectedIndexChanged += cbVäljHatt_SelectedIndexChanged;
             // 
@@ -159,28 +165,131 @@
             panelLagerHattar.Controls.Add(pbReferens);
             panelLagerHattar.Controls.Add(btnLäggtill);
             panelLagerHattar.Controls.Add(lblPris);
-            panelLagerHattar.Location = new Point(61, 165);
+            panelLagerHattar.Location = new Point(47, 129);
+            panelLagerHattar.Margin = new Padding(2);
             panelLagerHattar.Name = "panelLagerHattar";
-            panelLagerHattar.Size = new Size(1378, 538);
+            panelLagerHattar.Size = new Size(1061, 421);
             panelLagerHattar.TabIndex = 27;
             // 
             // panelSpecHattar
             // 
             panelSpecHattar.BackColor = SystemColors.ActiveCaption;
             panelSpecHattar.BorderStyle = BorderStyle.Fixed3D;
-            panelSpecHattar.Controls.Add(btnSpec);
+            panelSpecHattar.Controls.Add(button2);
+            panelSpecHattar.Controls.Add(textBox3);
+            panelSpecHattar.Controls.Add(comboBox3);
+            panelSpecHattar.Controls.Add(richTextBox1);
+            panelSpecHattar.Controls.Add(button6);
+            panelSpecHattar.Controls.Add(button3);
+            panelSpecHattar.Controls.Add(textBox1);
+            panelSpecHattar.Controls.Add(listView1);
+            panelSpecHattar.Controls.Add(listBox1);
             panelSpecHattar.Controls.Add(label11);
-            panelSpecHattar.Location = new Point(61, 751);
+            panelSpecHattar.Location = new Point(47, 587);
+            panelSpecHattar.Margin = new Padding(2);
             panelSpecHattar.Name = "panelSpecHattar";
-            panelSpecHattar.Size = new Size(1378, 518);
+            panelSpecHattar.Size = new Size(1061, 406);
             panelSpecHattar.TabIndex = 28;
+            panelSpecHattar.Paint += panelSpecHattar_Paint;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(892, 168);
+            button2.Margin = new Padding(4, 5, 4, 5);
+            button2.Name = "button2";
+            button2.Size = new Size(161, 39);
+            button2.TabIndex = 36;
+            button2.Text = "Lägg till Orderrad";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
+            // textBox3
+            // 
+            textBox3.Location = new Point(892, 109);
+            textBox3.Margin = new Padding(4);
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(161, 31);
+            textBox3.TabIndex = 34;
+            textBox3.Text = "Referensbild";
+            // 
+            // comboBox3
+            // 
+            comboBox3.FormattingEnabled = true;
+            comboBox3.Items.AddRange(new object[] { "XS", "S", "M", "L", "XL" });
+            comboBox3.Location = new Point(892, 47);
+            comboBox3.Margin = new Padding(4, 5, 4, 5);
+            comboBox3.Name = "comboBox3";
+            comboBox3.Size = new Size(161, 33);
+            comboBox3.TabIndex = 35;
+            comboBox3.SelectedIndexChanged += comboBox3_SelectedIndexChanged;
+            // 
+            // richTextBox1
+            // 
+            richTextBox1.Location = new Point(489, 47);
+            richTextBox1.Margin = new Padding(4, 5, 4, 5);
+            richTextBox1.Name = "richTextBox1";
+            richTextBox1.Size = new Size(391, 290);
+            richTextBox1.TabIndex = 33;
+            richTextBox1.Text = "Skriv en kommentar";
+            richTextBox1.TextChanged += richTextBox1_TextChanged;
+            // 
+            // button6
+            // 
+            button6.Location = new Point(20, 347);
+            button6.Margin = new Padding(4, 5, 4, 5);
+            button6.Name = "button6";
+            button6.Size = new Size(219, 39);
+            button6.TabIndex = 32;
+            button6.Text = "Registrera nytt material";
+            button6.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            button3.Location = new Point(378, 137);
+            button3.Margin = new Padding(4, 5, 4, 5);
+            button3.Name = "button3";
+            button3.Size = new Size(103, 39);
+            button3.TabIndex = 29;
+            button3.Text = "Lägg till";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(378, 97);
+            textBox1.Margin = new Padding(4);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(103, 31);
+            textBox1.TabIndex = 28;
+            textBox1.Text = "Antal";
+            // 
+            // listView1
+            // 
+            listView1.Location = new Point(20, 189);
+            listView1.Margin = new Padding(4, 5, 4, 5);
+            listView1.Name = "listView1";
+            listView1.Size = new Size(350, 148);
+            listView1.TabIndex = 27;
+            listView1.UseCompatibleStateImageBehavior = false;
+            // 
+            // listBox1
+            // 
+            listBox1.FormattingEnabled = true;
+            listBox1.ItemHeight = 25;
+            listBox1.Location = new Point(20, 47);
+            listBox1.Margin = new Padding(4, 5, 4, 5);
+            listBox1.Name = "listBox1";
+            listBox1.Size = new Size(350, 129);
+            listBox1.TabIndex = 22;
+            listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
             // 
             // lvBeställningar
             // 
             lvBeställningar.Columns.AddRange(new ColumnHeader[] { Typ, Modell, Storlek });
-            lvBeställningar.Location = new Point(1571, 286);
+            lvBeställningar.Location = new Point(1208, 223);
+            lvBeställningar.Margin = new Padding(2);
             lvBeställningar.Name = "lvBeställningar";
-            lvBeställningar.Size = new Size(477, 693);
+            lvBeställningar.Size = new Size(368, 542);
             lvBeställningar.TabIndex = 29;
             lvBeställningar.UseCompatibleStateImageBehavior = false;
             lvBeställningar.View = View.Details;
@@ -203,9 +312,10 @@
             // lblTotal
             // 
             lblTotal.AutoSize = true;
-            lblTotal.Location = new Point(1571, 1012);
+            lblTotal.Location = new Point(1208, 791);
+            lblTotal.Margin = new Padding(2, 0, 2, 0);
             lblTotal.Name = "lblTotal";
-            lblTotal.Size = new Size(78, 32);
+            lblTotal.Size = new Size(59, 25);
             lblTotal.TabIndex = 30;
             lblTotal.Text = "label1";
             // 
@@ -215,22 +325,23 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { tillbakaToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(2602, 40);
+            menuStrip1.Padding = new Padding(5, 2, 0, 2);
+            menuStrip1.Size = new Size(1703, 33);
             menuStrip1.TabIndex = 31;
             menuStrip1.Text = "menuStrip1";
             // 
             // tillbakaToolStripMenuItem
             // 
             tillbakaToolStripMenuItem.Name = "tillbakaToolStripMenuItem";
-            tillbakaToolStripMenuItem.Size = new Size(115, 36);
+            tillbakaToolStripMenuItem.Size = new Size(87, 29);
             tillbakaToolStripMenuItem.Text = "Tillbaka";
             tillbakaToolStripMenuItem.Click += tillbakaToolStripMenuItem_Click;
             // 
             // LaggTillLagerhattar
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(2602, 1759);
+            ClientSize = new Size(1703, 1050);
             Controls.Add(lblTotal);
             Controls.Add(lvBeställningar);
             Controls.Add(panelSpecHattar);
@@ -239,6 +350,7 @@
             Controls.Add(lblNamn);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
+            Margin = new Padding(2);
             Name = "LaggTillLagerhattar";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "LaggTillLagerhattar";
@@ -260,7 +372,6 @@
         private Label lblNamn;
         private Button btnLäggtill;
         private Label lblPris;
-        private Button btnSpec;
         private Label label11;
         private Label label12;
         private Button btnVisaBeställning;
@@ -275,5 +386,14 @@
         private Label lblTotal;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem tillbakaToolStripMenuItem;
+        private ListBox listBox1;
+        private ListView listView1;
+        private TextBox textBox1;
+        private Button button3;
+        private Button button6;
+        private RichTextBox richTextBox1;
+        private ComboBox comboBox3;
+        private TextBox textBox3;
+        private Button button2;
     }
 }
