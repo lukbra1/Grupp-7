@@ -46,5 +46,11 @@ namespace Hattmakarens_system.Controllers
             return fraktsedel;
         }
 
+        public FraktSedel HämtaFraktsedelFörOrder(int orderId)
+        {
+            return _context.Fraktsedlar.FirstOrDefault(f => f.OrderID == orderId);
+        }
+
+
     }
 }

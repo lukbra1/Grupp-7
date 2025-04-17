@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SkapaFraktsedelForm));
             txtVikt = new TextBox();
             txtExportkod = new TextBox();
             txtKostnad = new TextBox();
@@ -47,6 +48,9 @@
             txtAvsandare = new TextBox();
             txtMottagare = new TextBox();
             rchtxtBeskrivning = new RichTextBox();
+            printDialog1 = new PrintDialog();
+            printPreviewDialog1 = new PrintPreviewDialog();
+            lblStatusFraktsedel = new Label();
             SuspendLayout();
             // 
             // txtVikt
@@ -96,6 +100,7 @@
             btnSkrivUt.TabIndex = 5;
             btnSkrivUt.Text = "Skriv ut";
             btnSkrivUt.UseVisualStyleBackColor = true;
+            btnSkrivUt.Click += btnSkrivUt_Click;
             // 
             // lblOrderId
             // 
@@ -206,11 +211,35 @@
             rchtxtBeskrivning.TabIndex = 20;
             rchtxtBeskrivning.Text = "";
             // 
+            // printDialog1
+            // 
+            printDialog1.UseEXDialog = true;
+            // 
+            // printPreviewDialog1
+            // 
+            printPreviewDialog1.AutoScrollMargin = new Size(0, 0);
+            printPreviewDialog1.AutoScrollMinSize = new Size(0, 0);
+            printPreviewDialog1.ClientSize = new Size(400, 300);
+            printPreviewDialog1.Enabled = true;
+            printPreviewDialog1.Icon = (Icon)resources.GetObject("printPreviewDialog1.Icon");
+            printPreviewDialog1.Name = "printPreviewDialog1";
+            printPreviewDialog1.Visible = false;
+            // 
+            // lblStatusFraktsedel
+            // 
+            lblStatusFraktsedel.AutoSize = true;
+            lblStatusFraktsedel.Location = new Point(525, 88);
+            lblStatusFraktsedel.Name = "lblStatusFraktsedel";
+            lblStatusFraktsedel.Size = new Size(50, 20);
+            lblStatusFraktsedel.TabIndex = 21;
+            lblStatusFraktsedel.Text = "label1";
+            // 
             // SkapaFraktsedelForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1166, 631);
+            Controls.Add(lblStatusFraktsedel);
             Controls.Add(rchtxtBeskrivning);
             Controls.Add(txtMottagare);
             Controls.Add(txtAvsandare);
@@ -261,5 +290,8 @@
         private TextBox txtMottagare;
         private RichTextBox richTextBox1;
         private RichTextBox rchtxtBeskrivning;
+        private PrintDialog printDialog1;
+        private PrintPreviewDialog printPreviewDialog1;
+        private Label lblStatusFraktsedel;
     }
 }
