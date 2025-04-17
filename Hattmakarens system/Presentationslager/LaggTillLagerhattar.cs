@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Hattmakarens_system.Controllers;
 using Hattmakarens_system.Database;
 using Hattmakarens_system.ModelsNy;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Hattmakarens_system.Presentationslager
 {
@@ -21,7 +22,56 @@ namespace Hattmakarens_system.Presentationslager
         {
             this.Ordern = Order;
             InitializeComponent();
+
+            List<OrderRad> OrderRader = db.HämtaAllaOrderRader(Order);
+
+
+            // Hämta orderrader för ordern
+            var orderRaderna = db.HämtaAllaOrderRader(Ordern);
+
+            // Töm listan och fyll med orderrader
+            lvBeställningar.Items.Clear();
+
+            foreach (var orderRad in orderRaderna)
+            {
+                string displayText = "";
+
+                if (orderRad is LagerOrderrad lager)
+                {
+                    displayText = $"Lagerhatt - Modell: {lager.Modell?.Namn}, Storlek: {lager.Storlek}";
+                }
+                else if (orderRad is SpecialOrderrad special)
+                {
+                    displayText = $"Specialhatt - Kommentar: {special.Kommentar}, Storlek: {special.Storlek}";
+                }
+
+                lvBeställningar.Items.Add(displayText);
+            }
+
+            lblTotal.Text = $"Totalt pris: {Ordern.TotalPris} kr";
         }
+
+        private void LaddaListView()
+        {
+            lvBeställningar.Items.Clear(); // Töm listan
+
+            // Hämta alla orderrader (exempel från DB eller controller)
+            var orderrader = db.HämtaAllaOrderRader(Ordern);
+
+            foreach (var orderrad in orderrader)
+            {
+                var item = new ListViewItem(orderrad.TypEnum.ToString());
+                item.SubItems.Add(orderrad is LagerOrderrad lager ? lager.Modell?.Namn : "Special");
+                item.SubItems.Add(orderrad.Storlek.ToString());
+
+                lvBeställningar.Items.Add(item);
+            }
+            lblTotal.Text = $"Totalt pris: {Ordern.TotalPris} kr";
+
+        }
+
+
+
 
         private void LaggTillLagerhattar_Load(object sender, EventArgs e)
         {
@@ -39,7 +89,6 @@ namespace Hattmakarens_system.Presentationslager
             }
         }
 
-
         private void cbVäljHatt_SelectedIndexChanged(object sender, EventArgs e)
         {
             //string hattNamn = cbVäljHatt.SelectedItem?.ToString();
@@ -52,6 +101,7 @@ namespace Hattmakarens_system.Presentationslager
                 string hattNamn = valdModell.Namn; // korrekt namn
                 string filnamn = hattNamn + ".jpg";
                 string bildPath = Path.Combine(Application.StartupPath, "Resources", filnamn);
+                LaddaListView();
 
                 if (File.Exists(bildPath))
                 {
@@ -63,10 +113,6 @@ namespace Hattmakarens_system.Presentationslager
                     MessageBox.Show("Ingen bild hittades för: " + hattNamn, "Saknad bild", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
-
-
-
-
         }
 
         private void btnLäggtill_Click(object sender, EventArgs e)
@@ -98,6 +144,8 @@ namespace Hattmakarens_system.Presentationslager
                         LagerOrderrad nyOrderrad = db.LäggTillLagerOrderrad(Ordern, valdModell.ModellId);
 
                         MessageBox.Show($"Hatten '{valdModell.Namn}' har lagts till i ordern.", "Tillagd", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        LaddaListView();
                     }
                 }
                 catch (Exception ex)
@@ -124,5 +172,13 @@ namespace Hattmakarens_system.Presentationslager
             SpecialBeställning.Show();
             this.Hide();
         }
+
+        private void tillbakaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var previousForm = new VäljKund();
+            previousForm.Show();
+        }
     }
 }
+
