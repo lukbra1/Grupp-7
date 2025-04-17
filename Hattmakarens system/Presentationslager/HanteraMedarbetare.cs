@@ -45,12 +45,17 @@ namespace Hattmakarens_system.Presentationslager
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-         
+
         }
 
         private void HanteraMedarbetare_Load(object sender, EventArgs e)
         {
             MedarbetarController.AllaAktivaMedarbetare();
+        }
+
+        private void HanteraMedarbetare_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Program.homepage.Close();
         }
     }
 }
