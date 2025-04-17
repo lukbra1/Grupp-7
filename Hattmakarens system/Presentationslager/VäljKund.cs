@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Hattmakarens_system.Controllers;
 using Hattmakarens_system.Database;
 using Hattmakarens_system.ModelsNy;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace Hattmakarens_system.Presentationslager
 {
@@ -27,10 +28,7 @@ namespace Hattmakarens_system.Presentationslager
 
         private void button3_Click(object sender, EventArgs e)
         {
-            // Skapa beställning med ny kund
-            var RegisteraKund = new RegistreraKund();
-            RegisteraKund.Show();
-            this.Close();
+           
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -75,7 +73,51 @@ namespace Hattmakarens_system.Presentationslager
 
         private void VäljKund_Load(object sender, EventArgs e)
         {
+            List<Kund> KundLista = Kundcontroller.AllaAktivaKunder();
 
+            listBox1.Items.Clear();
+
+            foreach (var enKund in KundLista)
+            {
+                string listBoxText = enKund.Fornamn + " " + enKund.Efternamn + " " + enKund.Epost;
+                listBox1.Items.Add(listBoxText);
+                namnTillId[listBoxText] = enKund.KundId;
+            }
+
+            textBox1.Select();
+            
+        }
+
+        private void tiibakaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Program.homepage.Show();
+            this.Close();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRegistrera_Click(object sender, EventArgs e)
+        {
+
+            var Förnamn = txtForNamn.Text;
+            var Efternamn = txtEfterName.Text;
+            var Telefon = txtTel.Text;
+            var Epost = txtEmail.Text;
+            var Adress = txtAddress.Text;
+
+            Kundcontroller.SkapaNyKund(Förnamn, Efternamn, Telefon, Epost, Adress);
+
+            MessageBox.Show("Kunden är tillagd");
+            VäljKund_Load(sender, e);
+
+        }
+
+        private void VäljKund_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Program.homepage.Show();
         }
     }
 }

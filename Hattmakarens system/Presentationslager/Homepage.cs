@@ -36,6 +36,11 @@ namespace Hattmakarens_system
             monthCalendar1.SelectionStart = DateTime.Today;
             monthCalendar1.SelectionEnd = DateTime.Today;
             UppdateraVeckooversikt(DateTime.Today);
+
+            if (_currentUser.Behorighet == false)
+            {
+                hanteraMedarbetareToolStripMenuItem.Visible = false;
+            }
         }
 
         private void UppdateraVeckooversikt(DateTime selectedDate)
@@ -155,8 +160,7 @@ namespace Hattmakarens_system
 
         private void seAlltMaterialToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var materialForm = new SeMaterialbehov();
-            materialForm.Show();
+          
         }
 
         private void allaBeställningarToolStripMenuItem_Click_2(object sender, EventArgs e)
@@ -182,6 +186,12 @@ namespace Hattmakarens_system
             var medarbetare = new HanteraMedarbetare();
             medarbetare.Show();
             this.Hide();
+        }
+
+        private void marealLagerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var materialForm = new SeMaterialbehov();
+            materialForm.Show();
         }
     }
 }

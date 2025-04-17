@@ -36,8 +36,6 @@ namespace Hattmakarens_system
             nyBeställningToolStripMenuItem = new ToolStripMenuItem();
             allaBeställningarToolStripMenuItem = new ToolStripMenuItem();
             marealLagerToolStripMenuItem = new ToolStripMenuItem();
-            seAlltMaterialToolStripMenuItem = new ToolStripMenuItem();
-            marialbeställningToolStripMenuItem = new ToolStripMenuItem();
             statistikToolStripMenuItem1 = new ToolStripMenuItem();
             hattStatistikToolStripMenuItem = new ToolStripMenuItem();
             kundStatistikToolStripMenuItem = new ToolStripMenuItem();
@@ -111,23 +109,10 @@ namespace Hattmakarens_system
             // 
             // marealLagerToolStripMenuItem
             // 
-            marealLagerToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { seAlltMaterialToolStripMenuItem, marialbeställningToolStripMenuItem });
             marealLagerToolStripMenuItem.Name = "marealLagerToolStripMenuItem";
             marealLagerToolStripMenuItem.Size = new Size(374, 44);
-            marealLagerToolStripMenuItem.Text = "Material lager";
-            // 
-            // seAlltMaterialToolStripMenuItem
-            // 
-            seAlltMaterialToolStripMenuItem.Name = "seAlltMaterialToolStripMenuItem";
-            seAlltMaterialToolStripMenuItem.Size = new Size(358, 44);
-            seAlltMaterialToolStripMenuItem.Text = "Se allt material";
-            seAlltMaterialToolStripMenuItem.Click += seAlltMaterialToolStripMenuItem_Click;
-            // 
-            // marialbeställningToolStripMenuItem
-            // 
-            marialbeställningToolStripMenuItem.Name = "marialbeställningToolStripMenuItem";
-            marialbeställningToolStripMenuItem.Size = new Size(358, 44);
-            marialbeställningToolStripMenuItem.Text = "Material beställning";
+            marealLagerToolStripMenuItem.Text = "Hantera material";
+            marealLagerToolStripMenuItem.Click += marealLagerToolStripMenuItem_Click;
             // 
             // statistikToolStripMenuItem1
             // 
@@ -158,13 +143,13 @@ namespace Hattmakarens_system
             // minaUppgifterToolStripMenuItem
             // 
             minaUppgifterToolStripMenuItem.Name = "minaUppgifterToolStripMenuItem";
-            minaUppgifterToolStripMenuItem.Size = new Size(359, 44);
+            minaUppgifterToolStripMenuItem.Size = new Size(307, 44);
             minaUppgifterToolStripMenuItem.Text = "Mina uppgifter";
             // 
             // mittSchemaToolStripMenuItem
             // 
             mittSchemaToolStripMenuItem.Name = "mittSchemaToolStripMenuItem";
-            mittSchemaToolStripMenuItem.Size = new Size(359, 44);
+            mittSchemaToolStripMenuItem.Size = new Size(307, 44);
             mittSchemaToolStripMenuItem.Text = "Mitt schema";
             // 
             // hanteraMedarbetareToolStripMenuItem
@@ -322,11 +307,9 @@ namespace Hattmakarens_system
         private ToolStripMenuItem nyBeställningToolStripMenuItem;
         private ToolStripMenuItem allaBeställningarToolStripMenuItem;
         private ToolStripMenuItem marealLagerToolStripMenuItem;
-        private ToolStripMenuItem seAlltMaterialToolStripMenuItem;
         private ToolStripMenuItem statistikToolStripMenuItem1;
         private ToolStripMenuItem minaSidorToolStripMenuItem1;
         private ToolStripMenuItem loggaUtToolStripMenuItem1;
-        private ToolStripMenuItem marialbeställningToolStripMenuItem;
         private ToolStripMenuItem hattStatistikToolStripMenuItem;
         private ToolStripMenuItem kundStatistikToolStripMenuItem;
         private ToolStripMenuItem minaUppgifterToolStripMenuItem;

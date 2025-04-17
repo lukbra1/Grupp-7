@@ -90,7 +90,7 @@ namespace Hattmakarens_system.Presentationslager
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+
             var vald = (string)listBox1.SelectedItem;
 
             if (vald != null)
@@ -106,6 +106,12 @@ namespace Hattmakarens_system.Presentationslager
             {
                 MessageBox.Show("Vanligen välj medarbetare att ta bort");
             }
+        }
+
+        private void tiibakaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Program.homepage.Show();
         }
     }
 }

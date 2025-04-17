@@ -12,7 +12,13 @@ namespace Hattmakarens_system
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            homepage = new Homepage();
+            homepage = new Homepage(
+                new ModelsNy.User
+                {
+                    Namn = "Otto",
+                    Behorighet = true
+                }    
+            );
             Application.Run(homepage); // Starta med din form
         }
     }

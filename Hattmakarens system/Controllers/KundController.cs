@@ -11,23 +11,25 @@ namespace Hattmakarens_system.Controllers
         {
             this._context = context;
         }
-        public Kund SkapaNyKund(string Fornamn, string Efternamn, string TelefonNr, string Adress)
+        public Kund SkapaNyKund(string Fornamn, string Efternamn, string TelefonNr, string Epost, string Adress)
         {
             Kund kund = new Kund
             {
                 Fornamn = Fornamn,
                 Efternamn = Efternamn,
                 TelefonNr = TelefonNr,
+                Epost = Epost,
                 Adress = Adress,
                 //Ordrar = new List<Order>(),
                 Aktiv = true
             };
+            _context.Kunder.Add(kund);
             _context.SaveChanges();
             return kund;
         }
         public List<Kund> AllaAktivaKunder()
         {
-            return new List<Kund>(); //_context.Kunder.Where(k => k.Aktiv).ToList();
+            return _context.Kunder.Where(k => k.Aktiv).ToList();
         }
         public List<Kund> HamtaKunderMedNamn(string ForNamn)
         {
@@ -50,5 +52,7 @@ namespace Hattmakarens_system.Controllers
         {
             return false; // _context.Kunder.Count(k => k.Epost == Epost);
         }
+
+      
     }
 }
