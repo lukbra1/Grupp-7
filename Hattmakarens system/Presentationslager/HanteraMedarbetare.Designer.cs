@@ -56,17 +56,18 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(300, 159);
+            label1.Location = new Point(185, 99);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(0, 32);
+            label1.Size = new Size(0, 20);
             label1.TabIndex = 0;
             // 
             // btnRegistrera
             // 
-            btnRegistrera.Location = new Point(186, 636);
-            btnRegistrera.Margin = new Padding(5, 6, 5, 6);
+            btnRegistrera.Location = new Point(114, 398);
+            btnRegistrera.Margin = new Padding(3, 4, 3, 4);
             btnRegistrera.Name = "btnRegistrera";
-            btnRegistrera.Size = new Size(168, 50);
+            btnRegistrera.Size = new Size(103, 31);
             btnRegistrera.TabIndex = 33;
             btnRegistrera.Text = "Lägg till";
             btnRegistrera.UseVisualStyleBackColor = true;
@@ -75,169 +76,164 @@
             // lblFel6
             // 
             lblFel6.AutoSize = true;
-            lblFel6.Location = new Point(494, 558);
-            lblFel6.Margin = new Padding(5, 0, 5, 0);
+            lblFel6.Location = new Point(304, 349);
             lblFel6.Name = "lblFel6";
-            lblFel6.Size = new Size(0, 32);
+            lblFel6.Size = new Size(0, 20);
             lblFel6.TabIndex = 32;
             // 
             // lblFel4
             // 
             lblFel4.AutoSize = true;
-            lblFel4.Location = new Point(494, 457);
-            lblFel4.Margin = new Padding(5, 0, 5, 0);
+            lblFel4.Location = new Point(304, 286);
             lblFel4.Name = "lblFel4";
-            lblFel4.Size = new Size(0, 32);
+            lblFel4.Size = new Size(0, 20);
             lblFel4.TabIndex = 31;
             // 
             // lblFel3
             // 
             lblFel3.AutoSize = true;
-            lblFel3.Location = new Point(494, 350);
-            lblFel3.Margin = new Padding(5, 0, 5, 0);
+            lblFel3.Location = new Point(304, 219);
             lblFel3.Name = "lblFel3";
-            lblFel3.Size = new Size(0, 32);
+            lblFel3.Size = new Size(0, 20);
             lblFel3.TabIndex = 30;
             // 
             // lblFel2
             // 
             lblFel2.AutoSize = true;
-            lblFel2.Location = new Point(494, 231);
-            lblFel2.Margin = new Padding(5, 0, 5, 0);
+            lblFel2.Location = new Point(304, 144);
             lblFel2.Name = "lblFel2";
-            lblFel2.Size = new Size(0, 32);
+            lblFel2.Size = new Size(0, 20);
             lblFel2.TabIndex = 29;
             // 
             // lblFel1
             // 
             lblFel1.AutoSize = true;
-            lblFel1.Location = new Point(494, 139);
-            lblFel1.Margin = new Padding(5, 0, 5, 0);
+            lblFel1.Location = new Point(304, 87);
             lblFel1.Name = "lblFel1";
-            lblFel1.Size = new Size(0, 32);
+            lblFel1.Size = new Size(0, 20);
             lblFel1.TabIndex = 28;
             // 
             // lblRubrik
             // 
             lblRubrik.AutoSize = true;
-            lblRubrik.Location = new Point(140, 55);
-            lblRubrik.Margin = new Padding(5, 0, 5, 0);
+            lblRubrik.Location = new Point(86, 34);
             lblRubrik.Name = "lblRubrik";
-            lblRubrik.Size = new Size(295, 32);
+            lblRubrik.Size = new Size(185, 20);
             lblRubrik.TabIndex = 27;
             lblRubrik.Text = "Registrera ny medarbetare";
             // 
             // txtUpprepaLösenod
             // 
-            txtUpprepaLösenod.Location = new Point(252, 439);
-            txtUpprepaLösenod.Margin = new Padding(5, 6, 5, 6);
+            txtUpprepaLösenod.Location = new Point(155, 274);
+            txtUpprepaLösenod.Margin = new Padding(3, 4, 3, 4);
             txtUpprepaLösenod.Name = "txtUpprepaLösenod";
-            txtUpprepaLösenod.Size = new Size(183, 39);
+            txtUpprepaLösenod.Size = new Size(114, 27);
             txtUpprepaLösenod.TabIndex = 25;
             // 
             // txtLösenord
             // 
-            txtLösenord.Location = new Point(252, 334);
-            txtLösenord.Margin = new Padding(5, 6, 5, 6);
+            txtLösenord.Location = new Point(155, 209);
+            txtLösenord.Margin = new Padding(3, 4, 3, 4);
             txtLösenord.Name = "txtLösenord";
-            txtLösenord.Size = new Size(183, 39);
+            txtLösenord.Size = new Size(114, 27);
             txtLösenord.TabIndex = 24;
             // 
             // txtEpost
             // 
-            txtEpost.Location = new Point(252, 231);
-            txtEpost.Margin = new Padding(5, 6, 5, 6);
+            txtEpost.Location = new Point(155, 144);
+            txtEpost.Margin = new Padding(3, 4, 3, 4);
             txtEpost.Name = "txtEpost";
-            txtEpost.Size = new Size(183, 39);
+            txtEpost.Size = new Size(114, 27);
             txtEpost.TabIndex = 23;
             // 
             // txtNamn
             // 
-            txtNamn.Location = new Point(252, 132);
-            txtNamn.Margin = new Padding(5, 6, 5, 6);
+            txtNamn.Location = new Point(155, 82);
+            txtNamn.Margin = new Padding(3, 4, 3, 4);
             txtNamn.Name = "txtNamn";
-            txtNamn.Size = new Size(183, 39);
+            txtNamn.Size = new Size(114, 27);
             txtNamn.TabIndex = 22;
             // 
             // lblUpprepaLösen
             // 
             lblUpprepaLösen.AutoSize = true;
-            lblUpprepaLösen.Location = new Point(37, 442);
-            lblUpprepaLösen.Margin = new Padding(5, 0, 5, 0);
+            lblUpprepaLösen.Location = new Point(23, 276);
             lblUpprepaLösen.Name = "lblUpprepaLösen";
-            lblUpprepaLösen.Size = new Size(205, 32);
+            lblUpprepaLösen.Size = new Size(129, 20);
             lblUpprepaLösen.TabIndex = 20;
             lblUpprepaLösen.Text = "Upprepa lösenord";
             // 
             // lblLösen
             // 
             lblLösen.AutoSize = true;
-            lblLösen.Location = new Point(130, 337);
-            lblLösen.Margin = new Padding(5, 0, 5, 0);
+            lblLösen.Location = new Point(80, 211);
             lblLösen.Name = "lblLösen";
-            lblLösen.Size = new Size(112, 32);
+            lblLösen.Size = new Size(70, 20);
             lblLösen.TabIndex = 19;
             lblLösen.Text = "Lösenord";
             // 
             // lblEpost
             // 
             lblEpost.AutoSize = true;
-            lblEpost.Location = new Point(170, 234);
-            lblEpost.Margin = new Padding(5, 0, 5, 0);
+            lblEpost.Location = new Point(105, 146);
             lblEpost.Name = "lblEpost";
-            lblEpost.Size = new Size(72, 32);
+            lblEpost.Size = new Size(46, 20);
             lblEpost.TabIndex = 18;
             lblEpost.Text = "Epost";
             // 
             // lblNamn
             // 
             lblNamn.AutoSize = true;
-            lblNamn.Location = new Point(160, 139);
-            lblNamn.Margin = new Padding(5, 0, 5, 0);
+            lblNamn.Location = new Point(98, 87);
             lblNamn.Name = "lblNamn";
-            lblNamn.Size = new Size(79, 32);
+            lblNamn.Size = new Size(49, 20);
             lblNamn.TabIndex = 17;
             lblNamn.Text = "Namn";
             // 
             // listBox1
             // 
             listBox1.FormattingEnabled = true;
-            listBox1.Location = new Point(670, 189);
+            listBox1.Location = new Point(412, 118);
+            listBox1.Margin = new Padding(2, 2, 2, 2);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(385, 388);
+            listBox1.Size = new Size(238, 244);
             listBox1.TabIndex = 38;
             listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
             // 
             // button2
             // 
-            button2.Location = new Point(985, 121);
+            button2.Location = new Point(606, 76);
+            button2.Margin = new Padding(2, 2, 2, 2);
             button2.Name = "button2";
-            button2.Size = new Size(70, 46);
+            button2.Size = new Size(43, 29);
             button2.TabIndex = 37;
             button2.Text = "Sök";
             button2.UseVisualStyleBackColor = true;
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(670, 125);
+            textBox1.Location = new Point(412, 78);
+            textBox1.Margin = new Padding(2, 2, 2, 2);
             textBox1.Name = "textBox1";
             textBox1.PlaceholderText = "Sök på medarbetare";
-            textBox1.Size = new Size(309, 39);
+            textBox1.Size = new Size(192, 27);
             textBox1.TabIndex = 36;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(680, 132);
+            label2.Location = new Point(418, 82);
+            label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(0, 32);
+            label2.Size = new Size(0, 20);
             label2.TabIndex = 35;
             // 
             // button1
             // 
-            button1.Location = new Point(768, 640);
+            button1.Location = new Point(473, 400);
+            button1.Margin = new Padding(2, 2, 2, 2);
             button1.Name = "button1";
-            button1.Size = new Size(190, 46);
+            button1.Size = new Size(117, 29);
             button1.TabIndex = 34;
             button1.Text = "Ta bort";
             button1.UseVisualStyleBackColor = true;
@@ -245,27 +241,29 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(670, 55);
+            label3.Location = new Point(412, 34);
+            label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
-            label3.Size = new Size(230, 32);
+            label3.Size = new Size(145, 20);
             label3.TabIndex = 39;
             label3.Text = "Ta bort medarbetare";
             // 
             // checkBox1
             // 
             checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(160, 541);
+            checkBox1.Location = new Point(98, 338);
+            checkBox1.Margin = new Padding(2, 2, 2, 2);
             checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(250, 36);
+            checkBox1.Size = new Size(158, 24);
             checkBox1.TabIndex = 40;
             checkBox1.Text = "Behörig Användare";
             checkBox1.UseVisualStyleBackColor = true;
             // 
             // HanteraMedarbetare
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1172, 742);
+            ClientSize = new Size(721, 464);
             Controls.Add(checkBox1);
             Controls.Add(label3);
             Controls.Add(listBox1);
@@ -289,8 +287,10 @@
             Controls.Add(lblEpost);
             Controls.Add(lblNamn);
             Controls.Add(label1);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "HanteraMedarbetare";
             Text = "HanteraMedarbetare";
+            FormClosed += HanteraMedarbetare_FormClosed;
             Load += HanteraMedarbetare_Load;
             ResumeLayout(false);
             PerformLayout();
