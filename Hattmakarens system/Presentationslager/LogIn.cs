@@ -65,14 +65,26 @@ namespace Hattmakarens_system
             var controller = new LoggaInController(new AppDbContext());
 
             // Anropa login-metoden och kolla om användarnamn och lösenord matchar
-            if (controller.Login(username, password))
-            {
-                // Om inloggningen lyckas, öppna HomePage-formen
-                Homepage homePage = new Homepage();
-                homePage.Show();  // Öppna HomePage-formen
+            //if (controller.Login(username, password))
+            //{
+            //    // Om inloggningen lyckas, öppna HomePage-formen
+            //    Homepage homePage = new Homepage();
+            //    homePage.Show();  // Öppna HomePage-formen
 
-                // Dölja login-formen
-                this.Hide();  // Dölja den aktuella login-formen
+            //    // Dölja login-formen
+            //    this.Hide();  // Dölja den aktuella login-formen
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Fel användarnamn eller lösenord.");
+            //}
+            var loggedInUser = controller.GetUser(username, password);
+
+            if (loggedInUser != null)
+            {
+                Homepage homePage = new Homepage(loggedInUser);
+                homePage.Show();
+                this.Hide();
             }
             else
             {

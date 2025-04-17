@@ -2,12 +2,23 @@
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using Hattmakarens_system.ModelsNy;
 
 namespace Hattmakarens_system
 {
     public partial class Homepage : Form
     {
         Dictionary<DateTime, List<string>> todoList = new Dictionary<DateTime, List<string>>();
+
+        private User _currentUser;
+
+        // 🆕 Lägg till denna konstruktor:
+        public Homepage(User user)
+        {
+            InitializeComponent();
+            _currentUser = user;
+
+        }
 
         public Homepage()
         {
