@@ -30,46 +30,72 @@
         {
             dgvOrderRader = new DataGridView();
             btnSpara = new Button();
+            menuStrip1 = new MenuStrip();
+            tillbakaToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)dgvOrderRader).BeginInit();
+            menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // dgvOrderRader
             // 
             dgvOrderRader.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvOrderRader.Location = new Point(34, 29);
-            dgvOrderRader.Margin = new Padding(4, 4, 4, 4);
+            dgvOrderRader.Location = new Point(30, 61);
+            dgvOrderRader.Margin = new Padding(4, 3, 4, 3);
             dgvOrderRader.Name = "dgvOrderRader";
             dgvOrderRader.RowHeadersWidth = 82;
-            dgvOrderRader.Size = new Size(654, 362);
+            dgvOrderRader.Size = new Size(572, 272);
             dgvOrderRader.TabIndex = 4;
             // 
             // btnSpara
             // 
-            btnSpara.Location = new Point(602, 408);
-            btnSpara.Margin = new Padding(4, 4, 4, 4);
+            btnSpara.Location = new Point(527, 339);
+            btnSpara.Margin = new Padding(4, 3, 4, 3);
             btnSpara.Name = "btnSpara";
-            btnSpara.Size = new Size(86, 31);
+            btnSpara.Size = new Size(75, 23);
             btnSpara.TabIndex = 5;
             btnSpara.Text = "Spara";
             btnSpara.UseVisualStyleBackColor = true;
             // 
+            // menuStrip1
+            // 
+            menuStrip1.Items.AddRange(new ToolStripItem[] { tillbakaToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(1020, 24);
+            menuStrip1.TabIndex = 6;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // tillbakaToolStripMenuItem
+            // 
+            tillbakaToolStripMenuItem.Name = "tillbakaToolStripMenuItem";
+            tillbakaToolStripMenuItem.Size = new Size(59, 20);
+            tillbakaToolStripMenuItem.Text = "Tillbaka";
+            tillbakaToolStripMenuItem.Click += tillbakaToolStripMenuItem_Click;
+            // 
             // RedigeraOrder
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1166, 631);
+            ClientSize = new Size(1020, 473);
             Controls.Add(btnSpara);
             Controls.Add(dgvOrderRader);
-            Margin = new Padding(4, 4, 4, 4);
+            Controls.Add(menuStrip1);
+            MainMenuStrip = menuStrip1;
+            Margin = new Padding(4, 3, 4, 3);
             Name = "RedigeraOrder";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "RedigeraOrder";
             ((System.ComponentModel.ISupportInitialize)dgvOrderRader).EndInit();
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
         private DataGridView dgvOrderRader;
         private Button btnSpara;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem tillbakaToolStripMenuItem;
     }
 }

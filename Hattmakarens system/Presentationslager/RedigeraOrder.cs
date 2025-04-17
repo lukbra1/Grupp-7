@@ -1,5 +1,6 @@
 ﻿using Hattmakarens_system.Database;
 using Hattmakarens_system.ModelsNy;
+using Hattmakarens_system.Presentationslager;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Data;
@@ -28,7 +29,7 @@ namespace Hattmakarens_system
             dgvOrderRader.Rows.Clear();
             dgvOrderRader.Columns.Clear();
 
-          
+
             valdOrder = _context.Ordrar
                 .Include(o => o.OrderRader)
                 .FirstOrDefault(o => o.OrderId == valdOrder.OrderId);
@@ -40,16 +41,16 @@ namespace Hattmakarens_system
                 return;
             }
 
-            
+
             DataTable dt = new DataTable();
             dt.Columns.Add("OrderRadId", typeof(int));
             dt.Columns.Add("Typ", typeof(string));
             dt.Columns.Add("Storlek", typeof(string));
             dt.Columns.Add("Status", typeof(string));
             dt.Columns.Add("Express", typeof(bool));
-            dt.Columns.Add("TotalPris", typeof(decimal)); 
+            dt.Columns.Add("TotalPris", typeof(decimal));
 
-           
+
             foreach (var rad in valdOrder.OrderRader)
             {
                 dt.Rows.Add(
@@ -68,7 +69,7 @@ namespace Hattmakarens_system
             LäggTillComboKolumn("Storlek", typeof(StorlekEnum));
             LäggTillComboKolumn("Status", typeof(StatusOrderradEnum));
 
-            
+
             if (!(dgvOrderRader.Columns["Express"] is DataGridViewCheckBoxColumn))
             {
                 int index = dgvOrderRader.Columns["Express"].Index;
@@ -82,7 +83,7 @@ namespace Hattmakarens_system
                 dgvOrderRader.Columns.Insert(index, expressCol);
             }
 
-            
+
             dgvOrderRader.Columns["TotalPris"].ReadOnly = false;
         }
 
@@ -127,14 +128,14 @@ namespace Hattmakarens_system
                 }
             }
 
-            
+
             if (dgvOrderRader.Rows.Count > 0 &&
                 dgvOrderRader.Rows[0].Cells["Express"].Value is bool express)
             {
                 valdOrder.Express = express;
             }
 
-            
+
             if (dgvOrderRader.Rows.Count > 0 &&
                 decimal.TryParse(dgvOrderRader.Rows[0].Cells["TotalPris"].Value?.ToString(), out decimal nyttPris))
             {
@@ -143,6 +144,13 @@ namespace Hattmakarens_system
 
             int ändringar = _context.SaveChanges();
             MessageBox.Show($"Sparade {ändringar} ändringar till databasen.");
+        }
+
+        private void tillbakaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var previousForm = new AllaBeställningar();
+            previousForm.Show();
         }
     }
 }

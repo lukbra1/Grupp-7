@@ -36,13 +36,17 @@
             Status = new ColumnHeader();
             Express = new ColumnHeader();
             Pris = new ColumnHeader();
+            menuStrip1 = new MenuStrip();
+            tiibakaToolStripMenuItem = new ToolStripMenuItem();
+            menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // btnSkapaFraktSedel
             // 
-            btnSkapaFraktSedel.Location = new Point(595, 374);
+            btnSkapaFraktSedel.Location = new Point(521, 280);
+            btnSkapaFraktSedel.Margin = new Padding(3, 2, 3, 2);
             btnSkapaFraktSedel.Name = "btnSkapaFraktSedel";
-            btnSkapaFraktSedel.Size = new Size(174, 29);
+            btnSkapaFraktSedel.Size = new Size(152, 22);
             btnSkapaFraktSedel.TabIndex = 1;
             btnSkapaFraktSedel.Text = "Skapa Fraktsedel";
             btnSkapaFraktSedel.UseVisualStyleBackColor = true;
@@ -50,9 +54,10 @@
             // 
             // btnRedigera
             // 
-            btnRedigera.Location = new Point(595, 326);
+            btnRedigera.Location = new Point(521, 244);
+            btnRedigera.Margin = new Padding(3, 2, 3, 2);
             btnRedigera.Name = "btnRedigera";
-            btnRedigera.Size = new Size(174, 29);
+            btnRedigera.Size = new Size(152, 22);
             btnRedigera.TabIndex = 2;
             btnRedigera.Text = "Redigera Beställning";
             btnRedigera.UseVisualStyleBackColor = true;
@@ -62,10 +67,10 @@
             // 
             lvAlla.Columns.AddRange(new ColumnHeader[] { OrderId, Skapad, Status, Express, Pris });
             lvAlla.FullRowSelect = true;
-            lvAlla.Location = new Point(36, 48);
-            lvAlla.Margin = new Padding(2, 2, 2, 2);
+            lvAlla.Location = new Point(32, 36);
+            lvAlla.Margin = new Padding(2);
             lvAlla.Name = "lvAlla";
-            lvAlla.Size = new Size(545, 356);
+            lvAlla.Size = new Size(477, 268);
             lvAlla.TabIndex = 3;
             lvAlla.UseCompatibleStateImageBehavior = false;
             lvAlla.View = View.Details;
@@ -96,19 +101,41 @@
             Pris.Text = "Pris";
             Pris.Width = 100;
             // 
+            // menuStrip1
+            // 
+            menuStrip1.Items.AddRange(new ToolStripItem[] { tiibakaToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(1020, 24);
+            menuStrip1.TabIndex = 4;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // tiibakaToolStripMenuItem
+            // 
+            tiibakaToolStripMenuItem.Name = "tiibakaToolStripMenuItem";
+            tiibakaToolStripMenuItem.Size = new Size(59, 20);
+            tiibakaToolStripMenuItem.Text = "Tillbaka";
+            tiibakaToolStripMenuItem.Click += tiibakaToolStripMenuItem_Click;
+            // 
             // AllaBeställningar
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1166, 631);
+            ClientSize = new Size(1020, 473);
             Controls.Add(lvAlla);
             Controls.Add(btnRedigera);
             Controls.Add(btnSkapaFraktSedel);
+            Controls.Add(menuStrip1);
+            MainMenuStrip = menuStrip1;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "AllaBeställningar";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "AllaBeställningar";
             Load += AllaBeställningar_Load;
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -123,5 +150,7 @@
         private ColumnHeader Status;
         private ColumnHeader Express;
         private ColumnHeader Pris;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem tiibakaToolStripMenuItem;
     }
 }

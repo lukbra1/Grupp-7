@@ -92,6 +92,13 @@ namespace Hattmakarens_system.Presentationslager
                 MessageBox.Show("Välj en order först!", "Ingen vald", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        private void tiibakaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var previousForm = new Homepage();
+            previousForm.Show();
+        }
     }
 }
 
