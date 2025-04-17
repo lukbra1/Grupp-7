@@ -38,12 +38,12 @@
             lblRubrik = new Label();
             txtUpprepaLösenod = new TextBox();
             txtLösenord = new TextBox();
-            txtEfterName = new TextBox();
+            txtEpost = new TextBox();
             txtNamn = new TextBox();
-            txtEpost = new Label();
-            txtTelefon = new Label();
-            txtEfternamn = new Label();
-            txtFörnamn = new Label();
+            lblUpprepaLösen = new Label();
+            lblLösen = new Label();
+            lblEpost = new Label();
+            lblNamn = new Label();
             listBox1 = new ListBox();
             button2 = new Button();
             textBox1 = new TextBox();
@@ -143,13 +143,13 @@
             txtLösenord.Size = new Size(183, 39);
             txtLösenord.TabIndex = 24;
             // 
-            // txtEfterName
+            // txtEpost
             // 
-            txtEfterName.Location = new Point(252, 231);
-            txtEfterName.Margin = new Padding(5, 6, 5, 6);
-            txtEfterName.Name = "txtEfterName";
-            txtEfterName.Size = new Size(183, 39);
-            txtEfterName.TabIndex = 23;
+            txtEpost.Location = new Point(252, 231);
+            txtEpost.Margin = new Padding(5, 6, 5, 6);
+            txtEpost.Name = "txtEpost";
+            txtEpost.Size = new Size(183, 39);
+            txtEpost.TabIndex = 23;
             // 
             // txtNamn
             // 
@@ -159,45 +159,45 @@
             txtNamn.Size = new Size(183, 39);
             txtNamn.TabIndex = 22;
             // 
-            // txtEpost
+            // lblUpprepaLösen
             // 
-            txtEpost.AutoSize = true;
-            txtEpost.Location = new Point(37, 442);
-            txtEpost.Margin = new Padding(5, 0, 5, 0);
-            txtEpost.Name = "txtEpost";
-            txtEpost.Size = new Size(205, 32);
-            txtEpost.TabIndex = 20;
-            txtEpost.Text = "Upprepa lösenord";
+            lblUpprepaLösen.AutoSize = true;
+            lblUpprepaLösen.Location = new Point(37, 442);
+            lblUpprepaLösen.Margin = new Padding(5, 0, 5, 0);
+            lblUpprepaLösen.Name = "lblUpprepaLösen";
+            lblUpprepaLösen.Size = new Size(205, 32);
+            lblUpprepaLösen.TabIndex = 20;
+            lblUpprepaLösen.Text = "Upprepa lösenord";
             // 
-            // txtTelefon
+            // lblLösen
             // 
-            txtTelefon.AutoSize = true;
-            txtTelefon.Location = new Point(130, 337);
-            txtTelefon.Margin = new Padding(5, 0, 5, 0);
-            txtTelefon.Name = "txtTelefon";
-            txtTelefon.Size = new Size(112, 32);
-            txtTelefon.TabIndex = 19;
-            txtTelefon.Text = "Lösenord";
+            lblLösen.AutoSize = true;
+            lblLösen.Location = new Point(130, 337);
+            lblLösen.Margin = new Padding(5, 0, 5, 0);
+            lblLösen.Name = "lblLösen";
+            lblLösen.Size = new Size(112, 32);
+            lblLösen.TabIndex = 19;
+            lblLösen.Text = "Lösenord";
             // 
-            // txtEfternamn
+            // lblEpost
             // 
-            txtEfternamn.AutoSize = true;
-            txtEfternamn.Location = new Point(170, 234);
-            txtEfternamn.Margin = new Padding(5, 0, 5, 0);
-            txtEfternamn.Name = "txtEfternamn";
-            txtEfternamn.Size = new Size(72, 32);
-            txtEfternamn.TabIndex = 18;
-            txtEfternamn.Text = "Epost";
+            lblEpost.AutoSize = true;
+            lblEpost.Location = new Point(170, 234);
+            lblEpost.Margin = new Padding(5, 0, 5, 0);
+            lblEpost.Name = "lblEpost";
+            lblEpost.Size = new Size(72, 32);
+            lblEpost.TabIndex = 18;
+            lblEpost.Text = "Epost";
             // 
-            // txtFörnamn
+            // lblNamn
             // 
-            txtFörnamn.AutoSize = true;
-            txtFörnamn.Location = new Point(160, 139);
-            txtFörnamn.Margin = new Padding(5, 0, 5, 0);
-            txtFörnamn.Name = "txtFörnamn";
-            txtFörnamn.Size = new Size(79, 32);
-            txtFörnamn.TabIndex = 17;
-            txtFörnamn.Text = "Namn";
+            lblNamn.AutoSize = true;
+            lblNamn.Location = new Point(160, 139);
+            lblNamn.Margin = new Padding(5, 0, 5, 0);
+            lblNamn.Name = "lblNamn";
+            lblNamn.Size = new Size(79, 32);
+            lblNamn.TabIndex = 17;
+            lblNamn.Text = "Namn";
             // 
             // listBox1
             // 
@@ -206,6 +206,7 @@
             listBox1.Name = "listBox1";
             listBox1.Size = new Size(385, 388);
             listBox1.TabIndex = 38;
+            listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
             // 
             // button2
             // 
@@ -281,15 +282,16 @@
             Controls.Add(lblRubrik);
             Controls.Add(txtUpprepaLösenod);
             Controls.Add(txtLösenord);
-            Controls.Add(txtEfterName);
-            Controls.Add(txtNamn);
             Controls.Add(txtEpost);
-            Controls.Add(txtTelefon);
-            Controls.Add(txtEfternamn);
-            Controls.Add(txtFörnamn);
+            Controls.Add(txtNamn);
+            Controls.Add(lblUpprepaLösen);
+            Controls.Add(lblLösen);
+            Controls.Add(lblEpost);
+            Controls.Add(lblNamn);
             Controls.Add(label1);
             Name = "HanteraMedarbetare";
             Text = "HanteraMedarbetare";
+            Load += HanteraMedarbetare_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -306,12 +308,12 @@
         private Label lblRubrik;
         private TextBox txtUpprepaLösenod;
         private TextBox txtLösenord;
-        private TextBox txtEfterName;
+        private TextBox txtEpost;
         private TextBox txtNamn;
-        private Label txtEpost;
-        private Label txtTelefon;
-        private Label txtEfternamn;
-        private Label txtFörnamn;
+        private Label lblUpprepaLösen;
+        private Label lblLösen;
+        private Label lblEpost;
+        private Label lblNamn;
         private ListBox listBox1;
         private Button button2;
         private TextBox textBox1;
