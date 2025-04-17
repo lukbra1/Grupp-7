@@ -194,10 +194,10 @@
             // 
             // button2
             // 
-            button2.Location = new Point(892, 168);
+            button2.Location = new Point(854, 251);
             button2.Margin = new Padding(4, 5, 4, 5);
             button2.Name = "button2";
-            button2.Size = new Size(161, 39);
+            button2.Size = new Size(161, 42);
             button2.TabIndex = 36;
             button2.Text = "Lägg till Orderrad";
             button2.UseVisualStyleBackColor = true;
@@ -205,7 +205,7 @@
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(892, 109);
+            textBox3.Location = new Point(672, 257);
             textBox3.Margin = new Padding(4);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(161, 31);
@@ -216,7 +216,7 @@
             // 
             comboBox3.FormattingEnabled = true;
             comboBox3.Items.AddRange(new object[] { "XS", "S", "M", "L", "XL" });
-            comboBox3.Location = new Point(892, 47);
+            comboBox3.Location = new Point(489, 257);
             comboBox3.Margin = new Padding(4, 5, 4, 5);
             comboBox3.Name = "comboBox3";
             comboBox3.Size = new Size(161, 33);
@@ -228,7 +228,7 @@
             richTextBox1.Location = new Point(489, 47);
             richTextBox1.Margin = new Padding(4, 5, 4, 5);
             richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(391, 290);
+            richTextBox1.Size = new Size(526, 194);
             richTextBox1.TabIndex = 33;
             richTextBox1.Text = "Skriv en kommentar";
             richTextBox1.TextChanged += richTextBox1_TextChanged;
@@ -286,7 +286,8 @@
             // lvBeställningar
             // 
             lvBeställningar.Columns.AddRange(new ColumnHeader[] { Typ, Modell, Storlek });
-            lvBeställningar.Location = new Point(1208, 223);
+            lvBeställningar.FullRowSelect = true;
+            lvBeställningar.Location = new Point(1208, 129);
             lvBeställningar.Margin = new Padding(2);
             lvBeställningar.Name = "lvBeställningar";
             lvBeställningar.Size = new Size(368, 542);
@@ -312,7 +313,7 @@
             // lblTotal
             // 
             lblTotal.AutoSize = true;
-            lblTotal.Location = new Point(1208, 791);
+            lblTotal.Location = new Point(1208, 686);
             lblTotal.Margin = new Padding(2, 0, 2, 0);
             lblTotal.Name = "lblTotal";
             lblTotal.Size = new Size(59, 25);
