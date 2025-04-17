@@ -31,7 +31,8 @@ namespace Hattmakarens_system.Controllers
         }
         public List<User> AllaAktivaMedarbetare()
         {
-            return new List<User>();
+            List<User> Users = _context.User.ToList();
+            return Users;
         }
         public List<User> HamtaMedarbetareMedNamn(string Namn)
         {
@@ -39,9 +40,20 @@ namespace Hattmakarens_system.Controllers
             return Users;
         }
       
-        public void RaderaMedarbetare(User user)
+        public void RaderaMedarbetare(User vald)
         {
-            _context.User.Remove(user);
+            
+            try
+            {
+                User user = _context.User.FirstOrDefault(k => k.Namn == vald.Namn);
+                _context.User.Remove(user);
+                _context.SaveChanges();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Något gick snett :(");
+            }
         }
     }
 }
