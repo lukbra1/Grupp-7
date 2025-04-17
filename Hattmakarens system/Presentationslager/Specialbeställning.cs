@@ -87,7 +87,7 @@ namespace Hattmakarens_system
             string kommentar = richTextBox1.Text;
             string referensbild = textBox3.Text;
             StorlekEnum storlek = 0;
-            if (comboBox3.SelectedIndex>-1)
+            if (comboBox3.SelectedIndex > -1)
             {
                 storlek = (StorlekEnum)comboBox3.SelectedIndex;
             }
@@ -111,7 +111,7 @@ namespace Hattmakarens_system
 
                 }
             }
-            
+
 
             // Skapa specialorderrad
             var specialOrderrad = _specialController.NySpecialOrderrad(kommentar, referensbild, storlek, totalPris, Ordern);
@@ -188,7 +188,7 @@ namespace Hattmakarens_system
                     ListViewItem nyItem = new ListViewItem(valtMaterial.Namn);
                     nyItem.SubItems.Add(mangd.ToString());
                     listView1.Items.Add(nyItem);
-                    
+
 
                     foreach (ListViewItem item in listView1.Items)
                     {
@@ -204,7 +204,7 @@ namespace Hattmakarens_system
                     }
                 }
 
-                MessageBox.Show("La till " + mangd +  " av " + valtMaterial.Namn +  ", Total priset är nu " + totalPris);
+                MessageBox.Show("La till " + mangd + " av " + valtMaterial.Namn + ", Total priset är nu " + totalPris);
             }
 
             else
@@ -223,8 +223,46 @@ namespace Hattmakarens_system
             listBox1.DataSource = db.getMaterial();
             listBox1.DisplayMember = "Namn";
         }
-       
 
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
