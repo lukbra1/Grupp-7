@@ -176,5 +176,12 @@ namespace Hattmakarens_system
                 this.Close();
             }
         }
+
+        private void hanteraMedarbetareToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var medarbetare = new HanteraMedarbetare();
+            medarbetare.Show();
+            this.Hide();
+        }
     }
 }
