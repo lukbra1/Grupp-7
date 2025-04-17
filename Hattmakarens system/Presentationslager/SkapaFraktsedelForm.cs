@@ -35,12 +35,12 @@ namespace Hattmakarens_system.Presentationslager
             decimal värde = decimal.Parse(txtKostnad.Text);
             double moms = double.Parse(txtMoms.Text);
             string adress = txtAdress.Text;
-            string avsändare = txtAvsandare.Text;
+            string avsändare =txtAvsandare.Text;
             string mottagre = txtMottagare.Text;
             string beskrivning = rchtxtBeskrivning.Text;
 
 
-            var fraktsedel = db.SkapaFraktsedel(order, vikt, värde, exportKod, moms, adress, avsändare, mottagre, beskrivning);
+            var fraktsedel = db.SkapaFraktsedel(order, vikt, värde, exportKod, moms, adress, avsändare,mottagre,beskrivning );
 
             MessageBox.Show("Fraktsedel skapad!\nPris inkl. moms: " + fraktsedel.PrisInkMoms);
 
@@ -62,13 +62,6 @@ namespace Hattmakarens_system.Presentationslager
         private void txtVikt_TextChanged(object sender, EventArgs e)
         {
 
-        }
-
-        private void tillbakaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            var previousForm = new Homepage();
-            previousForm.Show();
         }
     }
 }

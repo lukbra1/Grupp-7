@@ -47,51 +47,42 @@
             txtAvsandare = new TextBox();
             txtMottagare = new TextBox();
             rchtxtBeskrivning = new RichTextBox();
-            menuStrip1 = new MenuStrip();
-            menuStrip2 = new MenuStrip();
-            tillbakaToolStripMenuItem = new ToolStripMenuItem();
-            menuStrip2.SuspendLayout();
             SuspendLayout();
             // 
             // txtVikt
             // 
-            txtVikt.Location = new Point(142, 41);
-            txtVikt.Margin = new Padding(3, 2, 3, 2);
+            txtVikt.Location = new Point(162, 55);
             txtVikt.Name = "txtVikt";
-            txtVikt.Size = new Size(239, 23);
+            txtVikt.Size = new Size(273, 27);
             txtVikt.TabIndex = 0;
             txtVikt.TextChanged += txtVikt_TextChanged;
             // 
             // txtExportkod
             // 
-            txtExportkod.Location = new Point(142, 66);
-            txtExportkod.Margin = new Padding(3, 2, 3, 2);
+            txtExportkod.Location = new Point(162, 88);
             txtExportkod.Name = "txtExportkod";
-            txtExportkod.Size = new Size(239, 23);
+            txtExportkod.Size = new Size(273, 27);
             txtExportkod.TabIndex = 1;
             // 
             // txtKostnad
             // 
-            txtKostnad.Location = new Point(142, 91);
-            txtKostnad.Margin = new Padding(3, 2, 3, 2);
+            txtKostnad.Location = new Point(162, 121);
             txtKostnad.Name = "txtKostnad";
-            txtKostnad.Size = new Size(239, 23);
+            txtKostnad.Size = new Size(273, 27);
             txtKostnad.TabIndex = 2;
             // 
             // txtMoms
             // 
-            txtMoms.Location = new Point(142, 116);
-            txtMoms.Margin = new Padding(3, 2, 3, 2);
+            txtMoms.Location = new Point(162, 154);
             txtMoms.Name = "txtMoms";
-            txtMoms.Size = new Size(239, 23);
+            txtMoms.Size = new Size(273, 27);
             txtMoms.TabIndex = 3;
             // 
             // btnSkapa
             // 
-            btnSkapa.Location = new Point(6, 385);
-            btnSkapa.Margin = new Padding(3, 2, 3, 2);
+            btnSkapa.Location = new Point(7, 513);
             btnSkapa.Name = "btnSkapa";
-            btnSkapa.Size = new Size(127, 22);
+            btnSkapa.Size = new Size(145, 29);
             btnSkapa.TabIndex = 4;
             btnSkapa.Text = "Skapa Fraktsedel";
             btnSkapa.UseVisualStyleBackColor = true;
@@ -99,10 +90,9 @@
             // 
             // btnSkrivUt
             // 
-            btnSkrivUt.Location = new Point(257, 382);
-            btnSkrivUt.Margin = new Padding(3, 2, 3, 2);
+            btnSkrivUt.Location = new Point(294, 509);
             btnSkrivUt.Name = "btnSkrivUt";
-            btnSkrivUt.Size = new Size(127, 22);
+            btnSkrivUt.Size = new Size(145, 29);
             btnSkrivUt.TabIndex = 5;
             btnSkrivUt.Text = "Skriv ut";
             btnSkrivUt.UseVisualStyleBackColor = true;
@@ -110,145 +100,117 @@
             // lblOrderId
             // 
             lblOrderId.AutoSize = true;
-            lblOrderId.Location = new Point(46, 7);
+            lblOrderId.Location = new Point(53, 9);
             lblOrderId.Name = "lblOrderId";
-            lblOrderId.Size = new Size(0, 15);
+            lblOrderId.Size = new Size(0, 20);
             lblOrderId.TabIndex = 6;
             // 
             // lblVikt
             // 
             lblVikt.AutoSize = true;
-            lblVikt.Location = new Point(46, 46);
+            lblVikt.Location = new Point(53, 62);
             lblVikt.Name = "lblVikt";
-            lblVikt.Size = new Size(27, 15);
+            lblVikt.Size = new Size(34, 20);
             lblVikt.TabIndex = 7;
             lblVikt.Text = "Vikt";
             // 
             // lblKostnad
             // 
             lblKostnad.AutoSize = true;
-            lblKostnad.Location = new Point(46, 71);
+            lblKostnad.Location = new Point(53, 95);
             lblKostnad.Name = "lblKostnad";
-            lblKostnad.Size = new Size(79, 15);
+            lblKostnad.Size = new Size(99, 20);
             lblKostnad.TabIndex = 8;
             lblKostnad.Text = "Frakt Kostnad";
             // 
             // lblExportKod
             // 
             lblExportKod.AutoSize = true;
-            lblExportKod.Location = new Point(46, 96);
+            lblExportKod.Location = new Point(53, 128);
             lblExportKod.Name = "lblExportKod";
-            lblExportKod.Size = new Size(65, 15);
+            lblExportKod.Size = new Size(83, 20);
             lblExportKod.TabIndex = 9;
             lblExportKod.Text = "Export Kod";
             // 
             // lblMoms
             // 
             lblMoms.AutoSize = true;
-            lblMoms.Location = new Point(46, 121);
+            lblMoms.Location = new Point(53, 161);
             lblMoms.Name = "lblMoms";
-            lblMoms.Size = new Size(41, 15);
+            lblMoms.Size = new Size(50, 20);
             lblMoms.TabIndex = 10;
             lblMoms.Text = "Moms";
             // 
             // txtAdress
             // 
-            txtAdress.Location = new Point(145, 178);
-            txtAdress.Margin = new Padding(3, 2, 3, 2);
+            txtAdress.Location = new Point(166, 238);
             txtAdress.Name = "txtAdress";
-            txtAdress.Size = new Size(239, 23);
+            txtAdress.Size = new Size(273, 27);
             txtAdress.TabIndex = 11;
             // 
             // lblAdress
             // 
             lblAdress.AutoSize = true;
-            lblAdress.Location = new Point(46, 184);
+            lblAdress.Location = new Point(53, 245);
             lblAdress.Name = "lblAdress";
-            lblAdress.Size = new Size(42, 15);
+            lblAdress.Size = new Size(53, 20);
             lblAdress.TabIndex = 14;
             lblAdress.Text = "Adress";
             // 
             // labellblAvsandre
             // 
             labellblAvsandre.AutoSize = true;
-            labellblAvsandre.Location = new Point(46, 220);
+            labellblAvsandre.Location = new Point(53, 294);
             labellblAvsandre.Name = "labellblAvsandre";
-            labellblAvsandre.Size = new Size(62, 15);
+            labellblAvsandre.Size = new Size(78, 20);
             labellblAvsandre.TabIndex = 15;
             labellblAvsandre.Text = "Avsändare";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(46, 252);
+            label4.Location = new Point(53, 336);
             label4.Name = "label4";
-            label4.Size = new Size(56, 15);
+            label4.Size = new Size(71, 20);
             label4.TabIndex = 16;
             label4.Text = "Mottagre";
             // 
             // lblBeskrivning
             // 
             lblBeskrivning.AutoSize = true;
-            lblBeskrivning.Location = new Point(46, 290);
+            lblBeskrivning.Location = new Point(53, 386);
             lblBeskrivning.Name = "lblBeskrivning";
-            lblBeskrivning.Size = new Size(68, 15);
+            lblBeskrivning.Size = new Size(84, 20);
             lblBeskrivning.TabIndex = 17;
             lblBeskrivning.Text = "Beskrivning";
             // 
             // txtAvsandare
             // 
-            txtAvsandare.Location = new Point(142, 215);
-            txtAvsandare.Margin = new Padding(3, 2, 3, 2);
+            txtAvsandare.Location = new Point(162, 287);
             txtAvsandare.Name = "txtAvsandare";
-            txtAvsandare.Size = new Size(239, 23);
+            txtAvsandare.Size = new Size(273, 27);
             txtAvsandare.TabIndex = 18;
             // 
             // txtMottagare
             // 
-            txtMottagare.Location = new Point(142, 247);
-            txtMottagare.Margin = new Padding(3, 2, 3, 2);
+            txtMottagare.Location = new Point(162, 329);
             txtMottagare.Name = "txtMottagare";
-            txtMottagare.Size = new Size(239, 23);
+            txtMottagare.Size = new Size(273, 27);
             txtMottagare.TabIndex = 19;
             // 
             // rchtxtBeskrivning
             // 
-            rchtxtBeskrivning.Location = new Point(142, 287);
-            rchtxtBeskrivning.Margin = new Padding(3, 2, 3, 2);
+            rchtxtBeskrivning.Location = new Point(162, 383);
             rchtxtBeskrivning.Name = "rchtxtBeskrivning";
-            rchtxtBeskrivning.Size = new Size(239, 91);
+            rchtxtBeskrivning.Size = new Size(273, 120);
             rchtxtBeskrivning.TabIndex = 20;
             rchtxtBeskrivning.Text = "";
             // 
-            // menuStrip1
-            // 
-            menuStrip1.Location = new Point(0, 24);
-            menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1020, 24);
-            menuStrip1.TabIndex = 21;
-            menuStrip1.Text = "menuStrip1";
-            // 
-            // menuStrip2
-            // 
-            menuStrip2.Items.AddRange(new ToolStripItem[] { tillbakaToolStripMenuItem });
-            menuStrip2.Location = new Point(0, 0);
-            menuStrip2.Name = "menuStrip2";
-            menuStrip2.Size = new Size(1020, 24);
-            menuStrip2.TabIndex = 22;
-            menuStrip2.Text = "menuStrip2";
-            // 
-            // tillbakaToolStripMenuItem
-            // 
-            tillbakaToolStripMenuItem.Name = "tillbakaToolStripMenuItem";
-            tillbakaToolStripMenuItem.Size = new Size(59, 20);
-            tillbakaToolStripMenuItem.Text = "Tillbaka";
-            tillbakaToolStripMenuItem.Click += tillbakaToolStripMenuItem_Click;
-            // 
             // SkapaFraktsedelForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1020, 473);
+            ClientSize = new Size(1166, 631);
             Controls.Add(rchtxtBeskrivning);
             Controls.Add(txtMottagare);
             Controls.Add(txtAvsandare);
@@ -268,16 +230,10 @@
             Controls.Add(txtKostnad);
             Controls.Add(txtExportkod);
             Controls.Add(txtVikt);
-            Controls.Add(menuStrip1);
-            Controls.Add(menuStrip2);
-            MainMenuStrip = menuStrip1;
-            Margin = new Padding(3, 2, 3, 2);
             Name = "SkapaFraktsedelForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "SkapaFraktsedelForm";
             Load += SkapaFraktsedelForm_Load;
-            menuStrip2.ResumeLayout(false);
-            menuStrip2.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -305,8 +261,5 @@
         private TextBox txtMottagare;
         private RichTextBox richTextBox1;
         private RichTextBox rchtxtBeskrivning;
-        private MenuStrip menuStrip1;
-        private MenuStrip menuStrip2;
-        private ToolStripMenuItem tillbakaToolStripMenuItem;
     }
 }

@@ -57,12 +57,5 @@ namespace Hattmakarens_system.Presentationslager
             }
 
         }
-
-        private void tillbakaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            var previousForm = new Homepage();
-            previousForm.Show();
-        }
     }
 }
