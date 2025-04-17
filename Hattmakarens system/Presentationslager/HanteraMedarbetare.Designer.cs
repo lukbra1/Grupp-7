@@ -51,6 +51,9 @@
             button1 = new Button();
             label3 = new Label();
             checkBox1 = new CheckBox();
+            menuStrip1 = new MenuStrip();
+            tiibakaToolStripMenuItem = new ToolStripMenuItem();
+            menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -263,11 +266,30 @@
             checkBox1.Text = "Behörig Användare";
             checkBox1.UseVisualStyleBackColor = true;
             // 
+            // menuStrip1
+            // 
+            menuStrip1.ImageScalingSize = new Size(32, 32);
+            menuStrip1.Items.AddRange(new ToolStripItem[] { tiibakaToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Padding = new Padding(11, 4, 0, 4);
+            menuStrip1.Size = new Size(1172, 46);
+            menuStrip1.TabIndex = 41;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // tiibakaToolStripMenuItem
+            // 
+            tiibakaToolStripMenuItem.Name = "tiibakaToolStripMenuItem";
+            tiibakaToolStripMenuItem.Size = new Size(115, 38);
+            tiibakaToolStripMenuItem.Text = "Tillbaka";
+            tiibakaToolStripMenuItem.Click += tiibakaToolStripMenuItem_Click;
+            // 
             // HanteraMedarbetare
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1172, 742);
+            Controls.Add(menuStrip1);
             Controls.Add(checkBox1);
             Controls.Add(label3);
             Controls.Add(listBox1);
@@ -295,6 +317,8 @@
             Text = "HanteraMedarbetare";
             FormClosed += HanteraMedarbetare_FormClosed;
             Load += HanteraMedarbetare_Load;
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -324,5 +348,7 @@
         private Button button1;
         private Label label3;
         private CheckBox checkBox1;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem tiibakaToolStripMenuItem;
     }
 }
