@@ -159,12 +159,5 @@ namespace Hattmakarens_system
             public string Beskrivning { get; set; }
             public bool Bestallt { get; set; }
         }
-
-        private void tillbakaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            var previousForm = new Homepage();
-            previousForm.Show();
-        }
     }
 }
