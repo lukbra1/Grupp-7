@@ -148,7 +148,7 @@ namespace Hattmakarens_system
 
         private void tillbakaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             var previousForm = new AllaBeställningar();
             previousForm.Show();
         }

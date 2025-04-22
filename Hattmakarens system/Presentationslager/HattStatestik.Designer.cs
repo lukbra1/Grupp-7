@@ -105,15 +105,16 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { tillbakaToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1353, 40);
+            menuStrip1.Size = new Size(1353, 42);
             menuStrip1.TabIndex = 7;
             menuStrip1.Text = "menuStrip1";
             // 
             // tillbakaToolStripMenuItem
             // 
             tillbakaToolStripMenuItem.Name = "tillbakaToolStripMenuItem";
-            tillbakaToolStripMenuItem.Size = new Size(115, 36);
+            tillbakaToolStripMenuItem.Size = new Size(115, 38);
             tillbakaToolStripMenuItem.Text = "Tillbaka";
+            tillbakaToolStripMenuItem.Click += tillbakaToolStripMenuItem_Click;
             // 
             // label1
             // 
@@ -141,6 +142,7 @@
             MainMenuStrip = menuStrip1;
             Name = "HattStatestik";
             Text = "HattStatestik";
+            Load += HattStatestik_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);

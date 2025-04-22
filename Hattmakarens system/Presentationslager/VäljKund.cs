@@ -117,7 +117,7 @@ namespace Hattmakarens_system.Presentationslager
 
         private void VäljKund_FormClosed(object sender, FormClosedEventArgs e)
         {
-            //Program.homepage.Show();
+          
         }
     }
 }

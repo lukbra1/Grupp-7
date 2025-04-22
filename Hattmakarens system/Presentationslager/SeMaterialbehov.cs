@@ -245,5 +245,11 @@ namespace Hattmakarens_system
         {
 
         }
+
+        private void tillbakaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Program.homepage.Show();
+        }
     }
 }

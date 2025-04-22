@@ -68,7 +68,7 @@ namespace Hattmakarens_system.Presentationslager
 
         private void HanteraMedarbetare_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Program.homepage.Close();
+            
         }
 
         private void button2_Click(object sender, EventArgs e)

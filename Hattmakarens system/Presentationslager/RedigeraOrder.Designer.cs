@@ -39,49 +39,51 @@
             // dgvOrderRader
             // 
             dgvOrderRader.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvOrderRader.Location = new Point(30, 61);
-            dgvOrderRader.Margin = new Padding(4, 3, 4, 3);
+            dgvOrderRader.Location = new Point(56, 130);
+            dgvOrderRader.Margin = new Padding(7, 6, 7, 6);
             dgvOrderRader.Name = "dgvOrderRader";
             dgvOrderRader.RowHeadersWidth = 82;
-            dgvOrderRader.Size = new Size(572, 272);
+            dgvOrderRader.Size = new Size(1062, 580);
             dgvOrderRader.TabIndex = 4;
             // 
             // btnSpara
             // 
-            btnSpara.Location = new Point(527, 339);
-            btnSpara.Margin = new Padding(4, 3, 4, 3);
+            btnSpara.Location = new Point(979, 723);
+            btnSpara.Margin = new Padding(7, 6, 7, 6);
             btnSpara.Name = "btnSpara";
-            btnSpara.Size = new Size(75, 23);
+            btnSpara.Size = new Size(139, 49);
             btnSpara.TabIndex = 5;
             btnSpara.Text = "Spara";
             btnSpara.UseVisualStyleBackColor = true;
             // 
             // menuStrip1
             // 
+            menuStrip1.ImageScalingSize = new Size(32, 32);
             menuStrip1.Items.AddRange(new ToolStripItem[] { tillbakaToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1020, 24);
+            menuStrip1.Padding = new Padding(11, 4, 0, 4);
+            menuStrip1.Size = new Size(1179, 44);
             menuStrip1.TabIndex = 6;
             menuStrip1.Text = "menuStrip1";
             // 
             // tillbakaToolStripMenuItem
             // 
             tillbakaToolStripMenuItem.Name = "tillbakaToolStripMenuItem";
-            tillbakaToolStripMenuItem.Size = new Size(59, 20);
+            tillbakaToolStripMenuItem.Size = new Size(115, 36);
             tillbakaToolStripMenuItem.Text = "Tillbaka";
             tillbakaToolStripMenuItem.Click += tillbakaToolStripMenuItem_Click;
             // 
             // RedigeraOrder
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1020, 473);
+            ClientSize = new Size(1179, 817);
             Controls.Add(btnSpara);
             Controls.Add(dgvOrderRader);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
-            Margin = new Padding(4, 3, 4, 3);
+            Margin = new Padding(7, 6, 7, 6);
             Name = "RedigeraOrder";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "RedigeraOrder";
