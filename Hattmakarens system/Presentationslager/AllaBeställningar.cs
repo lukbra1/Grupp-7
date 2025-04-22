@@ -95,9 +95,8 @@ namespace Hattmakarens_system.Presentationslager
 
         private void tiibakaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            var previousForm = new Homepage();
-            previousForm.Show();
+            this.Close();
+            Program.homepage.Show();
         }
     }
 }
