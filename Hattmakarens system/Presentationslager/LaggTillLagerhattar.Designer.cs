@@ -60,6 +60,8 @@
             txtEnhet = new TextBox();
             txtFarg = new TextBox();
             txtNamn = new TextBox();
+            label1 = new Label();
+            label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)pbReferens).BeginInit();
             panelLagerHattar.SuspendLayout();
             panelSpecHattar.SuspendLayout();
@@ -182,6 +184,7 @@
             // 
             panelSpecHattar.BackColor = SystemColors.ActiveCaption;
             panelSpecHattar.BorderStyle = BorderStyle.Fixed3D;
+            panelSpecHattar.Controls.Add(label2);
             panelSpecHattar.Controls.Add(button2);
             panelSpecHattar.Controls.Add(textBox3);
             panelSpecHattar.Controls.Add(comboBox3);
@@ -214,19 +217,22 @@
             textBox3.Location = new Point(672, 257);
             textBox3.Margin = new Padding(4);
             textBox3.Name = "textBox3";
+            textBox3.PlaceholderText = "Referensbild";
             textBox3.Size = new Size(161, 31);
             textBox3.TabIndex = 34;
-            textBox3.Text = "Referensbild";
             // 
             // comboBox3
             // 
+            comboBox3.Cursor = Cursors.SizeAll;
             comboBox3.FormattingEnabled = true;
+            comboBox3.ImeMode = ImeMode.Katakana;
             comboBox3.Items.AddRange(new object[] { "XS", "S", "M", "L", "XL" });
             comboBox3.Location = new Point(489, 257);
             comboBox3.Margin = new Padding(4, 5, 4, 5);
             comboBox3.Name = "comboBox3";
             comboBox3.Size = new Size(161, 33);
             comboBox3.TabIndex = 35;
+            comboBox3.Text = "Storlek";
             comboBox3.SelectedIndexChanged += comboBox3_SelectedIndexChanged;
             // 
             // richTextBox1
@@ -236,7 +242,7 @@
             richTextBox1.Name = "richTextBox1";
             richTextBox1.Size = new Size(526, 194);
             richTextBox1.TabIndex = 33;
-            richTextBox1.Text = "Skriv en kommentar";
+            richTextBox1.Text = "";
             richTextBox1.TextChanged += richTextBox1_TextChanged;
             // 
             // button3
@@ -255,9 +261,9 @@
             textBox1.Location = new Point(378, 97);
             textBox1.Margin = new Padding(4);
             textBox1.Name = "textBox1";
+            textBox1.PlaceholderText = "Antal";
             textBox1.Size = new Size(103, 31);
             textBox1.TabIndex = 28;
-            textBox1.Text = "Antal";
             // 
             // listView1
             // 
@@ -349,6 +355,7 @@
             // 
             panel1.BackColor = SystemColors.ActiveCaption;
             panel1.BorderStyle = BorderStyle.Fixed3D;
+            panel1.Controls.Add(label1);
             panel1.Controls.Add(rtxtBesk);
             panel1.Controls.Add(txtEnhet);
             panel1.Controls.Add(txtFarg);
@@ -361,39 +368,59 @@
             // 
             // rtxtBesk
             // 
-            rtxtBesk.Location = new Point(28, 203);
+            rtxtBesk.Location = new Point(28, 217);
             rtxtBesk.Margin = new Padding(4, 5, 4, 5);
             rtxtBesk.Name = "rtxtBesk";
-            rtxtBesk.Size = new Size(348, 123);
+            rtxtBesk.Size = new Size(348, 109);
             rtxtBesk.TabIndex = 37;
-            rtxtBesk.Text = "Skriv en beskrivning";
+            rtxtBesk.Text = "";
             // 
             // txtEnhet
             // 
             txtEnhet.Location = new Point(28, 84);
             txtEnhet.Margin = new Padding(5);
             txtEnhet.Name = "txtEnhet";
+            txtEnhet.PlaceholderText = "Enhet";
             txtEnhet.Size = new Size(142, 31);
             txtEnhet.TabIndex = 44;
-            txtEnhet.Text = "Enhet";
             // 
             // txtFarg
             // 
             txtFarg.Location = new Point(28, 139);
             txtFarg.Margin = new Padding(5);
             txtFarg.Name = "txtFarg";
+            txtFarg.PlaceholderText = "Färg";
             txtFarg.Size = new Size(142, 31);
             txtFarg.TabIndex = 43;
-            txtFarg.Text = "Färg";
             // 
             // txtNamn
             // 
             txtNamn.Location = new Point(28, 33);
             txtNamn.Margin = new Padding(5);
             txtNamn.Name = "txtNamn";
+            txtNamn.PlaceholderText = "Namn";
             txtNamn.Size = new Size(142, 31);
             txtNamn.TabIndex = 41;
-            txtNamn.Text = "Namn";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(28, 187);
+            label1.Margin = new Padding(2, 0, 2, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(102, 25);
+            label1.TabIndex = 37;
+            label1.Text = "Beskrivning";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(489, 17);
+            label2.Margin = new Padding(2, 0, 2, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(105, 25);
+            label2.TabIndex = 37;
+            label2.Text = "Kommentar";
             // 
             // LaggTillLagerhattar
             // 
@@ -461,5 +488,7 @@
         private TextBox txtEnhet;
         private TextBox txtFarg;
         private RichTextBox rtxtBesk;
+        private Label label2;
+        private Label label1;
     }
 }

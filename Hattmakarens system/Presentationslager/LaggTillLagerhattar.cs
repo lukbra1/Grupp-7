@@ -330,6 +330,11 @@ namespace Hattmakarens_system.Presentationslager
             LaddaMaterial();
             MessageBox.Show("Materialet är tillagd i lager");
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
