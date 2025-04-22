@@ -17,13 +17,14 @@ namespace Hattmakarens_system.Controllers
         {
             this._context = context;
         }
-        public FraktSedel SkapaFraktsedel(Order _order, int vikt, decimal värde, int exportKod, double moms, string adress, string avsändare, string mottagre, string beskrivning)
+        public FraktSedel SkapaFraktsedel(Order _order, int vikt, decimal värde, int exportKod, string adress, string avsändare, string mottagre, string beskrivning)
         {
             var order = _context.Ordrar.FirstOrDefault(o => o.OrderId == _order.OrderId);
             if (order == null)
                 throw new Exception("Ordern hittades inte.");
 
-            var prisInkMoms = värde + (värde * (decimal)(moms / 100));
+            var moms = 25.0;
+            var prisInkMoms = värde * 1.25m;
 
             var fraktsedel = new FraktSedel
             {
