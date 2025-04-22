@@ -144,7 +144,7 @@ namespace Hattmakarens_system.Presentationslager
             //e.Graphics.DrawString($"Värde: {aktuellFraktsedel.Värde} kr", text, Brushes.Black, x, y); y += 25;
             //e.Graphics.DrawString($"Moms: {aktuellFraktsedel.Moms}%", text, Brushes.Black, x, y); y += 25;
             e.Graphics.DrawString($"Pris inkl. moms: {aktuellFraktsedel.PrisInkMoms} kr", text, Brushes.Black, x, y); y += 25;
-            e.Graphics.DrawString($"Datum: {aktuellFraktsedel.SkapatDatum:yyyy-MM-dd}", text, Brushes.Black, x, y);
+            e.Graphics.DrawString($"Datum: {aktuellFraktsedel.SkapatDatum:yyyy-MM-dd}", text, Brushes.Black, x, y); y = 25;
             e.Graphics.DrawString($"Beskrivning: {aktuellFraktsedel.Beskrivning}", text, Brushes.Black, x, y); y += 25;
 
         }
