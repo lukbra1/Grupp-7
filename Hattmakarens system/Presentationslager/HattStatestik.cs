@@ -16,5 +16,16 @@ namespace Hattmakarens_system.Presentationslager
         {
             InitializeComponent();
         }
+
+        private void HattStatestik_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tillbakaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Program.homepage.Show();
+        }
     }
 }

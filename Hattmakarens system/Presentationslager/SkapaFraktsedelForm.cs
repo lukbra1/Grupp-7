@@ -39,11 +39,12 @@ namespace Hattmakarens_system.Presentationslager
 
             if (existerandeFraktsedel != null)
             {
+                aktuellFraktsedel = existerandeFraktsedel;
+
                 // Fyll fält med befintlig data
                 txtVikt.Text = existerandeFraktsedel.Vikt.ToString();
-                txtExportkod.Text = existerandeFraktsedel.ExportKod.ToString();
-                txtKostnad.Text = existerandeFraktsedel.Värde.ToString();
-                txtMoms.Text = existerandeFraktsedel.Moms.ToString();
+                txtExKod.Text = existerandeFraktsedel.ExportKod.ToString();
+                txtTotalPris.Text = existerandeFraktsedel.Värde.ToString();
                 txtAdress.Text = existerandeFraktsedel.Adress;
                 txtAvsandare.Text = existerandeFraktsedel.Avsändare;
                 txtMottagare.Text = existerandeFraktsedel.Mottagare;
@@ -92,22 +93,24 @@ namespace Hattmakarens_system.Presentationslager
             //- Datum: {fraktsedel.SkapatDatum}");
 
             int vikt = int.Parse(txtVikt.Text);
-            int exportKod = int.Parse(txtExportkod.Text);
-            decimal värde = decimal.Parse(txtKostnad.Text);
-            double moms = double.Parse(txtMoms.Text);
+            int exportKod = int.Parse(txtExKod.Text);
+            decimal värde = decimal.Parse(txtTotalPris.Text);
+            decimal prisInkMoms = värde * 1.25m;
             string adress = txtAdress.Text;
             string avsändare = txtAvsandare.Text;
             string mottagre = txtMottagare.Text;
             string beskrivning = rchtxtBeskrivning.Text;
 
-            existerandeFraktsedel = db.SkapaFraktsedel(order, vikt, värde, exportKod, moms, adress, avsändare, mottagre, beskrivning);
+            existerandeFraktsedel = db.SkapaFraktsedel(order, vikt, värde, exportKod, adress, avsändare, mottagre, beskrivning);
+            aktuellFraktsedel = existerandeFraktsedel;
+
 
             MessageBox.Show("Fraktsedel skapad!\nPris inkl. moms: " + existerandeFraktsedel.PrisInkMoms);
 
             btnSkapa.Enabled = false;
             lblStatusFraktsedel.Text = "✅ Fraktsedel är skapad";
             lblStatusFraktsedel.ForeColor = Color.Green;
-        
+
 
         }
 
@@ -131,18 +134,31 @@ namespace Hattmakarens_system.Presentationslager
             Font rubrik = new Font("Arial", 16, FontStyle.Bold);
             Font text = new Font("Arial", 12);
 
+            //e.Graphics.DrawString("Fraktsedel", rubrik, Brushes.Black, x, y); y += 40;
+            ////e.Graphics.DrawString($"OrderID: {aktuellFraktsedel.OrderID}", text, Brushes.Black, x, y); y += 25;
+            //e.Graphics.DrawString($"Adress: {aktuellFraktsedel.Adress}", text, Brushes.Black, x, y); y += 25;
+            //e.Graphics.DrawString($"Avsändare: {aktuellFraktsedel.Avsändare}", text, Brushes.Black, x, y); y += 25;
+            //e.Graphics.DrawString($"Mottagare: {aktuellFraktsedel.Mottagare}", text, Brushes.Black, x, y); y += 25;
+            //e.Graphics.DrawString($"Vikt: {aktuellFraktsedel.Vikt} kg", text, Brushes.Black, x, y); y += 25;
+            //e.Graphics.DrawString($"Exportkod: {aktuellFraktsedel.ExportKod}", text, Brushes.Black, x, y); y += 25;
+            ////e.Graphics.DrawString($"Värde: {aktuellFraktsedel.Värde} kr", text, Brushes.Black, x, y); y += 25;
+            ////e.Graphics.DrawString($"Moms: {aktuellFraktsedel.Moms}%", text, Brushes.Black, x, y); y += 25;
+            //e.Graphics.DrawString($"Pris inkl. moms: {aktuellFraktsedel.PrisInkMoms} kr", text, Brushes.Black, x, y); y += 25;
+            //e.Graphics.DrawString($"Datum: {aktuellFraktsedel.SkapatDatum:yyyy-MM-dd}", text, Brushes.Black, x, y); y = 25;
+            //e.Graphics.DrawString($"Beskrivning: {aktuellFraktsedel.Beskrivning}", text, Brushes.Black, x, y); y += 25;
+
             e.Graphics.DrawString("Fraktsedel", rubrik, Brushes.Black, x, y); y += 40;
-            e.Graphics.DrawString($"OrderID: {aktuellFraktsedel.OrderID}", text, Brushes.Black, x, y); y += 25;
             e.Graphics.DrawString($"Adress: {aktuellFraktsedel.Adress}", text, Brushes.Black, x, y); y += 25;
             e.Graphics.DrawString($"Avsändare: {aktuellFraktsedel.Avsändare}", text, Brushes.Black, x, y); y += 25;
             e.Graphics.DrawString($"Mottagare: {aktuellFraktsedel.Mottagare}", text, Brushes.Black, x, y); y += 25;
-            e.Graphics.DrawString($"Beskrivning: {aktuellFraktsedel.Beskrivning}", text, Brushes.Black, x, y); y += 25;
             e.Graphics.DrawString($"Vikt: {aktuellFraktsedel.Vikt} kg", text, Brushes.Black, x, y); y += 25;
             e.Graphics.DrawString($"Exportkod: {aktuellFraktsedel.ExportKod}", text, Brushes.Black, x, y); y += 25;
-            e.Graphics.DrawString($"Värde: {aktuellFraktsedel.Värde} kr", text, Brushes.Black, x, y); y += 25;
-            e.Graphics.DrawString($"Moms: {aktuellFraktsedel.Moms}%", text, Brushes.Black, x, y); y += 25;
             e.Graphics.DrawString($"Pris inkl. moms: {aktuellFraktsedel.PrisInkMoms} kr", text, Brushes.Black, x, y); y += 25;
-            e.Graphics.DrawString($"Datum: {aktuellFraktsedel.SkapatDatum:yyyy-MM-dd}", text, Brushes.Black, x, y);
+            e.Graphics.DrawString($"Datum: {aktuellFraktsedel.SkapatDatum:yyyy-MM-dd}", text, Brushes.Black, x, y); y += 25;
+
+            // beskrivningen kommer sist
+            e.Graphics.DrawString($"Beskrivning: {aktuellFraktsedel.Beskrivning}", text, Brushes.Black, x, y); y += 25;
+
         }
 
         private void btnSkrivUt_Click(object sender, EventArgs e)
@@ -159,6 +175,13 @@ namespace Hattmakarens_system.Presentationslager
             preview.Width = 800;
             preview.Height = 600;
             preview.ShowDialog();
+        }
+
+        private void tillbakaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            var tillbaka = new AllaBeställningar();
+            tillbaka.Show();
         }
     }
 

@@ -63,6 +63,7 @@ namespace Hattmakarens_system.Presentationslager
                 if (valdOrder != null)
                 {
                     // Öppna redigeringsformuläret och skicka med OrderId
+                    this.Close();
                     var redigeraForm = new RedigeraOrder(valdOrder);
                     redigeraForm.Show();
                 }
@@ -83,6 +84,7 @@ namespace Hattmakarens_system.Presentationslager
                 if (valdOrder != null)
                 {
                     // Öppna formulär för fraktsedel
+                    this.Close();
                     var fraktForm = new SkapaFraktsedelForm(valdOrder);
                     fraktForm.Show();
                 }
