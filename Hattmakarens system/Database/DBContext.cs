@@ -306,22 +306,30 @@ namespace Hattmakarens_system.Database
             );
 
             modelBuilder.Entity<Material>().HasData(
-                new Material { MaterialId = 1, Namn = "Snuttefilt", PrisPerEnhet = 100, Enhet = "Kvm", Farg = "Blå", Beskrivning = "Mjukt material." }
+                new Material { MaterialId = 1, Namn = "Fjädrar",Enhet = "st", Farg = "Blå", Beskrivning = "Fjädrar kan användas för att lägga till dekoration eller ge en hatt en speciell stil. Fjädrarna kan komma från fåglar som strutsar, påfåglar eller höns." }
             );
             modelBuilder.Entity<Material>().HasData(
-                new Material { MaterialId = 2, Namn = "Läder", PrisPerEnhet = 325, Enhet = "Kvm", Farg = "Svart", Beskrivning = "Färgat Kalv Läder." }
+                new Material { MaterialId = 2, Namn = "Tygblommor",Enhet = "st", Farg = "Svart", Beskrivning = "Tygblommor kan användas för att ge en hatt en feminin och romantisk stil." }
             );
             modelBuilder.Entity<Material>().HasData(
-                new Material { MaterialId = 3, Namn = "Struds Fjäder", PrisPerEnhet = 45, Enhet = "st", Farg = "Vit", Beskrivning = "Fjädrar från den Australiensiska strudsen som endast födar på  japanska böngroddar." }
+                new Material { MaterialId = 3, Namn = "Pärlor",Enhet = "st", Farg = "Vit", Beskrivning = "Pärlor kan användas för att lägga till en elegant och sofistikerad touch till en hatt." }
             );
             modelBuilder.Entity<Material>().HasData(
-                new Material { MaterialId = 4, Namn = "Lejonman", PrisPerEnhet = 15, Enhet = "g", Farg = "Sunsetred", Beskrivning = "Tråd producerad av lejonman utav högsta kvalité direkt från Arkenzoo." }
+                new Material { MaterialId = 4, Namn = "Lejonman",Enhet = "g", Farg = "Sunsetred", Beskrivning = "Tråd producerad av lejonman utav högsta kvalité direkt från Arkenzoo." }
             );
             modelBuilder.Entity<Material>().HasData(
-                new Material { MaterialId = 5, Namn = "Saphir", PrisPerEnhet = 9000, Enhet = "karat", Farg = "Blå", Beskrivning = "Saphirer från mallorcas östra bergras." }
+                new Material { MaterialId = 5, Namn = "Spets", Enhet = "st", Farg = "Blå", Beskrivning = "Spetsar kan användas för att lägga till en vintage känsla till en hatt." }
+
             ); modelBuilder.Entity<Material>().HasData(
-                new Material { MaterialId = 6, Namn = "Zebrapläd", PrisPerEnhet = 750, Enhet = "m", Farg = "Svart/Vit-mönstrad", Beskrivning = "Pläd ifrån vildfångad zebra i östra Zimbabwe." }
+                new Material { MaterialId = 6, Namn = "Lackerat papper", Enhet = "Kvdm", Farg = "Svart/Vit-mönstrad", Beskrivning = "Lackerat papper kan användas för att skapa en högteknologisk eller futuristisk stil till en hatt." }
+
+            ); modelBuilder.Entity<Material>().HasData(
+                new Material { MaterialId = 7, Namn = "Lurextråd", Enhet = "dm", Farg = "Svart/Vit-mönstrad", Beskrivning = "Lurextråd kan användas för att lägga till en glittrig och festlig touch till en hatt." }
+
+            ); modelBuilder.Entity<Material>().HasData(
+                new Material { MaterialId = 8, Namn = "Fuskpäls", Enhet = "Kvdm", Farg = "Svart/Vit-mönstrad", Beskrivning = ": Fuskpäls kan användas för att ge en hatt en mjuk och fluffig yta, eller för att skapa en djurisk känsla." }
             );
+
             modelBuilder.Entity<Order>().HasData(
                 new Order { OrderId = 1, Skapad = new DateTime(2025, 4, 14), Status = StatusEnum.EjPaborjad, Express = false, TotalPris = 1000, KundId = 1 }
             );
