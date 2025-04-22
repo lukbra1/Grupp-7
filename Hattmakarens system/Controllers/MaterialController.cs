@@ -51,14 +51,13 @@ namespace Hattmakarens_system.Controllers
 
 
 
-        public Material SkapaNyttMaterial(string Namn, decimal PrisPerEnhet, string Enhet, string Farg, string Beskrivning)
+        public Material SkapaNyttMaterial(string Namn, string Enhet, string Farg, string Beskrivning)
         {
             try
             {
                 Material material = new Material
                 {
                     Namn = Namn,
-                    PrisPerEnhet = PrisPerEnhet,
                     Enhet = Enhet,
                     Farg = Farg,
                     Beskrivning = Beskrivning,
@@ -72,7 +71,7 @@ namespace Hattmakarens_system.Controllers
             catch (Exception ex)
             {
                 // Visa felmeddelande, logga om du vill
-                MessageBox.Show("❌ Ett fel inträffade vid registrering av materialet:\n\n" + ex.Message);
+                MessageBox.Show("Ett fel inträffade vid registrering av materialet" + ex.Message);
                 return null;
             }
 

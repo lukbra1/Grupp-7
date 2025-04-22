@@ -77,12 +77,23 @@ namespace Hattmakarens_system.Presentationslager
 
         }
 
+        private void LaddaMaterial()
+        {
+            listBox1.Items.Clear();
+
+            var materialen = _db.getMaterial();
+
+            foreach (var material in materialen)
+            {
+                listBox1.Items.Add(material.Namn);
+            }
+        }
 
 
 
         private void LaggTillLagerhattar_Load(object sender, EventArgs e)
         {
-            FyllListBoxMedMaterial();
+            LaddaMaterial();
             listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
             listView1.View = View.Details; // Viktigt!
             listView1.Columns.Add("Material", 150); // Kolumnnamn + bredd
@@ -302,12 +313,22 @@ namespace Hattmakarens_system.Presentationslager
             }
         }
 
-        private void FyllListBoxMedMaterial()
+        private void panelLagerHattar_Paint(object sender, PaintEventArgs e)
         {
 
-            listBox1.Items.Clear();
-            listBox1.DataSource = _db.getMaterial();
-            listBox1.DisplayMember = "Namn";
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+
+            var Namn = txtNamn.Text;
+            var Enhet = txtEnhet.Text;
+            var Farg = txtFarg.Text;
+            var Beskrivning = rtxtBesk.Text;
+
+            _db.SkapaNyttMaterial(Namn, Enhet, Farg, Beskrivning);
+            LaddaMaterial();
+            MessageBox.Show("Materialet är tillagd i lager");
         }
     }
 }

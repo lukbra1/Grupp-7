@@ -44,17 +44,13 @@ namespace Hattmakarens_system.Presentationslager
             var Farg = txtFarg.Text;
             var Beskrivning = txtBeskrivning.Text;
 
-            if (decimal.TryParse(PrisPerEnhet, out decimal DecimalPrisPerEnhet))
-            {
+           
+            
                 // Allt okej – anropa metoden med konverterat decimalvärde
-                materialController.SkapaNyttMaterial(Namn, DecimalPrisPerEnhet, Enhet, Farg, Beskrivning);
+                materialController.SkapaNyttMaterial(Namn, Enhet, Farg, Beskrivning);
                 MessageBox.Show("Materialet är tillagd i lager");
-            }
-            else
-            {
-                // Visa felmeddelande om priset inte går att tolka
-                MessageBox.Show("⚠️ Ange ett giltigt pris (ex: 99,90)");
-            }
+            
+           
 
         }
     }
