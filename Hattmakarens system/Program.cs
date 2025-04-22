@@ -20,8 +20,9 @@ namespace Hattmakarens_system
                     Behorighet = true
                 }
             );
-            var loggaInGränsnittt = new LoggaInGränsnittt();
-            Application.Run(loggaInGränsnittt);
+            //var loggaInGränsnittt = new LoggaInGränsnittt();
+            //Application.Run(loggaInGränsnittt);
+            Application.Run(homepage);
         }
     }
 }
