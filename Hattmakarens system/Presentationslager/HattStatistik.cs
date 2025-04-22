@@ -28,9 +28,13 @@ namespace Hattmakarens_system.Presentationslager
         {
             List<Modell> Modeller = StatistikController.HämtaAllaModeller();
 
+            Modeller.Insert(0, new Modell { ModellId = -1, Namn = "Specialhatt" });
+
             comboBox1.DataSource = Modeller;
             comboBox1.DisplayMember = "Namn";
             comboBox1.ValueMember = "ModellId";
+
+       
 
         }
 
@@ -51,7 +55,25 @@ namespace Hattmakarens_system.Presentationslager
             var startDatumVal = dateTimePicker1.Value;
             var slutDatumVal = dateTimePicker2.Value;
 
-            StatistikController.HämtaStatistikFörHattmodell(modellVal, startDatumVal, slutDatumVal);
+            if (modellVal == -1)
+            {
+                decimal summan = StatistikController.HämtaSummaSpecialhatt(startDatumVal, slutDatumVal);
+                int antalet = StatistikController.HämtaAntalSpecialhatt(startDatumVal, slutDatumVal);
+
+                listBox1.Items.Clear();
+                listBox1.Items.Add($"Totalt antal sålda hattar: {antalet}");
+                listBox1.Items.Add($"Total försäljningssumma: {summan}kr");
+            }
+            else
+            {
+                decimal summan = StatistikController.HämtaSumma(modellVal, startDatumVal, slutDatumVal);
+                int antalet = StatistikController.HämtaAntal(modellVal, startDatumVal, slutDatumVal);
+
+                listBox1.Items.Clear();
+                listBox1.Items.Add($"Totalt antal sålda hattar: {antalet}");
+                listBox1.Items.Add($"Total försäljningssumma: {summan}kr");
+            }
+
         }
     }
 }
