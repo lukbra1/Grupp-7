@@ -3,12 +3,16 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using Hattmakarens_system.ModelsNy;
+using Hattmakarens_system.Database;
+using Microsoft.EntityFrameworkCore;
 
 namespace Hattmakarens_system
 {
     public partial class Homepage : Form
     {
         Dictionary<DateTime, List<string>> todoList = new Dictionary<DateTime, List<string>>();
+
+        private readonly AppDbContext _context = new AppDbContext();
 
         private User _currentUser;
 
@@ -25,6 +29,8 @@ namespace Hattmakarens_system
             InitializeComponent();
         }
 
+
+
         private void beställningarToolStripMenuItem_Click(object sender, EventArgs e) { }
 
         private void lagerToolStripMenuItem_Click(object sender, EventArgs e) { }
@@ -37,9 +43,30 @@ namespace Hattmakarens_system
             monthCalendar1.SelectionEnd = DateTime.Today;
             UppdateraVeckooversikt(DateTime.Today);
 
-            if (_currentUser.Behorighet == false)
+            // Dölja menyval för icke-admin
+            if (_currentUser != null && !_currentUser.Behorighet)
             {
                 hanteraMedarbetareToolStripMenuItem.Visible = false;
+            }
+
+            // 🆕 Visa alla orderrader som ej påbörjats
+            VisaEjPåbörjadeOrderRader();
+        }
+
+        private void VisaEjPåbörjadeOrderRader()
+        {
+            // Hämta från DbContext
+            var rader = _context.Orderrader
+                                .Include(or => or.Order)
+                                .Where(or => or.StatusOrderrad == StatusOrderradEnum.EjPaborjad)
+                                .ToList();
+
+            // Rensa listbox och fyll på
+            ordrarList.Items.Clear();
+            foreach (var rad in rader)
+            {
+                ordrarList.Items.Add(
+                    $"Order #{rad.OrderId} – Rad {rad.OrderRadId}: {rad.TypEnum} ({rad.Storlek})");
             }
         }
 
@@ -160,7 +187,7 @@ namespace Hattmakarens_system
 
         private void seAlltMaterialToolStripMenuItem_Click(object sender, EventArgs e)
         {
-          
+
         }
 
         private void allaBeställningarToolStripMenuItem_Click_2(object sender, EventArgs e)
@@ -192,6 +219,16 @@ namespace Hattmakarens_system
         {
             var materialForm = new SeMaterialbehov();
             materialForm.Show();
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ordrarList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

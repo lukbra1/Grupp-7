@@ -240,5 +240,10 @@ namespace Hattmakarens_system
             public decimal PrisPerEnhet { get; set; }
             public string Beskrivning { get; set; }
         }
+
+        private void lvOrdrar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
