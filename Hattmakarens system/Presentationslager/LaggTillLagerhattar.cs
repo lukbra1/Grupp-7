@@ -352,7 +352,7 @@ namespace Hattmakarens_system.Presentationslager
         private void button1_Click(object sender, EventArgs e)
         {
             pictureBox1.Image = null;
-            buttonRefBild.Text = "";
+            buttonRefBild.Text = "Hämta referensbild";
         }
     }
 }

@@ -208,7 +208,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(939, 254);
+            button1.Location = new Point(957, 254);
             button1.Margin = new Padding(4, 5, 4, 5);
             button1.Name = "button1";
             button1.Size = new Size(76, 37);
@@ -219,15 +219,17 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Location = new Point(751, 47);
+            pictureBox1.BackColor = SystemColors.Window;
+            pictureBox1.BorderStyle = BorderStyle.Fixed3D;
+            pictureBox1.Location = new Point(771, 47);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(264, 194);
+            pictureBox1.Size = new Size(262, 194);
             pictureBox1.TabIndex = 39;
             pictureBox1.TabStop = false;
             // 
             // buttonRefBild
             // 
-            buttonRefBild.Location = new Point(751, 253);
+            buttonRefBild.Location = new Point(771, 253);
             buttonRefBild.Margin = new Padding(4, 5, 4, 5);
             buttonRefBild.Name = "buttonRefBild";
             buttonRefBild.Size = new Size(176, 39);
@@ -248,7 +250,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(854, 335);
+            button2.Location = new Point(872, 339);
             button2.Margin = new Padding(4, 5, 4, 5);
             button2.Name = "button2";
             button2.Size = new Size(161, 42);
@@ -276,7 +278,7 @@
             richTextBox1.Location = new Point(489, 47);
             richTextBox1.Margin = new Padding(4, 5, 4, 5);
             richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(239, 194);
+            richTextBox1.Size = new Size(262, 194);
             richTextBox1.TabIndex = 33;
             richTextBox1.Text = "";
             richTextBox1.TextChanged += richTextBox1_TextChanged;
