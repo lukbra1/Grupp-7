@@ -280,6 +280,7 @@ namespace Hattmakarens_system
             ordrarList.Size = new Size(447, 491);
             ordrarList.TabIndex = 14;
             ordrarList.UseCompatibleStateImageBehavior = false;
+            ordrarList.View = View.Details;
             ordrarList.SelectedIndexChanged += ordrarList_SelectedIndexChanged;
             // 
             // label5
