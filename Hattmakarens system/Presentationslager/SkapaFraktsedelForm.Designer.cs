@@ -49,11 +49,14 @@
             printDialog1 = new PrintDialog();
             printPreviewDialog1 = new PrintPreviewDialog();
             lblStatusFraktsedel = new Label();
+            menuStrip1 = new MenuStrip();
+            tillbakaToolStripMenuItem = new ToolStripMenuItem();
+            menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // txtVikt
             // 
-            txtVikt.Location = new Point(263, 88);
+            txtVikt.Location = new Point(263, 129);
             txtVikt.Margin = new Padding(5);
             txtVikt.Name = "txtVikt";
             txtVikt.Size = new Size(441, 39);
@@ -62,7 +65,7 @@
             // 
             // txtTotalPris
             // 
-            txtTotalPris.Location = new Point(263, 141);
+            txtTotalPris.Location = new Point(263, 186);
             txtTotalPris.Margin = new Padding(5);
             txtTotalPris.Name = "txtTotalPris";
             txtTotalPris.Size = new Size(441, 39);
@@ -70,7 +73,7 @@
             // 
             // txtExKod
             // 
-            txtExKod.Location = new Point(263, 194);
+            txtExKod.Location = new Point(263, 253);
             txtExKod.Margin = new Padding(5);
             txtExKod.Name = "txtExKod";
             txtExKod.Size = new Size(441, 39);
@@ -101,7 +104,7 @@
             // lblOrderId
             // 
             lblOrderId.AutoSize = true;
-            lblOrderId.Location = new Point(86, 14);
+            lblOrderId.Location = new Point(69, 62);
             lblOrderId.Margin = new Padding(5, 0, 5, 0);
             lblOrderId.Name = "lblOrderId";
             lblOrderId.Size = new Size(0, 32);
@@ -110,7 +113,7 @@
             // lblVikt
             // 
             lblVikt.AutoSize = true;
-            lblVikt.Location = new Point(86, 99);
+            lblVikt.Location = new Point(86, 132);
             lblVikt.Margin = new Padding(5, 0, 5, 0);
             lblVikt.Name = "lblVikt";
             lblVikt.Size = new Size(55, 32);
@@ -120,7 +123,7 @@
             // lblKostnad
             // 
             lblKostnad.AutoSize = true;
-            lblKostnad.Location = new Point(86, 152);
+            lblKostnad.Location = new Point(86, 193);
             lblKostnad.Margin = new Padding(5, 0, 5, 0);
             lblKostnad.Name = "lblKostnad";
             lblKostnad.Size = new Size(110, 32);
@@ -130,7 +133,7 @@
             // lblExportKod
             // 
             lblExportKod.AutoSize = true;
-            lblExportKod.Location = new Point(86, 205);
+            lblExportKod.Location = new Point(86, 260);
             lblExportKod.Margin = new Padding(5, 0, 5, 0);
             lblExportKod.Name = "lblExportKod";
             lblExportKod.Size = new Size(129, 32);
@@ -227,12 +230,29 @@
             // lblStatusFraktsedel
             // 
             lblStatusFraktsedel.AutoSize = true;
-            lblStatusFraktsedel.Location = new Point(855, 91);
+            lblStatusFraktsedel.Location = new Point(855, 129);
             lblStatusFraktsedel.Margin = new Padding(5, 0, 5, 0);
             lblStatusFraktsedel.Name = "lblStatusFraktsedel";
             lblStatusFraktsedel.Size = new Size(78, 32);
             lblStatusFraktsedel.TabIndex = 21;
             lblStatusFraktsedel.Text = "label1";
+            // 
+            // menuStrip1
+            // 
+            menuStrip1.ImageScalingSize = new Size(32, 32);
+            menuStrip1.Items.AddRange(new ToolStripItem[] { tillbakaToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(1895, 40);
+            menuStrip1.TabIndex = 22;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // tillbakaToolStripMenuItem
+            // 
+            tillbakaToolStripMenuItem.Name = "tillbakaToolStripMenuItem";
+            tillbakaToolStripMenuItem.Size = new Size(115, 36);
+            tillbakaToolStripMenuItem.Text = "Tillbaka";
+            tillbakaToolStripMenuItem.Click += tillbakaToolStripMenuItem_Click;
             // 
             // SkapaFraktsedelForm
             // 
@@ -257,11 +277,15 @@
             Controls.Add(txtExKod);
             Controls.Add(txtTotalPris);
             Controls.Add(txtVikt);
+            Controls.Add(menuStrip1);
+            MainMenuStrip = menuStrip1;
             Margin = new Padding(5);
             Name = "SkapaFraktsedelForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "SkapaFraktsedelForm";
             Load += SkapaFraktsedelForm_Load;
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -290,5 +314,7 @@
         private PrintDialog printDialog1;
         private PrintPreviewDialog printPreviewDialog1;
         private Label lblStatusFraktsedel;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem tillbakaToolStripMenuItem;
     }
 }
