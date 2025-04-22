@@ -156,13 +156,17 @@ namespace Hattmakarens_system
                         todoList[selectedDate].Add(orderText);
                     }
 
-                    // Lägg till ordern i den temporära tilldelningsdictionaries
+                    // Hämta orderrad från databasen
                     int orderId = int.Parse(item.SubItems[0].Text);
-                    if (!orderTilldelningar.ContainsKey(orderId))
+                    var orderrad = _context.Orderrader
+                        .FirstOrDefault(or => or.OrderId == orderId && !or.TilldeladOrder);
+
+                    if (orderrad != null)
                     {
-                        orderTilldelningar[orderId] = new Dictionary<DateTime, User>();
+                        orderrad.TilldeladOrder = true;  // Markera orderrad som tilldelad
+                        orderrad.UserId = _currentUser.UserId;  // Koppla orderrad till den aktuella användaren
+                        _context.SaveChanges();  // Spara ändringen i databasen
                     }
-                    orderTilldelningar[orderId][selectedDate] = _currentUser; // Tilldela order till användare och datum
 
                     // Ta bort order från listan
                     var itemToRemove = ordrarList.Items.Cast<ListViewItem>()
@@ -229,20 +233,7 @@ namespace Hattmakarens_system
             }
         }
 
-        // Tomma event eller menyer
-        private void beställningarToolStripMenuItem_Click(object sender, EventArgs e) { }
-        private void lagerToolStripMenuItem_Click(object sender, EventArgs e) { }
-        private void button1_Click(object sender, EventArgs e) { }
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e) { }
-        private void textBoxUppgift_TextChanged(object sender, EventArgs e) { }
-        private void label2_Click(object sender, EventArgs e) { }
-        private void label3_Click(object sender, EventArgs e) { }
-        private void label4_Click(object sender, EventArgs e) { }
-        private void label5_Click(object sender, EventArgs e) { }
-        private void richTextBoxVecka_TextChanged(object sender, EventArgs e) { }
-        private void ordrarList_SelectedIndexChanged(object sender, EventArgs e) { }
-        private void specialbeställningToolStripMenuItem_Click(object sender, EventArgs e) { }
-        private void seAlltMaterialToolStripMenuItem_Click(object sender, EventArgs e) { }
+  
 
         private void nyBeställningToolStripMenuItem_Click(object sender, EventArgs e)
         {

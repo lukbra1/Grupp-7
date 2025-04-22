@@ -4,6 +4,7 @@ using Hattmakarens_system.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Hattmakarens_system.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250422103848_tilldeladOrder")]
+    partial class tilldeladOrder
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -385,7 +388,7 @@ namespace Hattmakarens_system.Migrations
                     b.Property<int?>("FraktSedelId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("KundId")
+                    b.Property<int>("KundId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("Skapad")
@@ -440,9 +443,6 @@ namespace Hattmakarens_system.Migrations
                     b.Property<bool>("TilldeladOrder")
                         .HasColumnType("bit");
 
-                    b.Property<DateTime?>("TilldelningsDatum")
-                        .HasColumnType("datetime2");
-
                     b.Property<bool?>("Tillverkad")
                         .HasColumnType("bit");
 
@@ -451,9 +451,6 @@ namespace Hattmakarens_system.Migrations
 
                     b.Property<int?>("UserId")
                         .HasColumnType("int");
-
-                    b.Property<decimal?>("pris")
-                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("OrderRadId");
 
@@ -539,6 +536,9 @@ namespace Hattmakarens_system.Migrations
                     b.Property<string>("Kommentar")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<decimal>("Kostnad")
+                        .HasColumnType("decimal(18,2)");
+
                     b.Property<string>("Referensbild")
                         .HasColumnType("nvarchar(max)");
 
@@ -599,7 +599,8 @@ namespace Hattmakarens_system.Migrations
                     b.HasOne("Hattmakarens_system.ModelsNy.Kund", "Kund")
                         .WithMany()
                         .HasForeignKey("KundId")
-                        .OnDelete(DeleteBehavior.SetNull);
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Kund");
                 });

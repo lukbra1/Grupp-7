@@ -85,7 +85,7 @@ namespace Hattmakarens_system
             beställningarToolStripMenuItem.Name = "beställningarToolStripMenuItem";
             beställningarToolStripMenuItem.Size = new Size(44, 29);
             beställningarToolStripMenuItem.Text = "☰";
-            beställningarToolStripMenuItem.Click += beställningarToolStripMenuItem_Click;
+            
             // 
             // beställningarToolStripMenuItem1
             // 
@@ -192,7 +192,7 @@ namespace Hattmakarens_system
             richTextBoxVecka.Size = new Size(389, 491);
             richTextBoxVecka.TabIndex = 5;
             richTextBoxVecka.Text = "";
-            richTextBoxVecka.TextChanged += richTextBoxVecka_TextChanged;
+            
             // 
             // label1
             // 
@@ -222,7 +222,7 @@ namespace Hattmakarens_system
             textBoxUppgift.Name = "textBoxUppgift";
             textBoxUppgift.Size = new Size(312, 31);
             textBoxUppgift.TabIndex = 9;
-            textBoxUppgift.TextChanged += textBoxUppgift_TextChanged;
+            
             // 
             // btnVeckoöversikt
             // 
@@ -244,7 +244,7 @@ namespace Hattmakarens_system
             label2.Size = new Size(141, 25);
             label2.TabIndex = 11;
             label2.Text = "Schema översikt";
-            label2.Click += label2_Click;
+            
             // 
             // label3
             // 
@@ -255,7 +255,7 @@ namespace Hattmakarens_system
             label3.Size = new Size(75, 25);
             label3.TabIndex = 12;
             label3.Text = "Välj dag";
-            label3.Click += label3_Click;
+            
             // 
             // label4
             // 
@@ -266,7 +266,7 @@ namespace Hattmakarens_system
             label4.Size = new Size(209, 25);
             label4.TabIndex = 13;
             label4.Text = "Se uppgifter på vald dag";
-            label4.Click += label4_Click;
+            
             // 
             // sqlCommand1
             // 
@@ -281,7 +281,7 @@ namespace Hattmakarens_system
             ordrarList.TabIndex = 14;
             ordrarList.UseCompatibleStateImageBehavior = false;
             ordrarList.View = View.Details;
-            ordrarList.SelectedIndexChanged += ordrarList_SelectedIndexChanged;
+            
             // 
             // label5
             // 
@@ -291,7 +291,7 @@ namespace Hattmakarens_system
             label5.Size = new Size(64, 25);
             label5.TabIndex = 15;
             label5.Text = "Ordrar";
-            label5.Click += label5_Click;
+            
             // 
             // Homepage
             // 

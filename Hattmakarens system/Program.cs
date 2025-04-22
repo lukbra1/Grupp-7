@@ -7,6 +7,7 @@ namespace Hattmakarens_system
     internal static class Program
     {
         static public Homepage homepage;
+        static public LoggaInGränsnittt loggaInGränsnittt;
         [STAThread]
         static void Main()
         {
@@ -17,9 +18,10 @@ namespace Hattmakarens_system
                 {
                     Namn = "Otto",
                     Behorighet = true
-                }    
+                }
             );
-            Application.Run(homepage); // Starta med din form
+            var loggaInGränsnittt = new LoggaInGränsnittt();
+            Application.Run(loggaInGränsnittt);
         }
     }
 }

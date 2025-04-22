@@ -29,7 +29,7 @@ namespace Hattmakarens_system.Controllers
                 StatusOrderrad = StatusOrderradEnum.EjPaborjad,
                 TypEnum = TypEnum.Special,
                 Storlek = storlek,
-                Kostnad = pris,
+                //pris = pris,
                 OrderId = orderId
             };
 

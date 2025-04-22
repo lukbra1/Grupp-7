@@ -3,8 +3,7 @@ using Hattmakarens_system.Database;
 
 namespace Hattmakarens_system
 {
-    public partial class LoggaInGränsnittt
-        : Form
+    public partial class LoggaInGränsnittt : Form
     {
         public LoggaInGränsnittt()
         {

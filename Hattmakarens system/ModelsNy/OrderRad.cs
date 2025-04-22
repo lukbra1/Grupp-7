@@ -23,6 +23,12 @@ namespace Hattmakarens_system.ModelsNy
         public TypEnum TypEnum { get; set; }
         public StorlekEnum Storlek { get; set; }
 
+        public bool TilldeladOrder { get; set; } // Ny boolean som indikerar om orderraden är tilldelad
+
+        public DateTime? TilldelningsDatum { get; set; } //så att order som tilldelats i kalender sparas i databasen
+
+        public decimal? pris {  get; set; }
+
     }
     public enum TypEnum
     {

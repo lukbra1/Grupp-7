@@ -18,8 +18,8 @@ namespace Hattmakarens_system.ModelsNy
             public StatusEnum Status { get; set; }
             public bool Express { get; set; }
             public decimal TotalPris { get; set; }
-            public int KundId { get; set; }
-            public Kund Kund { get; set; }
+            public int? KundId { get; set; }
+            public Kund? Kund { get; set; }
             public ICollection<OrderRad> OrderRader { get; set; } = new List<OrderRad>();
             public int? FraktSedelId { get; set; }
             public FraktSedel? FraktSedel { get; set; }
