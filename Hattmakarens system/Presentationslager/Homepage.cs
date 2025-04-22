@@ -33,6 +33,8 @@ namespace Hattmakarens_system
         {
             monthCalendar1.SelectionStart = DateTime.Today;
             monthCalendar1.SelectionEnd = DateTime.Today;
+
+            LaddaTilldelningar();
             UppdateraVeckooversikt(DateTime.Today);
 
             if (_currentUser != null && !_currentUser.Behorighet)
@@ -42,6 +44,7 @@ namespace Hattmakarens_system
 
             InitializeListView();
             LaddaAllaOrdrar();
+            
         }
 
         private void InitializeListView()
@@ -165,7 +168,18 @@ namespace Hattmakarens_system
                     {
                         orderrad.TilldeladOrder = true;  // Markera orderrad som tilldelad
                         orderrad.UserId = _currentUser.UserId;  // Koppla orderrad till den aktuella användaren
-                        _context.SaveChanges();  // Spara ändringen i databasen
+                        orderrad.TilldelningsDatum = selectedDate;  // Sätt tilldelningsdatum till valt datum
+                        _context.Orderrader.Update(orderrad);
+
+                        try
+                        {
+                            _context.SaveChanges();
+                            Console.WriteLine("Ändringen sparades");
+                        }
+                        catch(Exception ex)
+                        {
+                            Console.WriteLine($"Fel vid sparande");
+                        }
                     }
 
                     // Ta bort order från listan
@@ -189,6 +203,10 @@ namespace Hattmakarens_system
                     listBoxDagens.Items.Add(task);
                 }
             }
+
+           
+
+
         }
 
         private void btnVeckoöversikt_Click(object sender, EventArgs e)
@@ -233,8 +251,6 @@ namespace Hattmakarens_system
             }
         }
 
-  
-
         private void nyBeställningToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var VäljKund = new VäljKund();
@@ -272,6 +288,43 @@ namespace Hattmakarens_system
             this.Hide();
             var materialForm = new SeMaterialbehov();
             materialForm.Show();
+        }
+
+        private void LaddaTilldelningar()
+        {
+            var tilldelade = _context.Orderrader
+         .Include(or => or.Order)
+         .ThenInclude(o => o.Kund)
+         .Where(or => or.TilldeladOrder && or.TilldelningsDatum != null)
+         .ToList();
+
+            foreach (var rad in tilldelade)
+            {
+                var datum = rad.TilldelningsDatum.Value.Date;
+                string kundNamn = rad.Order?.Kund != null ? $"{rad.Order.Kund.Fornamn} {rad.Order.Kund.Efternamn}" : "Okänd kund";
+                string uppgift = $"🧵 Order #{rad.OrderId} – {kundNamn}";
+
+                if (!todoList.ContainsKey(datum))
+                {
+                    todoList[datum] = new List<string>();
+                }
+
+                if (!todoList[datum].Contains(uppgift))
+                {
+                    todoList[datum].Add(uppgift);
+                }
+            
+
+            // Uppdatera hela veckan, inte bara dagens datum
+            UppdateraVeckooversikt(DateTime.Today); // Uppdatera för alla dagar i veckan
+        }
+
+            // Lägg till debug-logg för att verifiera att data läggs till i todoList
+            Console.WriteLine("Laddade tilldelningar:");
+            foreach (var datum in todoList.Keys)
+            {
+                Console.WriteLine($"Datum: {datum.ToShortDateString()}, Uppgifter: {string.Join(", ", todoList[datum])}");
+            }
         }
     }
 }
