@@ -57,15 +57,17 @@ namespace Hattmakarens_system
             sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
             ordrarList = new ListView();
             label5 = new Label();
+            hanteraKunderToolStripMenuItem = new ToolStripMenuItem();
             menuStrip2.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(32, 32);
-            menuStrip1.Location = new Point(0, 33);
+            menuStrip1.Location = new Point(0, 44);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1480, 24);
+            menuStrip1.Padding = new Padding(8, 3, 0, 3);
+            menuStrip1.Size = new Size(1924, 24);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -75,43 +77,43 @@ namespace Hattmakarens_system
             menuStrip2.Items.AddRange(new ToolStripItem[] { beställningarToolStripMenuItem });
             menuStrip2.Location = new Point(0, 0);
             menuStrip2.Name = "menuStrip2";
-            menuStrip2.Size = new Size(1480, 33);
+            menuStrip2.Padding = new Padding(8, 3, 0, 3);
+            menuStrip2.Size = new Size(1924, 44);
             menuStrip2.TabIndex = 1;
             menuStrip2.Text = "menuStrip2";
             // 
             // beställningarToolStripMenuItem
             // 
-            beställningarToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { beställningarToolStripMenuItem1, marealLagerToolStripMenuItem, statistikToolStripMenuItem1, minaSidorToolStripMenuItem1, hanteraMedarbetareToolStripMenuItem, loggaUtToolStripMenuItem1 });
+            beställningarToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { beställningarToolStripMenuItem1, marealLagerToolStripMenuItem, statistikToolStripMenuItem1, minaSidorToolStripMenuItem1, hanteraKunderToolStripMenuItem, hanteraMedarbetareToolStripMenuItem, loggaUtToolStripMenuItem1 });
             beställningarToolStripMenuItem.Name = "beställningarToolStripMenuItem";
-            beställningarToolStripMenuItem.Size = new Size(44, 29);
+            beställningarToolStripMenuItem.Size = new Size(56, 38);
             beställningarToolStripMenuItem.Text = "☰";
-            
             // 
             // beställningarToolStripMenuItem1
             // 
             beställningarToolStripMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { nyBeställningToolStripMenuItem, allaBeställningarToolStripMenuItem });
             beställningarToolStripMenuItem1.Name = "beställningarToolStripMenuItem1";
-            beställningarToolStripMenuItem1.Size = new Size(282, 34);
+            beställningarToolStripMenuItem1.Size = new Size(374, 44);
             beställningarToolStripMenuItem1.Text = "Beställningar";
             // 
             // nyBeställningToolStripMenuItem
             // 
             nyBeställningToolStripMenuItem.Name = "nyBeställningToolStripMenuItem";
-            nyBeställningToolStripMenuItem.Size = new Size(249, 34);
+            nyBeställningToolStripMenuItem.Size = new Size(330, 44);
             nyBeställningToolStripMenuItem.Text = "Ny beställning";
             nyBeställningToolStripMenuItem.Click += nyBeställningToolStripMenuItem_Click;
             // 
             // allaBeställningarToolStripMenuItem
             // 
             allaBeställningarToolStripMenuItem.Name = "allaBeställningarToolStripMenuItem";
-            allaBeställningarToolStripMenuItem.Size = new Size(249, 34);
+            allaBeställningarToolStripMenuItem.Size = new Size(330, 44);
             allaBeställningarToolStripMenuItem.Text = "Alla beställningar";
             allaBeställningarToolStripMenuItem.Click += allaBeställningarToolStripMenuItem_Click_2;
             // 
             // marealLagerToolStripMenuItem
             // 
             marealLagerToolStripMenuItem.Name = "marealLagerToolStripMenuItem";
-            marealLagerToolStripMenuItem.Size = new Size(282, 34);
+            marealLagerToolStripMenuItem.Size = new Size(374, 44);
             marealLagerToolStripMenuItem.Text = "Hantera material";
             marealLagerToolStripMenuItem.Click += marealLagerToolStripMenuItem_Click;
             // 
@@ -119,97 +121,95 @@ namespace Hattmakarens_system
             // 
             statistikToolStripMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { hattStatistikToolStripMenuItem, kundStatistikToolStripMenuItem });
             statistikToolStripMenuItem1.Name = "statistikToolStripMenuItem1";
-            statistikToolStripMenuItem1.Size = new Size(282, 34);
+            statistikToolStripMenuItem1.Size = new Size(374, 44);
             statistikToolStripMenuItem1.Text = "Statistik";
             // 
             // hattStatistikToolStripMenuItem
             // 
             hattStatistikToolStripMenuItem.Name = "hattStatistikToolStripMenuItem";
-            hattStatistikToolStripMenuItem.Size = new Size(220, 34);
+            hattStatistikToolStripMenuItem.Size = new Size(290, 44);
             hattStatistikToolStripMenuItem.Text = "Hatt statistik";
             // 
             // kundStatistikToolStripMenuItem
             // 
             kundStatistikToolStripMenuItem.Name = "kundStatistikToolStripMenuItem";
-            kundStatistikToolStripMenuItem.Size = new Size(220, 34);
+            kundStatistikToolStripMenuItem.Size = new Size(290, 44);
             kundStatistikToolStripMenuItem.Text = "Kund statistik";
             // 
             // minaSidorToolStripMenuItem1
             // 
             minaSidorToolStripMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { minaUppgifterToolStripMenuItem, mittSchemaToolStripMenuItem });
             minaSidorToolStripMenuItem1.Name = "minaSidorToolStripMenuItem1";
-            minaSidorToolStripMenuItem1.Size = new Size(282, 34);
+            minaSidorToolStripMenuItem1.Size = new Size(374, 44);
             minaSidorToolStripMenuItem1.Text = "Mina sidor";
             // 
             // minaUppgifterToolStripMenuItem
             // 
             minaUppgifterToolStripMenuItem.Name = "minaUppgifterToolStripMenuItem";
-            minaUppgifterToolStripMenuItem.Size = new Size(232, 34);
+            minaUppgifterToolStripMenuItem.Size = new Size(307, 44);
             minaUppgifterToolStripMenuItem.Text = "Mina uppgifter";
             // 
             // mittSchemaToolStripMenuItem
             // 
             mittSchemaToolStripMenuItem.Name = "mittSchemaToolStripMenuItem";
-            mittSchemaToolStripMenuItem.Size = new Size(232, 34);
+            mittSchemaToolStripMenuItem.Size = new Size(307, 44);
             mittSchemaToolStripMenuItem.Text = "Mitt schema";
             // 
             // hanteraMedarbetareToolStripMenuItem
             // 
             hanteraMedarbetareToolStripMenuItem.Name = "hanteraMedarbetareToolStripMenuItem";
-            hanteraMedarbetareToolStripMenuItem.Size = new Size(282, 34);
+            hanteraMedarbetareToolStripMenuItem.Size = new Size(374, 44);
             hanteraMedarbetareToolStripMenuItem.Text = "Hantera medarbetare";
             hanteraMedarbetareToolStripMenuItem.Click += hanteraMedarbetareToolStripMenuItem_Click;
             // 
             // loggaUtToolStripMenuItem1
             // 
             loggaUtToolStripMenuItem1.Name = "loggaUtToolStripMenuItem1";
-            loggaUtToolStripMenuItem1.Size = new Size(282, 34);
+            loggaUtToolStripMenuItem1.Size = new Size(374, 44);
             loggaUtToolStripMenuItem1.Text = "Logga ut";
             loggaUtToolStripMenuItem1.Click += loggaUtToolStripMenuItem1_Click;
             // 
             // monthCalendar1
             // 
-            monthCalendar1.Location = new Point(984, 144);
-            monthCalendar1.Margin = new Padding(8, 6, 8, 6);
+            monthCalendar1.Location = new Point(1279, 184);
+            monthCalendar1.Margin = new Padding(10, 8, 10, 8);
             monthCalendar1.Name = "monthCalendar1";
             monthCalendar1.TabIndex = 3;
             monthCalendar1.DateChanged += monthCalendar1_DateChanged;
             // 
             // listBoxDagens
             // 
-            listBoxDagens.Location = new Point(1330, 144);
-            listBoxDagens.Margin = new Padding(2, 4, 2, 4);
+            listBoxDagens.Location = new Point(1729, 184);
+            listBoxDagens.Margin = new Padding(3, 5, 3, 5);
             listBoxDagens.Name = "listBoxDagens";
-            listBoxDagens.Size = new Size(250, 464);
+            listBoxDagens.Size = new Size(324, 593);
             listBoxDagens.TabIndex = 4;
             listBoxDagens.UseCompatibleStateImageBehavior = false;
             // 
             // richTextBoxVecka
             // 
-            richTextBoxVecka.Location = new Point(542, 111);
-            richTextBoxVecka.Margin = new Padding(2, 4, 2, 4);
+            richTextBoxVecka.Location = new Point(705, 142);
+            richTextBoxVecka.Margin = new Padding(3, 5, 3, 5);
             richTextBoxVecka.Name = "richTextBoxVecka";
-            richTextBoxVecka.Size = new Size(389, 491);
+            richTextBoxVecka.Size = new Size(504, 627);
             richTextBoxVecka.TabIndex = 5;
             richTextBoxVecka.Text = "";
-            
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(984, 485);
-            label1.Margin = new Padding(2, 0, 2, 0);
+            label1.Location = new Point(1279, 621);
             label1.Name = "label1";
-            label1.Size = new Size(162, 25);
+            label1.Size = new Size(216, 32);
             label1.TabIndex = 7;
             label1.Text = "Lägg till ny uppgift";
             // 
             // btnLäggTill
             // 
-            btnLäggTill.Location = new Point(1178, 570);
-            btnLäggTill.Margin = new Padding(2, 4, 2, 4);
+            btnLäggTill.Location = new Point(1531, 730);
+            btnLäggTill.Margin = new Padding(3, 5, 3, 5);
             btnLäggTill.Name = "btnLäggTill";
-            btnLäggTill.Size = new Size(114, 36);
+            btnLäggTill.Size = new Size(148, 46);
             btnLäggTill.TabIndex = 8;
             btnLäggTill.Text = "Lägg till";
             btnLäggTill.UseVisualStyleBackColor = true;
@@ -217,19 +217,18 @@ namespace Hattmakarens_system
             // 
             // textBoxUppgift
             // 
-            textBoxUppgift.Location = new Point(984, 527);
-            textBoxUppgift.Margin = new Padding(2, 4, 2, 4);
+            textBoxUppgift.Location = new Point(1279, 675);
+            textBoxUppgift.Margin = new Padding(3, 5, 3, 5);
             textBoxUppgift.Name = "textBoxUppgift";
-            textBoxUppgift.Size = new Size(312, 31);
+            textBoxUppgift.Size = new Size(404, 39);
             textBoxUppgift.TabIndex = 9;
-            
             // 
             // btnVeckoöversikt
             // 
-            btnVeckoöversikt.Location = new Point(832, 610);
-            btnVeckoöversikt.Margin = new Padding(2, 4, 2, 4);
+            btnVeckoöversikt.Location = new Point(1082, 781);
+            btnVeckoöversikt.Margin = new Padding(3, 5, 3, 5);
             btnVeckoöversikt.Name = "btnVeckoöversikt";
-            btnVeckoöversikt.Size = new Size(114, 36);
+            btnVeckoöversikt.Size = new Size(148, 46);
             btnVeckoöversikt.TabIndex = 10;
             btnVeckoöversikt.Text = "Uppdatera";
             btnVeckoöversikt.UseVisualStyleBackColor = true;
@@ -238,35 +237,29 @@ namespace Hattmakarens_system
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(542, 82);
-            label2.Margin = new Padding(2, 0, 2, 0);
+            label2.Location = new Point(705, 105);
             label2.Name = "label2";
-            label2.Size = new Size(141, 25);
+            label2.Size = new Size(188, 32);
             label2.TabIndex = 11;
             label2.Text = "Schema översikt";
-            
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(984, 111);
-            label3.Margin = new Padding(2, 0, 2, 0);
+            label3.Location = new Point(1279, 142);
             label3.Name = "label3";
-            label3.Size = new Size(75, 25);
+            label3.Size = new Size(98, 32);
             label3.TabIndex = 12;
             label3.Text = "Välj dag";
-            
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(1330, 111);
-            label4.Margin = new Padding(2, 0, 2, 0);
+            label4.Location = new Point(1729, 142);
             label4.Name = "label4";
-            label4.Size = new Size(209, 25);
+            label4.Size = new Size(277, 32);
             label4.TabIndex = 13;
             label4.Text = "Se uppgifter på vald dag";
-            
             // 
             // sqlCommand1
             // 
@@ -275,30 +268,37 @@ namespace Hattmakarens_system
             // 
             // ordrarList
             // 
-            ordrarList.Location = new Point(72, 111);
+            ordrarList.Location = new Point(94, 142);
+            ordrarList.Margin = new Padding(4, 4, 4, 4);
             ordrarList.Name = "ordrarList";
-            ordrarList.Size = new Size(447, 491);
+            ordrarList.Size = new Size(580, 627);
             ordrarList.TabIndex = 14;
             ordrarList.UseCompatibleStateImageBehavior = false;
             ordrarList.View = View.Details;
-            
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(72, 82);
+            label5.Location = new Point(94, 105);
+            label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
-            label5.Size = new Size(64, 25);
+            label5.Size = new Size(82, 32);
             label5.TabIndex = 15;
             label5.Text = "Ordrar";
-            
+            // 
+            // hanteraKunderToolStripMenuItem
+            // 
+            hanteraKunderToolStripMenuItem.Name = "hanteraKunderToolStripMenuItem";
+            hanteraKunderToolStripMenuItem.Size = new Size(374, 44);
+            hanteraKunderToolStripMenuItem.Text = "Hantera kunder";
+            hanteraKunderToolStripMenuItem.Click += hanteraKunderToolStripMenuItem_Click;
             // 
             // Homepage
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
-            ClientSize = new Size(1480, 690);
+            ClientSize = new Size(1924, 883);
             Controls.Add(label5);
             Controls.Add(ordrarList);
             Controls.Add(label4);
@@ -314,7 +314,7 @@ namespace Hattmakarens_system
             Controls.Add(menuStrip1);
             Controls.Add(menuStrip2);
             MainMenuStrip = menuStrip1;
-            Margin = new Padding(2, 4, 2, 4);
+            Margin = new Padding(3, 5, 3, 5);
             Name = "Homepage";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Mitt schema";
@@ -360,5 +360,6 @@ namespace Hattmakarens_system
         private Microsoft.Data.SqlClient.SqlCommand sqlCommand1;
         private ListView ordrarList;
         private Label label5;
+        private ToolStripMenuItem hanteraKunderToolStripMenuItem;
     }
 }

@@ -54,8 +54,9 @@ namespace Hattmakarens_system
                 foreach (var order in unikaOrdrar)
                 {
                     var item = new ListViewItem(order.OrderId.ToString());
-                    item.SubItems.Add($"{order.Kund.Fornamn} {order.Kund.Efternamn}");
-                    item.SubItems.Add(order.Skapad.ToShortDateString());
+                    item.SubItems.Add(order.Kund != null
+                        ? $"{order.Kund.Fornamn} {order.Kund.Efternamn}"
+                        : "Okänd kund"); item.SubItems.Add(order.Skapad.ToShortDateString());
                     item.SubItems.Add(order.Express ? "Ja" : "Nej");
                     item.Tag = order.OrderId;
                     lvOrdrar.Items.Add(item);
@@ -104,7 +105,9 @@ namespace Hattmakarens_system
                 foreach (var order in unikaOrdrar)
                 {
                     var item = new ListViewItem(order.OrderId.ToString());
-                    item.SubItems.Add($"{order.Kund.Fornamn} {order.Kund.Efternamn}");
+                    item.SubItems.Add(order.Kund != null
+                            ? $"{order.Kund.Fornamn} {order.Kund.Efternamn}"
+                            : "Okänd kund");
                     item.SubItems.Add(order.Skapad.ToShortDateString());
                     item.SubItems.Add(order.Express ? "Ja" : "Nej");
                     item.Tag = order.OrderId;

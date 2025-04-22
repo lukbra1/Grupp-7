@@ -34,7 +34,7 @@ namespace Hattmakarens_system.Controllers
         public List<Kund> HamtaKunderMedNamn(string ForNamn)
         {
             List<Kund> kunder = _context.Kunder.Where(k => k.Fornamn == ForNamn).ToList();
-            return kunder; 
+            return kunder;
         }
         public Kund HamtaKundFranId(int KundId)
         {
@@ -53,6 +53,20 @@ namespace Hattmakarens_system.Controllers
             return false; // _context.Kunder.Count(k => k.Epost == Epost);
         }
 
-      
+        public List<Kund> HämtaAllaKunder()
+        {
+            return _context.Kunder.ToList();
+        }
+
+        public void TaBortKund(int kundId)
+        {
+            var kund = _context.Kunder.Find(kundId);
+            if (kund != null)
+            {
+                _context.Kunder.Remove(kund);
+                _context.SaveChanges();
+            }
+
+        }
     }
 }

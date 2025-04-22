@@ -44,7 +44,7 @@ namespace Hattmakarens_system
 
             InitializeListView();
             LaddaAllaOrdrar();
-            
+
         }
 
         private void InitializeListView()
@@ -66,6 +66,7 @@ namespace Hattmakarens_system
         {
             var ordrar = _context.Ordrar
                 .Include(o => o.Kund)
+                 .Where(o => o.Kund != null && o.Kund.Aktiv)
                 .OrderBy(o => o.OrderId)
                 .ToList();
 
@@ -176,7 +177,7 @@ namespace Hattmakarens_system
                             _context.SaveChanges();
                             Console.WriteLine("Ändringen sparades");
                         }
-                        catch(Exception ex)
+                        catch (Exception ex)
                         {
                             Console.WriteLine($"Fel vid sparande");
                         }
@@ -204,7 +205,7 @@ namespace Hattmakarens_system
                 }
             }
 
-           
+
 
 
         }
@@ -295,6 +296,7 @@ namespace Hattmakarens_system
             var tilldelade = _context.Orderrader
          .Include(or => or.Order)
          .ThenInclude(o => o.Kund)
+
          .Where(or => or.TilldeladOrder && or.TilldelningsDatum != null)
          .ToList();
 
@@ -313,11 +315,11 @@ namespace Hattmakarens_system
                 {
                     todoList[datum].Add(uppgift);
                 }
-            
 
-            // Uppdatera hela veckan, inte bara dagens datum
-            UppdateraVeckooversikt(DateTime.Today); // Uppdatera för alla dagar i veckan
-        }
+
+                // Uppdatera hela veckan, inte bara dagens datum
+                UppdateraVeckooversikt(DateTime.Today); // Uppdatera för alla dagar i veckan
+            }
 
             // Lägg till debug-logg för att verifiera att data läggs till i todoList
             Console.WriteLine("Laddade tilldelningar:");
@@ -325,6 +327,13 @@ namespace Hattmakarens_system
             {
                 Console.WriteLine($"Datum: {datum.ToShortDateString()}, Uppgifter: {string.Join(", ", todoList[datum])}");
             }
+        }
+
+        private void hanteraKunderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var TaBortKund = new TaBortKund();
+            TaBortKund.Show();
+            this.Hide();
         }
     }
 }
