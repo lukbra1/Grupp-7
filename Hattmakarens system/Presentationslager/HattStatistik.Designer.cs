@@ -1,6 +1,6 @@
 ﻿namespace Hattmakarens_system.Presentationslager
 {
-    partial class HattStatestik
+    partial class HattStatistik
     {
         /// <summary>
         /// Required designer variable.
@@ -48,6 +48,7 @@
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(400, 40);
             comboBox1.TabIndex = 0;
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // dateTimePicker1
             // 
@@ -71,6 +72,7 @@
             btnVisa.TabIndex = 3;
             btnVisa.Text = "Visa Statestik";
             btnVisa.UseVisualStyleBackColor = true;
+            btnVisa.Click += btnVisa_Click;
             // 
             // lblVälj
             // 
@@ -105,14 +107,14 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { tillbakaToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1353, 42);
+            menuStrip1.Size = new Size(1353, 40);
             menuStrip1.TabIndex = 7;
             menuStrip1.Text = "menuStrip1";
             // 
             // tillbakaToolStripMenuItem
             // 
             tillbakaToolStripMenuItem.Name = "tillbakaToolStripMenuItem";
-            tillbakaToolStripMenuItem.Size = new Size(115, 38);
+            tillbakaToolStripMenuItem.Size = new Size(115, 36);
             tillbakaToolStripMenuItem.Text = "Tillbaka";
             tillbakaToolStripMenuItem.Click += tillbakaToolStripMenuItem_Click;
             // 
@@ -125,7 +127,7 @@
             label1.TabIndex = 8;
             label1.Text = "Se statesik för vald hatt";
             // 
-            // HattStatestik
+            // HattStatistik
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -140,7 +142,7 @@
             Controls.Add(comboBox1);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
-            Name = "HattStatestik";
+            Name = "HattStatistik";
             Text = "HattStatestik";
             Load += HattStatestik_Load;
             menuStrip1.ResumeLayout(false);
