@@ -340,7 +340,7 @@ namespace Hattmakarens_system.Presentationslager
         private void buttonRefBild_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Bildfiler|*.jpg;*.jpeg;*.png;*.gif;*.bmp"; // Filtrera efter bildformat
+            openFileDialog.Filter = "Bildfiler|*.jpg;*.jpeg;*.png;*.gif;*.bmp"; 
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
