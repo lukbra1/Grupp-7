@@ -38,6 +38,7 @@
             menuStrip1 = new MenuStrip();
             tillbakaToolStripMenuItem = new ToolStripMenuItem();
             label1 = new Label();
+            listBox1 = new ListBox();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -127,11 +128,20 @@
             label1.TabIndex = 8;
             label1.Text = "Se statesik för vald hatt";
             // 
+            // listBox1
+            // 
+            listBox1.FormattingEnabled = true;
+            listBox1.Location = new Point(533, 188);
+            listBox1.Name = "listBox1";
+            listBox1.Size = new Size(423, 420);
+            listBox1.TabIndex = 9;
+            // 
             // HattStatistik
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1353, 829);
+            Controls.Add(listBox1);
             Controls.Add(label1);
             Controls.Add(lblSlutdatum);
             Controls.Add(lblStartDate);
@@ -163,5 +173,6 @@
         private MenuStrip menuStrip1;
         private ToolStripMenuItem tillbakaToolStripMenuItem;
         private Label label1;
+        private ListBox listBox1;
     }
 }
