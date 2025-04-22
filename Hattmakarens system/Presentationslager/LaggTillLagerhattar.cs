@@ -85,8 +85,9 @@ namespace Hattmakarens_system.Presentationslager
 
             foreach (var material in materialen)
             {
-                listBox1.Items.Add(material.Namn);
+                listBox1.Items.Add(material);
             }
+            listBox1.DisplayMember = "Namn";
         }
 
 
@@ -227,7 +228,7 @@ namespace Hattmakarens_system.Presentationslager
         {
             // Hämta data från formuläret
             string kommentar = richTextBox1.Text;
-            string referensbild = textBox3.Text;
+            string referensbild = buttonRefBild.Text;
 
             if (comboBox3.SelectedIndex < 0)
             {
@@ -335,6 +336,25 @@ namespace Hattmakarens_system.Presentationslager
         {
 
         }
+
+        private void buttonRefBild_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Bildfiler|*.jpg;*.jpeg;*.png;*.gif;*.bmp"; // Filtrera efter bildformat
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                buttonRefBild.Text = openFileDialog.FileName;
+                pictureBox1.Image = Image.FromFile(openFileDialog.FileName);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Image = null;
+            buttonRefBild.Text = "";
+        }
     }
 }
+
 

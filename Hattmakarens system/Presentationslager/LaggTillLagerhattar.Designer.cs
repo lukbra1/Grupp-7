@@ -39,8 +39,11 @@
             cbVäljHatt = new ComboBox();
             panelLagerHattar = new Panel();
             panelSpecHattar = new Panel();
+            button1 = new Button();
+            pictureBox1 = new PictureBox();
+            buttonRefBild = new Button();
+            label2 = new Label();
             button2 = new Button();
-            textBox3 = new TextBox();
             comboBox3 = new ComboBox();
             richTextBox1 = new RichTextBox();
             button3 = new Button();
@@ -56,15 +59,15 @@
             menuStrip1 = new MenuStrip();
             tillbakaToolStripMenuItem = new ToolStripMenuItem();
             panel1 = new Panel();
+            label1 = new Label();
             rtxtBesk = new RichTextBox();
             txtEnhet = new TextBox();
             txtFarg = new TextBox();
             txtNamn = new TextBox();
-            label1 = new Label();
-            label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)pbReferens).BeginInit();
             panelLagerHattar.SuspendLayout();
             panelSpecHattar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             menuStrip1.SuspendLayout();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -184,9 +187,11 @@
             // 
             panelSpecHattar.BackColor = SystemColors.ActiveCaption;
             panelSpecHattar.BorderStyle = BorderStyle.Fixed3D;
+            panelSpecHattar.Controls.Add(button1);
+            panelSpecHattar.Controls.Add(pictureBox1);
+            panelSpecHattar.Controls.Add(buttonRefBild);
             panelSpecHattar.Controls.Add(label2);
             panelSpecHattar.Controls.Add(button2);
-            panelSpecHattar.Controls.Add(textBox3);
             panelSpecHattar.Controls.Add(comboBox3);
             panelSpecHattar.Controls.Add(richTextBox1);
             panelSpecHattar.Controls.Add(button3);
@@ -201,9 +206,49 @@
             panelSpecHattar.TabIndex = 28;
             panelSpecHattar.Paint += panelSpecHattar_Paint;
             // 
+            // button1
+            // 
+            button1.Location = new Point(939, 254);
+            button1.Margin = new Padding(4, 5, 4, 5);
+            button1.Name = "button1";
+            button1.Size = new Size(76, 37);
+            button1.TabIndex = 40;
+            button1.Text = "Ta bort";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Location = new Point(751, 47);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(264, 194);
+            pictureBox1.TabIndex = 39;
+            pictureBox1.TabStop = false;
+            // 
+            // buttonRefBild
+            // 
+            buttonRefBild.Location = new Point(751, 253);
+            buttonRefBild.Margin = new Padding(4, 5, 4, 5);
+            buttonRefBild.Name = "buttonRefBild";
+            buttonRefBild.Size = new Size(176, 39);
+            buttonRefBild.TabIndex = 38;
+            buttonRefBild.Text = "Hämta referensbild";
+            buttonRefBild.UseVisualStyleBackColor = true;
+            buttonRefBild.Click += buttonRefBild_Click;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(489, 17);
+            label2.Margin = new Padding(2, 0, 2, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(105, 25);
+            label2.TabIndex = 37;
+            label2.Text = "Kommentar";
+            // 
             // button2
             // 
-            button2.Location = new Point(854, 251);
+            button2.Location = new Point(854, 335);
             button2.Margin = new Padding(4, 5, 4, 5);
             button2.Name = "button2";
             button2.Size = new Size(161, 42);
@@ -211,15 +256,6 @@
             button2.Text = "Lägg till Orderrad";
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
-            // 
-            // textBox3
-            // 
-            textBox3.Location = new Point(672, 257);
-            textBox3.Margin = new Padding(4);
-            textBox3.Name = "textBox3";
-            textBox3.PlaceholderText = "Referensbild";
-            textBox3.Size = new Size(161, 31);
-            textBox3.TabIndex = 34;
             // 
             // comboBox3
             // 
@@ -240,7 +276,7 @@
             richTextBox1.Location = new Point(489, 47);
             richTextBox1.Margin = new Padding(4, 5, 4, 5);
             richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(526, 194);
+            richTextBox1.Size = new Size(239, 194);
             richTextBox1.TabIndex = 33;
             richTextBox1.Text = "";
             richTextBox1.TextChanged += richTextBox1_TextChanged;
@@ -366,6 +402,16 @@
             panel1.Size = new Size(426, 406);
             panel1.TabIndex = 27;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(28, 187);
+            label1.Margin = new Padding(2, 0, 2, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(102, 25);
+            label1.TabIndex = 37;
+            label1.Text = "Beskrivning";
+            // 
             // rtxtBesk
             // 
             rtxtBesk.Location = new Point(28, 217);
@@ -402,26 +448,6 @@
             txtNamn.Size = new Size(142, 31);
             txtNamn.TabIndex = 41;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(28, 187);
-            label1.Margin = new Padding(2, 0, 2, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(102, 25);
-            label1.TabIndex = 37;
-            label1.Text = "Beskrivning";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(489, 17);
-            label2.Margin = new Padding(2, 0, 2, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(105, 25);
-            label2.TabIndex = 37;
-            label2.Text = "Kommentar";
-            // 
             // LaggTillLagerhattar
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -446,6 +472,7 @@
             panelLagerHattar.PerformLayout();
             panelSpecHattar.ResumeLayout(false);
             panelSpecHattar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             panel1.ResumeLayout(false);
@@ -481,7 +508,6 @@
         private Button button6;
         private RichTextBox richTextBox1;
         private ComboBox comboBox3;
-        private TextBox textBox3;
         private Button button2;
         private Panel panel1;
         private TextBox txtNamn;
@@ -490,5 +516,8 @@
         private RichTextBox rtxtBesk;
         private Label label2;
         private Label label1;
+        private Button buttonRefBild;
+        private PictureBox pictureBox1;
+        private Button button1;
     }
 }
