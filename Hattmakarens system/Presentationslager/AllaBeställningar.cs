@@ -100,7 +100,30 @@ namespace Hattmakarens_system.Presentationslager
             this.Close();
             Program.homepage.Show();
         }
+
+        private void buttonFoljesedel_Click(object sender, EventArgs e)
+        {
+
+            if (lvAlla.SelectedItems.Count > 0)
+            {
+                var valdRad = lvAlla.SelectedItems[0];
+                var valdOrder = valdRad.Tag as Order;
+
+                if (valdOrder != null)
+                {
+                    // Öppna formulär för fraktsedel
+                    this.Close();
+                    var foljesedelForm = new FoljesedelForm(valdOrder);
+                    foljesedelForm.Show();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Välj en order först!", "Ingen vald", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
     }
 }
+
 
 
