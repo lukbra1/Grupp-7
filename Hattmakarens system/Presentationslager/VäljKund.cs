@@ -1,51 +1,58 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Hattmakarens_system.Controllers;
+﻿using Hattmakarens_system.Controllers;
 using Hattmakarens_system.Database;
 using Hattmakarens_system.ModelsNy;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace Hattmakarens_system.Presentationslager
 {
     public partial class VäljKund : Form
     {
-        static KundController Kundcontroller = new KundController(new AppDbContext());
-        static OrderController Ordercontroller = new OrderController(new AppDbContext());
+        private AppDbContext _context;
+        private KundController _kundController;
+        private OrderController _ordercontroller;
 
-        Dictionary<string, int> namnTillId = new Dictionary<string, int>();
+        private bool klickatVidareKnapp = false;
+        private Dictionary<string, int> _listBoxKund_KundId;
 
         public VäljKund()
         {
             InitializeComponent();
+            _context = new AppDbContext();
+            _kundController = new KundController(_context);
+            _ordercontroller = new OrderController(_context);
+            _listBoxKund_KundId = new Dictionary<string, int>();
+        }
+        private void VäljKund_Load(object sender, EventArgs e)
+        {
+            LaddaKunder();
+            textBox1.Select();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        public void LaddaKunder()
         {
-           
+            List<Kund> KundLista = _kundController.AllaAktivaKunder();
+
+            listBox1.Items.Clear();
+
+            foreach (var enKund in KundLista)
+            {
+                string listBoxText = enKund.Fornamn + " " + enKund.Efternamn + " " + enKund.Epost;
+                listBox1.Items.Add(listBoxText);
+                _listBoxKund_KundId[listBoxText] = enKund.KundId;
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             // Skapa beställning med existerande kund
-            var valdKund = (string)listBox1.SelectedItem;
+            string valdKund = (string) listBox1.SelectedItem;
 
             try
             {
-
-                var kundId = namnTillId[valdKund];
-                Kund kund = VäljKund.Kundcontroller.HamtaKundFranId(kundId);
-
-                Order Order = Ordercontroller.SkapaNyOrder(kundId);
+                int kundId = _listBoxKund_KundId[valdKund];
+                Kund kund = _kundController.HamtaKundFranId(kundId);
+                Order Order = _ordercontroller.SkapaNyOrder(kundId);
 
                 var LaggTillLagerhattar = new LaggTillLagerhattar(Order);
-
                 LaggTillLagerhattar.Show();
                 this.Close();
             }
@@ -59,65 +66,48 @@ namespace Hattmakarens_system.Presentationslager
         {
             // Sök kund
             string sökNamn = textBox1.Text;
-            List<Kund> kundLista = VäljKund.Kundcontroller.HamtaKunderMedNamn(sökNamn);
+            List<Kund> kundLista = _kundController.HamtaKunderMedNamn(sökNamn);
 
             listBox1.Items.Clear();
-            namnTillId.Clear();
+            _listBoxKund_KundId.Clear();
             foreach (var kund in kundLista)
             {
                 string visning = $"{kund.KundId} {kund.Fornamn} {kund.Efternamn} {kund.TelefonNr} {kund.Epost}";
                 listBox1.Items.Add(visning);
-                namnTillId[visning] = kund.KundId;
+                _listBoxKund_KundId[visning] = kund.KundId;
             }
         }
 
-        private void VäljKund_Load(object sender, EventArgs e)
-        {
-            List<Kund> KundLista = Kundcontroller.AllaAktivaKunder();
-
-            listBox1.Items.Clear();
-
-            foreach (var enKund in KundLista)
-            {
-                string listBoxText = enKund.Fornamn + " " + enKund.Efternamn + " " + enKund.Epost;
-                listBox1.Items.Add(listBoxText);
-                namnTillId[listBoxText] = enKund.KundId;
-            }
-
-            textBox1.Select();
-            
-        }
 
         private void tiibakaToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // Tillbaka-knapp
+            klickatVidareKnapp = true;
             Program.homepage.Show();
             this.Close();
         }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnRegistrera_Click(object sender, EventArgs e)
         {
-
+            // Ny kund
             var Förnamn = txtForNamn.Text;
             var Efternamn = txtEfterName.Text;
             var Telefon = txtTel.Text;
             var Epost = txtEmail.Text;
             var Adress = txtAddress.Text;
 
-            Kundcontroller.SkapaNyKund(Förnamn, Efternamn, Telefon, Epost, Adress);
+            _kundController.SkapaNyKund(Förnamn, Efternamn, Telefon, Epost, Adress);
 
             MessageBox.Show("Kunden är tillagd");
-            VäljKund_Load(sender, e);
+            LaddaKunder();
 
         }
 
         private void VäljKund_FormClosed(object sender, FormClosedEventArgs e)
         {
-          
+            if(!klickatVidareKnapp)
+            {
+                Program.homepage.Close();
+            }
         }
     }
 }
