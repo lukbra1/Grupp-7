@@ -126,6 +126,12 @@ namespace Hattmakarens_system.Controllers
             _context.SaveChanges();
         }
 
+        public void TaBortTomOrder(Order Ordern)
+        {
+            _context.Ordrar.Remove(Ordern);
+            _context.SaveChanges();
+        }
+
 
     }
 }
