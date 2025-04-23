@@ -96,10 +96,8 @@ namespace Hattmakarens_system.Presentationslager
         {
             LaddaMaterial();
             listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
-            listView1.View = View.Details; // Viktigt!
-            listView2.View = View.Details; // Viktigt!
-            //listView1.Columns.Add("Material", 150); // Kolumnnamn + bredd
-            //listView1.Columns.Add("Mängd", 100);
+            listView1.View = View.Details;
+            listView2.View = View.Details; 
             var hattar = db.HämtaAllaModeller();
 
             if (hattar != null && hattar.Any())
@@ -116,12 +114,10 @@ namespace Hattmakarens_system.Presentationslager
 
         private void cbVäljHatt_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //string hattNamn = cbVäljHatt.SelectedItem?.ToString();
 
             if (cbVäljHatt.SelectedItem is Modell valdModell)
             {
                 lblNamn.Text = valdModell.Namn;
-                //lblPris.Text = $"{valdModell.Pris} kr"; // Anpassa efter valutaformat
 
                 string hattNamn = valdModell.Namn; // korrekt namn
                 string filnamn = hattNamn + ".jpg";
@@ -172,49 +168,7 @@ namespace Hattmakarens_system.Presentationslager
                     _db.LäggTillMaterialTillOrderRad(orderRadId, matrialId, antal);
                 }
             }
-
-            // Uppdatera listan och visa bekräftelse (valfritt)
             LaddaListView();
-            //if (cbVäljHatt.SelectedItem is Modell valdModell)
-            //{
-            //    try
-            //    {
-            //        if (chbAnpassa.Checked)
-            //        {
-            //            // Skapa en tom LagerOrderrad som skickas till anpassningsformuläret
-            //            var nyOrderrad = new LagerOrderrad
-            //            {
-            //                ModellId = valdModell.ModellId,
-            //                OrderId = Ordern.OrderId,
-            //                UserId = null,
-            //                Tillverkad = false,
-            //                StatusOrderrad = StatusOrderradEnum.EjPaborjad
-            //            };
-
-            //            db.LäggTillLagerOrderrad(Ordern, nyOrderrad);
-            //            var anpassningsForm = new AnpassaLagerhattar(Ordern, nyOrderrad);
-            //            anpassningsForm.Show();
-            //            this.Dispose();
-            //        }
-            //        else
-            //        {
-            //            // Endast spara direkt om det inte är en anpassning
-            //            LagerOrderrad nyOrderrad = db.LäggTillLagerOrderrad(Ordern, valdModell.ModellId);
-
-            //            MessageBox.Show($"Hatten '{valdModell.Namn}' har lagts till i ordern.", "Tillagd", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            //            LaddaListView();
-            //        }
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        MessageBox.Show("Fel: " + ex.Message, "Fel vid sparning", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    }
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Välj en hatt först.", "Ingen hatt vald", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //}
         }
 
         private void btnVisaBeställning_Click(object sender, EventArgs e)
