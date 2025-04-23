@@ -45,24 +45,6 @@ namespace Hattmakarens_system
         private void InitializeListView()
         {
             ordrarList.Items.Clear();
-            ordrarList.Columns.Clear();
-
-            ordrarList.Columns.Add("OrderId", 70);
-            ordrarList.Columns.Add("Kund", 150);
-            ordrarList.Columns.Add("Datum", 120);
-            ordrarList.Columns.Add("Express", 70);
-
-            ordrarList.View = View.Details;
-            ordrarList.FullRowSelect = true;
-            ordrarList.MultiSelect = true;
-
-            lvOrderRadLista.Columns.Add("OrderRadId", 80);
-            lvOrderRadLista.Columns.Add("Typ", 80);
-            lvOrderRadLista.Columns.Add("Storlek", 80);
-            lvOrderRadLista.Columns.Add("Status", 100);
-            lvOrderRadLista.Columns.Add("Tilldelad", 80);
-            lvOrderRadLista.Columns.Add("Pris", 80);
-
         }
 
         private void LaddaAllaOrdrar()

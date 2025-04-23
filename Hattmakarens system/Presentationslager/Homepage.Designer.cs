@@ -54,11 +54,17 @@ namespace Hattmakarens_system
             label4 = new Label();
             sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
             ordrarList = new ListView();
-            label5 = new Label();
-            lvOrderRadLista = new ListView();
             OrderId = new ColumnHeader();
             Kund = new ColumnHeader();
             Datum = new ColumnHeader();
+            label5 = new Label();
+            lvOrderRadLista = new ListView();
+            OrderRadId = new ColumnHeader();
+            Typ = new ColumnHeader();
+            Storlek = new ColumnHeader();
+            Status = new ColumnHeader();
+            Tilldelad = new ColumnHeader();
+            Pris = new ColumnHeader();
             menuStrip2.SuspendLayout();
             SuspendLayout();
             // 
@@ -252,30 +258,10 @@ namespace Hattmakarens_system
             ordrarList.Location = new Point(94, 142);
             ordrarList.Margin = new Padding(4);
             ordrarList.Name = "ordrarList";
-            ordrarList.Size = new Size(580, 627);
+            ordrarList.Size = new Size(399, 627);
             ordrarList.TabIndex = 14;
             ordrarList.UseCompatibleStateImageBehavior = false;
             ordrarList.View = View.Details;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(94, 105);
-            label5.Margin = new Padding(4, 0, 4, 0);
-            label5.Name = "label5";
-            label5.Size = new Size(82, 32);
-            label5.TabIndex = 15;
-            label5.Text = "Ordrar";
-            // 
-            // lvOrderRadLista
-            // 
-            lvOrderRadLista.Location = new Point(690, 142);
-            lvOrderRadLista.Name = "lvOrderRadLista";
-            lvOrderRadLista.Size = new Size(368, 627);
-            lvOrderRadLista.TabIndex = 16;
-            lvOrderRadLista.UseCompatibleStateImageBehavior = false;
-            lvOrderRadLista.View = View.Details;
-            lvOrderRadLista.SelectedIndexChanged += lvOrderRadLista_SelectedIndexChanged;
             // 
             // OrderId
             // 
@@ -291,6 +277,57 @@ namespace Hattmakarens_system
             // 
             Datum.Text = "Datum";
             Datum.Width = 100;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(94, 105);
+            label5.Margin = new Padding(4, 0, 4, 0);
+            label5.Name = "label5";
+            label5.Size = new Size(82, 32);
+            label5.TabIndex = 15;
+            label5.Text = "Ordrar";
+            // 
+            // lvOrderRadLista
+            // 
+            lvOrderRadLista.Columns.AddRange(new ColumnHeader[] { OrderRadId, Typ, Storlek, Status, Tilldelad, Pris });
+            lvOrderRadLista.Location = new Point(560, 142);
+            lvOrderRadLista.Name = "lvOrderRadLista";
+            lvOrderRadLista.Size = new Size(598, 627);
+            lvOrderRadLista.TabIndex = 16;
+            lvOrderRadLista.UseCompatibleStateImageBehavior = false;
+            lvOrderRadLista.View = View.Details;
+            lvOrderRadLista.SelectedIndexChanged += lvOrderRadLista_SelectedIndexChanged;
+            // 
+            // OrderRadId
+            // 
+            OrderRadId.Text = "OrderRadId";
+            OrderRadId.Width = 100;
+            // 
+            // Typ
+            // 
+            Typ.Text = "Typ";
+            Typ.Width = 100;
+            // 
+            // Storlek
+            // 
+            Storlek.Text = "Storlek";
+            Storlek.Width = 100;
+            // 
+            // Status
+            // 
+            Status.Text = "Status";
+            Status.Width = 100;
+            // 
+            // Tilldelad
+            // 
+            Tilldelad.Text = "Tilldelad";
+            Tilldelad.Width = 100;
+            // 
+            // Pris
+            // 
+            Pris.Text = "Pris";
+            Pris.Width = 100;
             // 
             // Homepage
             // 
@@ -359,5 +396,11 @@ namespace Hattmakarens_system
         private ColumnHeader OrderId;
         private ColumnHeader Kund;
         private ColumnHeader Datum;
+        private ColumnHeader OrderRadId;
+        private ColumnHeader Typ;
+        private ColumnHeader Storlek;
+        private ColumnHeader Status;
+        private ColumnHeader Tilldelad;
+        private ColumnHeader Pris;
     }
 }
