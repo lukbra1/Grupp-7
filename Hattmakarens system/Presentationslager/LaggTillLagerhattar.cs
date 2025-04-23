@@ -120,7 +120,7 @@ namespace Hattmakarens_system.Presentationslager
             if (cbVäljHatt.SelectedItem is Modell valdModell)
             {
                 lblNamn.Text = valdModell.Namn;
-                lblPris.Text = $"{valdModell.Pris} kr"; // Anpassa efter valutaformat
+                //lblPris.Text = $"{valdModell.Pris} kr"; // Anpassa efter valutaformat
 
                 string hattNamn = valdModell.Namn; // korrekt namn
                 string filnamn = hattNamn + ".jpg";
@@ -141,46 +141,46 @@ namespace Hattmakarens_system.Presentationslager
 
         private void btnLäggtill_Click(object sender, EventArgs e)
         {
-            if (cbVäljHatt.SelectedItem is Modell valdModell)
-            {
-                try
-                {
-                    if (chbAnpassa.Checked)
-                    {
-                        // Skapa en tom LagerOrderrad som skickas till anpassningsformuläret
-                        var nyOrderrad = new LagerOrderrad
-                        {
-                            ModellId = valdModell.ModellId,
-                            OrderId = Ordern.OrderId,
-                            UserId = null,
-                            Tillverkad = false,
-                            StatusOrderrad = StatusOrderradEnum.EjPaborjad
-                        };
+            //if (cbVäljHatt.SelectedItem is Modell valdModell)
+            //{
+            //    try
+            //    {
+            //        if (chbAnpassa.Checked)
+            //        {
+            //            // Skapa en tom LagerOrderrad som skickas till anpassningsformuläret
+            //            var nyOrderrad = new LagerOrderrad
+            //            {
+            //                ModellId = valdModell.ModellId,
+            //                OrderId = Ordern.OrderId,
+            //                UserId = null,
+            //                Tillverkad = false,
+            //                StatusOrderrad = StatusOrderradEnum.EjPaborjad
+            //            };
 
-                        db.LäggTillLagerOrderrad(Ordern, nyOrderrad);
-                        var anpassningsForm = new AnpassaLagerhattar(Ordern, nyOrderrad);
-                        anpassningsForm.Show();
-                        this.Dispose();
-                    }
-                    else
-                    {
-                        // Endast spara direkt om det inte är en anpassning
-                        LagerOrderrad nyOrderrad = db.LäggTillLagerOrderrad(Ordern, valdModell.ModellId);
+            //            db.LäggTillLagerOrderrad(Ordern, nyOrderrad);
+            //            var anpassningsForm = new AnpassaLagerhattar(Ordern, nyOrderrad);
+            //            anpassningsForm.Show();
+            //            this.Dispose();
+            //        }
+            //        else
+            //        {
+            //            // Endast spara direkt om det inte är en anpassning
+            //            LagerOrderrad nyOrderrad = db.LäggTillLagerOrderrad(Ordern, valdModell.ModellId);
 
-                        MessageBox.Show($"Hatten '{valdModell.Namn}' har lagts till i ordern.", "Tillagd", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //            MessageBox.Show($"Hatten '{valdModell.Namn}' har lagts till i ordern.", "Tillagd", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        LaddaListView();
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Fel: " + ex.Message, "Fel vid sparning", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Välj en hatt först.", "Ingen hatt vald", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            //            LaddaListView();
+            //        }
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        MessageBox.Show("Fel: " + ex.Message, "Fel vid sparning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    }
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Välj en hatt först.", "Ingen hatt vald", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //}
         }
 
         private void btnVisaBeställning_Click(object sender, EventArgs e)
@@ -230,13 +230,13 @@ namespace Hattmakarens_system.Presentationslager
             string kommentar = richTextBox1.Text;
             string referensbild = buttonRefBild.Text;
 
-            if (comboBox3.SelectedIndex < 0)
+            if (comboBox4.SelectedIndex < 0)
             {
                 MessageBox.Show("Vänligen välj en storlek.");
                 return;
             }
 
-            StorlekEnum storlek = (StorlekEnum)comboBox3.SelectedIndex;
+            StorlekEnum storlek = (StorlekEnum)comboBox4.SelectedIndex;
 
             // Totalpris sätts till 0 (ej beräkning)
             decimal totalPris = 0;
@@ -340,7 +340,7 @@ namespace Hattmakarens_system.Presentationslager
         private void buttonRefBild_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Bildfiler|*.jpg;*.jpeg;*.png;*.gif;*.bmp"; 
+            openFileDialog.Filter = "Bildfiler|*.jpg;*.jpeg;*.png;*.gif;*.bmp";
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
@@ -353,6 +353,21 @@ namespace Hattmakarens_system.Presentationslager
         {
             pictureBox1.Image = null;
             buttonRefBild.Text = "Hämta referensbild";
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
