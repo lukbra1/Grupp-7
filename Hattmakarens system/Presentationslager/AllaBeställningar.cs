@@ -25,9 +25,9 @@ namespace Hattmakarens_system.Presentationslager
         private void AllaBeställningar_Load(object sender, EventArgs e)
         {
 
-            var ordrar = db.HämtaAllaOrdrar(); // 🧠 Metoden du redan har
+            var ordrar = db.SorteraOdrar();
 
-            lvAlla.Items.Clear(); // Rensa först
+            lvAlla.Items.Clear();
 
             foreach (var order in ordrar)
             {
@@ -39,10 +39,7 @@ namespace Hattmakarens_system.Presentationslager
                 rad.SubItems.Add(order.Express ? "Ja" : "Nej");
                 rad.SubItems.Add($"{order.TotalPris} kr");
 
-                // Lägg till hela orderobjektet som tag (så du kan använda det sen)
                 rad.Tag = order;
-
-                // Lägg till i listview
                 lvAlla.Items.Add(rad);
             }
         }

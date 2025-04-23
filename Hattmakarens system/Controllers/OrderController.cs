@@ -47,6 +47,12 @@ namespace Hattmakarens_system.Controllers
             return _context.Ordrar.ToList();
         }
 
+        public List<Order> SorteraOdrar() 
+        { 
+            return _context.Ordrar.OrderByDescending(o => o.OrderId).ToList();
+                
+        }
+
         public List<Modell> HämtaAllaModeller()
         {
             return _context.Modeller.ToList();
