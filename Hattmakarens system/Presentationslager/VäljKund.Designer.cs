@@ -59,7 +59,7 @@
             // 
             listBox1.FormattingEnabled = true;
             listBox1.Location = new Point(395, 147);
-            listBox1.Margin = new Padding(2, 2, 2, 2);
+            listBox1.Margin = new Padding(2);
             listBox1.Name = "listBox1";
             listBox1.Size = new Size(248, 144);
             listBox1.TabIndex = 28;
@@ -67,7 +67,7 @@
             // button2
             // 
             button2.Location = new Point(588, 102);
-            button2.Margin = new Padding(2, 2, 2, 2);
+            button2.Margin = new Padding(2);
             button2.Name = "button2";
             button2.Size = new Size(54, 29);
             button2.TabIndex = 27;
@@ -78,7 +78,7 @@
             // textBox1
             // 
             textBox1.Location = new Point(395, 104);
-            textBox1.Margin = new Padding(2, 2, 2, 2);
+            textBox1.Margin = new Padding(2);
             textBox1.Name = "textBox1";
             textBox1.PlaceholderText = "Sök på kundens förnamn";
             textBox1.Size = new Size(190, 27);
@@ -87,7 +87,7 @@
             // button1
             // 
             button1.Location = new Point(395, 313);
-            button1.Margin = new Padding(2, 2, 2, 2);
+            button1.Margin = new Padding(2);
             button1.Name = "button1";
             button1.Size = new Size(247, 29);
             button1.TabIndex = 24;
@@ -116,7 +116,7 @@
             // btnRegistrera
             // 
             btnRegistrera.Location = new Point(102, 408);
-            btnRegistrera.Margin = new Padding(4, 4, 4, 4);
+            btnRegistrera.Margin = new Padding(4);
             btnRegistrera.Name = "btnRegistrera";
             btnRegistrera.Size = new Size(151, 31);
             btnRegistrera.TabIndex = 59;
@@ -182,7 +182,7 @@
             // txtAddress
             // 
             txtAddress.Location = new Point(138, 355);
-            txtAddress.Margin = new Padding(4, 4, 4, 4);
+            txtAddress.Margin = new Padding(4);
             txtAddress.Name = "txtAddress";
             txtAddress.Size = new Size(114, 27);
             txtAddress.TabIndex = 52;
@@ -190,7 +190,7 @@
             // txtEmail
             // 
             txtEmail.Location = new Point(138, 292);
-            txtEmail.Margin = new Padding(4, 4, 4, 4);
+            txtEmail.Margin = new Padding(4);
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(114, 27);
             txtEmail.TabIndex = 51;
@@ -198,7 +198,7 @@
             // txtTel
             // 
             txtTel.Location = new Point(138, 226);
-            txtTel.Margin = new Padding(4, 4, 4, 4);
+            txtTel.Margin = new Padding(4);
             txtTel.Name = "txtTel";
             txtTel.Size = new Size(114, 27);
             txtTel.TabIndex = 50;
@@ -206,7 +206,7 @@
             // txtEfterName
             // 
             txtEfterName.Location = new Point(138, 162);
-            txtEfterName.Margin = new Padding(4, 4, 4, 4);
+            txtEfterName.Margin = new Padding(4);
             txtEfterName.Name = "txtEfterName";
             txtEfterName.Size = new Size(114, 27);
             txtEfterName.TabIndex = 49;
@@ -214,7 +214,7 @@
             // txtForNamn
             // 
             txtForNamn.Location = new Point(138, 101);
-            txtForNamn.Margin = new Padding(4, 4, 4, 4);
+            txtForNamn.Margin = new Padding(4);
             txtForNamn.Name = "txtForNamn";
             txtForNamn.Size = new Size(114, 27);
             txtForNamn.TabIndex = 48;
@@ -307,10 +307,10 @@
             Controls.Add(button2);
             Controls.Add(textBox1);
             Controls.Add(button1);
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "VäljKund";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "VäljKund";
+            Text = "Lägg till kund";
             FormClosed += VäljKund_FormClosed;
             Load += VäljKund_Load;
             menuStrip1.ResumeLayout(false);
