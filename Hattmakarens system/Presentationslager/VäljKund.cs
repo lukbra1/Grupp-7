@@ -52,6 +52,7 @@ namespace Hattmakarens_system.Presentationslager
                 Kund kund = _kundController.HamtaKundFranId(kundId);
                 Order Order = _ordercontroller.SkapaNyOrder(kundId);
 
+                klickatVidareKnapp = true;
                 var LaggTillLagerhattar = new LaggTillLagerhattar(Order);
                 LaggTillLagerhattar.Show();
                 this.Close();
