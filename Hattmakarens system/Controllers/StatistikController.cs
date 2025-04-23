@@ -84,6 +84,44 @@ namespace Hattmakarens_system.Controllers
             return resultat;
         }
 
+        public int HämtaAntalHattar(DateTime startDatum, DateTime slutDatum, int KundId)
+        {
+            DateTime slutDatumJusterad = slutDatum.Date.AddDays(1).AddTicks(-1);
+
+            int resultat = _context.Orderrader
+                .Where(b => b.Order.KundId == KundId &&
+                            b.Order.Skapad >= startDatum.Date &&
+                            b.Order.Skapad <= slutDatumJusterad )
+                .Count();
+
+            return resultat;
+        }
+
+        public decimal HämtaTotalSumma(DateTime startDatum, DateTime slutDatum, int KundId)
+        {
+            DateTime slutDatumJusterad = slutDatum.Date.AddDays(1).AddTicks(-1);
+
+            decimal resultat = _context.Orderrader
+                .Where(b => b.Order.KundId == KundId &&
+                            b.Order.Skapad >= startDatum.Date &&
+                            b.Order.Skapad <= slutDatumJusterad)
+                .Sum(b => b.pris ?? 0);
+
+            return resultat;
+        }
+
+        public int HämtaAntalOrdrar(DateTime startDatum, DateTime slutDatum, int KundId) 
+        {
+            DateTime slutDatumJusterad = slutDatum.Date.AddDays(1).AddTicks(-1);
+
+            int resultat = _context.Ordrar
+                .Where(b => b.KundId == KundId &&
+                            b.Skapad >= startDatum.Date &&
+                            b.Skapad <= slutDatumJusterad)
+                .Count();
+
+            return resultat;
+        }
 
     }
 }
