@@ -90,7 +90,7 @@
             // lblNamn
             // 
             lblNamn.AutoSize = true;
-            lblNamn.Location = new Point(90, 369);
+            lblNamn.Location = new Point(65, 285);
             lblNamn.Name = "lblNamn";
             lblNamn.Size = new Size(164, 32);
             lblNamn.TabIndex = 5;
@@ -161,7 +161,7 @@
             panelLagerHattar.Controls.Add(button5);
             panelLagerHattar.Controls.Add(pbReferens);
             panelLagerHattar.Controls.Add(btnLäggtill);
-            panelLagerHattar.Location = new Point(62, 165);
+            panelLagerHattar.Location = new Point(37, 81);
             panelLagerHattar.Name = "panelLagerHattar";
             panelLagerHattar.Size = new Size(1379, 539);
             panelLagerHattar.TabIndex = 27;
@@ -237,7 +237,7 @@
             panelSpecHattar.Controls.Add(listView1);
             panelSpecHattar.Controls.Add(textBox1);
             panelSpecHattar.Controls.Add(listBox1);
-            panelSpecHattar.Location = new Point(62, 753);
+            panelSpecHattar.Location = new Point(37, 669);
             panelSpecHattar.Name = "panelSpecHattar";
             panelSpecHattar.Size = new Size(1379, 519);
             panelSpecHattar.TabIndex = 28;
@@ -387,7 +387,7 @@
             lvBeställningar.BackColor = SystemColors.InactiveCaption;
             lvBeställningar.Columns.AddRange(new ColumnHeader[] { Typ, Modell, Storlek });
             lvBeställningar.FullRowSelect = true;
-            lvBeställningar.Location = new Point(1495, 165);
+            lvBeställningar.Location = new Point(1470, 81);
             lvBeställningar.Name = "lvBeställningar";
             lvBeställningar.Size = new Size(553, 475);
             lvBeställningar.TabIndex = 29;
@@ -412,7 +412,7 @@
             // lblTotal
             // 
             lblTotal.AutoSize = true;
-            lblTotal.Location = new Point(1495, 672);
+            lblTotal.Location = new Point(1470, 588);
             lblTotal.Name = "lblTotal";
             lblTotal.Size = new Size(78, 32);
             lblTotal.TabIndex = 30;
@@ -446,7 +446,7 @@
             panel1.Controls.Add(txtFarg);
             panel1.Controls.Add(txtNamn);
             panel1.Controls.Add(button6);
-            panel1.Location = new Point(1495, 753);
+            panel1.Location = new Point(1470, 669);
             panel1.Name = "panel1";
             panel1.Size = new Size(553, 519);
             panel1.TabIndex = 27;
@@ -500,7 +500,8 @@
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(2213, 1344);
+            AutoSize = true;
+            ClientSize = new Size(2213, 1217);
             Controls.Add(panel1);
             Controls.Add(lblTotal);
             Controls.Add(lvBeställningar);
@@ -512,7 +513,7 @@
             MainMenuStrip = menuStrip1;
             Name = "LaggTillLagerhattar";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "LaggTillLagerhattar";
+            Text = "Skapa Beställning";
             Load += LaggTillLagerhattar_Load;
             ((System.ComponentModel.ISupportInitialize)pbReferens).EndInit();
             panelLagerHattar.ResumeLayout(false);
