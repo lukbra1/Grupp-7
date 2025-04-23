@@ -18,23 +18,27 @@ namespace Hattmakarens_system.Presentationslager
     public partial class LaggTillLagerhattar : Form
     {
         Order Ordern;
-        private readonly AppDbContext _context = new AppDbContext();
-        static OrderController db = new OrderController(new AppDbContext());
+        private readonly AppDbContext _context;
+        private readonly OrderController _orderController;
         private readonly SpecialController _specialController;
         private readonly Material_OrderradController _materialOrderradController;
-        private readonly MaterialController _db = new MaterialController(new AppDbContext());
+        private readonly MaterialController _materialController;
+        private bool klickatVidareKnapp = false;
         public LaggTillLagerhattar(Order Order)
         {
-            this.Ordern = Order;
+            InitializeComponent();
+            _context = new AppDbContext();
+            _orderController = new OrderController(_context);
             _specialController = new SpecialController(_context);
             _materialOrderradController = new Material_OrderradController(_context);
-            InitializeComponent();
+            _materialController = new MaterialController(_context);
+            this.Ordern = Order;
 
-            List<OrderRad> OrderRader = db.HämtaAllaOrderRader(Order);
+            List<OrderRad> OrderRader = _orderController.HämtaAllaOrderRader(Order);
 
 
             // Hämta orderrader för ordern
-            var orderRaderna = db.HämtaAllaOrderRader(Ordern);
+            var orderRaderna = _orderController.HämtaAllaOrderRader(Ordern);
 
             // Töm listan och fyll med orderrader
             lvBeställningar.Items.Clear();
@@ -55,13 +59,28 @@ namespace Hattmakarens_system.Presentationslager
                 lvBeställningar.Items.Add(displayText);
             }
         }
+        private void LaggTillLagerhattar_Load(object sender, EventArgs e)
+        {
+            LaddaMaterial();
+            var hattar = _orderController.HämtaAllaModeller();
 
-        private void LaddaListView()
+            if (hattar != null && hattar.Any())
+            {
+                cbVäljHatt.DataSource = hattar;
+                cbVäljHatt.DisplayMember = "Namn";
+                cbVäljHatt.ValueMember = "ModellId";
+            }
+            else
+            {
+                MessageBox.Show("Inga hattmodeller hittades.");
+            }
+        }
+        private void LaddaOrderrader()
         {
             lvBeställningar.Items.Clear(); // Töm listan
 
             // Hämta alla orderrader (exempel från DB eller controller)
-            var orderrader = db.HämtaAllaOrderRader(Ordern);
+            var orderrader = _orderController.HämtaAllaOrderRader(Ordern);
 
             foreach (var orderrad in orderrader)
             {
@@ -79,9 +98,9 @@ namespace Hattmakarens_system.Presentationslager
             listBox1.Items.Clear();
             listBox3.Items.Clear();
 
-            var materialen = _db.getMaterial();
+            List<Material> materialen = _materialController.getMaterial();
 
-            foreach (var material in materialen)
+            foreach (Material material in materialen)
             {
                 listBox1.Items.Add(material);
                 listBox3.Items.Add(material);
@@ -89,29 +108,6 @@ namespace Hattmakarens_system.Presentationslager
             listBox1.DisplayMember = "Namn";
             listBox3.DisplayMember = "Namn";
         }
-
-
-
-        private void LaggTillLagerhattar_Load(object sender, EventArgs e)
-        {
-            LaddaMaterial();
-            listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
-            listView1.View = View.Details;
-            listView2.View = View.Details; 
-            var hattar = db.HämtaAllaModeller();
-
-            if (hattar != null && hattar.Any())
-            {
-                cbVäljHatt.DataSource = hattar;
-                cbVäljHatt.DisplayMember = "Namn";
-                cbVäljHatt.ValueMember = "ModellId";
-            }
-            else
-            {
-                MessageBox.Show("Inga hattmodeller hittades.");
-            }
-        }
-
         private void cbVäljHatt_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -122,7 +118,7 @@ namespace Hattmakarens_system.Presentationslager
                 string hattNamn = valdModell.Namn; // korrekt namn
                 string filnamn = hattNamn + ".jpg";
                 string bildPath = Path.Combine(Application.StartupPath, "Resources", filnamn);
-                LaddaListView();
+                LaddaOrderrader();
 
                 if (File.Exists(bildPath))
                 {
@@ -150,7 +146,7 @@ namespace Hattmakarens_system.Presentationslager
             int modellId = hattModell.ModellId;
 
             // Skapa orderad
-            var orderRad = db.LäggTillLagerOrderrad(Ordern, modellId);
+            var orderRad = _orderController.LäggTillLagerOrderrad(Ordern, modellId);
 
             int orderRadId = orderRad.OrderRadId;
 
@@ -165,10 +161,10 @@ namespace Hattmakarens_system.Presentationslager
 
                 if (material != null)
                 {
-                    _db.LäggTillMaterialTillOrderRad(orderRadId, matrialId, antal);
+                    _materialController.LäggTillMaterialTillOrderRad(orderRadId, matrialId, antal);
                 }
             }
-            LaddaListView();
+            LaddaOrderrader();
         }
 
         private void btnVisaBeställning_Click(object sender, EventArgs e)
@@ -187,24 +183,10 @@ namespace Hattmakarens_system.Presentationslager
 
         private void tillbakaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            klickatVidareKnapp = true;
+            this.Close();
             var previousForm = new VäljKund();
             previousForm.Show();
-        }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panelSpecHattar_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
@@ -251,7 +233,7 @@ namespace Hattmakarens_system.Presentationslager
             _context.SaveChanges();
 
             // Uppdatera listan och visa bekräftelse (valfritt)
-            LaddaListView();
+            LaddaOrderrader();
             MessageBox.Show("Specialbeställningen har sparats.", "Sparad", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
@@ -300,11 +282,6 @@ namespace Hattmakarens_system.Presentationslager
             }
         }
 
-        private void panelLagerHattar_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void button6_Click(object sender, EventArgs e)
         {
 
@@ -313,14 +290,9 @@ namespace Hattmakarens_system.Presentationslager
             var Farg = txtFarg.Text;
             var Beskrivning = rtxtBesk.Text;
 
-            _db.SkapaNyttMaterial(Namn, Enhet, Farg, Beskrivning);
+            _materialController.SkapaNyttMaterial(Namn, Enhet, Farg, Beskrivning);
             LaddaMaterial();
             MessageBox.Show("Materialet är tillagd i lager");
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void buttonRefBild_Click(object sender, EventArgs e)
@@ -384,17 +356,6 @@ namespace Hattmakarens_system.Presentationslager
             }
         }
 
-
-        private void label12_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -411,10 +372,19 @@ namespace Hattmakarens_system.Presentationslager
 
             if (resultat == DialogResult.Yes)
             {
+                klickatVidareKnapp = true;
                 this.Close();
                 Program.homepage.Show();
             }
-          
+
+        }
+
+        private void LaggTillLagerhattar_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (!klickatVidareKnapp)
+            {
+                Program.homepage.Close();
+            }
         }
     }
 }
