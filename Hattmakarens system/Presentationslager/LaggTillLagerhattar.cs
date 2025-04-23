@@ -54,8 +54,6 @@ namespace Hattmakarens_system.Presentationslager
 
                 lvBeställningar.Items.Add(displayText);
             }
-
-            lblTotal.Text = $"Totalt pris: {Ordern.TotalPris} kr";
         }
 
         private void LaddaListView()
@@ -73,21 +71,23 @@ namespace Hattmakarens_system.Presentationslager
 
                 lvBeställningar.Items.Add(item);
             }
-            lblTotal.Text = $"Totalt pris: {Ordern.TotalPris} kr";
 
         }
 
         private void LaddaMaterial()
         {
             listBox1.Items.Clear();
+            listBox3.Items.Clear();
 
             var materialen = _db.getMaterial();
 
             foreach (var material in materialen)
             {
                 listBox1.Items.Add(material);
+                listBox3.Items.Add(material);
             }
             listBox1.DisplayMember = "Namn";
+            listBox3.DisplayMember = "Namn";
         }
 
 
@@ -97,8 +97,9 @@ namespace Hattmakarens_system.Presentationslager
             LaddaMaterial();
             listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
             listView1.View = View.Details; // Viktigt!
-            listView1.Columns.Add("Material", 150); // Kolumnnamn + bredd
-            listView1.Columns.Add("Mängd", 100);
+            listView2.View = View.Details; // Viktigt!
+            //listView1.Columns.Add("Material", 150); // Kolumnnamn + bredd
+            //listView1.Columns.Add("Mängd", 100);
             var hattar = db.HämtaAllaModeller();
 
             if (hattar != null && hattar.Any())
@@ -141,6 +142,39 @@ namespace Hattmakarens_system.Presentationslager
 
         private void btnLäggtill_Click(object sender, EventArgs e)
         {
+
+            if (cbStorlek.SelectedIndex < 0)
+            {
+                MessageBox.Show("Vänligen välj en storlek.");
+                return;
+            }
+
+            StorlekEnum storlek = (StorlekEnum)cbStorlek.SelectedIndex;
+            var hattModell = (Modell)cbVäljHatt.SelectedItem;
+            int modellId = hattModell.ModellId;
+
+            // Skapa orderad
+            var orderRad = db.LäggTillLagerOrderrad(Ordern, modellId);
+
+            int orderRadId = orderRad.OrderRadId;
+
+            // Koppla material till orderraden
+            foreach (ListViewItem item in listView2.Items)
+            {
+                string materialnamn = item.SubItems[0].Text;
+                int antal = int.Parse(item.SubItems[1].Text);
+
+                var material = _context.Material.FirstOrDefault(m => m.Namn == materialnamn);
+                int matrialId = material.MaterialId;
+
+                if (material != null)
+                {
+                    _db.LäggTillMaterialTillOrderRad(orderRadId, matrialId, antal);
+                }
+            }
+
+            // Uppdatera listan och visa bekräftelse (valfritt)
+            LaddaListView();
             //if (cbVäljHatt.SelectedItem is Modell valdModell)
             //{
             //    try
@@ -305,8 +339,6 @@ namespace Hattmakarens_system.Presentationslager
                     nyItem.SubItems.Add(mangd.ToString());
                     listView1.Items.Add(nyItem);
                 }
-
-                MessageBox.Show($"La till {mangd} av {valtMaterial.Namn}.");
             }
             else
             {
@@ -357,8 +389,47 @@ namespace Hattmakarens_system.Presentationslager
 
         private void button5_Click(object sender, EventArgs e)
         {
+            if (listBox3.SelectedItem == null || string.IsNullOrWhiteSpace(textBox2.Text))
+            {
+                MessageBox.Show("Välj ett material och skriv in mängd!");
+                return;
+            }
 
+            // Hämta valt material
+            Material valtMaterial = (Material)listBox3.SelectedItem;
+
+            // Försök tolka mängd som siffra
+            if (int.TryParse(textBox2.Text, out int mangd))
+            {
+                bool hittad = false;
+
+                // Kolla om material redan finns i listan
+                foreach (ListViewItem item in listView2.Items)
+                {
+                    if (item.Text == valtMaterial.Namn)
+                    {
+                        // Uppdatera mängden
+                        int nuvarandeMangd = int.Parse(item.SubItems[1].Text);
+                        item.SubItems[1].Text = (nuvarandeMangd + mangd).ToString();
+                        hittad = true;
+                        break;
+                    }
+                }
+
+                if (!hittad)
+                {
+                    // Material finns inte – lägg till ny rad
+                    ListViewItem nyItem = new ListViewItem(valtMaterial.Namn);
+                    nyItem.SubItems.Add(mangd.ToString());
+                    listView2.Items.Add(nyItem);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Felaktig mängd, skriv en siffra!");
+            }
         }
+
 
         private void label12_Click(object sender, EventArgs e)
         {
@@ -368,6 +439,28 @@ namespace Hattmakarens_system.Presentationslager
         private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            var resultat = MessageBox.Show(
+                "Är du klar med beställningen?",
+                "Bekräfta",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+                );
+
+            if (resultat == DialogResult.Yes)
+            {
+                this.Close();
+                Program.homepage.Show();
+            }
+          
         }
     }
 }

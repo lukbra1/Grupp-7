@@ -37,12 +37,14 @@ namespace Hattmakarens_system.Controllers
             return _context.Material.FirstOrDefault(m => m.MaterialId == id);
         }
 
-        public void LäggTillMaterialTillOrderRad(int orderRadId, int materialId)
+        public void LäggTillMaterialTillOrderRad(int orderRadId, int materialId, int antal)
         {
             var koppling = new MaterialOrderrad
             {
                 OrderRadId = orderRadId,
-                MaterialId = materialId
+                MaterialId = materialId,
+                AntalMaterial = antal,
+                Bestallt = false
             };
 
             _context.MaterialOrderrader.Add(koppling);

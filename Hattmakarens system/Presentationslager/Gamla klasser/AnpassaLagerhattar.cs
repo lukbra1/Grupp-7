@@ -66,7 +66,7 @@ namespace Hattmakarens_system.Presentationslager
                 try
                 {
                     // Anropa den statiska metoden i controllerklassen
-                    materialController.LäggTillMaterialTillOrderRad(_orderrad.OrderRadId, ValdMaterial.MaterialId);
+                    //materialController.LäggTillMaterialTillOrderRad(_orderrad.OrderRadId, ValdMaterial.MaterialId);
                     _order.TotalPris += ValdMaterial.PrisPerEnhet;
 
                     MessageBox.Show("✅ Materialet har lagts till orderraden.");

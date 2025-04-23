@@ -33,13 +33,15 @@
             btnLäggtill = new Button();
             label11 = new Label();
             label12 = new Label();
-            btnVisaBeställning = new Button();
             cbVäljHatt = new ComboBox();
             panelLagerHattar = new Panel();
+            listView2 = new ListView();
+            Matrial = new ColumnHeader();
+            Antal = new ColumnHeader();
+            textBox2 = new TextBox();
+            listBox3 = new ListBox();
             label4 = new Label();
-            comboBox2 = new ComboBox();
-            comboBox1 = new ComboBox();
-            listBox2 = new ListBox();
+            cbStorlek = new ComboBox();
             label3 = new Label();
             button5 = new Button();
             panelSpecHattar = new Panel();
@@ -53,6 +55,8 @@
             richTextBox1 = new RichTextBox();
             button3 = new Button();
             listView1 = new ListView();
+            columnHeader1 = new ColumnHeader();
+            columnHeader2 = new ColumnHeader();
             textBox1 = new TextBox();
             listBox1 = new ListBox();
             button6 = new Button();
@@ -60,7 +64,6 @@
             Typ = new ColumnHeader();
             Modell = new ColumnHeader();
             Storlek = new ColumnHeader();
-            lblTotal = new Label();
             menuStrip1 = new MenuStrip();
             tillbakaToolStripMenuItem = new ToolStripMenuItem();
             panel1 = new Panel();
@@ -69,6 +72,7 @@
             txtEnhet = new TextBox();
             txtFarg = new TextBox();
             txtNamn = new TextBox();
+            button4 = new Button();
             ((System.ComponentModel.ISupportInitialize)pbReferens).BeginInit();
             panelLagerHattar.SuspendLayout();
             panelSpecHattar.SuspendLayout();
@@ -109,9 +113,10 @@
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(26, 23);
+            label11.Font = new Font("Segoe UI", 15F);
+            label11.Location = new Point(26, 13);
             label11.Name = "label11";
-            label11.Size = new Size(198, 32);
+            label11.Size = new Size(330, 54);
             label11.TabIndex = 21;
             label11.Text = "Skapa specialhatt";
             // 
@@ -126,23 +131,13 @@
             label12.Text = "Lägg till hattmodell";
             label12.Click += label12_Click;
             // 
-            // btnVisaBeställning
-            // 
-            btnVisaBeställning.Location = new Point(1800, 1343);
-            btnVisaBeställning.Name = "btnVisaBeställning";
-            btnVisaBeställning.Size = new Size(294, 46);
-            btnVisaBeställning.TabIndex = 23;
-            btnVisaBeställning.Text = "Visa beställning";
-            btnVisaBeställning.UseVisualStyleBackColor = true;
-            btnVisaBeställning.Click += btnVisaBeställning_Click;
-            // 
             // cbVäljHatt
             // 
             cbVäljHatt.FormattingEnabled = true;
             cbVäljHatt.Location = new Point(450, 117);
             cbVäljHatt.Margin = new Padding(5);
             cbVäljHatt.Name = "cbVäljHatt";
-            cbVäljHatt.Size = new Size(362, 40);
+            cbVäljHatt.Size = new Size(277, 40);
             cbVäljHatt.TabIndex = 26;
             cbVäljHatt.Text = "Hattmodell";
             cbVäljHatt.SelectedIndexChanged += cbVäljHatt_SelectedIndexChanged;
@@ -151,10 +146,11 @@
             // 
             panelLagerHattar.BackColor = SystemColors.ActiveCaption;
             panelLagerHattar.BorderStyle = BorderStyle.Fixed3D;
+            panelLagerHattar.Controls.Add(listView2);
+            panelLagerHattar.Controls.Add(textBox2);
+            panelLagerHattar.Controls.Add(listBox3);
             panelLagerHattar.Controls.Add(label4);
-            panelLagerHattar.Controls.Add(comboBox2);
-            panelLagerHattar.Controls.Add(comboBox1);
-            panelLagerHattar.Controls.Add(listBox2);
+            panelLagerHattar.Controls.Add(cbStorlek);
             panelLagerHattar.Controls.Add(label12);
             panelLagerHattar.Controls.Add(label3);
             panelLagerHattar.Controls.Add(cbVäljHatt);
@@ -167,44 +163,68 @@
             panelLagerHattar.TabIndex = 27;
             panelLagerHattar.Paint += panelLagerHattar_Paint;
             // 
+            // listView2
+            // 
+            listView2.Columns.AddRange(new ColumnHeader[] { Matrial, Antal });
+            listView2.Location = new Point(1071, 117);
+            listView2.Margin = new Padding(5, 6, 5, 6);
+            listView2.Name = "listView2";
+            listView2.Size = new Size(272, 327);
+            listView2.TabIndex = 32;
+            listView2.UseCompatibleStateImageBehavior = false;
+            // 
+            // Matrial
+            // 
+            Matrial.Text = "Matrial";
+            Matrial.Width = 100;
+            // 
+            // Antal
+            // 
+            Antal.Text = "Antal";
+            Antal.Width = 40;
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(450, 402);
+            textBox2.Margin = new Padding(5);
+            textBox2.Name = "textBox2";
+            textBox2.PlaceholderText = "Antal";
+            textBox2.Size = new Size(455, 39);
+            textBox2.TabIndex = 48;
+            // 
+            // listBox3
+            // 
+            listBox3.FormattingEnabled = true;
+            listBox3.Location = new Point(450, 222);
+            listBox3.Margin = new Padding(5, 6, 5, 6);
+            listBox3.Name = "listBox3";
+            listBox3.Size = new Size(596, 164);
+            listBox3.TabIndex = 47;
+            // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(844, 64);
+            label4.Location = new Point(1071, 69);
             label4.Name = "label4";
             label4.Size = new Size(202, 32);
             label4.TabIndex = 46;
             label4.Text = "Adderade matrial:";
             // 
-            // comboBox2
+            // cbStorlek
             // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(450, 314);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(362, 40);
-            comboBox2.TabIndex = 45;
-            // 
-            // comboBox1
-            // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(450, 194);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(362, 40);
-            comboBox1.TabIndex = 44;
-            comboBox1.Text = "Storlek";
-            // 
-            // listBox2
-            // 
-            listBox2.FormattingEnabled = true;
-            listBox2.Location = new Point(844, 117);
-            listBox2.Name = "listBox2";
-            listBox2.Size = new Size(497, 324);
-            listBox2.TabIndex = 43;
+            cbStorlek.FormattingEnabled = true;
+            cbStorlek.Items.AddRange(new object[] { "XS", "S", "M", "L", "XL" });
+            cbStorlek.Location = new Point(756, 117);
+            cbStorlek.Name = "cbStorlek";
+            cbStorlek.Size = new Size(298, 40);
+            cbStorlek.TabIndex = 44;
+            cbStorlek.Text = "Storlek";
+            cbStorlek.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(450, 279);
+            label3.Location = new Point(450, 183);
             label3.Name = "label3";
             label3.Size = new Size(149, 32);
             label3.TabIndex = 40;
@@ -212,7 +232,7 @@
             // 
             // button5
             // 
-            button5.Location = new Point(692, 372);
+            button5.Location = new Point(926, 398);
             button5.Name = "button5";
             button5.Size = new Size(120, 46);
             button5.TabIndex = 39;
@@ -345,12 +365,23 @@
             // 
             // listView1
             // 
+            listView1.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2 });
             listView1.Location = new Point(1071, 120);
             listView1.Margin = new Padding(5, 6, 5, 6);
             listView1.Name = "listView1";
             listView1.Size = new Size(272, 282);
             listView1.TabIndex = 27;
             listView1.UseCompatibleStateImageBehavior = false;
+            // 
+            // columnHeader1
+            // 
+            columnHeader1.Text = "Matrial";
+            columnHeader1.Width = 100;
+            // 
+            // columnHeader2
+            // 
+            columnHeader2.Text = "Antal";
+            columnHeader2.Width = 40;
             // 
             // textBox1
             // 
@@ -409,15 +440,6 @@
             Storlek.Text = "Storlek";
             Storlek.Width = 100;
             // 
-            // lblTotal
-            // 
-            lblTotal.AutoSize = true;
-            lblTotal.Location = new Point(1470, 588);
-            lblTotal.Name = "lblTotal";
-            lblTotal.Size = new Size(78, 32);
-            lblTotal.TabIndex = 30;
-            lblTotal.Text = "label1";
-            // 
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(32, 32);
@@ -425,7 +447,7 @@
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(6, 3, 0, 3);
-            menuStrip1.Size = new Size(2213, 42);
+            menuStrip1.Size = new Size(2051, 42);
             menuStrip1.TabIndex = 31;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -496,18 +518,28 @@
             txtNamn.Size = new Size(183, 39);
             txtNamn.TabIndex = 41;
             // 
+            // button4
+            // 
+            button4.BackColor = SystemColors.ButtonHighlight;
+            button4.Location = new Point(1571, 579);
+            button4.Name = "button4";
+            button4.Size = new Size(343, 56);
+            button4.TabIndex = 32;
+            button4.Text = "Slutför Beställning";
+            button4.UseVisualStyleBackColor = false;
+            button4.Click += button4_Click;
+            // 
             // LaggTillLagerhattar
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
-            ClientSize = new Size(2213, 1217);
+            ClientSize = new Size(2051, 1214);
+            Controls.Add(button4);
             Controls.Add(panel1);
-            Controls.Add(lblTotal);
             Controls.Add(lvBeställningar);
             Controls.Add(panelSpecHattar);
             Controls.Add(panelLagerHattar);
-            Controls.Add(btnVisaBeställning);
             Controls.Add(lblNamn);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
@@ -536,7 +568,6 @@
         private Button btnLäggtill;
         private Label label11;
         private Label label12;
-        private Button btnVisaBeställning;
         private ComboBox cbVäljHatt;
         private Panel panelLagerHattar;
         private Panel panelSpecHattar;
@@ -544,7 +575,6 @@
         private ColumnHeader Typ;
         private ColumnHeader Modell;
         private ColumnHeader Storlek;
-        private Label lblTotal;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem tillbakaToolStripMenuItem;
         private ListBox listBox1;
@@ -564,13 +594,19 @@
         private Button buttonRefBild;
         private PictureBox pictureBox1;
         private Button button1;
-        private ListBox listBox2;
         private Label label3;
         private Button button5;
-        private ComboBox comboBox2;
-        private ComboBox comboBox1;
+        private ComboBox cbStorlek;
         private Label label4;
         private Label label5;
         private ComboBox comboBox4;
+        private TextBox textBox2;
+        private ListBox listBox3;
+        private ListView listView2;
+        private ColumnHeader Matrial;
+        private ColumnHeader Antal;
+        private ColumnHeader columnHeader1;
+        private ColumnHeader columnHeader2;
+        private Button button4;
     }
 }
