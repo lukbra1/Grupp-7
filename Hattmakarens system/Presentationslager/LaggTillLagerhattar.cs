@@ -347,18 +347,38 @@ namespace Hattmakarens_system.Presentationslager
 
         private void button4_Click(object sender, EventArgs e)
         {
-            var resultat = MessageBox.Show(
-                "Är du klar med beställningen?",
-                "Bekräfta",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question
-                );
-
-            if (resultat == DialogResult.Yes)
+            if (lvBeställningar.Items.Count > 0)
             {
-                klickatVidareKnapp = true;
-                this.Close();
-                Program.homepage.Show();
+                var resultat = MessageBox.Show(
+                    "Är du klar med beställningen?",
+                    "Bekräfta",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question
+                    );
+
+                if (resultat == DialogResult.Yes)
+                {
+                    klickatVidareKnapp = true;
+                    this.Close();
+                    Program.homepage.Show();
+                }
+            }
+            else
+            {
+                var fråga = MessageBox.Show(
+                    "Beställningen saknar hattar, vill du avbryta och ta bort beställningen?",
+                    "Bekräfta",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question
+                    );
+                if (fråga == DialogResult.Yes)
+                {
+                    _orderController.TaBortTomOrder(Ordern);
+                    klickatVidareKnapp = true;
+                    this.Close();
+                    Program.homepage.Show();
+
+                }
             }
 
         }
