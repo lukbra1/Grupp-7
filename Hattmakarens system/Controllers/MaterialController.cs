@@ -78,5 +78,20 @@ namespace Hattmakarens_system.Controllers
             }
 
         }
+
+        public MaterialOrderrad NyMaterialOrderrad(Material material, OrderRad orderrad, int antalMaterial)
+        {
+
+            MaterialOrderrad MaterialOrderrad = new MaterialOrderrad
+            {
+                Material = material,
+                OrderRad = orderrad,
+                AntalMaterial = antalMaterial,
+                Bestallt = false,
+            };
+
+            return MaterialOrderrad;
+
+        }
     }
 }

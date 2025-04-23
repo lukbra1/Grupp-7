@@ -21,7 +21,6 @@ namespace Hattmakarens_system.Presentationslager
         private readonly AppDbContext _context;
         private readonly OrderController _orderController;
         private readonly SpecialController _specialController;
-        private readonly Material_OrderradController _materialOrderradController;
         private readonly MaterialController _materialController;
         private bool klickatVidareKnapp = false;
         public LaggTillLagerhattar(Order Order)
@@ -30,7 +29,6 @@ namespace Hattmakarens_system.Presentationslager
             _context = new AppDbContext();
             _orderController = new OrderController(_context);
             _specialController = new SpecialController(_context);
-            _materialOrderradController = new Material_OrderradController(_context);
             _materialController = new MaterialController(_context);
             this.Ordern = Order;
 
@@ -167,20 +165,6 @@ namespace Hattmakarens_system.Presentationslager
             LaddaOrderrader();
         }
 
-        private void btnVisaBeställning_Click(object sender, EventArgs e)
-        {
-            var beställningsForm = new Beställning(Ordern);
-            beställningsForm.Show();
-            this.Hide();
-        }
-
-        private void btnSpec_Click(object sender, EventArgs e)
-        {
-            var SpecialBeställning = new Specialbeställning(Ordern);
-            SpecialBeställning.Show();
-            this.Hide();
-        }
-
         private void tillbakaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             klickatVidareKnapp = true;
@@ -224,7 +208,7 @@ namespace Hattmakarens_system.Presentationslager
                 var material = _context.Material.FirstOrDefault(m => m.Namn == materialnamn);
                 if (material != null)
                 {
-                    var materialOrderrad = _materialOrderradController.NyMaterialOrderrad(material, specialOrderrad, antal);
+                    var materialOrderrad = _materialController.NyMaterialOrderrad(material, specialOrderrad, antal);
                     _context.MaterialOrderrader.Add(materialOrderrad);
                 }
             }
