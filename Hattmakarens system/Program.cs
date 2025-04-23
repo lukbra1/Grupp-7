@@ -21,7 +21,7 @@ namespace Hattmakarens_system
                 }
             );
             //var loggaInGränsnittt = new LoggaInGränsnittt();
-            //Application.Run(loggaInGränsnittt);
+            //Application.Run(new LoggaInGränsnittt());
             Application.Run(homepage);
         }
     }

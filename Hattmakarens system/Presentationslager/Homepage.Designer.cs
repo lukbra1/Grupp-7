@@ -42,14 +42,12 @@ namespace Hattmakarens_system
             minaSidorToolStripMenuItem1 = new ToolStripMenuItem();
             minaUppgifterToolStripMenuItem = new ToolStripMenuItem();
             mittSchemaToolStripMenuItem = new ToolStripMenuItem();
+            hanteraKunderToolStripMenuItem = new ToolStripMenuItem();
             hanteraMedarbetareToolStripMenuItem = new ToolStripMenuItem();
             loggaUtToolStripMenuItem1 = new ToolStripMenuItem();
             monthCalendar1 = new MonthCalendar();
             listBoxDagens = new ListView();
             richTextBoxVecka = new RichTextBox();
-            label1 = new Label();
-            btnLäggTill = new Button();
-            textBoxUppgift = new TextBox();
             btnVeckoöversikt = new Button();
             label2 = new Label();
             label3 = new Label();
@@ -57,17 +55,20 @@ namespace Hattmakarens_system
             sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
             ordrarList = new ListView();
             label5 = new Label();
-            hanteraKunderToolStripMenuItem = new ToolStripMenuItem();
+            lvOrderRadLista = new ListView();
+            OrderId = new ColumnHeader();
+            Kund = new ColumnHeader();
+            Datum = new ColumnHeader();
             menuStrip2.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(32, 32);
-            menuStrip1.Location = new Point(0, 44);
+            menuStrip1.Location = new Point(0, 42);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(8, 3, 0, 3);
-            menuStrip1.Size = new Size(1924, 24);
+            menuStrip1.Size = new Size(2613, 24);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -78,7 +79,7 @@ namespace Hattmakarens_system
             menuStrip2.Location = new Point(0, 0);
             menuStrip2.Name = "menuStrip2";
             menuStrip2.Padding = new Padding(8, 3, 0, 3);
-            menuStrip2.Size = new Size(1924, 44);
+            menuStrip2.Size = new Size(2613, 42);
             menuStrip2.TabIndex = 1;
             menuStrip2.Text = "menuStrip2";
             // 
@@ -86,7 +87,7 @@ namespace Hattmakarens_system
             // 
             beställningarToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { beställningarToolStripMenuItem1, marealLagerToolStripMenuItem, statistikToolStripMenuItem1, minaSidorToolStripMenuItem1, hanteraKunderToolStripMenuItem, hanteraMedarbetareToolStripMenuItem, loggaUtToolStripMenuItem1 });
             beställningarToolStripMenuItem.Name = "beställningarToolStripMenuItem";
-            beställningarToolStripMenuItem.Size = new Size(56, 38);
+            beställningarToolStripMenuItem.Size = new Size(56, 36);
             beställningarToolStripMenuItem.Text = "☰";
             // 
             // beställningarToolStripMenuItem1
@@ -155,6 +156,13 @@ namespace Hattmakarens_system
             mittSchemaToolStripMenuItem.Size = new Size(307, 44);
             mittSchemaToolStripMenuItem.Text = "Mitt schema";
             // 
+            // hanteraKunderToolStripMenuItem
+            // 
+            hanteraKunderToolStripMenuItem.Name = "hanteraKunderToolStripMenuItem";
+            hanteraKunderToolStripMenuItem.Size = new Size(374, 44);
+            hanteraKunderToolStripMenuItem.Text = "Hantera kunder";
+            hanteraKunderToolStripMenuItem.Click += hanteraKunderToolStripMenuItem_Click;
+            // 
             // hanteraMedarbetareToolStripMenuItem
             // 
             hanteraMedarbetareToolStripMenuItem.Name = "hanteraMedarbetareToolStripMenuItem";
@@ -171,7 +179,7 @@ namespace Hattmakarens_system
             // 
             // monthCalendar1
             // 
-            monthCalendar1.Location = new Point(1279, 184);
+            monthCalendar1.Location = new Point(1756, 176);
             monthCalendar1.Margin = new Padding(10, 8, 10, 8);
             monthCalendar1.Name = "monthCalendar1";
             monthCalendar1.TabIndex = 3;
@@ -179,7 +187,7 @@ namespace Hattmakarens_system
             // 
             // listBoxDagens
             // 
-            listBoxDagens.Location = new Point(1729, 184);
+            listBoxDagens.Location = new Point(2203, 176);
             listBoxDagens.Margin = new Padding(3, 5, 3, 5);
             listBoxDagens.Name = "listBoxDagens";
             listBoxDagens.Size = new Size(324, 593);
@@ -188,44 +196,16 @@ namespace Hattmakarens_system
             // 
             // richTextBoxVecka
             // 
-            richTextBoxVecka.Location = new Point(705, 142);
+            richTextBoxVecka.Location = new Point(1195, 176);
             richTextBoxVecka.Margin = new Padding(3, 5, 3, 5);
             richTextBoxVecka.Name = "richTextBoxVecka";
             richTextBoxVecka.Size = new Size(504, 627);
             richTextBoxVecka.TabIndex = 5;
             richTextBoxVecka.Text = "";
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(1279, 621);
-            label1.Name = "label1";
-            label1.Size = new Size(216, 32);
-            label1.TabIndex = 7;
-            label1.Text = "Lägg till ny uppgift";
-            // 
-            // btnLäggTill
-            // 
-            btnLäggTill.Location = new Point(1531, 730);
-            btnLäggTill.Margin = new Padding(3, 5, 3, 5);
-            btnLäggTill.Name = "btnLäggTill";
-            btnLäggTill.Size = new Size(148, 46);
-            btnLäggTill.TabIndex = 8;
-            btnLäggTill.Text = "Lägg till";
-            btnLäggTill.UseVisualStyleBackColor = true;
-            btnLäggTill.Click += btnLäggTill_Click;
-            // 
-            // textBoxUppgift
-            // 
-            textBoxUppgift.Location = new Point(1279, 675);
-            textBoxUppgift.Margin = new Padding(3, 5, 3, 5);
-            textBoxUppgift.Name = "textBoxUppgift";
-            textBoxUppgift.Size = new Size(404, 39);
-            textBoxUppgift.TabIndex = 9;
-            // 
             // btnVeckoöversikt
             // 
-            btnVeckoöversikt.Location = new Point(1082, 781);
+            btnVeckoöversikt.Location = new Point(2038, 723);
             btnVeckoöversikt.Margin = new Padding(3, 5, 3, 5);
             btnVeckoöversikt.Name = "btnVeckoöversikt";
             btnVeckoöversikt.Size = new Size(148, 46);
@@ -237,7 +217,7 @@ namespace Hattmakarens_system
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(705, 105);
+            label2.Location = new Point(1195, 130);
             label2.Name = "label2";
             label2.Size = new Size(188, 32);
             label2.TabIndex = 11;
@@ -246,7 +226,7 @@ namespace Hattmakarens_system
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(1279, 142);
+            label3.Location = new Point(1756, 130);
             label3.Name = "label3";
             label3.Size = new Size(98, 32);
             label3.TabIndex = 12;
@@ -255,7 +235,7 @@ namespace Hattmakarens_system
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(1729, 142);
+            label4.Location = new Point(2203, 130);
             label4.Name = "label4";
             label4.Size = new Size(277, 32);
             label4.TabIndex = 13;
@@ -268,8 +248,9 @@ namespace Hattmakarens_system
             // 
             // ordrarList
             // 
+            ordrarList.Columns.AddRange(new ColumnHeader[] { OrderId, Kund, Datum });
             ordrarList.Location = new Point(94, 142);
-            ordrarList.Margin = new Padding(4, 4, 4, 4);
+            ordrarList.Margin = new Padding(4);
             ordrarList.Name = "ordrarList";
             ordrarList.Size = new Size(580, 627);
             ordrarList.TabIndex = 14;
@@ -286,28 +267,44 @@ namespace Hattmakarens_system
             label5.TabIndex = 15;
             label5.Text = "Ordrar";
             // 
-            // hanteraKunderToolStripMenuItem
+            // lvOrderRadLista
             // 
-            hanteraKunderToolStripMenuItem.Name = "hanteraKunderToolStripMenuItem";
-            hanteraKunderToolStripMenuItem.Size = new Size(374, 44);
-            hanteraKunderToolStripMenuItem.Text = "Hantera kunder";
-            hanteraKunderToolStripMenuItem.Click += hanteraKunderToolStripMenuItem_Click;
+            lvOrderRadLista.Location = new Point(690, 142);
+            lvOrderRadLista.Name = "lvOrderRadLista";
+            lvOrderRadLista.Size = new Size(368, 627);
+            lvOrderRadLista.TabIndex = 16;
+            lvOrderRadLista.UseCompatibleStateImageBehavior = false;
+            lvOrderRadLista.View = View.Details;
+            lvOrderRadLista.SelectedIndexChanged += lvOrderRadLista_SelectedIndexChanged;
+            // 
+            // OrderId
+            // 
+            OrderId.Text = "OrderId";
+            OrderId.Width = 100;
+            // 
+            // Kund
+            // 
+            Kund.Text = "Kund";
+            Kund.Width = 100;
+            // 
+            // Datum
+            // 
+            Datum.Text = "Datum";
+            Datum.Width = 100;
             // 
             // Homepage
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
-            ClientSize = new Size(1924, 883);
+            ClientSize = new Size(2613, 883);
+            Controls.Add(lvOrderRadLista);
             Controls.Add(label5);
             Controls.Add(ordrarList);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(btnVeckoöversikt);
-            Controls.Add(textBoxUppgift);
-            Controls.Add(btnLäggTill);
-            Controls.Add(label1);
             Controls.Add(richTextBoxVecka);
             Controls.Add(listBoxDagens);
             Controls.Add(monthCalendar1);
@@ -349,9 +346,6 @@ namespace Hattmakarens_system
         private MonthCalendar monthCalendar1;
         private ListView listBoxDagens;
         private RichTextBox richTextBoxVecka;
-        private Label label1;
-        private Button btnLäggTill;
-        private TextBox textBoxUppgift;
         private Button btnVeckoöversikt;
         private Label label2;
         private Label label3;
@@ -361,5 +355,9 @@ namespace Hattmakarens_system
         private ListView ordrarList;
         private Label label5;
         private ToolStripMenuItem hanteraKunderToolStripMenuItem;
+        private ListView lvOrderRadLista;
+        private ColumnHeader OrderId;
+        private ColumnHeader Kund;
+        private ColumnHeader Datum;
     }
 }

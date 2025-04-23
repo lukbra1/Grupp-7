@@ -52,6 +52,16 @@ namespace Hattmakarens_system.Controllers
             return _context.Modeller.ToList();
         }
 
+        public List<Order> HämtaAllaOrdrarMedKund()
+        {
+            return _context.Ordrar
+                .Include(o => o.Kund)
+                .Include(o => o.OrderRader)
+                .ToList();
+        }
+
+
+
         public LagerOrderrad LäggTillLagerOrderrad(Order order, int modellId)
         {
             
@@ -90,5 +100,32 @@ namespace Hattmakarens_system.Controllers
             _context.Ordrar.Update(order);
             _context.SaveChanges();
         }
+
+        public void TilldelaOrderRad(OrderRad orderrad, int userId, DateTime datum)
+        {
+            orderrad.TilldeladOrder = true;
+            orderrad.UserId = userId;
+            orderrad.TilldelningsDatum = datum;
+            _context.Orderrader.Update(orderrad);
+            _context.SaveChanges();
+        }
+
+
+        public List<OrderRad> HämtaAllaOrderRaderTilldelade()
+        {
+            return _context.Orderrader
+                .Include(or => or.Order)
+                .ThenInclude(o => o.Kund)
+                .Where(or => or.TilldeladOrder && or.TilldelningsDatum != null)
+                .ToList();
+        }
+
+        public void UppdateraOrderRad(OrderRad orderrad)
+        {
+            _context.Orderrader.Update(orderrad);
+            _context.SaveChanges();
+        }
+
+
     }
 }

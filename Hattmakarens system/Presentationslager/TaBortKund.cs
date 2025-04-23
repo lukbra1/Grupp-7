@@ -67,8 +67,7 @@ namespace Hattmakarens_system.Presentationslager
         private void tillbakaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
-            var tillbaka = new Homepage();
-            tillbaka.Show();
+            Program.homepage.Show();
         }
 
         private void lstKunder_SelectedIndexChanged(object sender, EventArgs e)

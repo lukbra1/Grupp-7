@@ -6,27 +6,24 @@ using System.Windows.Forms;
 using Hattmakarens_system.ModelsNy;
 using Hattmakarens_system.Database;
 using Microsoft.EntityFrameworkCore;
+using Hattmakarens_system.Controllers;
 
 namespace Hattmakarens_system
 {
     public partial class Homepage : Form
     {
-        Dictionary<DateTime, List<string>> todoList = new Dictionary<DateTime, List<string>>();
-        private readonly AppDbContext _context = new AppDbContext();
         private User _currentUser;
-
-        // Dictionary för att koppla order till datum och användare
-        private Dictionary<int, Dictionary<DateTime, User>> orderTilldelningar = new Dictionary<int, Dictionary<DateTime, User>>();
+        private readonly AppDbContext _context = new AppDbContext();
+        private readonly OrderController orderController;
+        private readonly KundController kundController;
+        private Dictionary<DateTime, List<string>> todoList = new();
 
         public Homepage(User user)
         {
             InitializeComponent();
             _currentUser = user;
-        }
-
-        public Homepage()
-        {
-            InitializeComponent();
+            orderController = new OrderController(_context);
+            kundController = new KundController(_context);
         }
 
         private void Homepage_Load(object sender, EventArgs e)
@@ -34,17 +31,15 @@ namespace Hattmakarens_system
             monthCalendar1.SelectionStart = DateTime.Today;
             monthCalendar1.SelectionEnd = DateTime.Today;
 
-            LaddaTilldelningar();
-            UppdateraVeckooversikt(DateTime.Today);
-
-            if (_currentUser != null && !_currentUser.Behorighet)
-            {
+            if (_currentUser is { Behorighet: false })
                 hanteraMedarbetareToolStripMenuItem.Visible = false;
-            }
 
             InitializeListView();
             LaddaAllaOrdrar();
+            ordrarList.SelectedIndexChanged += ordrarList_SelectedIndexChanged;
 
+            LaddaTilldeladeOrderrader();
+            UppdateraVeckooversikt(DateTime.Today);
         }
 
         private void InitializeListView()
@@ -60,152 +55,94 @@ namespace Hattmakarens_system
             ordrarList.View = View.Details;
             ordrarList.FullRowSelect = true;
             ordrarList.MultiSelect = true;
+
+            lvOrderRadLista.Columns.Add("OrderRadId", 80);
+            lvOrderRadLista.Columns.Add("Typ", 80);
+            lvOrderRadLista.Columns.Add("Storlek", 80);
+            lvOrderRadLista.Columns.Add("Status", 100);
+            lvOrderRadLista.Columns.Add("Tilldelad", 80);
+            lvOrderRadLista.Columns.Add("Pris", 80);
+
         }
 
         private void LaddaAllaOrdrar()
         {
-            var ordrar = _context.Ordrar
-                .Include(o => o.Kund)
-                 .Where(o => o.Kund != null && o.Kund.Aktiv)
+            var ordrar = orderController.HämtaAllaOrdrarMedKund()
+                .Where(o => o.Kund != null && o.Kund.Aktiv)
                 .OrderBy(o => o.OrderId)
                 .ToList();
 
-            if (ordrar.Count == 0)
-            {
-                MessageBox.Show("Inga ordrar hittades.");
-            }
+            ordrarList.Items.Clear();
 
             foreach (var order in ordrar)
             {
                 var item = new ListViewItem(order.OrderId.ToString());
-                var kundnamn = order.Kund != null ? $"{order.Kund.Fornamn} {order.Kund.Efternamn}" : "Okänd kund";
-                item.SubItems.Add(kundnamn);
+                item.SubItems.Add($"{order.Kund.Fornamn} {order.Kund.Efternamn}");
                 item.SubItems.Add(order.Skapad.ToShortDateString());
                 item.SubItems.Add(order.Express ? "Ja" : "Nej");
-
+                item.Tag = order;
                 ordrarList.Items.Add(item);
             }
         }
 
-        private void UppdateraVeckooversikt(DateTime selectedDate)
+        private void ordrarList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            listBoxDagens.Items.Clear();
-            if (todoList.ContainsKey(selectedDate))
+            lvOrderRadLista.Items.Clear();
+            if (ordrarList.SelectedItems.Count == 0) return;
+
+            int orderId = int.Parse(ordrarList.SelectedItems[0].Text);
+            var order = orderController.HämtaAllaOrdrarMedKund().FirstOrDefault(o => o.OrderId == orderId);
+            if (order == null) return;
+
+            var orderrader = orderController.HämtaAllaOrderRader(order);
+            foreach (var rad in orderrader)
             {
-                foreach (var task in todoList[selectedDate])
-                {
-                    listBoxDagens.Items.Add(task);
-                }
+                var item = new ListViewItem(rad.OrderRadId.ToString());
+                item.SubItems.Add(rad.TypEnum.ToString());
+                item.SubItems.Add(rad.Storlek.ToString());
+                item.SubItems.Add(rad.StatusOrderrad.ToString());
+                item.SubItems.Add(rad.TilldeladOrder ? "Ja" : "Nej");
+                item.SubItems.Add(rad.pris.HasValue ? $"{rad.pris.Value} kr" : "Ingen");
+                item.Tag = rad;
+                lvOrderRadLista.Items.Add(item);
             }
-
-            DateTime startOfWeek = selectedDate.AddDays(-(int)selectedDate.DayOfWeek + 1);
-            richTextBoxVecka.Clear();
-
-            for (int i = 0; i < 7; i++)
-            {
-                DateTime day = startOfWeek.AddDays(i);
-                richTextBoxVecka.AppendText($"📅 {day:dddd (d MMMM)}\n");
-
-                if (todoList.ContainsKey(day))
-                {
-                    foreach (string task in todoList[day])
-                    {
-                        richTextBoxVecka.AppendText($" - {task}\n");
-                    }
-                }
-                else
-                {
-                    richTextBoxVecka.AppendText(" (Inga uppgifter)\n");
-                }
-
-                richTextBoxVecka.AppendText("\n");
-            }
-        }
-
-        private void btnLäggTill_Click(object sender, EventArgs e)
-        {
-            DateTime selectedDate = monthCalendar1.SelectionStart.Date;
-            string task = textBoxUppgift.Text.Trim();
-
-            if (string.IsNullOrEmpty(task)) return;
-
-            if (!todoList.ContainsKey(selectedDate))
-            {
-                todoList[selectedDate] = new List<string>();
-            }
-
-            todoList[selectedDate].Add(task);
-            listBoxDagens.Items.Add(task);
-            textBoxUppgift.Clear();
         }
 
         private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
         {
-            DateTime selectedDate = monthCalendar1.SelectionStart.Date;
+            var selectedDate = monthCalendar1.SelectionStart.Date;
 
-            // Tilldela order till datum om något är valt
-            if (ordrarList.SelectedItems.Count > 0)
+            if (ordrarList.SelectedItems.Count == 0) return;
+
+            foreach (ListViewItem item in ordrarList.SelectedItems)
             {
-                foreach (ListViewItem item in ordrarList.SelectedItems)
+                string orderText = $" Order #{item.SubItems[0].Text} – {item.SubItems[1].Text}";
+                if (!todoList.ContainsKey(selectedDate))
+                    todoList[selectedDate] = new List<string>();
+
+                if (!todoList[selectedDate].Contains(orderText))
+                    todoList[selectedDate].Add(orderText);
+
+                // Tilldela orderrad
+                int orderId = int.Parse(item.SubItems[0].Text);
+                var order = orderController.HämtaAllaOrdrarMedKund().FirstOrDefault(o => o.OrderId == orderId);
+                var orderrad = order?.OrderRader?.FirstOrDefault(or => !or.TilldeladOrder);
+
+                if (orderrad != null)
                 {
-                    string orderText = $"🧵 Order #{item.SubItems[0].Text} – {item.SubItems[1].Text}";
+                    orderController.TilldelaOrderRad(orderrad, _currentUser.UserId, selectedDate);
 
-                    if (!todoList.ContainsKey(selectedDate))
-                    {
-                        todoList[selectedDate] = new List<string>();
-                    }
-
-                    if (!todoList[selectedDate].Contains(orderText))
-                    {
-                        todoList[selectedDate].Add(orderText);
-                    }
-
-                    // Hämta orderrad från databasen
-                    int orderId = int.Parse(item.SubItems[0].Text);
-                    var orderrad = _context.Orderrader
-                        .FirstOrDefault(or => or.OrderId == orderId && !or.TilldeladOrder);
-
-                    if (orderrad != null)
-                    {
-                        orderrad.TilldeladOrder = true;  // Markera orderrad som tilldelad
-                        orderrad.UserId = _currentUser.UserId;  // Koppla orderrad till den aktuella användaren
-                        orderrad.TilldelningsDatum = selectedDate;  // Sätt tilldelningsdatum till valt datum
-                        _context.Orderrader.Update(orderrad);
-
-                        try
-                        {
-                            _context.SaveChanges();
-                            Console.WriteLine("Ändringen sparades");
-                        }
-                        catch (Exception ex)
-                        {
-                            Console.WriteLine($"Fel vid sparande");
-                        }
-                    }
-
-                    // Ta bort order från listan
-                    var itemToRemove = ordrarList.Items.Cast<ListViewItem>()
-                        .FirstOrDefault(i => i.Text == item.SubItems[0].Text);
-                    if (itemToRemove != null)
-                    {
-                        ordrarList.Items.Remove(itemToRemove);
-                    }
                 }
 
-                ordrarList.SelectedItems.Clear(); // Avmarkera efter tilldelning
+                // Ta bort från listan
+                ordrarList.Items.Remove(item);
             }
 
-            // Visa dagens uppgifter
             listBoxDagens.Items.Clear();
-            if (todoList.ContainsKey(selectedDate))
-            {
-                foreach (var task in todoList[selectedDate])
-                {
-                    listBoxDagens.Items.Add(task);
-                }
-            }
-
-
+            foreach (var task in todoList[selectedDate])
+                listBoxDagens.Items.Add(task);
+            UppdateraVeckooversikt(selectedDate);
+            
 
 
         }
@@ -214,20 +151,40 @@ namespace Hattmakarens_system
         {
             DateTime selectedDate = monthCalendar1.SelectionStart.Date;
             DateTime startOfWeek = selectedDate.AddDays(-(int)selectedDate.DayOfWeek + 1);
-
             richTextBoxVecka.Clear();
 
             for (int i = 0; i < 7; i++)
             {
-                DateTime day = startOfWeek.AddDays(i);
+                var day = startOfWeek.AddDays(i);
                 richTextBoxVecka.AppendText($"📅 {day:dddd (d MMMM)}\n");
 
                 if (todoList.ContainsKey(day))
                 {
-                    foreach (string task in todoList[day])
-                    {
+                    foreach (var task in todoList[day])
                         richTextBoxVecka.AppendText($" - {task}\n");
-                    }
+                }
+                else
+                {
+                    richTextBoxVecka.AppendText(" (Inga uppgifter)\n");
+                }
+                richTextBoxVecka.AppendText("\n");
+            }
+        }
+
+        private void UppdateraVeckooversikt(DateTime selectedDate)
+        {
+            DateTime start = selectedDate.AddDays(-(int)selectedDate.DayOfWeek + 1);
+            richTextBoxVecka.Clear();
+
+            for (int i = 0; i < 7; i++)
+            {
+                DateTime dag = start.AddDays(i);
+                richTextBoxVecka.AppendText($"📅{dag:dddd (d MMMM)}\n");
+
+                if (todoList.TryGetValue(dag, out var tasks))
+                {
+                    foreach (var t in tasks)
+                        richTextBoxVecka.AppendText($" - {t}\n");
                 }
                 else
                 {
@@ -235,20 +192,6 @@ namespace Hattmakarens_system
                 }
 
                 richTextBoxVecka.AppendText("\n");
-            }
-        }
-
-        private void VisaEjPåbörjadeOrderRader()
-        {
-            var rader = _context.Orderrader
-                .Include(or => or.Order)
-                .Where(or => or.StatusOrderrad == StatusOrderradEnum.EjPaborjad)
-                .ToList();
-
-            ordrarList.Items.Clear();
-            foreach (var rad in rader)
-            {
-                ordrarList.Items.Add($"Order #{rad.OrderId} – Rad {rad.OrderRadId}: {rad.TypEnum} ({rad.Storlek})");
             }
         }
 
@@ -291,43 +234,6 @@ namespace Hattmakarens_system
             materialForm.Show();
         }
 
-        private void LaddaTilldelningar()
-        {
-            var tilldelade = _context.Orderrader
-         .Include(or => or.Order)
-         .ThenInclude(o => o.Kund)
-
-         .Where(or => or.TilldeladOrder && or.TilldelningsDatum != null)
-         .ToList();
-
-            foreach (var rad in tilldelade)
-            {
-                var datum = rad.TilldelningsDatum.Value.Date;
-                string kundNamn = rad.Order?.Kund != null ? $"{rad.Order.Kund.Fornamn} {rad.Order.Kund.Efternamn}" : "Okänd kund";
-                string uppgift = $"🧵 Order #{rad.OrderId} – {kundNamn}";
-
-                if (!todoList.ContainsKey(datum))
-                {
-                    todoList[datum] = new List<string>();
-                }
-
-                if (!todoList[datum].Contains(uppgift))
-                {
-                    todoList[datum].Add(uppgift);
-                }
-
-
-                // Uppdatera hela veckan, inte bara dagens datum
-                UppdateraVeckooversikt(DateTime.Today); // Uppdatera för alla dagar i veckan
-            }
-
-            // Lägg till debug-logg för att verifiera att data läggs till i todoList
-            Console.WriteLine("Laddade tilldelningar:");
-            foreach (var datum in todoList.Keys)
-            {
-                Console.WriteLine($"Datum: {datum.ToShortDateString()}, Uppgifter: {string.Join(", ", todoList[datum])}");
-            }
-        }
 
         private void hanteraKunderToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -335,5 +241,30 @@ namespace Hattmakarens_system
             TaBortKund.Show();
             this.Hide();
         }
+
+       
+        private void lvOrderRadLista_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LaddaTilldeladeOrderrader()
+        {
+            var tilldelade = orderController.HämtaAllaOrderRaderTilldelade();
+
+            foreach (var rad in tilldelade)
+            {
+                var datum = rad.TilldelningsDatum?.Date ?? DateTime.Today;
+                string kundNamn = rad.Order?.Kund != null ? $"{rad.Order.Kund.Fornamn} {rad.Order.Kund.Efternamn}" : "Okänd kund";
+                string uppgift = $"🧵 Order #{rad.OrderId} – {kundNamn}";
+
+                if (!todoList.ContainsKey(datum))
+                    todoList[datum] = new List<string>();
+
+                if (!todoList[datum].Contains(uppgift))
+                    todoList[datum].Add(uppgift);
+            }
+        }
+
     }
 }
