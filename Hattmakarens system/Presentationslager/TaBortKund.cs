@@ -16,6 +16,7 @@ namespace Hattmakarens_system.Presentationslager
     public partial class TaBortKund : Form
     {
         static KundController Kundcontroller = new KundController(new AppDbContext());
+        private bool klickatVidareKnapp = false;
 
         public TaBortKund()
         {
@@ -27,12 +28,12 @@ namespace Hattmakarens_system.Presentationslager
         private void TaBortKund_Load(object sender, EventArgs e)
         {
             var kundLista = Kundcontroller.HämtaAllaKunder()
-        .Select(k => new
-        {
-            Namn = k.Fornamn + " " + k.Efternamn,
-            Kund = k
-        })
-        .ToList();
+                .Select(k => new
+                {
+                    Namn = k.Fornamn + " " + k.Efternamn,
+                    Kund = k
+                })
+                .ToList();
 
             lstKunder.DataSource = kundLista;
             lstKunder.DisplayMember = "Namn";
@@ -66,13 +67,17 @@ namespace Hattmakarens_system.Presentationslager
 
         private void tillbakaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
+            klickatVidareKnapp = true;
             Program.homepage.Show();
+            this.Close();
         }
 
-        private void lstKunder_SelectedIndexChanged(object sender, EventArgs e)
+        private void TaBortKund_FormClosed(object sender, FormClosedEventArgs e)
         {
-
+            if(!klickatVidareKnapp)
+            {
+                Program.homepage.Close();
+            }
         }
     }
 }
