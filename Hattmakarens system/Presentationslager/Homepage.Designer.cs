@@ -71,7 +71,7 @@ namespace Hattmakarens_system
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(32, 32);
-            menuStrip1.Location = new Point(0, 42);
+            menuStrip1.Location = new Point(0, 44);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(8, 3, 0, 3);
             menuStrip1.Size = new Size(2613, 24);
@@ -85,7 +85,7 @@ namespace Hattmakarens_system
             menuStrip2.Location = new Point(0, 0);
             menuStrip2.Name = "menuStrip2";
             menuStrip2.Padding = new Padding(8, 3, 0, 3);
-            menuStrip2.Size = new Size(2613, 42);
+            menuStrip2.Size = new Size(2613, 44);
             menuStrip2.TabIndex = 1;
             menuStrip2.Text = "menuStrip2";
             // 
@@ -93,7 +93,7 @@ namespace Hattmakarens_system
             // 
             beställningarToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { beställningarToolStripMenuItem1, marealLagerToolStripMenuItem, statistikToolStripMenuItem1, minaSidorToolStripMenuItem1, hanteraKunderToolStripMenuItem, hanteraMedarbetareToolStripMenuItem, loggaUtToolStripMenuItem1 });
             beställningarToolStripMenuItem.Name = "beställningarToolStripMenuItem";
-            beställningarToolStripMenuItem.Size = new Size(56, 36);
+            beställningarToolStripMenuItem.Size = new Size(56, 38);
             beställningarToolStripMenuItem.Text = "☰";
             // 
             // beställningarToolStripMenuItem1
@@ -134,14 +134,16 @@ namespace Hattmakarens_system
             // hattStatistikToolStripMenuItem
             // 
             hattStatistikToolStripMenuItem.Name = "hattStatistikToolStripMenuItem";
-            hattStatistikToolStripMenuItem.Size = new Size(290, 44);
+            hattStatistikToolStripMenuItem.Size = new Size(359, 44);
             hattStatistikToolStripMenuItem.Text = "Hatt statistik";
+            hattStatistikToolStripMenuItem.Click += hattStatistikToolStripMenuItem_Click;
             // 
             // kundStatistikToolStripMenuItem
             // 
             kundStatistikToolStripMenuItem.Name = "kundStatistikToolStripMenuItem";
-            kundStatistikToolStripMenuItem.Size = new Size(290, 44);
+            kundStatistikToolStripMenuItem.Size = new Size(359, 44);
             kundStatistikToolStripMenuItem.Text = "Kund statistik";
+            kundStatistikToolStripMenuItem.Click += kundStatistikToolStripMenuItem_Click;
             // 
             // minaSidorToolStripMenuItem1
             // 

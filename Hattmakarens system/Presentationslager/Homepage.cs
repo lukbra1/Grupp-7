@@ -124,7 +124,7 @@ namespace Hattmakarens_system
             foreach (var task in todoList[selectedDate])
                 listBoxDagens.Items.Add(task);
             UppdateraVeckooversikt(selectedDate);
-            
+
 
 
         }
@@ -224,7 +224,7 @@ namespace Hattmakarens_system
             this.Hide();
         }
 
-       
+
         private void lvOrderRadLista_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -248,5 +248,18 @@ namespace Hattmakarens_system
             }
         }
 
+        private void hattStatistikToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var öppna = new HattStatistik();
+            öppna.Show();
+        }
+
+        private void kundStatistikToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var öppna = new KundStatistik();
+            öppna.Show();
+        }
     }
 }
