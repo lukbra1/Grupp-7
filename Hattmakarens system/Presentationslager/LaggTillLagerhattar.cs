@@ -162,7 +162,9 @@ namespace Hattmakarens_system.Presentationslager
                     _materialController.LäggTillMaterialTillOrderRad(orderRadId, matrialId, antal);
                 }
             }
+            listView2.Items.Clear();
             LaddaOrderrader();
+            
         }
 
         private void tillbakaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -218,6 +220,7 @@ namespace Hattmakarens_system.Presentationslager
 
             // Uppdatera listan och visa bekräftelse (valfritt)
             LaddaOrderrader();
+            listView1.Items.Clear();
             MessageBox.Show("Specialbeställningen har sparats.", "Sparad", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
