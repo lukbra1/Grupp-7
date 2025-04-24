@@ -76,7 +76,7 @@ namespace Hattmakarens_system.Presentationslager
                     antalRubrik = "Quantité";
                     meddelande = "Merci pour votre commande ! Nous espérons que vous êtes satisfait de nos produits.\n\nSi vous avez des questions, veuillez nous contacter.";
                     break;
-                case "Kinesiska":
+                case "Mandarin":
                     titel = "发货单";
                     avsandareRubrik = "发件人";
                     mottagareRubrik = "收件人";
@@ -148,31 +148,11 @@ namespace Hattmakarens_system.Presentationslager
             y += 50;
             e.Graphics.DrawLine(Pens.Black, x, y, e.MarginBounds.Right, y);
         }
-
-
-
-
-
-
         private void FoljesedelForm_Load(object sender, EventArgs e)
         {
 
-            cbSprak.Items.AddRange(new string[] { "Svenska", "Engelska", "Spanska", "Franska", "Kinesiska", "Hindi" });
+            cbSprak.Items.AddRange(new string[] { "Svenska", "Engelska", "Spanska", "Franska", "Mandarin", "Hindi" });
             cbSprak.SelectedIndex = 0;
-
-            var kund = db.HämtaKundTillOrder(_order.OrderId);
-
-            if (kund != null)
-            {
-                txtKundNamn.Text = $"{kund.Fornamn} {kund.Efternamn}";
-                txtKundAdress.Text = kund.Adress;
-            }
-            else
-            {
-                txtKundNamn.Text = "Okänd Kund";
-                txtKundAdress.Text = "Okänd Adress";
-            }
-
         }
 
         private void btnSkrivFöljesedel_Click(object sender, EventArgs e)
