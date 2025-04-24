@@ -73,6 +73,7 @@
             txtFarg = new TextBox();
             txtNamn = new TextBox();
             button4 = new Button();
+            checkBox1 = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)pbReferens).BeginInit();
             panelLagerHattar.SuspendLayout();
             panelSpecHattar.SuspendLayout();
@@ -264,7 +265,7 @@
             panelSpecHattar.Controls.Add(listView1);
             panelSpecHattar.Controls.Add(textBox1);
             panelSpecHattar.Controls.Add(listBox1);
-            panelSpecHattar.Location = new Point(23, 418);
+            panelSpecHattar.Location = new Point(23, 420);
             panelSpecHattar.Margin = new Padding(2);
             panelSpecHattar.Name = "panelSpecHattar";
             panelSpecHattar.Size = new Size(850, 326);
@@ -455,7 +456,7 @@
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(4, 2, 0, 2);
-            menuStrip1.Size = new Size(1184, 28);
+            menuStrip1.Size = new Size(1257, 28);
             menuStrip1.TabIndex = 31;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -476,7 +477,7 @@
             panel1.Controls.Add(txtFarg);
             panel1.Controls.Add(txtNamn);
             panel1.Controls.Add(button6);
-            panel1.Location = new Point(905, 418);
+            panel1.Location = new Point(905, 420);
             panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
             panel1.Size = new Size(342, 326);
@@ -531,21 +532,32 @@
             // button4
             // 
             button4.BackColor = SystemColors.ButtonHighlight;
-            button4.Location = new Point(967, 362);
+            button4.Location = new Point(905, 359);
             button4.Margin = new Padding(2);
             button4.Name = "button4";
-            button4.Size = new Size(211, 35);
+            button4.Size = new Size(202, 35);
             button4.TabIndex = 32;
             button4.Text = "Slutför Beställning";
             button4.UseVisualStyleBackColor = false;
             button4.Click += button4_Click;
+            // 
+            // checkBox1
+            // 
+            checkBox1.AutoSize = true;
+            checkBox1.Location = new Point(1118, 365);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(134, 24);
+            checkBox1.TabIndex = 33;
+            checkBox1.Text = "Expressleverans";
+            checkBox1.UseVisualStyleBackColor = true;
             // 
             // LaggTillLagerhattar
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
-            ClientSize = new Size(1184, 659);
+            ClientSize = new Size(1257, 782);
+            Controls.Add(checkBox1);
             Controls.Add(button4);
             Controls.Add(panel1);
             Controls.Add(lvBeställningar);
@@ -621,5 +633,6 @@
         private ColumnHeader columnHeader1;
         private ColumnHeader columnHeader2;
         private Button button4;
+        private CheckBox checkBox1;
     }
 }

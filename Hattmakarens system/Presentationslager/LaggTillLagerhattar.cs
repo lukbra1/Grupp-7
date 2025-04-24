@@ -358,6 +358,9 @@ namespace Hattmakarens_system.Presentationslager
 
                 if (resultat == DialogResult.Yes)
                 {
+                    Ordern.Express = checkBox1.Checked;
+                    _context.Ordrar.Update(Ordern);
+                    _context.SaveChanges();
                     klickatVidareKnapp = true;
                     this.Close();
                     Program.homepage.Show();
