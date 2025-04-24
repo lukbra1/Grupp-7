@@ -221,7 +221,6 @@ namespace Hattmakarens_system.Presentationslager
             // Uppdatera listan och visa bekräftelse (valfritt)
             LaddaOrderrader();
             listView1.Items.Clear();
-            MessageBox.Show("Specialbeställningen har sparats.", "Sparad", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
 
@@ -361,7 +360,7 @@ namespace Hattmakarens_system.Presentationslager
 
                 if (resultat == DialogResult.Yes)
                 {
-                    Ordern.Express = checkBox1.Checked;
+                    Ordern.Express = checkBox2.Checked;
                     _context.Ordrar.Update(Ordern);
                     _context.SaveChanges();
                     klickatVidareKnapp = true;
