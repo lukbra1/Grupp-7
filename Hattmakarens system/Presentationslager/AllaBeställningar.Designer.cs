@@ -44,10 +44,10 @@
             // 
             // btnSkapaFraktSedel
             // 
-            btnSkapaFraktSedel.Location = new Point(701, 676);
-            btnSkapaFraktSedel.Margin = new Padding(5, 4, 5, 4);
+            btnSkapaFraktSedel.Location = new Point(431, 422);
+            btnSkapaFraktSedel.Margin = new Padding(3, 2, 3, 2);
             btnSkapaFraktSedel.Name = "btnSkapaFraktSedel";
-            btnSkapaFraktSedel.Size = new Size(282, 47);
+            btnSkapaFraktSedel.Size = new Size(174, 29);
             btnSkapaFraktSedel.TabIndex = 1;
             btnSkapaFraktSedel.Text = "Skapa Fraktsedel";
             btnSkapaFraktSedel.UseVisualStyleBackColor = true;
@@ -55,12 +55,12 @@
             // 
             // btnRedigera
             // 
-            btnRedigera.Location = new Point(386, 676);
-            btnRedigera.Margin = new Padding(5, 4, 5, 4);
+            btnRedigera.Location = new Point(238, 422);
+            btnRedigera.Margin = new Padding(3, 2, 3, 2);
             btnRedigera.Name = "btnRedigera";
-            btnRedigera.Size = new Size(282, 47);
+            btnRedigera.Size = new Size(174, 29);
             btnRedigera.TabIndex = 2;
-            btnRedigera.Text = "Redigera Beställning";
+            btnRedigera.Text = "Visa Beställning";
             btnRedigera.UseVisualStyleBackColor = true;
             btnRedigera.Click += btnRedigera_Click;
             // 
@@ -68,10 +68,10 @@
             // 
             lvAlla.Columns.AddRange(new ColumnHeader[] { OrderId, Skapad, Status, Express, Pris });
             lvAlla.FullRowSelect = true;
-            lvAlla.Location = new Point(60, 77);
-            lvAlla.Margin = new Padding(4, 4, 4, 4);
+            lvAlla.Location = new Point(37, 48);
+            lvAlla.Margin = new Padding(2, 2, 2, 2);
             lvAlla.Name = "lvAlla";
-            lvAlla.Size = new Size(1304, 567);
+            lvAlla.Size = new Size(804, 356);
             lvAlla.TabIndex = 3;
             lvAlla.UseCompatibleStateImageBehavior = false;
             lvAlla.View = View.Details;
@@ -108,24 +108,24 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { tiibakaToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Padding = new Padding(12, 4, 0, 4);
-            menuStrip1.Size = new Size(1463, 44);
+            menuStrip1.Padding = new Padding(7, 2, 0, 2);
+            menuStrip1.Size = new Size(900, 28);
             menuStrip1.TabIndex = 4;
             menuStrip1.Text = "menuStrip1";
             // 
             // tiibakaToolStripMenuItem
             // 
             tiibakaToolStripMenuItem.Name = "tiibakaToolStripMenuItem";
-            tiibakaToolStripMenuItem.Size = new Size(115, 36);
+            tiibakaToolStripMenuItem.Size = new Size(75, 24);
             tiibakaToolStripMenuItem.Text = "Tillbaka";
             tiibakaToolStripMenuItem.Click += tiibakaToolStripMenuItem_Click;
             // 
             // buttonFoljesedel
             // 
-            buttonFoljesedel.Location = new Point(82, 676);
-            buttonFoljesedel.Margin = new Padding(5, 4, 5, 4);
+            buttonFoljesedel.Location = new Point(50, 422);
+            buttonFoljesedel.Margin = new Padding(3, 2, 3, 2);
             buttonFoljesedel.Name = "buttonFoljesedel";
-            buttonFoljesedel.Size = new Size(282, 47);
+            buttonFoljesedel.Size = new Size(174, 29);
             buttonFoljesedel.TabIndex = 5;
             buttonFoljesedel.Text = "Skapa Följesedel";
             buttonFoljesedel.UseVisualStyleBackColor = true;
@@ -133,19 +133,19 @@
             // 
             // AllaBeställningar
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1463, 844);
+            ClientSize = new Size(900, 528);
             Controls.Add(buttonFoljesedel);
             Controls.Add(lvAlla);
             Controls.Add(btnRedigera);
             Controls.Add(btnSkapaFraktSedel);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
-            Margin = new Padding(5, 4, 5, 4);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "AllaBeställningar";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "AllaBeställningar";
+            Text = "Alla beställningar";
             Load += AllaBeställningar_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();

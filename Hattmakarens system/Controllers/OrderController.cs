@@ -163,5 +163,28 @@ namespace Hattmakarens_system.Controllers
             return orderTotalPris * moms * express;
         }
 
+        public IEnumerable<dynamic> HämtaMatrialFörOrderRader(int orderRadId)
+        {
+            //List<Material> TillhörandeMatrial = new List<Material>();
+
+            //TillhörandeMatrial = _context.MaterialOrderrader
+            //    .Where(orm => orm.OrderRadId == orderRadId)
+            //    .Select(orm => orm.Material)
+            //    .ToList();
+
+
+            //return TillhörandeMatrial;
+
+            var materialsForOrderRad = _context.MaterialOrderrader
+                .Where(orm => orm.OrderRadId == orderRadId)
+                .GroupBy(orm => orm.MaterialId)  // Gruppera på MaterialId
+                .Select(group => new
+                {
+                    Material = group.First().Material,  // Hämtar Material från första posten i gruppen
+                    TotalAntal = group.Sum(orm => orm.AntalMaterial)  // Summera Antal för alla OrderRadMaterialer med samma MaterialId
+                })
+                .ToList();
+            return materialsForOrderRad;
+        }
     }
 }

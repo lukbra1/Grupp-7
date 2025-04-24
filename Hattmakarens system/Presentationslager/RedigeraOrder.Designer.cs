@@ -33,27 +33,29 @@
             menuStrip1 = new MenuStrip();
             tillbakaToolStripMenuItem = new ToolStripMenuItem();
             checkBox1 = new CheckBox();
+            dgvMatrial = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)dgvOrderRader).BeginInit();
             menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvMatrial).BeginInit();
             SuspendLayout();
             // 
             // dgvOrderRader
             // 
             dgvOrderRader.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvOrderRader.Location = new Point(34, 81);
-            dgvOrderRader.Margin = new Padding(4, 4, 4, 4);
+            dgvOrderRader.Location = new Point(55, 130);
+            dgvOrderRader.Margin = new Padding(6, 6, 6, 6);
             dgvOrderRader.Name = "dgvOrderRader";
             dgvOrderRader.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dgvOrderRader.RowHeadersWidth = 82;
-            dgvOrderRader.Size = new Size(847, 362);
+            dgvOrderRader.Size = new Size(1090, 306);
             dgvOrderRader.TabIndex = 4;
             // 
             // btnSpara
             // 
-            btnSpara.Location = new Point(795, 455);
-            btnSpara.Margin = new Padding(4, 4, 4, 4);
+            btnSpara.Location = new Point(993, 949);
+            btnSpara.Margin = new Padding(6, 6, 6, 6);
             btnSpara.Name = "btnSpara";
-            btnSpara.Size = new Size(86, 31);
+            btnSpara.Size = new Size(140, 50);
             btnSpara.TabIndex = 5;
             btnSpara.Text = "Spara";
             btnSpara.UseVisualStyleBackColor = true;
@@ -64,45 +66,58 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { tillbakaToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Padding = new Padding(7, 2, 0, 2);
-            menuStrip1.Size = new Size(927, 28);
+            menuStrip1.Padding = new Padding(11, 3, 0, 3);
+            menuStrip1.Size = new Size(1214, 42);
             menuStrip1.TabIndex = 6;
             menuStrip1.Text = "menuStrip1";
             // 
             // tillbakaToolStripMenuItem
             // 
             tillbakaToolStripMenuItem.Name = "tillbakaToolStripMenuItem";
-            tillbakaToolStripMenuItem.Size = new Size(75, 24);
+            tillbakaToolStripMenuItem.Size = new Size(115, 36);
             tillbakaToolStripMenuItem.Text = "Tillbaka";
             tillbakaToolStripMenuItem.Click += tillbakaToolStripMenuItem_Click;
             // 
             // checkBox1
             // 
             checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(34, 459);
+            checkBox1.Location = new Point(55, 957);
+            checkBox1.Margin = new Padding(5, 5, 5, 5);
             checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(134, 24);
+            checkBox1.Size = new Size(212, 36);
             checkBox1.TabIndex = 7;
             checkBox1.Text = "Expressleverans";
             checkBox1.UseVisualStyleBackColor = true;
             // 
+            // dgvMatrial
+            // 
+            dgvMatrial.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvMatrial.Location = new Point(55, 495);
+            dgvMatrial.Name = "dgvMatrial";
+            dgvMatrial.RowHeadersWidth = 82;
+            dgvMatrial.Size = new Size(1090, 300);
+            dgvMatrial.TabIndex = 8;
+            dgvMatrial.CellContentClick += dataGridView1_CellContentClick;
+            // 
             // RedigeraOrder
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(927, 511);
+            ClientSize = new Size(1214, 1057);
+            Controls.Add(dgvMatrial);
             Controls.Add(checkBox1);
             Controls.Add(btnSpara);
             Controls.Add(dgvOrderRader);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(6, 6, 6, 6);
             Name = "RedigeraOrder";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "RedigeraOrder";
+            Text = "Visa beställning";
             ((System.ComponentModel.ISupportInitialize)dgvOrderRader).EndInit();
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvMatrial).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -113,5 +128,6 @@
         private MenuStrip menuStrip1;
         private ToolStripMenuItem tillbakaToolStripMenuItem;
         private CheckBox checkBox1;
+        private DataGridView dgvMatrial;
     }
 }
