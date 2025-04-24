@@ -15,11 +15,14 @@ namespace Hattmakarens_system.Presentationslager
 {
     public partial class AllaBeställningar : Form
     {
-        static OrderController db = new OrderController(new AppDbContext());
+        OrderController db;
+        AppDbContext _context;
 
         public AllaBeställningar()
         {
             InitializeComponent();
+            _context = new AppDbContext();
+            this.db = new OrderController(_context);
         }
 
         private void AllaBeställningar_Load(object sender, EventArgs e)
@@ -33,12 +36,12 @@ namespace Hattmakarens_system.Presentationslager
             {
                 // Skapa en rad i listview
                 var rad = new ListViewItem(order.OrderId.ToString());
-                var totalPris = db.HämtaTotalOrderPris(order);
+                var totalPris = db.BeräknaOrderPrisInkMoms(order);
 
                 rad.SubItems.Add(order.Skapad.ToShortDateString());
                 rad.SubItems.Add(order.Status.ToString());
                 rad.SubItems.Add(order.Express ? "Ja" : "Nej");
-                rad.SubItems.Add($"{totalPris} kr");
+                rad.SubItems.Add($"{totalPris:F2} kr");
 
                 rad.Tag = order;
                 lvAlla.Items.Add(rad);

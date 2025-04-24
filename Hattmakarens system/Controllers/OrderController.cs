@@ -162,6 +162,5 @@ namespace Hattmakarens_system.Controllers
 
             return orderTotalPris * moms * express;
         }
-
     }
 }

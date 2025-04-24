@@ -34,6 +34,7 @@ namespace Hattmakarens_system
 
             valdOrder = _context.Ordrar
                 .Include(o => o.OrderRader)
+                .ThenInclude(o => (o as LagerOrderrad).Modell)
                 .FirstOrDefault(o => o.OrderId == valdOrder.OrderId);
 
             if (valdOrder == null)
@@ -46,44 +47,56 @@ namespace Hattmakarens_system
 
             DataTable dt = new DataTable();
             dt.Columns.Add("OrderRadId", typeof(int));
+            dt.Columns.Add("Modell", typeof(string));
             dt.Columns.Add("Typ", typeof(string));
             dt.Columns.Add("Storlek", typeof(string));
             dt.Columns.Add("Status", typeof(string));
-            dt.Columns.Add("Express", typeof(bool));
+            //dt.Columns.Add("Express", typeof(bool));
             dt.Columns.Add("Pris", typeof(decimal));
+
+            dt.Columns["Modell"].ReadOnly = true;
+            dt.Columns["Typ"].ReadOnly = true;
 
 
             foreach (var rad in valdOrder.OrderRader)
             {
+                string modell = "Special";
+                if (rad is LagerOrderrad lagerRad && lagerRad.Modell != null) {
+                    modell = lagerRad.Modell.Namn;
+                }
+
                 dt.Rows.Add(
-                    rad.OrderRadId,
-                    rad.TypEnum.ToString(),
-                    rad.Storlek.ToString(),
-                    rad.StatusOrderrad.ToString(),
-                    valdOrder.Express,
-                    valdOrder.TotalPris
-                );
+                        rad.OrderRadId,
+                        modell,
+                        rad.TypEnum.ToString(),
+                        rad.Storlek.ToString(),
+                        rad.StatusOrderrad.ToString(),
+                        //valdOrder.Express,
+                        rad.pris
+                    );
             }
+
+            checkBox1.Checked = valdOrder.Express;
 
             dgvOrderRader.DataSource = dt;
 
-            LäggTillComboKolumn("Typ", typeof(TypEnum));
+            //LäggTillComboKolumn("Typ", typeof(TypEnum));
             LäggTillComboKolumn("Storlek", typeof(StorlekEnum));
             LäggTillComboKolumn("Status", typeof(StatusOrderradEnum));
 
 
-            if (!(dgvOrderRader.Columns["Express"] is DataGridViewCheckBoxColumn))
-            {
-                int index = dgvOrderRader.Columns["Express"].Index;
-                var expressCol = new DataGridViewCheckBoxColumn
-                {
-                    DataPropertyName = "Express",
-                    Name = "Express",
-                    HeaderText = "Express"
-                };
-                dgvOrderRader.Columns.RemoveAt(index);
-                dgvOrderRader.Columns.Insert(index, expressCol);
-            }
+            //if (!(dgvOrderRader.Columns["Express"] is DataGridViewCheckBoxColumn))
+            //{
+            //    int index = dgvOrderRader.Columns["Express"].Index;
+            //    var expressCol = new DataGridViewCheckBoxColumn
+            //    {
+            //        DataPropertyName = "Express",
+            //        Name = "Express",
+            //        HeaderText = "Express"
+            //    };
+            //    dgvOrderRader.Columns.RemoveAt(index);
+            //    dgvOrderRader.Columns.Insert(index, expressCol);
+            //}
 
 
             dgvOrderRader.Columns["Pris"].ReadOnly = false;
@@ -110,26 +123,6 @@ namespace Hattmakarens_system
         {
             if (valdOrder == null) return;
 
-            //foreach (DataGridViewRow row in dgvOrderRader.Rows)
-            //{
-            //    if (row.IsNewRow) continue;
-
-            //    int radId = Convert.ToInt32(row.Cells["OrderRadId"].Value);
-            //    var rad = valdOrder.OrderRader.FirstOrDefault(r => r.OrderRadId == radId);
-
-            //    if (rad != null)
-            //    {
-            //        if (Enum.TryParse(row.Cells["Typ"].Value.ToString(), out TypEnum typ))
-            //            rad.TypEnum = typ;
-
-            //        if (Enum.TryParse(row.Cells["Storlek"].Value.ToString(), out StorlekEnum storlek))
-            //            rad.Storlek = storlek;
-
-            //        if (Enum.TryParse(row.Cells["Status"].Value.ToString(), out StatusOrderradEnum status))
-            //            rad.StatusOrderrad = status;
-            //    }
-            //}
-
             foreach (DataGridViewRow row in dgvOrderRader.Rows)
             {
                 if (row.IsNewRow) continue;
@@ -153,13 +146,13 @@ namespace Hattmakarens_system
                 }
             }
 
+            valdOrder.Express = checkBox1.Checked;
 
-
-            if (dgvOrderRader.Rows.Count > 0 &&
-                dgvOrderRader.Rows[0].Cells["Express"].Value is bool express)
-            {
-                valdOrder.Express = express;
-            }
+            //if (dgvOrderRader.Rows.Count > 0 &&
+            //    dgvOrderRader.Rows[0].Cells["Express"].Value is bool express)
+            //{
+            //    valdOrder.Express = express;
+            //}
 
 
             if (dgvOrderRader.Rows.Count > 0 &&
@@ -168,8 +161,9 @@ namespace Hattmakarens_system
                 valdOrder.TotalPris = nyttPris;
             }
 
+            _context.Ordrar.Update(valdOrder);
             int ändringar = _context.SaveChanges();
-            MessageBox.Show($"Sparade {ändringar} ändringar till databasen.");
+            MessageBox.Show($"Dina ändringar är sparade.");
 
         }
 
