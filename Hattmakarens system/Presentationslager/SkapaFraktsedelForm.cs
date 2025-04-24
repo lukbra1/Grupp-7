@@ -66,42 +66,38 @@ namespace Hattmakarens_system.Presentationslager
         }
         private void btnSkapa_Click(object sender, EventArgs e)
         {
-            //int vikt = int.Parse(txtVikt.Text);
-            //int exportKod = int.Parse(txtExportkod.Text);
-            //decimal värde = decimal.Parse(txtKostnad.Text);
-            //double moms = double.Parse(txtMoms.Text);
-            //string adress = txtAdress.Text;
-            //string avsändare =txtAvsandare.Text;
-            //string mottagre = txtMottagare.Text;
-            //string beskrivning = rchtxtBeskrivning.Text;
-
-
-            //var fraktsedel = db.SkapaFraktsedel(order, vikt, värde, exportKod, moms, adress, avsändare,mottagre,beskrivning );
-
-            //MessageBox.Show("Fraktsedel skapad!\nPris inkl. moms: " + fraktsedel.PrisInkMoms);
-
-            //MessageBox.Show($@"Fraktsedel:
-            //- Adress: {fraktsedel.Adress}
-            //- Avsändare: {fraktsedel.Avsändare}
-            //-Mottagre: {fraktsedel.Mottagare}
-            //-Beskrivning: {fraktsedel.Beskrivning}
-            //-Exportkod: {fraktsedel.ExportKod}
-            //-Pris {fraktsedel.Värde} kr
-            //- Vikt: {fraktsedel.Vikt} kg
-            //- Moms: {fraktsedel.Moms} %
-            //- Total: {fraktsedel.PrisInkMoms} kr
-            //- Datum: {fraktsedel.SkapatDatum}");
-
-            int vikt = int.Parse(txtVikt.Text);
-            int exportKod = int.Parse(txtExKod.Text);
-            decimal värde = decimal.Parse(txtTotalPris.Text);
+            if (!int.TryParse(txtVikt.Text, out int vikt))
+            {
+                MessageBox.Show("Vikten måste vara ett heltal!");
+                return;
+            }
+            if (!decimal.TryParse(txtTotalPris.Text, out decimal värde))
+            {
+                MessageBox.Show("Totalpriset måste vara ett gilitgt tal!");
+                return;
+            }
+            if (!int.TryParse(txtExKod.Text, out int exportKod))
+            {
+                MessageBox.Show("Exportkoden måste vara ett heltal!");
+                return;
+            }
+            
             decimal prisInkMoms = värde * 1.25m;
-            string adress = txtAdress.Text;
-            string avsändare = txtAvsandare.Text;
-            string mottagre = txtMottagare.Text;
-            string beskrivning = rchtxtBeskrivning.Text;
+            string adress = txtAdress.Text.Trim();
+            string avsändare = txtAvsandare.Text.Trim();
+            string mottagare = txtMottagare.Text.Trim();
+            string beskrivning = rchtxtBeskrivning.Text.Trim();
 
-            existerandeFraktsedel = db.SkapaFraktsedel(order, vikt, värde, exportKod, adress, avsändare, mottagre, beskrivning);
+
+            if (string.IsNullOrWhiteSpace(adress) |
+                string.IsNullOrWhiteSpace(avsändare) |
+                string.IsNullOrWhiteSpace(mottagare))
+            {
+                MessageBox.Show("Fälten; Adress, Avsändare och Mottagare får inte vara tomma");
+                return;
+            }
+
+                existerandeFraktsedel = db.SkapaFraktsedel(order, vikt, värde, exportKod, adress, avsändare, mottagare, beskrivning);
             aktuellFraktsedel = existerandeFraktsedel;
 
 
@@ -111,14 +107,6 @@ namespace Hattmakarens_system.Presentationslager
             lblStatusFraktsedel.Text = "✅ Fraktsedel är skapad";
             lblStatusFraktsedel.ForeColor = Color.Green;
 
-
-        }
-
-
-
-
-        private void txtVikt_TextChanged(object sender, EventArgs e)
-        {
 
         }
 

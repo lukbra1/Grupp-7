@@ -117,13 +117,35 @@ namespace Hattmakarens_system.Database
                 new Material { MaterialId = 5, Namn = "Spets", Enhet = "st", Farg = "Blå", Beskrivning = "Spetsar kan användas för att lägga till en vintage känsla till en hatt." }
 
             ); modelBuilder.Entity<Material>().HasData(
-                new Material { MaterialId = 6, Namn = "Lackerat papper", Enhet = "Kvdm", Farg = "Svart/Vit-mönstrad", Beskrivning = "Lackerat papper kan användas för att skapa en högteknologisk eller futuristisk stil till en hatt." }
+                new Material { MaterialId = 6, Namn = "Lackerat papper", Enhet = "Kvdm", Farg = "Lila", Beskrivning = "Lackerat papper kan användas för att skapa en högteknologisk eller futuristisk stil till en hatt." }
 
             ); modelBuilder.Entity<Material>().HasData(
-                new Material { MaterialId = 7, Namn = "Lurextråd", Enhet = "dm", Farg = "Svart/Vit-mönstrad", Beskrivning = "Lurextråd kan användas för att lägga till en glittrig och festlig touch till en hatt." }
+                new Material { MaterialId = 7, Namn = "Lurextråd", Enhet = "dm", Farg = "Svart", Beskrivning = "Lurextråd kan användas för att lägga till en glittrig och festlig touch till en hatt." }
 
             ); modelBuilder.Entity<Material>().HasData(
                 new Material { MaterialId = 8, Namn = "Fuskpäls", Enhet = "Kvdm", Farg = "Svart/Vit-mönstrad", Beskrivning = ": Fuskpäls kan användas för att ge en hatt en mjuk och fluffig yta, eller för att skapa en djurisk känsla." }
+
+            ); modelBuilder.Entity<Material>().HasData(
+                new Material { MaterialId = 17, Namn = "Bomull", Enhet = "Kvdm", Farg = "Vit", Beskrivning = "Bomull är ett mjukt, lätt och andningsbart material som är enkelt att arbeta med. Det används ofta för att tillverka tyghattar, som till exempel kepsar eller basebollmössor." }
+
+            ); modelBuilder.Entity<Material>().HasData(
+                new Material { MaterialId = 18, Namn = "Linne", Enhet = "Kvdm", Farg = "Kräm vit", Beskrivning = "Linne är ett lätt och luftigt material som passar bra för sommarhattar, eftersom det är andningsbart och absorberar fukt." }
+
+            ); modelBuilder.Entity<Material>().HasData(
+                new Material { MaterialId = 19, Namn = "Ull", Enhet = "Kvdm", Farg = "Svart/Vit-mönstrad", Beskrivning = "Ull är ett varmt och isolerande material som passar bra för höst- och vinterhattar, som till exempel mössor och hattar med öronlappar." }
+
+            ); modelBuilder.Entity<Material>().HasData(
+                new Material { MaterialId = 20, Namn = "Silke", Enhet = "Kvdm", Farg = "Silver", Beskrivning = "Silke är ett mjukt och glansigt material som passar bra för eleganta hattar, som till exempel brudhattar eller aftonhattar." }
+
+            ); modelBuilder.Entity<Material>().HasData(
+                new Material { MaterialId = 21, Namn = "Satin", Enhet = "Kvdm", Farg = "Beige", Beskrivning = "Satin är ett mjukt och glansigt material som passar bra för dekorativa detaljer på hattar, som till exempel band eller blommor." }
+
+            ); modelBuilder.Entity<Material>().HasData(
+                new Material { MaterialId = 22, Namn = "Tweed", Enhet = "Kvdm", Farg = "Grön", Beskrivning = "Tweed är ett tjockt och varmt material som passar bra för höst- och vinterhattar." }
+
+            ); modelBuilder.Entity<Material>().HasData(
+                new Material { MaterialId = 23, Namn = "Polyester", Enhet = "Kvdm", Farg = "Vit", Beskrivning = ": Polyester är ett tåligt och lätt material som passar bra för sportiga hattar, som till exempel kepsar eller solhattar." }
+
             );
 
             modelBuilder.Entity<Order>().HasData(
