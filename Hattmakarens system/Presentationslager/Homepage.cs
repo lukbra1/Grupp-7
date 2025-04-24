@@ -21,7 +21,10 @@ namespace Hattmakarens_system
         public Homepage(User user)
         {
             InitializeComponent();
-            _currentUser = user;
+            _context = new AppDbContext();
+
+            var dbUser = _context.User.FirstOrDefault(u => u.UserId == user.UserId);
+            _currentUser = dbUser ?? user;
             orderController = new OrderController(_context);
             kundController = new KundController(_context);
         }
@@ -94,39 +97,55 @@ namespace Hattmakarens_system
         {
             var selectedDate = monthCalendar1.SelectionStart.Date;
 
-            if (ordrarList.SelectedItems.Count == 0) return;
-
-            foreach (ListViewItem item in ordrarList.SelectedItems)
+            if (ordrarList.SelectedItems.Count == 0 || lvOrderRadLista.SelectedItems.Count == 0)
             {
-                string orderText = $" Order #{item.SubItems[0].Text} – {item.SubItems[1].Text}";
-                if (!todoList.ContainsKey(selectedDate))
-                    todoList[selectedDate] = new List<string>();
-
-                if (!todoList[selectedDate].Contains(orderText))
-                    todoList[selectedDate].Add(orderText);
-
-                // Tilldela orderrad
-                int orderId = int.Parse(item.SubItems[0].Text);
-                var order = orderController.HämtaAllaOrdrarMedKund().FirstOrDefault(o => o.OrderId == orderId);
-                var orderrad = order?.OrderRader?.FirstOrDefault(or => !or.TilldeladOrder);
-
-                if (orderrad != null)
-                {
-                    orderController.TilldelaOrderRad(orderrad, _currentUser.UserId, selectedDate);
-
-                }
-
-                // Ta bort från listan
-                ordrarList.Items.Remove(item);
+                MessageBox.Show("Välj en order och en orderrad att tilldela.");
+                return;
             }
+
+            // Hämta vald orderrad
+            var selectedOrderRadItem = lvOrderRadLista.SelectedItems[0];
+            var orderrad = selectedOrderRadItem.Tag as OrderRad;
+
+            if (orderrad == null || orderrad.TilldeladOrder)
+            {
+                MessageBox.Show("Denna orderrad är redan tilldelad eller ogiltig.");
+                return;
+            }
+
+            // Tilldela orderraden
+            orderController.TilldelaOrderRad(orderrad, _currentUser.UserId, selectedDate);
+
+            // Lägg till i todoList och listBoxDagens
+            string kundNamn = orderrad.Order?.Kund != null
+                ? $"{orderrad.Order.Kund.Fornamn} {orderrad.Order.Kund.Efternamn}"
+                : "Okänd kund";
+            string uppgift = $"🧵 Order #{orderrad.OrderId} – {kundNamn}";
+
+            if (!todoList.ContainsKey(selectedDate))
+                todoList[selectedDate] = new List<string>();
+            if (!todoList[selectedDate].Contains(uppgift))
+                todoList[selectedDate].Add(uppgift);
 
             listBoxDagens.Items.Clear();
             foreach (var task in todoList[selectedDate])
                 listBoxDagens.Items.Add(task);
+
             UppdateraVeckooversikt(selectedDate);
 
+            // Ta bort order från ordrarList
+            foreach (ListViewItem item in ordrarList.SelectedItems)
+            {
+                if (item.Text == orderrad.OrderId.ToString())
+                {
+                    ordrarList.Items.Remove(item);
+                    break;
+                }
+            }
 
-
+            // Töm orderrad-listan och ladda om ordrar
+            lvOrderRadLista.Items.Clear();
+            LaddaAllaOrdrar();
         }
 
         private void btnVeckoöversikt_Click(object sender, EventArgs e)
@@ -260,6 +279,51 @@ namespace Hattmakarens_system
             this.Hide();
             var öppna = new KundStatistik();
             öppna.Show();
+        }
+
+        private void btnSchemalägg_Click(object sender, EventArgs e)
+        {
+            if (ordrarList.SelectedItems.Count == 0 || lvOrderRadLista.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Välj både en order och en orderrad.");
+                return;
+            }
+
+            var selectedOrderRadItem = lvOrderRadLista.SelectedItems[0];
+            var orderrad = selectedOrderRadItem.Tag as OrderRad;
+            var selectedDate = monthCalendar1.SelectionStart.Date;
+
+            if (orderrad == null || orderrad.TilldeladOrder)
+            {
+                MessageBox.Show("Denna orderrad är redan tilldelad.");
+                return;
+            }
+
+            // Tilldela
+            orderController.TilldelaOrderRad(orderrad, _currentUser.UserId, selectedDate);
+
+            // Lägg till i todo-lista
+            string kundNamn = orderrad.Order?.Kund != null
+                ? $"{orderrad.Order.Kund.Fornamn} {orderrad.Order.Kund.Efternamn}"
+                : "Okänd kund";
+            string uppgift = $"🧵 Order #{orderrad.OrderId} – {kundNamn}";
+
+            if (!todoList.ContainsKey(selectedDate))
+                todoList[selectedDate] = new List<string>();
+
+            if (!todoList[selectedDate].Contains(uppgift))
+                todoList[selectedDate].Add(uppgift);
+
+            // Visa
+            listBoxDagens.Items.Clear();
+            foreach (var task in todoList[selectedDate])
+                listBoxDagens.Items.Add(task);
+
+            UppdateraVeckooversikt(selectedDate);
+
+            // Uppdatera vy
+            lvOrderRadLista.Items.Clear();
+            ordrarList.Items.Remove(ordrarList.SelectedItems[0]);
         }
     }
 }

@@ -8,21 +8,25 @@ namespace Hattmakarens_system
     {
         static public Homepage homepage;
         static public LoggaInGränsnittt loggaInGränsnittt;
+
+        public static ModelsNy.User aktuellAnvändare;
+
+
         [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            homepage = new Homepage(
-                new ModelsNy.User
-                {
-                    Namn = "Otto",
-                    Behorighet = true
-                }
-            );
+            //homepage = new Homepage(
+            //    new ModelsNy.User
+            //    {
+            //        Namn = "Otto",
+            //        Behorighet = true
+            //    }
+            //);
             //var loggaInGränsnittt = new LoggaInGränsnittt();
-            //Application.Run(new LoggaInGränsnittt());
-            Application.Run(homepage);
+            Application.Run(new LoggaInGränsnittt());
+            //Application.Run(homepage);
         }
     }
 }
