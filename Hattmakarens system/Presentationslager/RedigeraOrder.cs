@@ -14,10 +14,12 @@ namespace Hattmakarens_system
         private readonly AppDbContext _context = new AppDbContext();
         private Order valdOrder;
 
+
         public RedigeraOrder(Order valdOrder)
         {
             InitializeComponent();
             this.valdOrder = valdOrder;
+
 
             Load += RedigeraOrder_Load;
             btnSpara.Click += btnSpara_Click;
@@ -168,6 +170,7 @@ namespace Hattmakarens_system
 
             int ändringar = _context.SaveChanges();
             MessageBox.Show($"Sparade {ändringar} ändringar till databasen.");
+
         }
 
         private void tillbakaToolStripMenuItem_Click(object sender, EventArgs e)

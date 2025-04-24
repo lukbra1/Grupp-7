@@ -366,6 +366,7 @@ namespace Hattmakarens_system.Presentationslager
                     _context.SaveChanges();
                     klickatVidareKnapp = true;
                     this.Close();
+                    Program.homepage = new Homepage(Program.aktuellAnvändare);
                     Program.homepage.Show();
                 }
             }
@@ -382,6 +383,7 @@ namespace Hattmakarens_system.Presentationslager
                     _orderController.TaBortTomOrder(Ordern);
                     klickatVidareKnapp = true;
                     this.Close();
+                    Program.homepage = new Homepage(Program.aktuellAnvändare);
                     Program.homepage.Show();
 
                 }

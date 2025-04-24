@@ -65,7 +65,6 @@ namespace Hattmakarens_system
             Status = new ColumnHeader();
             Tilldelad = new ColumnHeader();
             Pris = new ColumnHeader();
-            btnSchemalägg = new Button();
             menuStrip2.SuspendLayout();
             SuspendLayout();
             // 
@@ -333,23 +332,12 @@ namespace Hattmakarens_system
             Pris.Text = "Pris";
             Pris.Width = 100;
             // 
-            // btnSchemalägg
-            // 
-            btnSchemalägg.Location = new Point(592, 803);
-            btnSchemalägg.Name = "btnSchemalägg";
-            btnSchemalägg.Size = new Size(150, 46);
-            btnSchemalägg.TabIndex = 17;
-            btnSchemalägg.Text = "button1";
-            btnSchemalägg.UseVisualStyleBackColor = true;
-            btnSchemalägg.Click += btnSchemalägg_Click;
-            // 
             // Homepage
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             ClientSize = new Size(2613, 883);
-            Controls.Add(btnSchemalägg);
             Controls.Add(lvOrderRadLista);
             Controls.Add(label5);
             Controls.Add(ordrarList);
@@ -417,6 +405,5 @@ namespace Hattmakarens_system
         private ColumnHeader Status;
         private ColumnHeader Tilldelad;
         private ColumnHeader Pris;
-        private Button btnSchemalägg;
     }
 }

@@ -92,21 +92,21 @@ namespace Hattmakarens_system
 
         private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
         {
+
             var selectedDate = monthCalendar1.SelectionStart.Date;
 
-            
             if (_currentUser == null || _currentUser.UserId <= 0)
             {
                 MessageBox.Show("Användaren är inte giltig eller inloggad.");
                 return;
             }
 
-            
             if (lvOrderRadLista.SelectedItems.Count == 0)
             {
                 MessageBox.Show("Välj en eller flera hattar att schemalägga.");
                 return;
             }
+
             foreach (ListViewItem item in lvOrderRadLista.SelectedItems)
             {
                 if (item.Tag is not OrderRad orderrad) continue;
@@ -117,30 +117,26 @@ namespace Hattmakarens_system
                     continue;
                 }
 
-                // Kolla så användaren är giltig
-                if (_currentUser == null || _currentUser.UserId <= 0)
-                {
-                    MessageBox.Show("Ogiltig användare.");
-                    return;
-                }
-
-                // Sätt schemainformation
                 try
                 {
                     orderController.TilldelaOrderRad(orderrad, _currentUser.UserId, selectedDate);
 
-                    // Lägg till i dagens lista
+                    // Kundnamn
                     string kundNamn = orderrad.Order?.Kund != null
                         ? $"{orderrad.Order.Kund.Fornamn} {orderrad.Order.Kund.Efternamn}"
                         : "Okänd kund";
 
-                    string text = $"🧵 Order #{orderrad.OrderId} – {kundNamn} – {orderrad.TypEnum}";
+                    string ansvarig = _currentUser != null ? $"{_currentUser.Namn}" : "Okänd användare";
+
+
+                    string text = $"🧵 Hatt #{orderrad.OrderRadId} – {orderrad.TypEnum} (strl {orderrad.Storlek}) – {kundNamn} – {ansvarig} – Status: {orderrad.StatusOrderrad}";
+
 
                     if (!todoList.ContainsKey(selectedDate))
                         todoList[selectedDate] = new List<string>();
 
-                    if (!todoList[selectedDate].Contains(text))
-                        todoList[selectedDate].Add(text);
+                    todoList[selectedDate].Add(text);
+
 
                     lvOrderRadLista.Items.Remove(item);
                 }
@@ -155,6 +151,72 @@ namespace Hattmakarens_system
                 listBoxDagens.Items.Add(t);
 
             UppdateraVeckooversikt(selectedDate);
+            ordrarList_SelectedIndexChanged(null, null);
+
+
+            //var selectedDate = monthCalendar1.SelectionStart.Date;
+
+
+            //if (_currentUser == null || _currentUser.UserId <= 0)
+            //{
+            //    MessageBox.Show("Användaren är inte giltig eller inloggad.");
+            //    return;
+            //}
+
+
+            //if (lvOrderRadLista.SelectedItems.Count == 0)
+            //{
+            //    MessageBox.Show("Välj en eller flera hattar att schemalägga.");
+            //    return;
+            //}
+            //foreach (ListViewItem item in lvOrderRadLista.SelectedItems)
+            //{
+            //    if (item.Tag is not OrderRad orderrad) continue;
+
+            //    if (orderrad.TilldeladOrder)
+            //    {
+            //        MessageBox.Show($"Orderrad {orderrad.OrderRadId} är redan tilldelad.");
+            //        continue;
+            //    }
+
+            //    // Kolla så användaren är giltig
+            //    if (_currentUser == null || _currentUser.UserId <= 0)
+            //    {
+            //        MessageBox.Show("Ogiltig användare.");
+            //        return;
+            //    }
+
+            //    // Sätt schemainformation
+            //    try
+            //    {
+            //        orderController.TilldelaOrderRad(orderrad, _currentUser.UserId, selectedDate);
+
+            //        // Lägg till i dagens lista
+            //        string kundNamn = orderrad.Order?.Kund != null
+            //            ? $"{orderrad.Order.Kund.Fornamn} {orderrad.Order.Kund.Efternamn}"
+            //            : "Okänd kund";
+
+            //        string text = $"🧵 Order #{orderrad.OrderId} – {kundNamn} – {orderrad.TypEnum}";
+
+            //        if (!todoList.ContainsKey(selectedDate))
+            //            todoList[selectedDate] = new List<string>();
+
+            //        if (!todoList[selectedDate].Contains(text))
+            //            todoList[selectedDate].Add(text);
+
+            //        lvOrderRadLista.Items.Remove(item);
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        MessageBox.Show($"Fel vid tilldelning: {ex.Message}");
+            //    }
+            //}
+
+            //listBoxDagens.Items.Clear();
+            //foreach (var t in todoList[selectedDate])
+            //    listBoxDagens.Items.Add(t);
+
+            //UppdateraVeckooversikt(selectedDate);
 
 
 
@@ -231,8 +293,20 @@ namespace Hattmakarens_system
 
                 if (todoList.TryGetValue(dag, out var tasks))
                 {
-                    foreach (var t in tasks)
-                        richTextBoxVecka.AppendText($" - {t}\n");
+                    // ✅ Filtrera bort rader som har status "Färdig"
+                    var ickeFardiga = tasks
+                        .Where(t => !t.Contains("Status: Färdig")) // justera om du inte har status i texten
+                        .ToList();
+
+                    if (ickeFardiga.Any())
+                    {
+                        foreach (var t in ickeFardiga)
+                            richTextBoxVecka.AppendText($" - {t}\n");
+                    }
+                    else
+                    {
+                        richTextBoxVecka.AppendText(" (Inga uppgifter)\n");
+                    }
                 }
                 else
                 {
@@ -298,20 +372,42 @@ namespace Hattmakarens_system
 
         private void LaddaTilldeladeOrderrader()
         {
+
             var tilldelade = orderController.HämtaAllaOrderRaderTilldelade();
 
             foreach (var rad in tilldelade)
             {
                 var datum = rad.TilldelningsDatum?.Date ?? DateTime.Today;
-                string kundNamn = rad.Order?.Kund != null ? $"{rad.Order.Kund.Fornamn} {rad.Order.Kund.Efternamn}" : "Okänd kund";
-                string uppgift = $"🧵 Order #{rad.OrderId} – {kundNamn}";
+
+                string kundNamn = rad.Order?.Kund != null
+                    ? $"{rad.Order.Kund.Fornamn} {rad.Order.Kund.Efternamn}"
+                    : "Okänd kund";
+
+                string ansvarig = rad.User != null
+                ? $"{rad.User.Namn}"
+                : "Ingen ansvarig";
+
+                string uppgift = $"🧵 Hatt #{rad.OrderRadId} – {rad.TypEnum} (strl {rad.Storlek}) – {kundNamn} – {ansvarig} – Status: {rad.StatusOrderrad}";
 
                 if (!todoList.ContainsKey(datum))
                     todoList[datum] = new List<string>();
-
-                if (!todoList[datum].Contains(uppgift))
-                    todoList[datum].Add(uppgift);
+                todoList[datum].Add(uppgift);
             }
+
+            //var tilldelade = orderController.HämtaAllaOrderRaderTilldelade();
+
+            //foreach (var rad in tilldelade)
+            //{
+            //    var datum = rad.TilldelningsDatum?.Date ?? DateTime.Today;
+            //    string kundNamn = rad.Order?.Kund != null ? $"{rad.Order.Kund.Fornamn} {rad.Order.Kund.Efternamn}" : "Okänd kund";
+            //    string uppgift = $"🧵 Order #{rad.OrderId} – {kundNamn}";
+
+            //    if (!todoList.ContainsKey(datum))
+            //        todoList[datum] = new List<string>();
+
+            //    if (!todoList[datum].Contains(uppgift))
+            //        todoList[datum].Add(uppgift);
+            //}
         }
 
         private void hattStatistikToolStripMenuItem_Click(object sender, EventArgs e)

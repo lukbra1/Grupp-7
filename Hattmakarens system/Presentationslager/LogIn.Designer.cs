@@ -65,6 +65,7 @@
             txtEpost.Name = "txtEpost";
             txtEpost.Size = new Size(553, 39);
             txtEpost.TabIndex = 2;
+            txtEpost.Text = "admin@example.com";
             txtEpost.TextChanged += txtAnvändarnamn_TextChanged;
             // 
             // txtLösenord
@@ -73,6 +74,7 @@
             txtLösenord.Name = "txtLösenord";
             txtLösenord.Size = new Size(558, 39);
             txtLösenord.TabIndex = 3;
+            txtLösenord.Text = "admin123";
             // 
             // btnLoggaIn
             // 
