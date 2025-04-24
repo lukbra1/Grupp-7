@@ -1,4 +1,5 @@
-﻿using Hattmakarens_system.Database;
+﻿using Hattmakarens_system.Controllers;
+using Hattmakarens_system.Database;
 using Hattmakarens_system.ModelsNy;
 using Hattmakarens_system.Presentationslager;
 using Microsoft.EntityFrameworkCore;
@@ -14,9 +15,12 @@ namespace Hattmakarens_system
         private readonly AppDbContext _context = new AppDbContext();
         private Order valdOrder;
 
+        private readonly OrderController _orderController;
+
 
         public RedigeraOrder(Order valdOrder)
         {
+            _orderController = new OrderController(_context);
             InitializeComponent();
             this.valdOrder = valdOrder;
 
@@ -27,23 +31,71 @@ namespace Hattmakarens_system
 
         private void RedigeraOrder_Load(object sender, EventArgs e)
         {
+            try
+            {
+                valdOrder = _context.Ordrar
+                    .Include(o => o.OrderRader)
+                    .ThenInclude(o => (o as LagerOrderrad).Modell)
+                    .FirstOrDefault(o => o.OrderId == valdOrder.OrderId);
+
+                if (valdOrder == null)
+                {
+                    MessageBox.Show("Kunde inte hitta order.");
+                    Close();
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            LaddaOrderRad();
+            LaddaMatrial();
+           
+        }
+
+        public void LaddaMatrial()
+        {
+            dgvMatrial.DataSource = null;
+            dgvMatrial.Rows.Clear();
+            dgvMatrial.Columns.Clear();
+
+            // Lägger till kolumner
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Hattnummer", typeof(int)).ReadOnly = true;
+            dt.Columns.Add("Namn", typeof(string)).ReadOnly = true;
+            dt.Columns.Add("Antal", typeof(string)).ReadOnly = true;
+            dt.Columns.Add("Färg", typeof(string)).ReadOnly = true;
+            dt.Columns.Add("Beskrivning", typeof(string)).ReadOnly = true;
+            dt.Columns.Add("Beställt", typeof(bool)).ReadOnly = true;
+
+            var orderRadId = valdOrder.OrderId;
+
+            var matrialFörOrderRad = _orderController.HämtaMatrialFörOrderRader(orderRadId);
+
+            foreach (var material in matrialFörOrderRad)
+            {
+                dt.Rows.Add(
+                        orderRadId,
+                        material.Material.Namn,
+                        material.TotalAntal.ToString(),
+                        material.Material.Farg,
+                        material.Material.Beskrivning,
+                        material.Material.Beställt.ToString()
+                        
+                    );
+            }
+
+            dgvMatrial.DataSource = dt;
+
+        }
+
+        public void LaddaOrderRad()
+        {
             dgvOrderRader.DataSource = null;
             dgvOrderRader.Rows.Clear();
             dgvOrderRader.Columns.Clear();
-
-
-            valdOrder = _context.Ordrar
-                .Include(o => o.OrderRader)
-                .ThenInclude(o => (o as LagerOrderrad).Modell)
-                .FirstOrDefault(o => o.OrderId == valdOrder.OrderId);
-
-            if (valdOrder == null)
-            {
-                MessageBox.Show("Kunde inte hitta order.");
-                Close();
-                return;
-            }
-
 
             DataTable dt = new DataTable();
             dt.Columns.Add("OrderRadId", typeof(int));
@@ -51,7 +103,6 @@ namespace Hattmakarens_system
             dt.Columns.Add("Typ", typeof(string));
             dt.Columns.Add("Storlek", typeof(string));
             dt.Columns.Add("Status", typeof(string));
-            //dt.Columns.Add("Express", typeof(bool));
             dt.Columns.Add("Pris", typeof(decimal));
 
             dt.Columns["Modell"].ReadOnly = true;
@@ -61,7 +112,8 @@ namespace Hattmakarens_system
             foreach (var rad in valdOrder.OrderRader)
             {
                 string modell = "Special";
-                if (rad is LagerOrderrad lagerRad && lagerRad.Modell != null) {
+                if (rad is LagerOrderrad lagerRad && lagerRad.Modell != null)
+                {
                     modell = lagerRad.Modell.Namn;
                 }
 
@@ -71,7 +123,6 @@ namespace Hattmakarens_system
                         rad.TypEnum.ToString(),
                         rad.Storlek.ToString(),
                         rad.StatusOrderrad.ToString(),
-                        //valdOrder.Express,
                         rad.pris
                     );
             }
@@ -80,24 +131,8 @@ namespace Hattmakarens_system
 
             dgvOrderRader.DataSource = dt;
 
-            //LäggTillComboKolumn("Typ", typeof(TypEnum));
             LäggTillComboKolumn("Storlek", typeof(StorlekEnum));
             LäggTillComboKolumn("Status", typeof(StatusOrderradEnum));
-
-
-            //if (!(dgvOrderRader.Columns["Express"] is DataGridViewCheckBoxColumn))
-            //{
-            //    int index = dgvOrderRader.Columns["Express"].Index;
-            //    var expressCol = new DataGridViewCheckBoxColumn
-            //    {
-            //        DataPropertyName = "Express",
-            //        Name = "Express",
-            //        HeaderText = "Express"
-            //    };
-            //    dgvOrderRader.Columns.RemoveAt(index);
-            //    dgvOrderRader.Columns.Insert(index, expressCol);
-            //}
-
 
             dgvOrderRader.Columns["Pris"].ReadOnly = false;
         }
@@ -148,12 +183,6 @@ namespace Hattmakarens_system
 
             valdOrder.Express = checkBox1.Checked;
 
-            //if (dgvOrderRader.Rows.Count > 0 &&
-            //    dgvOrderRader.Rows[0].Cells["Express"].Value is bool express)
-            //{
-            //    valdOrder.Express = express;
-            //}
-
 
             if (dgvOrderRader.Rows.Count > 0 &&
                 decimal.TryParse(dgvOrderRader.Rows[0].Cells["Pris"].Value?.ToString(), out decimal nyttPris))
@@ -172,6 +201,11 @@ namespace Hattmakarens_system
             this.Close();
             var previousForm = new AllaBeställningar();
             previousForm.Show();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
