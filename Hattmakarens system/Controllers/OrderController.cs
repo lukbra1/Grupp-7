@@ -68,7 +68,7 @@ namespace Hattmakarens_system.Controllers
 
 
 
-        public LagerOrderrad LäggTillLagerOrderrad(Order order, int modellId)
+        public LagerOrderrad LäggTillLagerOrderrad(Order order, int modellId, StorlekEnum storlek)
         {
             
             var modell = _context.Modeller.FirstOrDefault(m => m.ModellId == modellId);
@@ -82,7 +82,8 @@ namespace Hattmakarens_system.Controllers
                 ModellId = modellId,
                 StatusOrderrad = StatusOrderradEnum.EjPaborjad,
                 Tillverkad = false,
-                UserId = null
+                UserId = null,
+                Storlek = storlek
             };
 
 
@@ -138,6 +139,16 @@ namespace Hattmakarens_system.Controllers
             _context.SaveChanges();
         }
 
+        public decimal HämtaTotalOrderPris(Order ordern)
+        {
+            var orderId = ordern.OrderId;
+
+            var totalSumma = _context.Orderrader
+                .Where(or => or.OrderId == orderId)
+                .Sum(or => or.pris ??  0);
+             
+            return totalSumma;
+        }
 
     }
 }

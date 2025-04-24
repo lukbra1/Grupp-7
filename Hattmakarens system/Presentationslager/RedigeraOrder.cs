@@ -48,7 +48,7 @@ namespace Hattmakarens_system
             dt.Columns.Add("Storlek", typeof(string));
             dt.Columns.Add("Status", typeof(string));
             dt.Columns.Add("Express", typeof(bool));
-            dt.Columns.Add("TotalPris", typeof(decimal));
+            dt.Columns.Add("Pris", typeof(decimal));
 
 
             foreach (var rad in valdOrder.OrderRader)
@@ -59,7 +59,7 @@ namespace Hattmakarens_system
                     rad.Storlek.ToString(),
                     rad.StatusOrderrad.ToString(),
                     valdOrder.Express,
-                    valdOrder.TotalPris // 🆕
+                    valdOrder.TotalPris
                 );
             }
 
@@ -84,7 +84,7 @@ namespace Hattmakarens_system
             }
 
 
-            dgvOrderRader.Columns["TotalPris"].ReadOnly = false;
+            dgvOrderRader.Columns["Pris"].ReadOnly = false;
         }
 
         private void LäggTillComboKolumn(string kolumnNamn, Type enumTyp)
@@ -108,6 +108,26 @@ namespace Hattmakarens_system
         {
             if (valdOrder == null) return;
 
+            //foreach (DataGridViewRow row in dgvOrderRader.Rows)
+            //{
+            //    if (row.IsNewRow) continue;
+
+            //    int radId = Convert.ToInt32(row.Cells["OrderRadId"].Value);
+            //    var rad = valdOrder.OrderRader.FirstOrDefault(r => r.OrderRadId == radId);
+
+            //    if (rad != null)
+            //    {
+            //        if (Enum.TryParse(row.Cells["Typ"].Value.ToString(), out TypEnum typ))
+            //            rad.TypEnum = typ;
+
+            //        if (Enum.TryParse(row.Cells["Storlek"].Value.ToString(), out StorlekEnum storlek))
+            //            rad.Storlek = storlek;
+
+            //        if (Enum.TryParse(row.Cells["Status"].Value.ToString(), out StatusOrderradEnum status))
+            //            rad.StatusOrderrad = status;
+            //    }
+            //}
+
             foreach (DataGridViewRow row in dgvOrderRader.Rows)
             {
                 if (row.IsNewRow) continue;
@@ -125,8 +145,12 @@ namespace Hattmakarens_system
 
                     if (Enum.TryParse(row.Cells["Status"].Value.ToString(), out StatusOrderradEnum status))
                         rad.StatusOrderrad = status;
+
+                    if (decimal.TryParse(row.Cells["Pris"].Value?.ToString(), out decimal nyttRadPris))
+                        rad.pris = nyttRadPris;
                 }
             }
+
 
 
             if (dgvOrderRader.Rows.Count > 0 &&
@@ -137,7 +161,7 @@ namespace Hattmakarens_system
 
 
             if (dgvOrderRader.Rows.Count > 0 &&
-                decimal.TryParse(dgvOrderRader.Rows[0].Cells["TotalPris"].Value?.ToString(), out decimal nyttPris))
+                decimal.TryParse(dgvOrderRader.Rows[0].Cells["Pris"].Value?.ToString(), out decimal nyttPris))
             {
                 valdOrder.TotalPris = nyttPris;
             }

@@ -43,6 +43,7 @@
             dgvOrderRader.Location = new Point(34, 81);
             dgvOrderRader.Margin = new Padding(4, 4, 4, 4);
             dgvOrderRader.Name = "dgvOrderRader";
+            dgvOrderRader.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dgvOrderRader.RowHeadersWidth = 82;
             dgvOrderRader.Size = new Size(847, 362);
             dgvOrderRader.TabIndex = 4;
