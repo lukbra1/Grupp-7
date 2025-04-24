@@ -294,6 +294,7 @@ namespace Hattmakarens_system
             // lvOrderRadLista
             // 
             lvOrderRadLista.Columns.AddRange(new ColumnHeader[] { OrderRadId, Typ, Storlek, Status, Tilldelad, Pris });
+            lvOrderRadLista.FullRowSelect = true;
             lvOrderRadLista.Location = new Point(560, 142);
             lvOrderRadLista.Name = "lvOrderRadLista";
             lvOrderRadLista.Size = new Size(598, 627);
@@ -334,11 +335,11 @@ namespace Hattmakarens_system
             // 
             // btnSchemalägg
             // 
-            btnSchemalägg.Location = new Point(576, 784);
+            btnSchemalägg.Location = new Point(592, 803);
             btnSchemalägg.Name = "btnSchemalägg";
-            btnSchemalägg.Size = new Size(253, 46);
+            btnSchemalägg.Size = new Size(150, 46);
             btnSchemalägg.TabIndex = 17;
-            btnSchemalägg.Text = "Lägg till i schema";
+            btnSchemalägg.Text = "button1";
             btnSchemalägg.UseVisualStyleBackColor = true;
             btnSchemalägg.Click += btnSchemalägg_Click;
             // 

@@ -109,13 +109,10 @@ namespace Hattmakarens_system.Controllers
 
         public void TilldelaOrderRad(OrderRad orderrad, int userId, DateTime datum)
         {
-            var trackedOrderrad = _context.Orderrader.FirstOrDefault(or => or.OrderRadId == orderrad.OrderRadId);
-            if (trackedOrderrad == null) return;
-
-            trackedOrderrad.TilldeladOrder = true;
-            trackedOrderrad.UserId = userId;
-            trackedOrderrad.TilldelningsDatum = datum;
-
+            orderrad.TilldeladOrder = true;
+            orderrad.UserId = userId;
+            orderrad.TilldelningsDatum = datum;
+            _context.Orderrader.Update(orderrad);
             _context.SaveChanges();
         }
 

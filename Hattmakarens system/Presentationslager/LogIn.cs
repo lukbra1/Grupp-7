@@ -81,11 +81,9 @@ namespace Hattmakarens_system
 
             if (loggedInUser != null)
             {
-                Program.aktuellAnvändare = loggedInUser;                   
-                Program.homepage = new Homepage(Program.aktuellAnvändare); 
-                Program.homepage.Show();
+                Homepage homePage = new Homepage(loggedInUser);
+                homePage.Show();
                 this.Hide();
-
             }
             else
             {

@@ -360,9 +360,7 @@ namespace Hattmakarens_system.Presentationslager
                 {
                     klickatVidareKnapp = true;
                     this.Close();
-                    Program.homepage = new Homepage(Program.aktuellAnvändare); // ✅
                     Program.homepage.Show();
-                    //Program.homepage.Show();
                 }
             }
             else
@@ -378,9 +376,7 @@ namespace Hattmakarens_system.Presentationslager
                     _orderController.TaBortTomOrder(Ordern);
                     klickatVidareKnapp = true;
                     this.Close();
-                    Program.homepage = new Homepage(Program.aktuellAnvändare); // ✅
                     Program.homepage.Show();
-                    //Program.homepage.Show();
 
                 }
             }
