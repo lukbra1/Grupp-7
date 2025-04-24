@@ -113,6 +113,10 @@ namespace Hattmakarens_system.Controllers
             orderrad.TilldeladOrder = true;
             orderrad.UserId = userId;
             orderrad.TilldelningsDatum = datum;
+
+            orderrad.StatusOrderrad = StatusOrderradEnum.Paborjad;
+
+
             _context.Orderrader.Update(orderrad);
             _context.SaveChanges();
         }
@@ -123,6 +127,7 @@ namespace Hattmakarens_system.Controllers
             return _context.Orderrader
                 .Include(or => or.Order)
                 .ThenInclude(o => o.Kund)
+                .Include(or => or.User)
                 .Where(or => or.TilldeladOrder && or.TilldelningsDatum != null)
                 .ToList();
         }
