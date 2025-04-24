@@ -154,6 +154,14 @@ namespace Hattmakarens_system.Controllers
              
             return totalSumma;
         }
+        public decimal BeräknaOrderPrisInkMoms(Order ordern)
+        {
+            decimal orderTotalPris = HämtaTotalOrderPris(ordern);
+            decimal moms = 1.25m;
+            decimal express = ordern.Express ? 1.20m : 0m;
+
+            return orderTotalPris * moms * express;
+        }
 
     }
 }
