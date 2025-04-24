@@ -33,11 +33,12 @@ namespace Hattmakarens_system.Presentationslager
             {
                 // Skapa en rad i listview
                 var rad = new ListViewItem(order.OrderId.ToString());
+                var totalPris = db.HämtaTotalOrderPris(order);
 
                 rad.SubItems.Add(order.Skapad.ToShortDateString());
                 rad.SubItems.Add(order.Status.ToString());
                 rad.SubItems.Add(order.Express ? "Ja" : "Nej");
-                rad.SubItems.Add($"{order.TotalPris} kr");
+                rad.SubItems.Add($"{totalPris} kr");
 
                 rad.Tag = order;
                 lvAlla.Items.Add(rad);

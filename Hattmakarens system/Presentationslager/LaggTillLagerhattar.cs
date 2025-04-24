@@ -144,7 +144,7 @@ namespace Hattmakarens_system.Presentationslager
             int modellId = hattModell.ModellId;
 
             // Skapa orderad
-            var orderRad = _orderController.LäggTillLagerOrderrad(Ordern, modellId);
+            var orderRad = _orderController.LäggTillLagerOrderrad(Ordern, modellId, storlek);
 
             int orderRadId = orderRad.OrderRadId;
 
