@@ -9,8 +9,9 @@ namespace Hattmakarens_system.Controllers
 
         public KundController(AppDbContext context)
         {
-            this._context = context;
+            _context = context;
         }
+
         public Kund SkapaNyKund(string Fornamn, string Efternamn, string TelefonNr, string Epost, string Adress)
         {
             Kund kund = new Kund
@@ -26,29 +27,21 @@ namespace Hattmakarens_system.Controllers
             _context.SaveChanges();
             return kund;
         }
+
         public List<Kund> AllaAktivaKunder()
         {
             return _context.Kunder.Where(k => k.Aktiv).ToList();
         }
-        public List<Kund> HamtaKunderMedNamn(string ForNamn)
+
+        public List<Kund> HamtaKunderMedNamn(string sokNamn)
         {
-            List<Kund> kunder = _context.Kunder.Where(k => k.Fornamn == ForNamn).ToList();
+            List<Kund> kunder = _context.Kunder.Where(k => k.Aktiv && (k.Fornamn.Contains(sokNamn) || k.Efternamn.Contains(sokNamn))).ToList();
             return kunder;
         }
+
         public Kund HamtaKundFranId(int KundId)
         {
-            return this._context.Kunder.FirstOrDefault(k => k.KundId == KundId);
-        }
-        public Kund HamtaKundFranFornamn(string ForNamn)
-        {
-            return new Kund();
-        }
-        public void RaderaKund(Kund kund)
-        {
-        }
-        public bool ExisterarEpost(string Epost)
-        {
-            return false;
+            return _context.Kunder.FirstOrDefault(k => k.KundId == KundId);
         }
 
         public List<Kund> HämtaAllaKunder()
@@ -56,15 +49,17 @@ namespace Hattmakarens_system.Controllers
             return _context.Kunder.ToList();
         }
 
-        public void TaBortKund(int kundId)
+        public bool TaBortKund(int kundId)
         {
             var kund = _context.Kunder.Find(kundId);
             if (kund != null)
             {
-                _context.Kunder.Remove(kund);
+                kund.Aktiv = false;
+                _context.Kunder.Update(kund);
                 _context.SaveChanges();
+                return true;
             }
-
+            return false;
         }
     }
 }
