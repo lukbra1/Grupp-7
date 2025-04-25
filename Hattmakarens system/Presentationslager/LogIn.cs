@@ -62,7 +62,6 @@ namespace Hattmakarens_system
 
             if (loggedInUser != null)
             {
-                MessageBox.Show(username);
                 Program.aktuellAnvändare = loggedInUser;
                 Program.homepage = new Homepage(Program.aktuellAnvändare);
                 Program.homepage.Show();
