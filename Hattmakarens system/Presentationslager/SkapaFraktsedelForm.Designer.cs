@@ -231,7 +231,7 @@
             // lblStatusFraktsedel
             // 
             lblStatusFraktsedel.AutoSize = true;
-            lblStatusFraktsedel.Location = new Point(426, 944);
+            lblStatusFraktsedel.Location = new Point(360, 928);
             lblStatusFraktsedel.Margin = new Padding(5, 0, 5, 0);
             lblStatusFraktsedel.Name = "lblStatusFraktsedel";
             lblStatusFraktsedel.Size = new Size(78, 32);

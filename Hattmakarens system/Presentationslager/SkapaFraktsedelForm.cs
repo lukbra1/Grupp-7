@@ -37,7 +37,7 @@ namespace Hattmakarens_system.Presentationslager
         private void SkapaFraktsedelForm_Load(object sender, EventArgs e)
         {
 
-            lblOrderId.Text = $"Order-ID: {order.OrderId}";
+            lblOrderId.Text = $"Order-nummer: {order.OrderId}";
             lblOrderPris.Text = controller.BeräknaOrderPrisInkMoms(order).ToString();
             txtAdress.Text = db.HämtaMottagarAdress(order);
             txtMottagare.Text = db.HämtaMottagareNamn(order);
