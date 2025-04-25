@@ -149,28 +149,30 @@ namespace Hattmakarens_system.Controllers
             return orderTotalPris * moms * express;
         }
 
-        public IEnumerable<dynamic> HämtaMatrialFörOrderRader(int orderRadId)
+        public IEnumerable<dynamic> HämtaMatrialFörOrderRader(int orderId)
         {
-            //List<Material> TillhörandeMatrial = new List<Material>();
-
-            //TillhörandeMatrial = _context.MaterialOrderrader
-            //    .Where(orm => orm.OrderRadId == orderRadId)
-            //    .Select(orm => orm.Material)
-            //    .ToList();
-
-
-            //return TillhörandeMatrial;
-
-            var materialsForOrderRad = _context.MaterialOrderrader
-                .Where(orm => orm.OrderRadId == orderRadId)
-                .GroupBy(orm => orm.MaterialId)  // Gruppera på MaterialId
-                .Select(group => new
-                {
-                    Material = group.First().Material,  // Hämtar Material från första posten i gruppen
-                    TotalAntal = group.Sum(orm => orm.AntalMaterial)  // Summera Antal för alla OrderRadMaterialer med samma MaterialId
-                })
+            var orderRader = _context.Orderrader
+                .Where(or => or.OrderId == orderId)
+                .Select(or => or.OrderRadId)
                 .ToList();
-            return materialsForOrderRad;
+
+            var materialOrderrader = _context.MaterialOrderrader
+                .Where(mor => orderRader.Contains(mor.OrderRadId))
+                .Include(mor => mor.Material)
+                .ToList();
+
+            var resultat = materialOrderrader
+                .GroupBy(mor => new { mor.OrderRadId, mor.MaterialId })
+                .Select(grupp => new
+                {
+                    OrderRadId = grupp.Key.OrderRadId,
+                    Material = grupp.First().Material,
+                    TotalAntal = grupp.Sum(mor => mor.AntalMaterial),
+                    Bestallt = grupp.First().Bestallt
+                });
+
+            return resultat;
+
         }
 
         public void AvTilldelaOrderRad(OrderRad orderrad)

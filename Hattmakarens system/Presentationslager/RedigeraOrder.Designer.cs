@@ -47,12 +47,12 @@
             dgvOrderRader.Name = "dgvOrderRader";
             dgvOrderRader.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dgvOrderRader.RowHeadersWidth = 82;
-            dgvOrderRader.Size = new Size(1090, 306);
+            dgvOrderRader.Size = new Size(1359, 306);
             dgvOrderRader.TabIndex = 4;
             // 
             // btnSpara
             // 
-            btnSpara.Location = new Point(993, 949);
+            btnSpara.Location = new Point(1274, 834);
             btnSpara.Margin = new Padding(6);
             btnSpara.Name = "btnSpara";
             btnSpara.Size = new Size(140, 50);
@@ -67,7 +67,7 @@
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(11, 3, 0, 3);
-            menuStrip1.Size = new Size(1214, 42);
+            menuStrip1.Size = new Size(1485, 42);
             menuStrip1.TabIndex = 6;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -81,7 +81,7 @@
             // checkBox1
             // 
             checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(55, 957);
+            checkBox1.Location = new Point(55, 834);
             checkBox1.Margin = new Padding(5);
             checkBox1.Name = "checkBox1";
             checkBox1.Size = new Size(212, 36);
@@ -95,7 +95,7 @@
             dgvMatrial.Location = new Point(55, 495);
             dgvMatrial.Name = "dgvMatrial";
             dgvMatrial.RowHeadersWidth = 82;
-            dgvMatrial.Size = new Size(1090, 300);
+            dgvMatrial.Size = new Size(1359, 300);
             dgvMatrial.TabIndex = 8;
             dgvMatrial.CellContentClick += dataGridView1_CellContentClick;
             // 
@@ -103,7 +103,8 @@
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1214, 1057);
+            AutoSize = true;
+            ClientSize = new Size(1485, 1057);
             Controls.Add(dgvMatrial);
             Controls.Add(checkBox1);
             Controls.Add(btnSpara);

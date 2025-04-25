@@ -132,7 +132,7 @@
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(32, 32);
-            menuStrip1.Location = new Point(0, 42);
+            menuStrip1.Location = new Point(0, 40);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(2293, 24);
             menuStrip1.TabIndex = 11;
@@ -144,14 +144,14 @@
             menuStrip2.Items.AddRange(new ToolStripItem[] { tillbakaToolStripMenuItem });
             menuStrip2.Location = new Point(0, 0);
             menuStrip2.Name = "menuStrip2";
-            menuStrip2.Size = new Size(2293, 42);
+            menuStrip2.Size = new Size(2293, 40);
             menuStrip2.TabIndex = 12;
             menuStrip2.Text = "menuStrip2";
             // 
             // tillbakaToolStripMenuItem
             // 
             tillbakaToolStripMenuItem.Name = "tillbakaToolStripMenuItem";
-            tillbakaToolStripMenuItem.Size = new Size(115, 38);
+            tillbakaToolStripMenuItem.Size = new Size(115, 36);
             tillbakaToolStripMenuItem.Text = "Tillbaka";
             tillbakaToolStripMenuItem.Click += tillbakaToolStripMenuItem_Click;
             // 
@@ -159,6 +159,7 @@
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
             ClientSize = new Size(2293, 1114);
             Controls.Add(btnExporteraMaterial);
             Controls.Add(lvOrdrar);

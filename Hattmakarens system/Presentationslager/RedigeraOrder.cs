@@ -73,21 +73,20 @@ namespace Hattmakarens_system
             dt.Columns.Add("Beskrivning", typeof(string)).ReadOnly = true;
             dt.Columns.Add("Beställt", typeof(bool)).ReadOnly = true;
 
-            var orderRadId = valdOrder.OrderId;
+            var orderId = valdOrder.OrderId;
 
-            var matrialFörOrderRad = _orderController.HämtaMatrialFörOrderRader(orderRadId);
+            var matrialFörOrderRad = _orderController.HämtaMatrialFörOrderRader(orderId);
 
             foreach (var material in matrialFörOrderRad)
             {
                 dt.Rows.Add(
-                        orderRadId,
-                        material.Material.Namn,
-                        material.TotalAntal.ToString(),
-                        material.Material.Farg,
-                        material.Material.Beskrivning,
-                        material.Material.Beställt.ToString()
-
-                    );
+                    material.OrderRadId,
+                    material.Material.Namn,
+                    material.TotalAntal,
+                    material.Material.Farg,
+                    material.Material.Beskrivning,
+                    material.Bestallt
+                );
             }
 
             dgvMatrial.DataSource = dt;
