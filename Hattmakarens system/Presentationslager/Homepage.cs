@@ -41,6 +41,7 @@ namespace Hattmakarens_system
 
             LaddaTilldeladeOrderrader();
             UppdateraVeckooversikt(DateTime.Today);
+            LaddaMinaUppgifter();
         }
 
         private void InitializeListView()
@@ -127,6 +128,12 @@ namespace Hattmakarens_system
                 {
                     orderController.TilldelaOrderRad(orderrad, _currentUser.UserId, selectedDate);
 
+                    var uppdateradRad = _context.Orderrader
+                    .Include(r => r.Order)
+                    .ThenInclude(o => o.Kund)
+                    .FirstOrDefault(r => r.OrderRadId == orderrad.OrderRadId);
+
+                    if (uppdateradRad == null) continue;
                     string kundNamn = orderrad.Order?.Kund != null
                         ? $"{orderrad.Order.Kund.Fornamn} {orderrad.Order.Kund.Efternamn}"
                         : "Okänd kund";
@@ -134,7 +141,7 @@ namespace Hattmakarens_system
                     string ansvarig = _currentUser != null ? $"{_currentUser.Namn}" : "Okänd användare";
 
 
-                    string text = $"🧵 Hatt #{orderrad.OrderRadId} – {orderrad.TypEnum} (strl {orderrad.Storlek}) – {kundNamn} – {ansvarig} – Status: {orderrad.StatusOrderrad}";
+                    string text = $"🧵 Hatt #{orderrad.OrderRadId} – {orderrad.TypEnum} – {kundNamn} – {ansvarig} – Status: {orderrad.StatusOrderrad}";
 
 
                     if (!todoList.ContainsKey(selectedDate))
@@ -151,16 +158,19 @@ namespace Hattmakarens_system
                 }
             }
 
-            listBoxDagens.Items.Clear();
-            if (todoList.TryGetValue(selectedDate, out var dagensLista))
-            {
-                foreach (var t in dagensLista)
-                    listBoxDagens.Items.Add(t);
-            }
+            //listBoxDagens.Items.Clear();
+            //if (todoList.TryGetValue(selectedDate, out var dagensLista))
+            //{
+            //    foreach (var t in dagensLista)
+            //        listBoxDagens.Items.Add(t);
+            //}
 
 
             UppdateraVeckooversikt(selectedDate);
             ordrarList_SelectedIndexChanged(null, null);
+
+            LaddaMinaUppgifter();
+
         }
 
         private void UppdateraVeckooversikt(DateTime selectedDate)
@@ -240,7 +250,7 @@ namespace Hattmakarens_system
 
         private void hanteraKunderToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var TaBortKund = new TaBortKund();
+            var TaBortKund = new TaBortKund(this);
             TaBortKund.Show();
             this.Hide();
         }
@@ -257,7 +267,10 @@ namespace Hattmakarens_system
             _context.ChangeTracker.Clear();
 
             var tilldelade = orderController.HämtaAllaOrderRaderTilldelade()
-                        .Where(r => r.StatusOrderrad != StatusOrderradEnum.Färdig)
+                        .Where(r => r.StatusOrderrad != StatusOrderradEnum.Färdig &&
+                        r.Order?.Kund != null &&
+                        r.Order.Kund.Aktiv
+                        )
                         .ToList();
 
 
@@ -273,7 +286,7 @@ namespace Hattmakarens_system
                 ? $"{rad.User.Namn}"
                 : "Ingen ansvarig";
 
-                string uppgift = $"🧵 Hatt #{rad.OrderRadId} – {rad.TypEnum} (strl {rad.Storlek}) – {kundNamn} – {ansvarig} – Status: {rad.StatusOrderrad}";
+                string uppgift = $"🧵 Hatt #{rad.OrderRadId} – {rad.TypEnum} – {kundNamn} – {ansvarig} – Status: {rad.StatusOrderrad}";
 
                 if (!todoList.ContainsKey(datum))
                     todoList[datum] = new List<string>();
@@ -302,13 +315,14 @@ namespace Hattmakarens_system
         {
             todoList.Clear();
             lvOrderRadLista.Items.Clear();
-            listBoxDagens.Items.Clear();
             richTextBoxVecka.Clear();
 
             LaddaAllaOrdrar();
 
             var tilldelade = orderController.HämtaAllaOrderRaderTilldelade()
-                .Where(r => r.StatusOrderrad != StatusOrderradEnum.Färdig)
+            .Where(r => r.StatusOrderrad != StatusOrderradEnum.Färdig &&
+                r.Order?.Kund != null &&
+                r.Order.Kund.Aktiv)
                 .ToList();
 
             foreach (var rad in tilldelade)
@@ -328,25 +342,27 @@ namespace Hattmakarens_system
                 todoList[datum].Add(text);
             }
             UppdateraVeckooversikt(DateTime.Today);
+            LaddaMinaUppgifter();
         }
         public void UppdateraData()
         {
             todoList.Clear();
             lvOrderRadLista.Items.Clear();
-            listBoxDagens.Items.Clear();
+            listBoxMinaUppgifter.Items.Clear();
             richTextBoxVecka.Clear();
             LaddaAllaOrdrar();
             LaddaTilldeladeOrderrader();
+            LaddaMinaUppgifter();
             UppdateraVeckooversikt(DateTime.Today);
 
-            listBoxDagens.Items.Clear();
             DateTime idag = DateTime.Today;
-            if (todoList.TryGetValue(idag, out var dagensUppgifter))
-            {
-                foreach (var uppgift in dagensUppgifter)
-                    listBoxDagens.Items.Add(uppgift);
-            }
+            //if (todoList.TryGetValue(idag, out var dagensUppgifter))
+            //{
+            //    foreach (var uppgift in dagensUppgifter)
+            //        listBoxDagens.Items.Add(uppgift);
+            //}
         }
+
 
         private void btnTaBortTilldelning_Click(object sender, EventArgs e)
         {
@@ -384,6 +400,44 @@ namespace Hattmakarens_system
             }
 
             UppdateraData();
+
+
         }
+        private void LaddaMinaUppgifter()
+        {
+            listBoxMinaUppgifter.Items.Clear(); // Antag att detta är en ListView nu
+
+            var minaUppgifter = orderController.HämtaAllaOrderRaderTilldelade()
+                .Where(r =>
+                    r.StatusOrderrad != StatusOrderradEnum.Färdig &&
+                    r.UserId == _currentUser.UserId &&
+                    r.Order?.Kund != null &&
+                    r.Order.Kund.Aktiv
+                    )
+                .OrderBy(r => r.TilldelningsDatum)
+                .ToList();
+
+            foreach (var rad in minaUppgifter)
+            {
+                string orderRadId = rad.OrderRadId.ToString();
+                string kundNamn = rad.Order?.Kund != null
+                    ? $"{rad.Order.Kund.Fornamn} {rad.Order.Kund.Efternamn}"
+                    : "Okänd kund";
+                string hattTyp = rad.TypEnum.ToString();
+                string skapadDatum = rad.Order?.Skapad.ToString("yyyy-MM-dd") ?? "Okänt";
+                string tilldeladDatum = rad.TilldelningsDatum?.ToString("yyyy-MM-dd") ?? "Ej tilldelad";
+
+                var item = new ListViewItem(orderRadId);
+                item.SubItems.Add(kundNamn);
+                item.SubItems.Add(hattTyp);
+                item.SubItems.Add(skapadDatum);
+                item.SubItems.Add(tilldeladDatum);
+
+                item.Tag = rad; // så du kan hantera "ta bort tilldelning" t.ex.
+
+                listBoxMinaUppgifter.Items.Add(item);
+            }
+        }
+
     }
 }

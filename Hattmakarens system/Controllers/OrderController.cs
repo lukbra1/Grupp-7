@@ -117,11 +117,11 @@ namespace Hattmakarens_system.Controllers
         public List<OrderRad> HämtaAllaOrderRaderTilldelade()
         {
             return _context.Orderrader
-                .Include(or => or.Order)
-                .ThenInclude(o => o.Kund)
-                .Include(or => or.User)
-                .Where(or => or.TilldeladOrder && or.TilldelningsDatum != null)
-                .ToList();
+         .Include(or => or.Order)
+             .ThenInclude(o => o.Kund) // <- DETTA gör att Kund också inkluderas
+         .Include(or => or.User)
+         .Where(or => or.TilldeladOrder && or.TilldelningsDatum != null)
+         .ToList();
         }
 
         public void TaBortTomOrder(Order Ordern)

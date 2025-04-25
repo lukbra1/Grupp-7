@@ -46,7 +46,11 @@ namespace Hattmakarens_system
             hanteraMedarbetareToolStripMenuItem = new ToolStripMenuItem();
             loggaUtToolStripMenuItem1 = new ToolStripMenuItem();
             monthCalendar1 = new MonthCalendar();
-            listBoxDagens = new ListView();
+            listBoxMinaUppgifter = new ListView();
+            KundNamn = new ColumnHeader();
+            HattTyp = new ColumnHeader();
+            SkapadDatum = new ColumnHeader();
+            TilldelningsDatum = new ColumnHeader();
             richTextBoxVecka = new RichTextBox();
             label2 = new Label();
             label3 = new Label();
@@ -66,6 +70,7 @@ namespace Hattmakarens_system
             Pris = new ColumnHeader();
             label1 = new Label();
             btnTaBortTilldelning = new Button();
+            RadOrderId = new ColumnHeader();
             menuStrip2.SuspendLayout();
             SuspendLayout();
             // 
@@ -194,14 +199,40 @@ namespace Hattmakarens_system
             monthCalendar1.TabIndex = 3;
             monthCalendar1.DateChanged += monthCalendar1_DateChanged;
             // 
-            // listBoxDagens
+            // listBoxMinaUppgifter
             // 
-            listBoxDagens.Location = new Point(2203, 176);
-            listBoxDagens.Margin = new Padding(3, 5, 3, 5);
-            listBoxDagens.Name = "listBoxDagens";
-            listBoxDagens.Size = new Size(324, 593);
-            listBoxDagens.TabIndex = 4;
-            listBoxDagens.UseCompatibleStateImageBehavior = false;
+            listBoxMinaUppgifter.Columns.AddRange(new ColumnHeader[] { RadOrderId, KundNamn, HattTyp, SkapadDatum, TilldelningsDatum });
+            listBoxMinaUppgifter.Location = new Point(2124, 143);
+            listBoxMinaUppgifter.Margin = new Padding(3, 5, 3, 5);
+            listBoxMinaUppgifter.Name = "listBoxMinaUppgifter";
+            listBoxMinaUppgifter.Size = new Size(477, 626);
+            listBoxMinaUppgifter.TabIndex = 4;
+            listBoxMinaUppgifter.UseCompatibleStateImageBehavior = false;
+            listBoxMinaUppgifter.View = View.Details;
+            // 
+            // KundNamn
+            // 
+            KundNamn.DisplayIndex = 0;
+            KundNamn.Text = "KundNamn";
+            KundNamn.Width = 100;
+            // 
+            // HattTyp
+            // 
+            HattTyp.DisplayIndex = 1;
+            HattTyp.Text = "HattTyp";
+            HattTyp.Width = 100;
+            // 
+            // SkapadDatum
+            // 
+            SkapadDatum.DisplayIndex = 2;
+            SkapadDatum.Text = "SkapadDatum";
+            SkapadDatum.Width = 100;
+            // 
+            // TilldelningsDatum
+            // 
+            TilldelningsDatum.DisplayIndex = 3;
+            TilldelningsDatum.Text = "TilldelningsDatum";
+            TilldelningsDatum.Width = 100;
             // 
             // richTextBoxVecka
             // 
@@ -233,11 +264,11 @@ namespace Hattmakarens_system
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(2203, 130);
+            label4.Location = new Point(2124, 106);
             label4.Name = "label4";
-            label4.Size = new Size(277, 32);
+            label4.Size = new Size(256, 32);
             label4.TabIndex = 13;
-            label4.Text = "Se uppgifter på vald dag";
+            label4.Text = "Mina uppgiter att göra";
             // 
             // sqlCommand1
             // 
@@ -341,6 +372,11 @@ namespace Hattmakarens_system
             btnTaBortTilldelning.UseVisualStyleBackColor = true;
             btnTaBortTilldelning.Click += btnTaBortTilldelning_Click;
             // 
+            // RadOrderId
+            // 
+            RadOrderId.Text = "OrderRadId";
+            RadOrderId.Width = 100;
+            // 
             // Homepage
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
@@ -356,7 +392,7 @@ namespace Hattmakarens_system
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(richTextBoxVecka);
-            Controls.Add(listBoxDagens);
+            Controls.Add(listBoxMinaUppgifter);
             Controls.Add(monthCalendar1);
             Controls.Add(menuStrip1);
             Controls.Add(menuStrip2);
@@ -395,7 +431,7 @@ namespace Hattmakarens_system
         private ToolStripMenuItem minaUppgifterToolStripMenuItem;
         private ToolStripMenuItem mittSchemaToolStripMenuItem;
         private MonthCalendar monthCalendar1;
-        private ListView listBoxDagens;
+        private ListView listBoxMinaUppgifter;
         private RichTextBox richTextBoxVecka;
         private Label label2;
         private Label label3;
@@ -417,5 +453,10 @@ namespace Hattmakarens_system
         private ColumnHeader Pris;
         private Label label1;
         private Button btnTaBortTilldelning;
+        private ColumnHeader KundNamn;
+        private ColumnHeader HattTyp;
+        private ColumnHeader SkapadDatum;
+        private ColumnHeader TilldelningsDatum;
+        private ColumnHeader RadOrderId;
     }
 }

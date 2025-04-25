@@ -17,11 +17,15 @@ namespace Hattmakarens_system.Presentationslager
     {
         static KundController Kundcontroller = new KundController(new AppDbContext());
         private bool klickatVidareKnapp = false;
+        private Homepage _homepage;
 
-        public TaBortKund()
+
+        public TaBortKund(Homepage homepage)
         {
             InitializeComponent();
             this.Load += TaBortKund_Load;
+            this._homepage = homepage;
+
 
         }
 
@@ -68,6 +72,7 @@ namespace Hattmakarens_system.Presentationslager
         private void tillbakaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             klickatVidareKnapp = true;
+            _homepage.UppdateraData();
             Program.homepage.Show();
             this.Close();
         }
