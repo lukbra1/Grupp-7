@@ -1,11 +1,5 @@
 ﻿using Hattmakarens_system.Database;
 using Hattmakarens_system.ModelsNy;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Hattmakarens_system.Controllers
 {
@@ -16,7 +10,7 @@ namespace Hattmakarens_system.Controllers
 
         public MaterialController(AppDbContext context)
         {
-            this._context = context;
+            _context = context;
         }
 
         public List<Material> getMaterial()
@@ -51,8 +45,6 @@ namespace Hattmakarens_system.Controllers
             _context.SaveChanges();
         }
 
-
-
         public Material SkapaNyttMaterial(string Namn, string Enhet, string Farg, string Beskrivning)
         {
             try
@@ -72,16 +64,13 @@ namespace Hattmakarens_system.Controllers
             }
             catch (Exception ex)
             {
-                // Visa felmeddelande, logga om du vill
                 MessageBox.Show("Ett fel inträffade vid registrering av materialet" + ex.Message);
                 return null;
             }
-
         }
 
         public MaterialOrderrad NyMaterialOrderrad(Material material, OrderRad orderrad, int antalMaterial)
         {
-
             MaterialOrderrad MaterialOrderrad = new MaterialOrderrad
             {
                 Material = material,
@@ -91,7 +80,6 @@ namespace Hattmakarens_system.Controllers
             };
 
             return MaterialOrderrad;
-
         }
     }
 }
