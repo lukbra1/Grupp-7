@@ -43,7 +43,7 @@
             // 
             dgvOrderRader.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvOrderRader.Location = new Point(55, 130);
-            dgvOrderRader.Margin = new Padding(6, 6, 6, 6);
+            dgvOrderRader.Margin = new Padding(6);
             dgvOrderRader.Name = "dgvOrderRader";
             dgvOrderRader.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dgvOrderRader.RowHeadersWidth = 82;
@@ -53,7 +53,7 @@
             // btnSpara
             // 
             btnSpara.Location = new Point(993, 949);
-            btnSpara.Margin = new Padding(6, 6, 6, 6);
+            btnSpara.Margin = new Padding(6);
             btnSpara.Name = "btnSpara";
             btnSpara.Size = new Size(140, 50);
             btnSpara.TabIndex = 5;
@@ -82,7 +82,7 @@
             // 
             checkBox1.AutoSize = true;
             checkBox1.Location = new Point(55, 957);
-            checkBox1.Margin = new Padding(5, 5, 5, 5);
+            checkBox1.Margin = new Padding(5);
             checkBox1.Name = "checkBox1";
             checkBox1.Size = new Size(212, 36);
             checkBox1.TabIndex = 7;
@@ -110,10 +110,11 @@
             Controls.Add(dgvOrderRader);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
-            Margin = new Padding(6, 6, 6, 6);
+            Margin = new Padding(6);
             Name = "RedigeraOrder";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Visa beställning";
+            FormClosed += RedigeraOrder_FormClosed;
             ((System.ComponentModel.ISupportInitialize)dgvOrderRader).EndInit();
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();

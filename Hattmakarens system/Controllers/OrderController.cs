@@ -38,8 +38,11 @@ namespace Hattmakarens_system.Controllers
 
         public List<OrderRad> HämtaAllaOrderRader(Order Order)
         {
-            List<OrderRad> OrderRader = _context.Orderrader.Where(or => or.OrderId == Order.OrderId).ToList();
-            return OrderRader;
+            return _context.Orderrader
+                   .Include(or => or.Order)
+                   .Where(or => or.OrderId == Order.OrderId)
+                   .AsNoTracking()
+                   .ToList();
         }
 
         public List<Order> HämtaAllaOrdrar()
@@ -65,9 +68,6 @@ namespace Hattmakarens_system.Controllers
                 .Include(o => o.OrderRader)
                 .ToList();
         }
-
-
-
         public LagerOrderrad LäggTillLagerOrderrad(Order order, int modellId, StorlekEnum storlek)
         {
             
@@ -86,7 +86,6 @@ namespace Hattmakarens_system.Controllers
                 Storlek = storlek
             };
 
-
             _context.Orderrader.Add(orderRad);
             order.TotalPris += modell.Pris;
             _context.SaveChanges();
@@ -102,25 +101,18 @@ namespace Hattmakarens_system.Controllers
             return orderrad;
         }
 
-        public void UppdateraOrder(Order order)
-        {
-            _context.Ordrar.Update(order);
-            _context.SaveChanges();
-        }
-
         public void TilldelaOrderRad(OrderRad orderrad, int userId, DateTime datum)
         {
+            _context.ChangeTracker.Clear();
             orderrad.TilldeladOrder = true;
             orderrad.UserId = userId;
             orderrad.TilldelningsDatum = datum;
 
             orderrad.StatusOrderrad = StatusOrderradEnum.Paborjad;
 
-
             _context.Orderrader.Update(orderrad);
             _context.SaveChanges();
         }
-
 
         public List<OrderRad> HämtaAllaOrderRaderTilldelade()
         {
@@ -130,12 +122,6 @@ namespace Hattmakarens_system.Controllers
                 .Include(or => or.User)
                 .Where(or => or.TilldeladOrder && or.TilldelningsDatum != null)
                 .ToList();
-        }
-
-        public void UppdateraOrderRad(OrderRad orderrad)
-        {
-            _context.Orderrader.Update(orderrad);
-            _context.SaveChanges();
         }
 
         public void TaBortTomOrder(Order Ordern)

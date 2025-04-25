@@ -22,10 +22,14 @@ namespace Hattmakarens_system.Presentationslager
         private PrintDocument printDocument = new PrintDocument();
         private FraktSedel aktuellFraktsedel;
         private FraktSedel existerandeFraktsedel;
-        public SkapaFraktsedelForm(Order order)
+        private AllaBeställningar _previousForm;
+
+        public SkapaFraktsedelForm(Order order, AllaBeställningar previousForm)
         {
             InitializeComponent();
             this.order = order;
+            this._previousForm = previousForm;
+
             printDocument.PrintPage += PrintDocument_PrintPage;
 
         }
@@ -168,8 +172,7 @@ namespace Hattmakarens_system.Presentationslager
         private void tillbakaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
-            var tillbaka = new AllaBeställningar();
-            tillbaka.Show();
+            _previousForm?.Show();
         }
     }
 

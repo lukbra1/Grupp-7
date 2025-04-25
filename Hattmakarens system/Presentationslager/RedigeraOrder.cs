@@ -14,19 +14,23 @@ namespace Hattmakarens_system
     {
         private readonly AppDbContext _context = new AppDbContext();
         private Order valdOrder;
+        private Homepage _homepage;
+        private AllaBeställningar _previousForm;
 
         private readonly OrderController _orderController;
 
 
-        public RedigeraOrder(Order valdOrder)
+        public RedigeraOrder(Order valdOrder, AllaBeställningar previousForm, Homepage homepage)
         {
             _orderController = new OrderController(_context);
             InitializeComponent();
             this.valdOrder = valdOrder;
-
+            this._previousForm = previousForm;
+            this._homepage = homepage;
 
             Load += RedigeraOrder_Load;
             btnSpara.Click += btnSpara_Click;
+            this.FormClosed += RedigeraOrder_FormClosed;
         }
 
         private void RedigeraOrder_Load(object sender, EventArgs e)
@@ -52,7 +56,6 @@ namespace Hattmakarens_system
 
             LaddaOrderRad();
             LaddaMatrial();
-           
         }
 
         public void LaddaMatrial()
@@ -83,7 +86,7 @@ namespace Hattmakarens_system
                         material.Material.Farg,
                         material.Material.Beskrivning,
                         material.Material.Beställt.ToString()
-                        
+
                     );
             }
 
@@ -124,7 +127,7 @@ namespace Hattmakarens_system
                         rad.Storlek.ToString(),
                         rad.StatusOrderrad.ToString(),
                         rad.pris
-                    );
+                );
             }
 
             checkBox1.Checked = valdOrder.Express;
@@ -199,13 +202,17 @@ namespace Hattmakarens_system
         private void tillbakaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
-            var previousForm = new AllaBeställningar();
-            previousForm.Show();
+            _previousForm?.Show();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void RedigeraOrder_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            _homepage?.UppdateraData();
         }
     }
 }

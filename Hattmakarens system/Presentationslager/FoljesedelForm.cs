@@ -19,10 +19,14 @@ namespace Hattmakarens_system.Presentationslager
         private PrintDocument printDocument = new PrintDocument();
         Order _order;
         private FoljesedelController db = new FoljesedelController(new AppDbContext());
-        public FoljesedelForm(Order order)
+        private AllaBeställningar _previousForm;
+
+        public FoljesedelForm(Order order, AllaBeställningar previousForm)
         {
             _order = order;
             InitializeComponent();
+            this._previousForm = previousForm;
+
             printDocument.PrintPage += PrintDocument_PrintPage;
         }
 
@@ -167,8 +171,7 @@ namespace Hattmakarens_system.Presentationslager
         private void tillbakaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
-            var tillbaka = new AllaBeställningar();
-            tillbaka.Show();
+            _previousForm?.Show();
         }
     }
 }

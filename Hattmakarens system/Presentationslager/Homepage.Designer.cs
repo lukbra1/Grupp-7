@@ -48,7 +48,6 @@ namespace Hattmakarens_system
             monthCalendar1 = new MonthCalendar();
             listBoxDagens = new ListView();
             richTextBoxVecka = new RichTextBox();
-            btnVeckoöversikt = new Button();
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
@@ -65,6 +64,7 @@ namespace Hattmakarens_system
             Status = new ColumnHeader();
             Tilldelad = new ColumnHeader();
             Pris = new ColumnHeader();
+            label1 = new Label();
             menuStrip2.SuspendLayout();
             SuspendLayout();
             // 
@@ -187,7 +187,7 @@ namespace Hattmakarens_system
             // 
             // monthCalendar1
             // 
-            monthCalendar1.Location = new Point(1756, 176);
+            monthCalendar1.Location = new Point(1712, 142);
             monthCalendar1.Margin = new Padding(10, 8, 10, 8);
             monthCalendar1.Name = "monthCalendar1";
             monthCalendar1.TabIndex = 3;
@@ -204,28 +204,17 @@ namespace Hattmakarens_system
             // 
             // richTextBoxVecka
             // 
-            richTextBoxVecka.Location = new Point(1195, 176);
+            richTextBoxVecka.Location = new Point(1195, 142);
             richTextBoxVecka.Margin = new Padding(3, 5, 3, 5);
             richTextBoxVecka.Name = "richTextBoxVecka";
             richTextBoxVecka.Size = new Size(504, 627);
             richTextBoxVecka.TabIndex = 5;
             richTextBoxVecka.Text = "";
             // 
-            // btnVeckoöversikt
-            // 
-            btnVeckoöversikt.Location = new Point(2038, 723);
-            btnVeckoöversikt.Margin = new Padding(3, 5, 3, 5);
-            btnVeckoöversikt.Name = "btnVeckoöversikt";
-            btnVeckoöversikt.Size = new Size(148, 46);
-            btnVeckoöversikt.TabIndex = 10;
-            btnVeckoöversikt.Text = "Uppdatera";
-            btnVeckoöversikt.UseVisualStyleBackColor = true;
-            btnVeckoöversikt.Click += btnVeckoöversikt_Click;
-            // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(1195, 130);
+            label2.Location = new Point(1195, 106);
             label2.Name = "label2";
             label2.Size = new Size(188, 32);
             label2.TabIndex = 11;
@@ -234,7 +223,7 @@ namespace Hattmakarens_system
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(1756, 130);
+            label3.Location = new Point(1712, 106);
             label3.Name = "label3";
             label3.Size = new Size(98, 32);
             label3.TabIndex = 12;
@@ -257,10 +246,10 @@ namespace Hattmakarens_system
             // ordrarList
             // 
             ordrarList.Columns.AddRange(new ColumnHeader[] { OrderId, Kund, Datum });
-            ordrarList.Location = new Point(94, 142);
+            ordrarList.Location = new Point(13, 142);
             ordrarList.Margin = new Padding(4);
             ordrarList.Name = "ordrarList";
-            ordrarList.Size = new Size(399, 627);
+            ordrarList.Size = new Size(519, 627);
             ordrarList.TabIndex = 14;
             ordrarList.UseCompatibleStateImageBehavior = false;
             ordrarList.View = View.Details;
@@ -283,7 +272,7 @@ namespace Hattmakarens_system
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(94, 105);
+            label5.Location = new Point(13, 106);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
             label5.Size = new Size(82, 32);
@@ -332,19 +321,28 @@ namespace Hattmakarens_system
             Pris.Text = "Pris";
             Pris.Width = 100;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(560, 106);
+            label1.Name = "label1";
+            label1.Size = new Size(386, 32);
+            label1.TabIndex = 17;
+            label1.Text = "Lista över hattar i den valda ordern";
+            // 
             // Homepage
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             ClientSize = new Size(2613, 883);
+            Controls.Add(label1);
             Controls.Add(lvOrderRadLista);
             Controls.Add(label5);
             Controls.Add(ordrarList);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(btnVeckoöversikt);
             Controls.Add(richTextBoxVecka);
             Controls.Add(listBoxDagens);
             Controls.Add(monthCalendar1);
@@ -355,6 +353,7 @@ namespace Hattmakarens_system
             Name = "Homepage";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Mitt schema";
+            Activated += Homepage_Activated;
             Load += Homepage_Load;
             menuStrip2.ResumeLayout(false);
             menuStrip2.PerformLayout();
@@ -386,7 +385,6 @@ namespace Hattmakarens_system
         private MonthCalendar monthCalendar1;
         private ListView listBoxDagens;
         private RichTextBox richTextBoxVecka;
-        private Button btnVeckoöversikt;
         private Label label2;
         private Label label3;
         private Label label4;
@@ -405,5 +403,6 @@ namespace Hattmakarens_system
         private ColumnHeader Status;
         private ColumnHeader Tilldelad;
         private ColumnHeader Pris;
+        private Label label1;
     }
 }

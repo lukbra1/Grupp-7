@@ -17,12 +17,14 @@ namespace Hattmakarens_system.Presentationslager
     {
         OrderController db;
         AppDbContext _context;
+        private Homepage _homepage;
 
-        public AllaBeställningar()
+        public AllaBeställningar(Homepage homepage)
         {
             InitializeComponent();
             _context = new AppDbContext();
             this.db = new OrderController(_context);
+            this._homepage = homepage;
         }
 
         private void AllaBeställningar_Load(object sender, EventArgs e)
@@ -34,7 +36,6 @@ namespace Hattmakarens_system.Presentationslager
 
             foreach (var order in ordrar)
             {
-                // Skapa en rad i listview
                 var rad = new ListViewItem(order.OrderId.ToString());
                 var totalPris = db.BeräknaOrderPrisInkMoms(order);
 
@@ -63,10 +64,9 @@ namespace Hattmakarens_system.Presentationslager
 
                 if (valdOrder != null)
                 {
-                    // Öppna redigeringsformuläret och skicka med OrderId
-                    this.Close();
-                    var redigeraForm = new RedigeraOrder(valdOrder);
+                    var redigeraForm = new RedigeraOrder(valdOrder, this, Program.homepage);
                     redigeraForm.Show();
+                    this.Hide();
                 }
             }
             else
@@ -84,10 +84,9 @@ namespace Hattmakarens_system.Presentationslager
 
                 if (valdOrder != null)
                 {
-                    // Öppna formulär för fraktsedel
-                    this.Close();
-                    var fraktForm = new SkapaFraktsedelForm(valdOrder);
+                    var fraktForm = new SkapaFraktsedelForm(valdOrder, this);
                     fraktForm.Show();
+                    this.Hide();
                 }
             }
             else
@@ -112,10 +111,9 @@ namespace Hattmakarens_system.Presentationslager
 
                 if (valdOrder != null)
                 {
-                    // Öppna formulär för fraktsedel
-                    this.Close();
-                    var foljesedelForm = new FoljesedelForm(valdOrder);
+                    var foljesedelForm = new FoljesedelForm(valdOrder, this);
                     foljesedelForm.Show();
+                    this.Hide();
                 }
             }
             else
