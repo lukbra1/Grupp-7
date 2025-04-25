@@ -104,7 +104,7 @@
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
-            ClientSize = new Size(1485, 1057);
+            ClientSize = new Size(1485, 930);
             Controls.Add(dgvMatrial);
             Controls.Add(checkBox1);
             Controls.Add(btnSpara);

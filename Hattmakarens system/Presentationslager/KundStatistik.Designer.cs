@@ -111,14 +111,14 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { tillbakaToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1031, 42);
+            menuStrip1.Size = new Size(1031, 40);
             menuStrip1.TabIndex = 17;
             menuStrip1.Text = "menuStrip1";
             // 
             // tillbakaToolStripMenuItem
             // 
             tillbakaToolStripMenuItem.Name = "tillbakaToolStripMenuItem";
-            tillbakaToolStripMenuItem.Size = new Size(115, 38);
+            tillbakaToolStripMenuItem.Size = new Size(115, 36);
             tillbakaToolStripMenuItem.Text = "Tillbaka";
             tillbakaToolStripMenuItem.Click += tillbakaToolStripMenuItem_Click;
             // 
@@ -185,6 +185,7 @@
             Controls.Add(dateTimePicker1);
             Controls.Add(menuStrip1);
             Name = "KundStatistik";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "KundStatistik";
             Load += KundStatistik_Load;
             menuStrip1.ResumeLayout(false);
