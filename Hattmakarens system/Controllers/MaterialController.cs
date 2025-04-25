@@ -72,7 +72,6 @@ namespace Hattmakarens_system.Controllers
             }
             catch (Exception ex)
             {
-                // Visa felmeddelande, logga om du vill
                 MessageBox.Show("Ett fel inträffade vid registrering av materialet" + ex.Message);
                 return null;
             }

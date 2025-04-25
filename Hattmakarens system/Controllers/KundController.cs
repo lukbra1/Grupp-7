@@ -20,7 +20,6 @@ namespace Hattmakarens_system.Controllers
                 TelefonNr = TelefonNr,
                 Epost = Epost,
                 Adress = Adress,
-                //Ordrar = new List<Order>(),
                 Aktiv = true
             };
             _context.Kunder.Add(kund);
@@ -42,15 +41,14 @@ namespace Hattmakarens_system.Controllers
         }
         public Kund HamtaKundFranFornamn(string ForNamn)
         {
-            return new Kund(); //this._context.Kunder.FirstOrDefault(k => k.ForNamn == ForNamn);
+            return new Kund();
         }
         public void RaderaKund(Kund kund)
         {
-            //_context.Kunder.Remove(kund);
         }
         public bool ExisterarEpost(string Epost)
         {
-            return false; // _context.Kunder.Count(k => k.Epost == Epost);
+            return false;
         }
 
         public List<Kund> HämtaAllaKunder()
