@@ -347,5 +347,43 @@ namespace Hattmakarens_system
                     listBoxDagens.Items.Add(uppgift);
             }
         }
+
+        private void btnTaBortTilldelning_Click(object sender, EventArgs e)
+        {
+            if (lvOrderRadLista.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Välj en hatt att ta bort tilldelning från.");
+                return;
+            }
+
+            foreach (ListViewItem item in lvOrderRadLista.SelectedItems)
+            {
+                if (item.Tag is not OrderRad orderrad) continue;
+
+                if (!orderrad.TilldeladOrder)
+                {
+                    MessageBox.Show($"Hatt #{orderrad.OrderRadId} är inte tilldelad.");
+                    continue;
+                }
+
+                if (orderrad.UserId != _currentUser.UserId)
+                {
+                    MessageBox.Show("Du kan bara ta bort tilldelning från hattar du själv arbetar med.");
+                    continue;
+                }
+
+                try
+                {
+                    orderController.AvTilldelaOrderRad(orderrad);
+                    MessageBox.Show($"Tilldelningen för Hatt #{orderrad.OrderRadId} har tagits bort.");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Kunde inte ta bort tilldelning: {ex.Message}");
+                }
+            }
+
+            UppdateraData();
+        }
     }
 }

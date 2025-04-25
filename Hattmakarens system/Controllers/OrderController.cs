@@ -172,5 +172,27 @@ namespace Hattmakarens_system.Controllers
                 .ToList();
             return materialsForOrderRad;
         }
+
+        public void AvTilldelaOrderRad(OrderRad orderrad)
+        {
+            _context.ChangeTracker.Clear();
+
+            var tracked = _context.Orderrader
+                .FirstOrDefault(r => r.OrderRadId == orderrad.OrderRadId);
+
+            if (tracked == null)
+                throw new Exception("Orderrad kunde inte hittas.");
+
+            tracked.TilldeladOrder = false;
+            tracked.UserId = null;
+            tracked.TilldelningsDatum = null;
+
+            if (tracked.StatusOrderrad == StatusOrderradEnum.Paborjad)
+                tracked.StatusOrderrad = StatusOrderradEnum.EjPaborjad;
+
+            _context.SaveChanges();
+        }
+
+
     }
 }

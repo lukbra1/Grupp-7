@@ -65,6 +65,7 @@ namespace Hattmakarens_system
             Tilldelad = new ColumnHeader();
             Pris = new ColumnHeader();
             label1 = new Label();
+            btnTaBortTilldelning = new Button();
             menuStrip2.SuspendLayout();
             SuspendLayout();
             // 
@@ -330,12 +331,23 @@ namespace Hattmakarens_system
             label1.TabIndex = 17;
             label1.Text = "Lista över hattar i den valda ordern";
             // 
+            // btnTaBortTilldelning
+            // 
+            btnTaBortTilldelning.Location = new Point(928, 788);
+            btnTaBortTilldelning.Name = "btnTaBortTilldelning";
+            btnTaBortTilldelning.Size = new Size(230, 46);
+            btnTaBortTilldelning.TabIndex = 18;
+            btnTaBortTilldelning.Text = "Ta bort tilldelning";
+            btnTaBortTilldelning.UseVisualStyleBackColor = true;
+            btnTaBortTilldelning.Click += btnTaBortTilldelning_Click;
+            // 
             // Homepage
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             ClientSize = new Size(2613, 883);
+            Controls.Add(btnTaBortTilldelning);
             Controls.Add(label1);
             Controls.Add(lvOrderRadLista);
             Controls.Add(label5);
@@ -404,5 +416,6 @@ namespace Hattmakarens_system
         private ColumnHeader Tilldelad;
         private ColumnHeader Pris;
         private Label label1;
+        private Button btnTaBortTilldelning;
     }
 }
