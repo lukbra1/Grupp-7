@@ -41,7 +41,7 @@ namespace Hattmakarens_system.Presentationslager
             // Töm listan och fyll med orderrader
             lvBeställningar.Items.Clear();
 
-            foreach (OrderRad orderRad in orderRaderna)
+            foreach (var orderRad in orderRaderna)
             {
                 string displayText = "";
 
@@ -60,7 +60,7 @@ namespace Hattmakarens_system.Presentationslager
         private void LaggTillLagerhattar_Load(object sender, EventArgs e)
         {
             LaddaMaterial();
-            List<Modell> hattar = _orderController.HämtaAllaModeller();
+            var hattar = _orderController.HämtaAllaModeller();
 
             if (hattar != null && hattar.Any())
             {
@@ -75,12 +75,11 @@ namespace Hattmakarens_system.Presentationslager
         }
         private void LaddaOrderrader()
         {
-            lvBeställningar.Items.Clear(); // Töm listan
+            lvBeställningar.Items.Clear();
 
-            // Hämta alla orderrader (exempel från DB eller controller)
-            List<OrderRad> orderrader = _orderController.HämtaAllaOrderRader(Ordern);
+            var orderrader = _orderController.HämtaAllaOrderRader(Ordern);
 
-            foreach (OrderRad orderrad in orderrader)
+            foreach (var orderrad in orderrader)
             {
                 ListViewItem item = new ListViewItem(orderrad.TypEnum.ToString());
                 item.SubItems.Add(orderrad is LagerOrderrad lager ? lager.Modell?.Namn : "Special");
@@ -144,7 +143,7 @@ namespace Hattmakarens_system.Presentationslager
             int modellId = hattModell.ModellId;
 
             // Skapa orderad
-            OrderRad orderRad = _orderController.LäggTillLagerOrderrad(Ordern, modellId, storlek);
+            var orderRad = _orderController.LäggTillLagerOrderrad(Ordern, modellId, storlek);
 
             int orderRadId = orderRad.OrderRadId;
 

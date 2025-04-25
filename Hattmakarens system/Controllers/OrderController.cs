@@ -38,11 +38,21 @@ namespace Hattmakarens_system.Controllers
 
         public List<OrderRad> HämtaAllaOrderRader(Order Order)
         {
-            return _context.Orderrader
-                   .Include(or => or.Order)
-                   .Where(or => or.OrderId == Order.OrderId)
-                   .AsNoTracking()
-                   .ToList();
+            List<OrderRad> allaRader = _context.Orderrader
+                .Where(or => or.OrderId == Order.OrderId)
+                .AsNoTracking()
+                .ToList();
+
+            List<LagerOrderrad> lagerRader = allaRader
+                .OfType<LagerOrderrad>()
+                .ToList();
+
+            foreach (LagerOrderrad rad in lagerRader)
+            {
+                _context.Entry(rad).Reference(r => r.Modell).Load();
+            }
+
+            return allaRader;
         }
 
         public List<Order> HämtaAllaOrdrar()
