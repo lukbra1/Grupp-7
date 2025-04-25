@@ -273,14 +273,14 @@
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(11, 4, 0, 4);
-            menuStrip1.Size = new Size(1172, 46);
+            menuStrip1.Size = new Size(1172, 44);
             menuStrip1.TabIndex = 41;
             menuStrip1.Text = "menuStrip1";
             // 
             // tiibakaToolStripMenuItem
             // 
             tiibakaToolStripMenuItem.Name = "tiibakaToolStripMenuItem";
-            tiibakaToolStripMenuItem.Size = new Size(115, 38);
+            tiibakaToolStripMenuItem.Size = new Size(115, 36);
             tiibakaToolStripMenuItem.Text = "Tillbaka";
             tiibakaToolStripMenuItem.Click += tiibakaToolStripMenuItem_Click;
             // 
@@ -314,6 +314,7 @@
             Controls.Add(lblNamn);
             Controls.Add(label1);
             Name = "HanteraMedarbetare";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "HanteraMedarbetare";
             FormClosed += HanteraMedarbetare_FormClosed;
             Load += HanteraMedarbetare_Load;

@@ -43,7 +43,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(588, 176);
+            label1.Location = new Point(423, 252);
             label1.Name = "label1";
             label1.Size = new Size(77, 32);
             label1.TabIndex = 0;
@@ -53,7 +53,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(557, 298);
+            label2.Location = new Point(392, 374);
             label2.Name = "label2";
             label2.Size = new Size(117, 32);
             label2.TabIndex = 1;
@@ -61,7 +61,7 @@
             // 
             // txtEpost
             // 
-            txtEpost.Location = new Point(705, 173);
+            txtEpost.Location = new Point(540, 249);
             txtEpost.Name = "txtEpost";
             txtEpost.Size = new Size(553, 39);
             txtEpost.TabIndex = 2;
@@ -70,7 +70,7 @@
             // 
             // txtLösenord
             // 
-            txtLösenord.Location = new Point(705, 290);
+            txtLösenord.Location = new Point(540, 366);
             txtLösenord.Name = "txtLösenord";
             txtLösenord.Size = new Size(558, 39);
             txtLösenord.TabIndex = 3;
@@ -78,7 +78,7 @@
             // 
             // btnLoggaIn
             // 
-            btnLoggaIn.Location = new Point(1089, 427);
+            btnLoggaIn.Location = new Point(924, 503);
             btnLoggaIn.Name = "btnLoggaIn";
             btnLoggaIn.Size = new Size(171, 50);
             btnLoggaIn.TabIndex = 4;
@@ -89,7 +89,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(1139, 176);
+            label3.Location = new Point(974, 252);
             label3.Name = "label3";
             label3.Size = new Size(0, 32);
             label3.TabIndex = 5;
@@ -105,7 +105,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(893, 72);
+            label4.Location = new Point(728, 148);
             label4.Name = "label4";
             label4.Size = new Size(106, 32);
             label4.TabIndex = 7;
@@ -115,7 +115,7 @@
             // lblEpostError
             // 
             lblEpostError.AutoSize = true;
-            lblEpostError.Location = new Point(728, 226);
+            lblEpostError.Location = new Point(563, 302);
             lblEpostError.Name = "lblEpostError";
             lblEpostError.Size = new Size(0, 32);
             lblEpostError.TabIndex = 8;
@@ -123,7 +123,7 @@
             // lblLosenordError
             // 
             lblLosenordError.AutoSize = true;
-            lblLosenordError.Location = new Point(705, 357);
+            lblLosenordError.Location = new Point(540, 433);
             lblLosenordError.Name = "lblLosenordError";
             lblLosenordError.Size = new Size(0, 32);
             lblLosenordError.TabIndex = 9;
@@ -132,7 +132,7 @@
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1924, 830);
+            ClientSize = new Size(1605, 769);
             Controls.Add(lblLosenordError);
             Controls.Add(lblEpostError);
             Controls.Add(label4);
