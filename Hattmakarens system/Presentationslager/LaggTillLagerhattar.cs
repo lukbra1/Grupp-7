@@ -31,31 +31,6 @@ namespace Hattmakarens_system.Presentationslager
             _specialController = new SpecialController(_context);
             _materialController = new MaterialController(_context);
             this.Ordern = Order;
-
-            List<OrderRad> OrderRader = _orderController.HämtaAllaOrderRader(Order);
-
-
-            // Hämta orderrader för ordern
-            List<OrderRad> orderRaderna = _orderController.HämtaAllaOrderRader(Ordern);
-
-            // Töm listan och fyll med orderrader
-            lvBeställningar.Items.Clear();
-
-            foreach (var orderRad in orderRaderna)
-            {
-                string displayText = "";
-
-                if (orderRad is LagerOrderrad lager)
-                {
-                    displayText = $"Lagerhatt - Modell: {lager.Modell?.Namn}, Storlek: {lager.Storlek}";
-                }
-                else if (orderRad is SpecialOrderrad special)
-                {
-                    displayText = $"Specialhatt - Kommentar: {special.Kommentar}, Storlek: {special.Storlek}";
-                }
-
-                lvBeställningar.Items.Add(displayText);
-            }
         }
         private void LaggTillLagerhattar_Load(object sender, EventArgs e)
         {
