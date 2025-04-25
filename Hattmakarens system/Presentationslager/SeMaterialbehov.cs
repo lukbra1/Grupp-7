@@ -174,8 +174,7 @@ namespace Hattmakarens_system
                             writer.WriteLine($"OrderId: {material.OrderRad.OrderId}");
                             writer.WriteLine($"Material: {material.Material.Namn}");
                             writer.WriteLine($"Färg: {material.Material.Farg}");
-                            writer.WriteLine($"Enhet: {material.Material.Enhet}");
-                            writer.WriteLine($"Pris per enhet: {material.Material.PrisPerEnhet} kr");
+                            writer.WriteLine($"Enhet: {material.AntalMaterial} {material.Material.Enhet}");
                             writer.WriteLine($"Beskrivning: {material.Material.Beskrivning}");
                             writer.WriteLine(new string('-', 40));
 
