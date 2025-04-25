@@ -1,18 +1,20 @@
 using Hattmakarens_system.Controllers;
 using Hattmakarens_system.Database;
+using Hattmakarens_system.ModelsNy;
+using Microsoft.EntityFrameworkCore;
 
 namespace Hattmakarens_system
 {
     public partial class LoggaInGränsnittt : Form
     {
+        AppDbContext _context;
+        LoggaInController _loggaInController;
+
         public LoggaInGränsnittt()
         {
             InitializeComponent();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
+            _context = new AppDbContext();
+            _loggaInController = new LoggaInController(_context);
         }
 
         private void btnLoggaIn_Click(object sender, EventArgs e)
@@ -56,14 +58,13 @@ namespace Hattmakarens_system
                 return;
             }
 
-            var controller = new LoggaInController(new AppDbContext());
-
-            var loggedInUser = controller.GetUser(username, password);
+            User loggedInUser = _loggaInController.HämtaUser(username, password);
 
             if (loggedInUser != null)
             {
-                Program.aktuellAnvändare = loggedInUser;                  
-                Program.homepage = new Homepage(Program.aktuellAnvändare); 
+                MessageBox.Show(username);
+                Program.aktuellAnvändare = loggedInUser;
+                Program.homepage = new Homepage(Program.aktuellAnvändare);
                 Program.homepage.Show();
                 this.Hide();
             }
@@ -84,16 +85,6 @@ namespace Hattmakarens_system
             {
                 return false;
             }
-        }
-
-        private void txtAnvändarnamn_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
