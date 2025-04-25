@@ -27,7 +27,7 @@ namespace Hattmakarens_system.Presentationslager
             this._homepage = homepage;
         }
 
-        private void AllaBeställningar_Load(object sender, EventArgs e)
+        public void AllaBeställningar_Load(object sender, EventArgs e)
         {
 
             var ordrar = db.SorteraOdrar();
