@@ -40,7 +40,6 @@ namespace Hattmakarens_system.Presentationslager
                 var totalPris = db.BeräknaOrderPrisInkMoms(order);
 
                 rad.SubItems.Add(order.Skapad.ToShortDateString());
-                rad.SubItems.Add(order.Status.ToString());
                 rad.SubItems.Add(order.Express ? "Ja" : "Nej");
                 rad.SubItems.Add($"{totalPris:F2} kr");
 

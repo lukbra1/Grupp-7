@@ -33,7 +33,6 @@
             lvAlla = new ListView();
             OrderId = new ColumnHeader();
             Skapad = new ColumnHeader();
-            Status = new ColumnHeader();
             Express = new ColumnHeader();
             Pris = new ColumnHeader();
             menuStrip1 = new MenuStrip();
@@ -66,7 +65,7 @@
             // 
             // lvAlla
             // 
-            lvAlla.Columns.AddRange(new ColumnHeader[] { OrderId, Skapad, Status, Express, Pris });
+            lvAlla.Columns.AddRange(new ColumnHeader[] { OrderId, Skapad, Express, Pris });
             lvAlla.FullRowSelect = true;
             lvAlla.Location = new Point(60, 77);
             lvAlla.Name = "lvAlla";
@@ -85,11 +84,6 @@
             // 
             Skapad.Text = "Skapad";
             Skapad.Width = 150;
-            // 
-            // Status
-            // 
-            Status.Text = "Status";
-            Status.Width = 100;
             // 
             // Express
             // 
@@ -162,7 +156,6 @@
         private ListView lvAlla;
         private ColumnHeader OrderId;
         private ColumnHeader Skapad;
-        private ColumnHeader Status;
         private ColumnHeader Express;
         private ColumnHeader Pris;
         private MenuStrip menuStrip1;

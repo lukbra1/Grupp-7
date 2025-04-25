@@ -39,14 +39,12 @@ namespace Hattmakarens_system
             statistikToolStripMenuItem1 = new ToolStripMenuItem();
             hattStatistikToolStripMenuItem = new ToolStripMenuItem();
             kundStatistikToolStripMenuItem = new ToolStripMenuItem();
-            minaSidorToolStripMenuItem1 = new ToolStripMenuItem();
-            minaUppgifterToolStripMenuItem = new ToolStripMenuItem();
-            mittSchemaToolStripMenuItem = new ToolStripMenuItem();
             hanteraKunderToolStripMenuItem = new ToolStripMenuItem();
             hanteraMedarbetareToolStripMenuItem = new ToolStripMenuItem();
             loggaUtToolStripMenuItem1 = new ToolStripMenuItem();
             monthCalendar1 = new MonthCalendar();
             listBoxMinaUppgifter = new ListView();
+            RadOrderId = new ColumnHeader();
             KundNamn = new ColumnHeader();
             HattTyp = new ColumnHeader();
             SkapadDatum = new ColumnHeader();
@@ -70,14 +68,13 @@ namespace Hattmakarens_system
             Pris = new ColumnHeader();
             label1 = new Label();
             btnTaBortTilldelning = new Button();
-            RadOrderId = new ColumnHeader();
             menuStrip2.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(32, 32);
-            menuStrip1.Location = new Point(0, 42);
+            menuStrip1.Location = new Point(0, 44);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(8, 3, 0, 3);
             menuStrip1.Size = new Size(2613, 24);
@@ -91,15 +88,15 @@ namespace Hattmakarens_system
             menuStrip2.Location = new Point(0, 0);
             menuStrip2.Name = "menuStrip2";
             menuStrip2.Padding = new Padding(8, 3, 0, 3);
-            menuStrip2.Size = new Size(2613, 42);
+            menuStrip2.Size = new Size(2613, 44);
             menuStrip2.TabIndex = 1;
             menuStrip2.Text = "menuStrip2";
             // 
             // beställningarToolStripMenuItem
             // 
-            beställningarToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { beställningarToolStripMenuItem1, marealLagerToolStripMenuItem, statistikToolStripMenuItem1, minaSidorToolStripMenuItem1, hanteraKunderToolStripMenuItem, hanteraMedarbetareToolStripMenuItem, loggaUtToolStripMenuItem1 });
+            beställningarToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { beställningarToolStripMenuItem1, marealLagerToolStripMenuItem, statistikToolStripMenuItem1, hanteraKunderToolStripMenuItem, hanteraMedarbetareToolStripMenuItem, loggaUtToolStripMenuItem1 });
             beställningarToolStripMenuItem.Name = "beställningarToolStripMenuItem";
-            beställningarToolStripMenuItem.Size = new Size(56, 36);
+            beställningarToolStripMenuItem.Size = new Size(56, 38);
             beställningarToolStripMenuItem.Text = "☰";
             // 
             // beställningarToolStripMenuItem1
@@ -151,25 +148,6 @@ namespace Hattmakarens_system
             kundStatistikToolStripMenuItem.Text = "Kund statistik";
             kundStatistikToolStripMenuItem.Click += kundStatistikToolStripMenuItem_Click;
             // 
-            // minaSidorToolStripMenuItem1
-            // 
-            minaSidorToolStripMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { minaUppgifterToolStripMenuItem, mittSchemaToolStripMenuItem });
-            minaSidorToolStripMenuItem1.Name = "minaSidorToolStripMenuItem1";
-            minaSidorToolStripMenuItem1.Size = new Size(374, 44);
-            minaSidorToolStripMenuItem1.Text = "Mina sidor";
-            // 
-            // minaUppgifterToolStripMenuItem
-            // 
-            minaUppgifterToolStripMenuItem.Name = "minaUppgifterToolStripMenuItem";
-            minaUppgifterToolStripMenuItem.Size = new Size(307, 44);
-            minaUppgifterToolStripMenuItem.Text = "Mina uppgifter";
-            // 
-            // mittSchemaToolStripMenuItem
-            // 
-            mittSchemaToolStripMenuItem.Name = "mittSchemaToolStripMenuItem";
-            mittSchemaToolStripMenuItem.Size = new Size(307, 44);
-            mittSchemaToolStripMenuItem.Text = "Mitt schema";
-            // 
             // hanteraKunderToolStripMenuItem
             // 
             hanteraKunderToolStripMenuItem.Name = "hanteraKunderToolStripMenuItem";
@@ -210,27 +188,28 @@ namespace Hattmakarens_system
             listBoxMinaUppgifter.UseCompatibleStateImageBehavior = false;
             listBoxMinaUppgifter.View = View.Details;
             // 
+            // RadOrderId
+            // 
+            RadOrderId.Text = "OrderRadId";
+            RadOrderId.Width = 100;
+            // 
             // KundNamn
             // 
-            KundNamn.DisplayIndex = 0;
             KundNamn.Text = "KundNamn";
             KundNamn.Width = 100;
             // 
             // HattTyp
             // 
-            HattTyp.DisplayIndex = 1;
             HattTyp.Text = "HattTyp";
             HattTyp.Width = 100;
             // 
             // SkapadDatum
             // 
-            SkapadDatum.DisplayIndex = 2;
             SkapadDatum.Text = "SkapadDatum";
             SkapadDatum.Width = 100;
             // 
             // TilldelningsDatum
             // 
-            TilldelningsDatum.DisplayIndex = 3;
             TilldelningsDatum.Text = "TilldelningsDatum";
             TilldelningsDatum.Width = 100;
             // 
@@ -372,11 +351,6 @@ namespace Hattmakarens_system
             btnTaBortTilldelning.UseVisualStyleBackColor = true;
             btnTaBortTilldelning.Click += btnTaBortTilldelning_Click;
             // 
-            // RadOrderId
-            // 
-            RadOrderId.Text = "OrderRadId";
-            RadOrderId.Width = 100;
-            // 
             // Homepage
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
@@ -424,12 +398,9 @@ namespace Hattmakarens_system
         private ToolStripMenuItem allaBeställningarToolStripMenuItem;
         private ToolStripMenuItem marealLagerToolStripMenuItem;
         private ToolStripMenuItem statistikToolStripMenuItem1;
-        private ToolStripMenuItem minaSidorToolStripMenuItem1;
         private ToolStripMenuItem loggaUtToolStripMenuItem1;
         private ToolStripMenuItem hattStatistikToolStripMenuItem;
         private ToolStripMenuItem kundStatistikToolStripMenuItem;
-        private ToolStripMenuItem minaUppgifterToolStripMenuItem;
-        private ToolStripMenuItem mittSchemaToolStripMenuItem;
         private MonthCalendar monthCalendar1;
         private ListView listBoxMinaUppgifter;
         private RichTextBox richTextBoxVecka;
