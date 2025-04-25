@@ -105,7 +105,7 @@ namespace Hattmakarens_system
             dt.Columns.Add("Typ", typeof(string));
             dt.Columns.Add("Storlek", typeof(string));
             dt.Columns.Add("Status", typeof(string));
-            dt.Columns.Add("Pris", typeof(decimal));
+            dt.Columns.Add("Pris exkl. moms", typeof(decimal));
 
             dt.Columns["Modell"].ReadOnly = true;
             dt.Columns["Typ"].ReadOnly = true;
@@ -136,7 +136,7 @@ namespace Hattmakarens_system
             LäggTillComboKolumn("Storlek", typeof(StorlekEnum));
             LäggTillComboKolumn("Status", typeof(StatusOrderradEnum));
 
-            dgvOrderRader.Columns["Pris"].ReadOnly = false;
+            dgvOrderRader.Columns["Pris exkl. moms"].ReadOnly = false;
         }
 
         private void LäggTillComboKolumn(string kolumnNamn, Type enumTyp)
@@ -178,7 +178,7 @@ namespace Hattmakarens_system
                     if (Enum.TryParse(row.Cells["Status"].Value.ToString(), out StatusOrderradEnum status))
                         rad.StatusOrderrad = status;
 
-                    if (decimal.TryParse(row.Cells["Pris"].Value?.ToString(), out decimal nyttRadPris))
+                    if (decimal.TryParse(row.Cells["Pris exkl. moms"].Value?.ToString(), out decimal nyttRadPris))
                         rad.pris = nyttRadPris;
                 }
             }
@@ -187,7 +187,7 @@ namespace Hattmakarens_system
 
 
             if (dgvOrderRader.Rows.Count > 0 &&
-                decimal.TryParse(dgvOrderRader.Rows[0].Cells["Pris"].Value?.ToString(), out decimal nyttPris))
+                decimal.TryParse(dgvOrderRader.Rows[0].Cells["Pris exkl. moms"].Value?.ToString(), out decimal nyttPris))
             {
                 valdOrder.TotalPris = nyttPris;
             }
