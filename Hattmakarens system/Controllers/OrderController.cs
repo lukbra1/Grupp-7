@@ -144,7 +144,7 @@ namespace Hattmakarens_system.Controllers
         {
             decimal orderTotalPris = HämtaTotalOrderPris(ordern);
             decimal moms = 1.25m;
-            decimal express = ordern.Express ? 1.20m : 0m;
+            decimal express = ordern.Express ? 1.20m : 1m;
 
             return orderTotalPris * moms * express;
         }
