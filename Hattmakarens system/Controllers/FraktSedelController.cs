@@ -47,6 +47,27 @@ namespace Hattmakarens_system.Controllers
             return fraktsedel;
         }
 
+        public string HämtaMottagarAdress(Order order) 
+        {
+            var resultat = _context.Ordrar
+                .Where(o => o.OrderId == order.OrderId) 
+                .Select(o => o.Kund.Adress) 
+                .FirstOrDefault();
+
+            return resultat ?? "Ingen adress hittades";
+        }
+
+        public string HämtaMottagareNamn(Order order)
+        {
+            var resultat = _context.Ordrar
+                .Where(o => o.OrderId == order.OrderId)
+                .Select(o => o.Kund.Fornamn + " " + o.Kund.Efternamn)
+                .FirstOrDefault();
+
+            return resultat ?? "Ingen mottagare hittades";
+        }
+
+
         public FraktSedel HämtaFraktsedelFörOrder(int orderId)
         {
             return _context.Fraktsedlar.FirstOrDefault(f => f.OrderID == orderId);
