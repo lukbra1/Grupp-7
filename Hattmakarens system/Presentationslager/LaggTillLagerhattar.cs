@@ -17,7 +17,7 @@ namespace Hattmakarens_system.Presentationslager
 {
     public partial class LaggTillLagerhattar : Form
     {
-        Order Ordern;
+        private Order Ordern;
         private readonly AppDbContext _context;
         private readonly OrderController _orderController;
         private readonly SpecialController _specialController;
@@ -36,12 +36,12 @@ namespace Hattmakarens_system.Presentationslager
 
 
             // Hämta orderrader för ordern
-            var orderRaderna = _orderController.HämtaAllaOrderRader(Ordern);
+            List<OrderRad> orderRaderna = _orderController.HämtaAllaOrderRader(Ordern);
 
             // Töm listan och fyll med orderrader
             lvBeställningar.Items.Clear();
 
-            foreach (var orderRad in orderRaderna)
+            foreach (OrderRad orderRad in orderRaderna)
             {
                 string displayText = "";
 
@@ -60,7 +60,7 @@ namespace Hattmakarens_system.Presentationslager
         private void LaggTillLagerhattar_Load(object sender, EventArgs e)
         {
             LaddaMaterial();
-            var hattar = _orderController.HämtaAllaModeller();
+            List<Modell> hattar = _orderController.HämtaAllaModeller();
 
             if (hattar != null && hattar.Any())
             {
@@ -78,11 +78,11 @@ namespace Hattmakarens_system.Presentationslager
             lvBeställningar.Items.Clear(); // Töm listan
 
             // Hämta alla orderrader (exempel från DB eller controller)
-            var orderrader = _orderController.HämtaAllaOrderRader(Ordern);
+            List<OrderRad> orderrader = _orderController.HämtaAllaOrderRader(Ordern);
 
-            foreach (var orderrad in orderrader)
+            foreach (OrderRad orderrad in orderrader)
             {
-                var item = new ListViewItem(orderrad.TypEnum.ToString());
+                ListViewItem item = new ListViewItem(orderrad.TypEnum.ToString());
                 item.SubItems.Add(orderrad is LagerOrderrad lager ? lager.Modell?.Namn : "Special");
                 item.SubItems.Add(orderrad.Storlek.ToString());
 
@@ -140,11 +140,11 @@ namespace Hattmakarens_system.Presentationslager
             }
 
             StorlekEnum storlek = (StorlekEnum)cbStorlek.SelectedIndex;
-            var hattModell = (Modell)cbVäljHatt.SelectedItem;
+            Modell hattModell = (Modell) cbVäljHatt.SelectedItem;
             int modellId = hattModell.ModellId;
 
             // Skapa orderad
-            var orderRad = _orderController.LäggTillLagerOrderrad(Ordern, modellId, storlek);
+            OrderRad orderRad = _orderController.LäggTillLagerOrderrad(Ordern, modellId, storlek);
 
             int orderRadId = orderRad.OrderRadId;
 
@@ -154,7 +154,7 @@ namespace Hattmakarens_system.Presentationslager
                 string materialnamn = item.SubItems[0].Text;
                 int antal = int.Parse(item.SubItems[1].Text);
 
-                var material = _context.Material.FirstOrDefault(m => m.Namn == materialnamn);
+                Material material = _context.Material.FirstOrDefault(m => m.Namn == materialnamn);
                 int matrialId = material.MaterialId;
 
                 if (material != null)
@@ -198,7 +198,7 @@ namespace Hattmakarens_system.Presentationslager
             decimal totalPris = 0;
 
             // Skapa specialorderrad
-            var specialOrderrad = _specialController.NySpecialOrderrad(kommentar, referensbild, storlek, totalPris, Ordern);
+            SpecialOrderrad specialOrderrad = _specialController.NySpecialOrderrad(kommentar, referensbild, storlek, totalPris, Ordern);
             _specialController.SparaSpecialOrderrad(specialOrderrad);
 
             // Koppla material till orderraden
@@ -207,10 +207,10 @@ namespace Hattmakarens_system.Presentationslager
                 string materialnamn = item.SubItems[0].Text;
                 int antal = int.Parse(item.SubItems[1].Text);
 
-                var material = _context.Material.FirstOrDefault(m => m.Namn == materialnamn);
+                Material material = _context.Material.FirstOrDefault(m => m.Namn == materialnamn);
                 if (material != null)
                 {
-                    var materialOrderrad = _materialController.NyMaterialOrderrad(material, specialOrderrad, antal);
+                    MaterialOrderrad materialOrderrad = _materialController.NyMaterialOrderrad(material, specialOrderrad, antal);
                     _context.MaterialOrderrader.Add(materialOrderrad);
                 }
             }
@@ -223,13 +223,11 @@ namespace Hattmakarens_system.Presentationslager
             listView1.Items.Clear();
         }
 
-
-        List<Material> MaterialList = new List<Material>();
         private void button3_Click(object sender, EventArgs e)
         {
             if (listBox1.SelectedItem == null || string.IsNullOrWhiteSpace(textBox1.Text))
             {
-                MessageBox.Show("Välj ett material och skriv in mängd!");
+                MessageBox.Show("Välj ett material och skriv in antal!");
                 return;
             }
 
@@ -270,15 +268,20 @@ namespace Hattmakarens_system.Presentationslager
 
         private void button6_Click(object sender, EventArgs e)
         {
+            string Namn = txtNamn.Text;
+            string Enhet = txtEnhet.Text;
+            string Farg = txtFarg.Text;
+            string Beskrivning = rtxtBesk.Text;
 
-            var Namn = txtNamn.Text;
-            var Enhet = txtEnhet.Text;
-            var Farg = txtFarg.Text;
-            var Beskrivning = rtxtBesk.Text;
-
-            _materialController.SkapaNyttMaterial(Namn, Enhet, Farg, Beskrivning);
-            LaddaMaterial();
-            MessageBox.Show("Materialet är tillagd i lager");
+            if(_materialController.SkapaNyttMaterial(Namn, Enhet, Farg, Beskrivning) != null)
+            {
+                txtNamn.Text = "";
+                txtEnhet.Text = "";
+                txtFarg.Text = "";
+                rtxtBesk.Text = "";
+                LaddaMaterial();
+                MessageBox.Show("Materialet är tillagd i lager");
+            }
         }
 
         private void buttonRefBild_Click(object sender, EventArgs e)
@@ -382,9 +385,8 @@ namespace Hattmakarens_system.Presentationslager
                     _orderController.TaBortTomOrder(Ordern);
                     klickatVidareKnapp = true;
                     this.Close();
-                    Program.homepage = new Homepage(Program.aktuellAnvändare);
+                    //Program.homepage = new Homepage(Program.aktuellAnvändare);
                     Program.homepage.Show();
-
                 }
             }
 
