@@ -278,6 +278,7 @@
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
             ClientSize = new Size(980, 1010);
             Controls.Add(lblOrderPris);
             Controls.Add(lblKostnad);
