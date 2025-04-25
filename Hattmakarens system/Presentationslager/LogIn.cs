@@ -20,70 +20,48 @@ namespace Hattmakarens_system
             string username = txtEpost.Text;
             string password = txtLösenord.Text;
 
-            // Nollställ felmeddelanden
             lblEpostError.Visible = false;
             lblLosenordError.Visible = false;
 
             bool hasError = false;
 
-            // Validering av om e-postfältet är tomt eller ogiltigt
             if (string.IsNullOrEmpty(username))
             {
                 lblEpostError.Text = "Vänligen fyll i e-postadress.";
-                lblEpostError.Visible = true; // Visa felmeddelande för e-post
+                lblEpostError.Visible = true;
                 hasError = true;
             }
-            else if (!IsValidEmail(username))  // Kontrollera om e-posten är giltig
+            else if (!IsValidEmail(username))
             {
                 lblEpostError.Text = "Vänligen ange en giltig e-postadress.";
                 lblEpostError.Visible = true;
                 hasError = true;
             }
 
-            // Validering av om lösenordsfältet är tomt eller för kort
             if (string.IsNullOrEmpty(password))
             {
                 lblLosenordError.Text = "Vänligen fyll i lösenord.";
-                lblLosenordError.Visible = true; // Visa felmeddelande för lösenord
+                lblLosenordError.Visible = true;
                 hasError = true;
             }
-            else if (password.Length < 4) // Lösenord måste vara minst 4 tecken långt
+            else if (password.Length < 4)
             {
                 lblLosenordError.Text = "Lösenordet måste vara minst 4 tecken långt.";
                 lblLosenordError.Visible = true;
                 hasError = true;
             }
 
-            // Om det finns några fel, avsluta och visa alla meddelanden
             if (hasError)
             {
                 return;
             }
 
-            // Skapa en instans av din LoginController och skicka med dbContext
             var controller = new LoggaInController(new AppDbContext());
 
-            // Anropa login-metoden och kolla om användarnamn och lösenord matchar
-            //if (controller.Login(username, password))
-            //{
-            //    // Om inloggningen lyckas, öppna HomePage-formen
-            //    Homepage homePage = new Homepage();
-            //    homePage.Show();  // Öppna HomePage-formen
-
-            //    // Dölja login-formen
-            //    this.Hide();  // Dölja den aktuella login-formen
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Fel användarnamn eller lösenord.");
-            //}
             var loggedInUser = controller.GetUser(username, password);
 
             if (loggedInUser != null)
             {
-                //Homepage homePage = new Homepage(loggedInUser);
-                //homePage.Show();
-                //this.Hide();
                 Program.aktuellAnvändare = loggedInUser;                  
                 Program.homepage = new Homepage(Program.aktuellAnvändare); 
                 Program.homepage.Show();
@@ -95,7 +73,6 @@ namespace Hattmakarens_system
             }
         }
 
-        // En hjälpmetod för att validera e-postformatet
         private bool IsValidEmail(string email)
         {
             try
