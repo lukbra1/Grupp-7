@@ -202,6 +202,7 @@ namespace Hattmakarens_system
         {
             this.Close();
             _previousForm?.Show();
+            _previousForm.AllaBeställningar_Load(sender, e);
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
