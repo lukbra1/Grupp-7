@@ -68,13 +68,15 @@ namespace Hattmakarens_system
             Pris = new ColumnHeader();
             label1 = new Label();
             btnTaBortTilldelning = new Button();
+            btnForraVeckan = new Button();
+            btnNastaVeckan = new Button();
             menuStrip2.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(32, 32);
-            menuStrip1.Location = new Point(0, 44);
+            menuStrip1.Location = new Point(0, 42);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(8, 3, 0, 3);
             menuStrip1.Size = new Size(2613, 24);
@@ -88,7 +90,7 @@ namespace Hattmakarens_system
             menuStrip2.Location = new Point(0, 0);
             menuStrip2.Name = "menuStrip2";
             menuStrip2.Padding = new Padding(8, 3, 0, 3);
-            menuStrip2.Size = new Size(2613, 44);
+            menuStrip2.Size = new Size(2613, 42);
             menuStrip2.TabIndex = 1;
             menuStrip2.Text = "menuStrip2";
             // 
@@ -96,7 +98,7 @@ namespace Hattmakarens_system
             // 
             beställningarToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { beställningarToolStripMenuItem1, marealLagerToolStripMenuItem, statistikToolStripMenuItem1, hanteraKunderToolStripMenuItem, hanteraMedarbetareToolStripMenuItem, loggaUtToolStripMenuItem1 });
             beställningarToolStripMenuItem.Name = "beställningarToolStripMenuItem";
-            beställningarToolStripMenuItem.Size = new Size(56, 38);
+            beställningarToolStripMenuItem.Size = new Size(56, 36);
             beställningarToolStripMenuItem.Text = "☰";
             // 
             // beställningarToolStripMenuItem1
@@ -351,12 +353,34 @@ namespace Hattmakarens_system
             btnTaBortTilldelning.UseVisualStyleBackColor = true;
             btnTaBortTilldelning.Click += btnTaBortTilldelning_Click;
             // 
+            // btnForraVeckan
+            // 
+            btnForraVeckan.Location = new Point(1195, 788);
+            btnForraVeckan.Name = "btnForraVeckan";
+            btnForraVeckan.Size = new Size(270, 46);
+            btnForraVeckan.TabIndex = 19;
+            btnForraVeckan.Text = "← Föregående vecka";
+            btnForraVeckan.UseVisualStyleBackColor = true;
+            btnForraVeckan.Click += btnForraVeckan_Click;
+            // 
+            // btnNastaVeckan
+            // 
+            btnNastaVeckan.Location = new Point(1471, 788);
+            btnNastaVeckan.Name = "btnNastaVeckan";
+            btnNastaVeckan.Size = new Size(248, 46);
+            btnNastaVeckan.TabIndex = 20;
+            btnNastaVeckan.Text = "Nästa vecka →";
+            btnNastaVeckan.UseVisualStyleBackColor = true;
+            btnNastaVeckan.Click += btnNastaVeckan_Click;
+            // 
             // Homepage
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             ClientSize = new Size(2613, 883);
+            Controls.Add(btnNastaVeckan);
+            Controls.Add(btnForraVeckan);
             Controls.Add(btnTaBortTilldelning);
             Controls.Add(label1);
             Controls.Add(lvOrderRadLista);
@@ -429,5 +453,7 @@ namespace Hattmakarens_system
         private ColumnHeader SkapadDatum;
         private ColumnHeader TilldelningsDatum;
         private ColumnHeader RadOrderId;
+        private Button btnForraVeckan;
+        private Button btnNastaVeckan;
     }
 }

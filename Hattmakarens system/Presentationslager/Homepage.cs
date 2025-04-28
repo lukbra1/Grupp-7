@@ -17,6 +17,8 @@ namespace Hattmakarens_system
         private readonly OrderController orderController;
         private readonly KundController kundController;
         private Dictionary<DateTime, List<string>> todoList = new();
+        private DateTime aktuellVeckaStart = DateTime.Today;
+
 
         public Homepage(User user)
         {
@@ -40,7 +42,7 @@ namespace Hattmakarens_system
             ordrarList.SelectedIndexChanged += ordrarList_SelectedIndexChanged;
 
             LaddaTilldeladeOrderrader();
-            UppdateraVeckooversikt(DateTime.Today);
+            UppdateraVeckooversikt(aktuellVeckaStart);
             LaddaMinaUppgifter();
         }
 
@@ -99,8 +101,10 @@ namespace Hattmakarens_system
 
         private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
         {
-
             var selectedDate = monthCalendar1.SelectionStart.Date;
+
+            aktuellVeckaStart = selectedDate.AddDays(-(int)selectedDate.DayOfWeek + 1);
+
 
             if (_currentUser == null || _currentUser.UserId <= 0)
             {
@@ -341,7 +345,7 @@ namespace Hattmakarens_system
 
                 todoList[datum].Add(text);
             }
-            UppdateraVeckooversikt(DateTime.Today);
+            UppdateraVeckooversikt(aktuellVeckaStart);
             LaddaMinaUppgifter();
         }
         public void UppdateraData()
@@ -353,7 +357,7 @@ namespace Hattmakarens_system
             LaddaAllaOrdrar();
             LaddaTilldeladeOrderrader();
             LaddaMinaUppgifter();
-            UppdateraVeckooversikt(DateTime.Today);
+            UppdateraVeckooversikt(aktuellVeckaStart);
 
             DateTime idag = DateTime.Today;
             //if (todoList.TryGetValue(idag, out var dagensUppgifter))
@@ -439,5 +443,16 @@ namespace Hattmakarens_system
             }
         }
 
+        private void btnForraVeckan_Click(object sender, EventArgs e)
+        {
+            aktuellVeckaStart = aktuellVeckaStart.AddDays(-7);
+            UppdateraVeckooversikt(aktuellVeckaStart);
+        }
+
+        private void btnNastaVeckan_Click(object sender, EventArgs e)
+        {
+            aktuellVeckaStart = aktuellVeckaStart.AddDays(7);
+            UppdateraVeckooversikt(aktuellVeckaStart);
+        }
     }
 }
