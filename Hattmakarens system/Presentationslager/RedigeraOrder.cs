@@ -201,8 +201,8 @@ namespace Hattmakarens_system
         private void tillbakaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
-            _previousForm?.Show();
-            _previousForm.AllaBeställningar_Load(sender, e);
+            var öppna = new AllaBeställningar(_homepage);
+            öppna.Show();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
