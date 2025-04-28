@@ -64,7 +64,7 @@ namespace Hattmakarens_system
             dgvMatrial.Rows.Clear();
             dgvMatrial.Columns.Clear();
 
-            // Lägger till kolumner
+            //kolumner
             DataTable dt = new DataTable();
             dt.Columns.Add("Hattnummer", typeof(int)).ReadOnly = true;
             dt.Columns.Add("Namn", typeof(string)).ReadOnly = true;
