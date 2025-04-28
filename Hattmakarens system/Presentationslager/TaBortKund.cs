@@ -31,13 +31,13 @@ namespace Hattmakarens_system.Presentationslager
 
         private void TaBortKund_Load(object sender, EventArgs e)
         {
-            var kundLista = Kundcontroller.HämtaAllaKunder()
-                .Select(k => new
-                {
-                    Namn = k.Fornamn + " " + k.Efternamn,
-                    Kund = k
-                })
-                .ToList();
+            var kundLista = Kundcontroller.AllaAktivaKunder()
+        .Select(k => new
+        {
+            Namn = k.Fornamn + " " + k.Efternamn,
+            Kund = k
+        })
+        .ToList();
 
             lstKunder.DataSource = kundLista;
             lstKunder.DisplayMember = "Namn";
@@ -73,7 +73,7 @@ namespace Hattmakarens_system.Presentationslager
         {
             klickatVidareKnapp = true;
             _homepage.UppdateraData();
-            Program.homepage.Show();
+            _homepage.Show();
             this.Close();
         }
 

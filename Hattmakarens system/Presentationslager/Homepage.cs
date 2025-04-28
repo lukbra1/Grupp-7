@@ -162,7 +162,7 @@ namespace Hattmakarens_system
                 }
             }
 
-            UppdateraVeckooversikt(selectedDate);
+            UppdateraVeckooversikt(aktuellVeckaStart);
             ordrarList_SelectedIndexChanged(null, null);
 
             LaddaMinaUppgifter();
