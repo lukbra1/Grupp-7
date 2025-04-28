@@ -31,13 +31,12 @@ namespace Hattmakarens_system.Database
         {
             base.OnModelCreating(modelBuilder);
 
-            // Inheritance
             modelBuilder.Entity<OrderRad>()
                 .HasDiscriminator<string>("OrderTyp")
                 .HasValue<LagerOrderrad>("Lager")
                 .HasValue<SpecialOrderrad>("Special");
 
-            // Many-to-Many: Material <-> OrderRad
+          
             modelBuilder.Entity<MaterialOrderrad>()
                 .HasKey(mo => new { mo.MaterialId, mo.OrderRadId });
 
@@ -51,7 +50,7 @@ namespace Hattmakarens_system.Database
                 .WithMany()
                 .HasForeignKey(mo => mo.OrderRadId);
 
-            // Many-to-Many: Material <-> Modell
+           
             modelBuilder.Entity<Material_Modell>()
                 .HasKey(mm => new { mm.MaterialId, mm.ModellId });
 
@@ -65,20 +64,20 @@ namespace Hattmakarens_system.Database
                 .WithMany()
                 .HasForeignKey(mm => mm.ModellId);
 
-            // One-to-Many: Kund -> Order
+            
             modelBuilder.Entity<Order>()
                 .HasOne(o => o.Kund)
                 .WithMany()
                 .HasForeignKey(o => o.KundId)
                 .OnDelete(DeleteBehavior.SetNull);
 
-            // One-to-Many: Order -> OrderRad
+            
             modelBuilder.Entity<OrderRad>()
                 .HasOne(or => or.Order)
                 .WithMany(o => o.OrderRader)
                 .HasForeignKey(or => or.OrderId);
 
-            // One-to-One: Order -> FraktSedel
+           
             modelBuilder.Entity<FraktSedel>()
                 .HasOne(fs => fs.Order)
                 .WithOne(o => o.FraktSedel)
@@ -180,7 +179,7 @@ namespace Hattmakarens_system.Database
                       Beskrivning = "Hatt"
 
                   }
-);
+            );
 
         }
     }

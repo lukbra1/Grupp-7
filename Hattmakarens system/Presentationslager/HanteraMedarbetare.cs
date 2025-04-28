@@ -11,7 +11,7 @@ using System.Windows.Forms;
 using Hattmakarens_system.Controllers;
 using Hattmakarens_system.Database;
 using Hattmakarens_system.ModelsNy;
-///using Microsoft.VisualBasic.ApplicationServices;
+
 
 namespace Hattmakarens_system.Presentationslager
 {

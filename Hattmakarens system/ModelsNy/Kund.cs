@@ -26,7 +26,5 @@ namespace Hattmakarens_system.ModelsNy
         [MaxLength(100)]
         public string Adress { get; set; }
         public bool Aktiv { get; set; }
-        //public int OrderId { get; set; }
-        //public ICollection<Order> Ordrar { get; set; }
     }
 }

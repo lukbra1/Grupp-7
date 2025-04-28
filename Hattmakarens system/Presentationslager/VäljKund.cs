@@ -43,7 +43,7 @@ namespace Hattmakarens_system.Presentationslager
 
         private void button1_Click(object sender, EventArgs e)
         {
-            // Skapa beställning med existerande kund
+           
             string valdKund = (string) listBox1.SelectedItem;
 
             try
@@ -65,7 +65,7 @@ namespace Hattmakarens_system.Presentationslager
 
         private void button2_Click(object sender, EventArgs e)
         {
-            // Sök kund
+           
             string sökNamn = textBox1.Text;
             List<Kund> kundLista = _kundController.HamtaKunderMedNamn(sökNamn);
 
@@ -82,14 +82,14 @@ namespace Hattmakarens_system.Presentationslager
 
         private void tiibakaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // Tillbaka-knapp
+          
             klickatVidareKnapp = true;
             Program.homepage.Show();
             this.Close();
         }
         private void btnRegistrera_Click(object sender, EventArgs e)
         {
-            // Ny kund
+           
             var Förnamn = txtForNamn.Text;
             var Efternamn = txtEfterName.Text;
             var Telefon = txtTel.Text;

@@ -40,8 +40,8 @@ namespace Hattmakarens_system
                     .Include(m => m.Material)
                     .Include(m => m.OrderRad)
                         .ThenInclude(or => or.Order)
-                    .ThenInclude(o => o.Kund)
-                    .Where(m => !m.Bestallt)
+                        .ThenInclude(o => o.Kund)
+                    .Where(m => !m.Bestallt && m.OrderRad.Order.Kund != null && m.OrderRad.Order.Kund.Aktiv)
                     .ToList();
 
                 var unikaOrdrar = materialOrderrader
@@ -54,15 +54,13 @@ namespace Hattmakarens_system
                 foreach (var order in unikaOrdrar)
                 {
                     var item = new ListViewItem(order.OrderId.ToString());
-                    item.SubItems.Add(order.Kund != null
-                        ? $"{order.Kund.Fornamn} {order.Kund.Efternamn}"
-                        : "Okänd kund"); item.SubItems.Add(order.Skapad.ToShortDateString());
+                    item.SubItems.Add($"{order.Kund.Fornamn} {order.Kund.Efternamn}");
+                    item.SubItems.Add(order.Skapad.ToShortDateString());
                     item.SubItems.Add(order.Express ? "Ja" : "Nej");
                     item.Tag = order.OrderId;
                     lvOrdrar.Items.Add(item);
                 }
 
-                // Visa alla materialrader i datagrid
                 var materialrader = materialOrderrader
                     .Select(m => new MaterialRadView
                     {
@@ -88,12 +86,16 @@ namespace Hattmakarens_system
             using (var context = new AppDbContext())
             {
                 var materialOrderrader = context.MaterialOrderrader
-                    .Include(m => m.Material)
-                    .Include(m => m.OrderRad)
-                        .ThenInclude(or => or.Order)
-                    .ThenInclude(o => o.Kund)
-                    .Where(m => !m.Bestallt && m.OrderRad.Order.Skapad >= start && m.OrderRad.Order.Skapad <= slut)
-                    .ToList();
+                .Include(m => m.Material)
+                .Include(m => m.OrderRad)
+                .ThenInclude(or => or.Order)
+                .ThenInclude(o => o.Kund)
+                .Where(m => !m.Bestallt
+                   && m.OrderRad.Order.Kund != null
+                   && m.OrderRad.Order.Kund.Aktiv
+                   && m.OrderRad.Order.Skapad >= start
+                   && m.OrderRad.Order.Skapad <= slut)
+                .ToList();
 
                 var unikaOrdrar = materialOrderrader
                     .Select(m => m.OrderRad.Order)

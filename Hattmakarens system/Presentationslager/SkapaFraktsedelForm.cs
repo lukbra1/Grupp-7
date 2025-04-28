@@ -48,7 +48,7 @@ namespace Hattmakarens_system.Presentationslager
             {
                 aktuellFraktsedel = existerandeFraktsedel;
 
-                // Fyll fält med befintlig data
+                
                 txtVikt.Text = existerandeFraktsedel.Vikt.ToString();
                 txtExKod.Text = existerandeFraktsedel.ExportKod.ToString();
                 txtTotalPris.Text = existerandeFraktsedel.Värde.ToString();
@@ -57,11 +57,11 @@ namespace Hattmakarens_system.Presentationslager
                 txtMottagare.Text = existerandeFraktsedel.Mottagare;
                 rchtxtBeskrivning.Text = existerandeFraktsedel.Beskrivning;
 
-                // Visa status
+              
                 lblStatusFraktsedel.Text = "Fraktsedel är skapad";
                 lblStatusFraktsedel.ForeColor = Color.Green;
 
-                // Inaktivera skapa-knappen
+               
                 btnSkapa.Enabled = false;
             }
             else
@@ -113,7 +113,7 @@ namespace Hattmakarens_system.Presentationslager
             
 
             btnSkapa.Enabled = false;
-            lblStatusFraktsedel.Text = "✅ Fraktsedel är skapad";
+            lblStatusFraktsedel.Text = "Fraktsedel är skapad";
             lblStatusFraktsedel.ForeColor = Color.Green;
 
 

@@ -87,7 +87,7 @@ namespace Hattmakarens_system.Presentationslager
             {
                 lblNamn.Text = valdModell.Namn;
 
-                string hattNamn = valdModell.Namn; // korrekt namn
+                string hattNamn = valdModell.Namn; 
                 string filnamn = hattNamn + ".jpg";
                 string bildPath = Path.Combine(Application.StartupPath, "Resources", filnamn);
                 LaddaOrderrader();
@@ -156,7 +156,7 @@ namespace Hattmakarens_system.Presentationslager
 
         private void button2_Click(object sender, EventArgs e)
         {
-            // Hämta data från formuläret
+           
             string kommentar = richTextBox1.Text;
             string referensbild = buttonRefBild.Text;
 
@@ -168,7 +168,7 @@ namespace Hattmakarens_system.Presentationslager
 
             StorlekEnum storlek = (StorlekEnum)comboBox4.SelectedIndex;
 
-            // Totalpris sätts till 0 (ej beräkning)
+            
             decimal totalPris = 0;
 
             // Skapa specialorderrad
@@ -189,10 +189,10 @@ namespace Hattmakarens_system.Presentationslager
                 }
             }
 
-            // Spara ändringar till databasen
+            
             _context.SaveChanges();
 
-            // Uppdatera listan och visa bekräftelse (valfritt)
+           
             LaddaOrderrader();
             listView1.Items.Clear();
         }
@@ -205,10 +205,10 @@ namespace Hattmakarens_system.Presentationslager
                 return;
             }
 
-            // Hämta valt material
+            
             Material valtMaterial = (Material)listBox1.SelectedItem;
 
-            // Försök tolka mängd som siffra
+            
             if (int.TryParse(textBox1.Text, out int mangd))
             {
                 bool hittad = false;
@@ -287,7 +287,7 @@ namespace Hattmakarens_system.Presentationslager
             // Hämta valt material
             Material valtMaterial = (Material)listBox3.SelectedItem;
 
-            // Försök tolka mängd som siffra
+            
             if (int.TryParse(textBox2.Text, out int mangd))
             {
                 bool hittad = false;
@@ -359,7 +359,7 @@ namespace Hattmakarens_system.Presentationslager
                     _orderController.TaBortTomOrder(Ordern);
                     klickatVidareKnapp = true;
                     this.Close();
-                    //Program.homepage = new Homepage(Program.aktuellAnvändare);
+                    
                     Program.homepage.Show();
                 }
             }
