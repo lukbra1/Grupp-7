@@ -56,6 +56,20 @@ namespace Hattmakarens_system
 
             LaddaOrderRad();
             LaddaMatrial();
+
+            foreach (var rad in valdOrder.OrderRader)
+            {
+                if (rad is SpecialOrderrad specialRad)
+                {
+                    if (!string.IsNullOrEmpty(specialRad.Referensbild) && File.Exists(specialRad.Referensbild))
+                    {
+                        pictureBoxReferensbild.Image = Image.FromFile(specialRad.Referensbild);
+                        pictureBoxReferensbild.SizeMode = PictureBoxSizeMode.Zoom;
+                        break;
+                    }
+                }
+            }
+
         }
 
         public void LaddaMatrial()
@@ -213,6 +227,69 @@ namespace Hattmakarens_system
         private void RedigeraOrder_FormClosed(object sender, FormClosedEventArgs e)
         {
             _homepage?.UppdateraData();
+        }
+
+        private void dgvOrderRader_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvOrderRader.SelectedRows.Count == 0)
+            {
+                if (pictureBoxReferensbild.Image != null)
+                {
+                    pictureBoxReferensbild.Image.Dispose();
+                    pictureBoxReferensbild.Image = null;
+                }
+                return;
+            }
+
+            var valdRad = dgvOrderRader.SelectedRows[0];
+            int orderRadId = Convert.ToInt32(valdRad.Cells["OrderRadId"].Value);
+
+            var rad = valdOrder.OrderRader.FirstOrDefault(r => r.OrderRadId == orderRadId);
+
+            if (rad is SpecialOrderrad specialRad)
+            {
+                if (!string.IsNullOrEmpty(specialRad.Referensbild) && System.IO.File.Exists(specialRad.Referensbild))
+                {
+                    try
+                    {
+                        // Släpp nuvarande bild
+                        if (pictureBoxReferensbild.Image != null)
+                        {
+                            pictureBoxReferensbild.Image.Dispose();
+                            pictureBoxReferensbild.Image = null;
+                        }
+
+                        // Skapa en kopia av bilden från filen (för att inte låsa filen)
+                        using (var tempImage = new Bitmap(specialRad.Referensbild))
+                        {
+                            pictureBoxReferensbild.Image = new Bitmap(tempImage);
+                        }
+
+                        pictureBoxReferensbild.SizeMode = PictureBoxSizeMode.Zoom;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Kunde inte ladda referensbild: {ex.Message}");
+                        pictureBoxReferensbild.Image = null;
+                    }
+                }
+                else
+                {
+                    if (pictureBoxReferensbild.Image != null)
+                    {
+                        pictureBoxReferensbild.Image.Dispose();
+                        pictureBoxReferensbild.Image = null;
+                    }
+                }
+            }
+            else
+            {
+                if (pictureBoxReferensbild.Image != null)
+                {
+                    pictureBoxReferensbild.Image.Dispose();
+                    pictureBoxReferensbild.Image = null;
+                }
+            }
         }
     }
 }
