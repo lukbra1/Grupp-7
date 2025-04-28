@@ -1,5 +1,6 @@
 ﻿using Hattmakarens_system.Database;
 using Hattmakarens_system.ModelsNy;
+using Microsoft.EntityFrameworkCore;
 
 namespace Hattmakarens_system.Controllers
 {
@@ -81,5 +82,38 @@ namespace Hattmakarens_system.Controllers
 
             return MaterialOrderrad;
         }
+        public List<MaterialOrderrad> HämtaObeställdaMaterialFörOrderIds(List<int> orderIds)
+        {
+            return _context.MaterialOrderrader
+                .Include(m => m.Material)
+                .Include(m => m.OrderRad)
+                .Where(m => orderIds.Contains(m.OrderRad.OrderId) && !m.Bestallt)
+                .ToList();
+        }
+
+        public void ExporterarMaterialTillFilOchMarkeraSomBeställt(List<MaterialOrderrad> materialrader, string filnamn)
+        {
+            using (var writer = new StreamWriter(filnamn))
+            {
+                writer.WriteLine("Material att beställa:");
+                writer.WriteLine();
+
+                foreach (var material in materialrader)
+                {
+                    writer.WriteLine($"OrderId: {material.OrderRad.OrderId}");
+                    writer.WriteLine($"Material: {material.Material.Namn}");
+                    writer.WriteLine($"Färg: {material.Material.Farg}");
+                    writer.WriteLine($"Antal: {material.AntalMaterial} {material.Material.Enhet}");
+                    writer.WriteLine($"Beskrivning: {material.Material.Beskrivning}");
+                    writer.WriteLine(new string('-', 40));
+                    material.Bestallt = true;
+                }
+            }
+
+            _context.MaterialOrderrader.UpdateRange(materialrader);
+            _context.SaveChanges();
+        }
+
+
     }
 }

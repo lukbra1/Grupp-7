@@ -204,7 +204,35 @@ namespace Hattmakarens_system.Controllers
 
             _context.SaveChanges();
         }
+        public List<Order> HämtaOrdrarMedObeställtMaterial()
+        {
+            return _context.MaterialOrderrader
+                .Include(m => m.Material)
+                .Include(m => m.OrderRad)
+                    .ThenInclude(or => or.Order)
+                        .ThenInclude(o => o.Kund)
+                .Where(m => !m.Bestallt && m.OrderRad.Order.Kund != null && m.OrderRad.Order.Kund.Aktiv)
+                .Select(m => m.OrderRad.Order)
+                .Distinct()
+                .ToList();
+        }
 
+        public List<Order> HämtaOrdrarMedObeställtMaterialInomDatum(DateTime start, DateTime slut)
+        {
+            return _context.MaterialOrderrader
+                .Include(m => m.Material)
+                .Include(m => m.OrderRad)
+                    .ThenInclude(or => or.Order)
+                        .ThenInclude(o => o.Kund)
+                .Where(m => !m.Bestallt
+                            && m.OrderRad.Order.Kund != null
+                            && m.OrderRad.Order.Kund.Aktiv
+                            && m.OrderRad.Order.Skapad >= start
+                            && m.OrderRad.Order.Skapad <= slut)
+                .Select(m => m.OrderRad.Order)
+                .Distinct()
+                .ToList();
+        }
 
     }
 }
