@@ -79,7 +79,7 @@ namespace Hattmakarens_system
             menuStrip1.Location = new Point(0, 42);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(8, 3, 0, 3);
-            menuStrip1.Size = new Size(2613, 24);
+            menuStrip1.Size = new Size(1781, 24);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -90,7 +90,7 @@ namespace Hattmakarens_system
             menuStrip2.Location = new Point(0, 0);
             menuStrip2.Name = "menuStrip2";
             menuStrip2.Padding = new Padding(8, 3, 0, 3);
-            menuStrip2.Size = new Size(2613, 42);
+            menuStrip2.Size = new Size(1781, 42);
             menuStrip2.TabIndex = 1;
             menuStrip2.Text = "menuStrip2";
             // 
@@ -173,7 +173,7 @@ namespace Hattmakarens_system
             // 
             // monthCalendar1
             // 
-            monthCalendar1.Location = new Point(1712, 142);
+            monthCalendar1.Location = new Point(563, 954);
             monthCalendar1.Margin = new Padding(10, 8, 10, 8);
             monthCalendar1.Name = "monthCalendar1";
             monthCalendar1.TabIndex = 3;
@@ -182,7 +182,7 @@ namespace Hattmakarens_system
             // listBoxMinaUppgifter
             // 
             listBoxMinaUppgifter.Columns.AddRange(new ColumnHeader[] { RadOrderId, KundNamn, HattTyp, SkapadDatum, TilldelningsDatum });
-            listBoxMinaUppgifter.Location = new Point(2124, 143);
+            listBoxMinaUppgifter.Location = new Point(1239, 142);
             listBoxMinaUppgifter.Margin = new Padding(3, 5, 3, 5);
             listBoxMinaUppgifter.Name = "listBoxMinaUppgifter";
             listBoxMinaUppgifter.Size = new Size(477, 626);
@@ -217,17 +217,17 @@ namespace Hattmakarens_system
             // 
             // richTextBoxVecka
             // 
-            richTextBoxVecka.Location = new Point(1195, 142);
+            richTextBoxVecka.Location = new Point(13, 855);
             richTextBoxVecka.Margin = new Padding(3, 5, 3, 5);
             richTextBoxVecka.Name = "richTextBoxVecka";
-            richTextBoxVecka.Size = new Size(504, 627);
+            richTextBoxVecka.Size = new Size(504, 537);
             richTextBoxVecka.TabIndex = 5;
             richTextBoxVecka.Text = "";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(1195, 106);
+            label2.Location = new Point(13, 818);
             label2.Name = "label2";
             label2.Size = new Size(188, 32);
             label2.TabIndex = 11;
@@ -236,7 +236,7 @@ namespace Hattmakarens_system
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(1712, 106);
+            label3.Location = new Point(563, 914);
             label3.Name = "label3";
             label3.Size = new Size(98, 32);
             label3.TabIndex = 12;
@@ -245,7 +245,7 @@ namespace Hattmakarens_system
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(2124, 106);
+            label4.Location = new Point(1239, 106);
             label4.Name = "label4";
             label4.Size = new Size(256, 32);
             label4.TabIndex = 13;
@@ -262,7 +262,7 @@ namespace Hattmakarens_system
             ordrarList.Location = new Point(13, 142);
             ordrarList.Margin = new Padding(4);
             ordrarList.Name = "ordrarList";
-            ordrarList.Size = new Size(519, 627);
+            ordrarList.Size = new Size(504, 627);
             ordrarList.TabIndex = 14;
             ordrarList.UseCompatibleStateImageBehavior = false;
             ordrarList.View = View.Details;
@@ -355,9 +355,9 @@ namespace Hattmakarens_system
             // 
             // btnForraVeckan
             // 
-            btnForraVeckan.Location = new Point(1195, 788);
+            btnForraVeckan.Location = new Point(13, 1400);
             btnForraVeckan.Name = "btnForraVeckan";
-            btnForraVeckan.Size = new Size(270, 46);
+            btnForraVeckan.Size = new Size(248, 45);
             btnForraVeckan.TabIndex = 19;
             btnForraVeckan.Text = "← Föregående vecka";
             btnForraVeckan.UseVisualStyleBackColor = true;
@@ -365,9 +365,9 @@ namespace Hattmakarens_system
             // 
             // btnNastaVeckan
             // 
-            btnNastaVeckan.Location = new Point(1471, 788);
+            btnNastaVeckan.Location = new Point(299, 1400);
             btnNastaVeckan.Name = "btnNastaVeckan";
-            btnNastaVeckan.Size = new Size(248, 46);
+            btnNastaVeckan.Size = new Size(218, 45);
             btnNastaVeckan.TabIndex = 20;
             btnNastaVeckan.Text = "Nästa vecka →";
             btnNastaVeckan.UseVisualStyleBackColor = true;
@@ -378,7 +378,7 @@ namespace Hattmakarens_system
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
-            ClientSize = new Size(2613, 883);
+            ClientSize = new Size(1781, 1506);
             Controls.Add(btnNastaVeckan);
             Controls.Add(btnForraVeckan);
             Controls.Add(btnTaBortTilldelning);
