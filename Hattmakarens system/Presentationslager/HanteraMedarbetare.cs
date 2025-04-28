@@ -11,6 +11,8 @@ using System.Windows.Forms;
 using Hattmakarens_system.Controllers;
 using Hattmakarens_system.Database;
 using Hattmakarens_system.ModelsNy;
+using Microsoft.IdentityModel.Tokens;
+using System.Text.RegularExpressions;
 
 
 namespace Hattmakarens_system.Presentationslager
@@ -34,16 +36,36 @@ namespace Hattmakarens_system.Presentationslager
             var UpprepaLösenord = txtUpprepaLösenod.Text;
             bool Behörighet = checkBox1.Checked;
 
-            if (Lösenord == UpprepaLösenord)
+            if (!Namn.IsNullOrEmpty() && !Epost.IsNullOrEmpty() && !Lösenord.IsNullOrEmpty())
+
             {
-                var Registera = MedarbetarController.SkapaNyUser(Namn, Epost, Lösenord, Behörighet);
-                MessageBox.Show("Medarebetare är nu tillagd! Välkommen till teamet!!!!!!");
-                HanteraMedarbetare_Load(sender, e);
+                if(Lösenord == UpprepaLösenord && Regex.IsMatch(Epost, (@"^[^@\s]+@[^@\s]+\.[^@\s]+$")))
+                {
+                    var Registera = MedarbetarController.SkapaNyUser(Namn, Epost, Lösenord, Behörighet);
+                    MessageBox.Show("Medarebetare är nu tillagd! Välkommen till teamet!!");
+                    HanteraMedarbetare_Load(sender, e);
+                }
+                else
+                {
+                    if (!Lösenord.Equals(UpprepaLösenord))
+                    {
+                        MessageBox.Show("Lösenordet matchar inte!");
+
+                    }
+                    if(!Regex.IsMatch(Epost, (@"^[^@\s]+@[^@\s]+\.[^@\s]+$")))
+                    {
+                        MessageBox.Show("Eposten är inte gilitg, följ: test@example.com");
+
+                    }
+
+
+                }
+               
 
             }
             else
             {
-                MessageBox.Show("Lösenordet matchar inte");
+                MessageBox.Show("Alla fält måste vara ifyllda");
             }
         }
 
