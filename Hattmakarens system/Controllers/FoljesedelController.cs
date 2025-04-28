@@ -44,7 +44,7 @@ namespace Hattmakarens_system.Controllers
         public List<OrderRad> HämtaOrderraderFörFöljesedel(int orderId)
         {
             return _context.Orderrader
-                .Include(or => (or as LagerOrderrad).Modell) // inkluderar Modell om LagerOrderrad
+                .Include(or => (or as LagerOrderrad).Modell)
                 .Where(or => or.OrderId == orderId)
                 .ToList();
         }
