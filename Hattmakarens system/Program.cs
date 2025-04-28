@@ -16,16 +16,7 @@ namespace Hattmakarens_system
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //homepage = new Homepage(
-            //    new ModelsNy.User
-            //    {
-            //        Namn = "Otto",
-            //        Behorighet = true
-            //    }
-            //);
-            //var loggaInGränsnittt = new LoggaInGränsnittt();
             Application.Run(new LoggaInGränsnittt());
-            //Application.Run(homepage);
         }
     }
 }

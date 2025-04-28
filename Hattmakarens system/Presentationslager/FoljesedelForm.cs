@@ -32,7 +32,6 @@ namespace Hattmakarens_system.Presentationslager
 
         private void PrintDocument_PrintPage(object sender, PrintPageEventArgs e)
         {
-            // Fonts och penslar
             Font rubrikFont = new Font("Arial", 18, FontStyle.Bold);
             Font normalFont = new Font("Arial", 12);
             Font fetFont = new Font("Arial", 12, FontStyle.Bold);
@@ -40,7 +39,7 @@ namespace Hattmakarens_system.Presentationslager
             float x = 50;
             float y = 50;
 
-            // Språköversättning baserat på ComboBox
+            // Språköversättning
             string språk = cbSprak.SelectedItem?.ToString() ?? "Svenska";
 
             string titel = "Följesedel";
