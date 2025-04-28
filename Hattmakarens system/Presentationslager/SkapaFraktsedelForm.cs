@@ -80,7 +80,7 @@ namespace Hattmakarens_system.Presentationslager
             }
             if (!decimal.TryParse(txtTotalPris.Text, out decimal fraktkostnad))
             {
-                MessageBox.Show("Totalpriset måste vara ett gilitgt tal!");
+                MessageBox.Show("Fraktkostnad måste vara ett gilitgt tal!");
                 return;
             }
             if (!int.TryParse(txtExKod.Text, out int exportKod))
@@ -91,7 +91,7 @@ namespace Hattmakarens_system.Presentationslager
 
             decimal orderpris = controller.BeräknaOrderPrisInkMoms(order);
             
-            decimal totalPris = fraktkostnad + orderpris;
+            decimal totalPris = fraktkostnad;
             string adress = txtAdress.Text.Trim();
             string avsändare = txtAvsandare.Text.Trim();
             string mottagare = txtMottagare.Text.Trim();
@@ -110,7 +110,7 @@ namespace Hattmakarens_system.Presentationslager
             aktuellFraktsedel = existerandeFraktsedel;
 
 
-            MessageBox.Show("Fraktsedel skapad!\nPris inkl. moms: " +  existerandeFraktsedel.PrisInkMoms);
+            
 
             btnSkapa.Enabled = false;
             lblStatusFraktsedel.Text = "✅ Fraktsedel är skapad";
@@ -121,6 +121,8 @@ namespace Hattmakarens_system.Presentationslager
 
         private void PrintDocument_PrintPage(object sender, PrintPageEventArgs e)
         {
+            var prisInkMoms = controller.HämtaTotalOrderPris(order) * 1.25m;
+
             if (aktuellFraktsedel == null)
             {
                 e.Cancel = true;
@@ -137,7 +139,8 @@ namespace Hattmakarens_system.Presentationslager
             e.Graphics.DrawString($"Mottagare: {aktuellFraktsedel.Mottagare}", text, Brushes.Black, x, y); y += 25;
             e.Graphics.DrawString($"Vikt: {aktuellFraktsedel.Vikt} kg", text, Brushes.Black, x, y); y += 25;
             e.Graphics.DrawString($"Exportkod: {aktuellFraktsedel.ExportKod}", text, Brushes.Black, x, y); y += 25;
-            e.Graphics.DrawString($"Pris inkl. moms: {aktuellFraktsedel.PrisInkMoms:F2} kr", text, Brushes.Black, x, y); y += 25;
+            e.Graphics.DrawString($"Pris inkl. moms: {prisInkMoms:F2} kr", text, Brushes.Black, x, y); y += 25;
+            e.Graphics.DrawString($"Fraktkostnad: {aktuellFraktsedel.Värde:F2} kr", text, Brushes.Black, x, y); y += 25;
             e.Graphics.DrawString($"Datum: {aktuellFraktsedel.SkapatDatum:yyyy-MM-dd}", text, Brushes.Black, x, y); y += 25;
             e.Graphics.DrawString($"Beskrivning: {aktuellFraktsedel.Beskrivning}", text, Brushes.Black, x, y); y += 25;
 

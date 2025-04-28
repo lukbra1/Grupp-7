@@ -24,7 +24,7 @@ namespace Hattmakarens_system.Controllers
                 throw new Exception("Ordern hittades inte.");
 
             var moms = 25.0;
-            var prisInkMoms = värde * 1.25m;
+            var prisInkMoms = värde;
 
             var fraktsedel = new FraktSedel
             {
