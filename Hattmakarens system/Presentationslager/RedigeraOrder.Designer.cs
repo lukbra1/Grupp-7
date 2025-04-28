@@ -34,9 +34,11 @@
             tillbakaToolStripMenuItem = new ToolStripMenuItem();
             checkBox1 = new CheckBox();
             dgvMatrial = new DataGridView();
+            pictureBoxReferensbild = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)dgvOrderRader).BeginInit();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvMatrial).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxReferensbild).BeginInit();
             SuspendLayout();
             // 
             // dgvOrderRader
@@ -49,6 +51,7 @@
             dgvOrderRader.RowHeadersWidth = 82;
             dgvOrderRader.Size = new Size(1359, 306);
             dgvOrderRader.TabIndex = 4;
+            dgvOrderRader.CellClick += dgvOrderRader_CellClick;
             // 
             // btnSpara
             // 
@@ -67,7 +70,7 @@
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(11, 3, 0, 3);
-            menuStrip1.Size = new Size(1485, 42);
+            menuStrip1.Size = new Size(2025, 42);
             menuStrip1.TabIndex = 6;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -99,12 +102,21 @@
             dgvMatrial.TabIndex = 8;
             dgvMatrial.CellContentClick += dataGridView1_CellContentClick;
             // 
+            // pictureBoxReferensbild
+            // 
+            pictureBoxReferensbild.Location = new Point(1482, 167);
+            pictureBoxReferensbild.Name = "pictureBoxReferensbild";
+            pictureBoxReferensbild.Size = new Size(265, 230);
+            pictureBoxReferensbild.TabIndex = 9;
+            pictureBoxReferensbild.TabStop = false;
+            // 
             // RedigeraOrder
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
-            ClientSize = new Size(1485, 930);
+            ClientSize = new Size(2025, 930);
+            Controls.Add(pictureBoxReferensbild);
             Controls.Add(dgvMatrial);
             Controls.Add(checkBox1);
             Controls.Add(btnSpara);
@@ -120,6 +132,7 @@
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvMatrial).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxReferensbild).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -131,5 +144,6 @@
         private ToolStripMenuItem tillbakaToolStripMenuItem;
         private CheckBox checkBox1;
         private DataGridView dgvMatrial;
+        private PictureBox pictureBoxReferensbild;
     }
 }
